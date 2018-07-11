@@ -1,0 +1,13 @@
+{
+  "name": "mint-ui-showcase",
+  "source-directories": [
+    "../mint-ui/source",
+    "source"
+  ],
+  "dependencies": {
+    "mint-core": {
+      "repository": "https://github.com/mint-lang/mint-core",
+      "constraint": "0.0.0 <= v < 1.0.0"
+    }
+  }
+}
