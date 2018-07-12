@@ -5,17 +5,8 @@ record Pages.Dropdown.State {
 component Pages.Dropdown {
   state : Pages.Dropdown.State { open = true }
 
-  get positionItems : Array(Ui.Chooser.Item) {
-    [
-      {
-        content =
-          <div>
-            <{ "top-left" }>
-          </div>,
-        value = "top-left",
-        id = "top-left"
-      }
-    ]
+  get positionItems : Array(String) {
+    ["top-left"]
   }
 
   fun render : Html {
