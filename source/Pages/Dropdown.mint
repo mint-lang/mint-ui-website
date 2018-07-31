@@ -1,15 +1,7 @@
-record Pages.Dropdown.State {
-  shouldAutomaticallyClose : Bool,
-  position : Maybe(String),
-  open : Bool
-}
-
 component Pages.Dropdown {
-  state : Pages.Dropdown.State {
-    shouldAutomaticallyClose = false,
-    position = Maybe.just("top-left"),
-    open = false
-  }
+  state position : Maybe(String) = Maybe.just("top-left")
+  state shouldAutomaticallyClose : Bool = false
+  state open : Bool = false
 
   get positionItems : Array(String) {
     [
@@ -25,14 +17,14 @@ component Pages.Dropdown {
   fun render : Html {
     <Ui.Showcase.Page title="Ui.Dropdown">
       <Ui.Dropdown
-        shouldAutomaticallyClose={state.shouldAutomaticallyClose}
-        onClose={\ => next { state | open = false }}
-        position={Maybe.withDefault("top-left", state.position)}
+        shouldAutomaticallyClose={shouldAutomaticallyClose}
+        onClose={() : Void => { next { open = false } }}
+        position={Maybe.withDefault("top-left", position)}
         offset={5}
-        open={state.open}
+        open={open}
         element={
           <Ui.Button
-            onClick={\event : Html.Event => next { state | open = !state.open }}
+            onClick={(event : Html.Event) : Void => { next { open = !open } }}
             label="Toggle"/>
         }
         content={
@@ -43,8 +35,8 @@ component Pages.Dropdown {
 
       <Ui.Form.Field label="Position">
         <Ui.Chooser
-          onChange={\position : Maybe(String) => next { state | position = position }}
-          selected={state.position}
+          onChange={(position : Maybe(String)) : Void => { next { position = position } }}
+          selected={position}
           items={positionItems}/>
       </Ui.Form.Field>
 
@@ -53,8 +45,8 @@ component Pages.Dropdown {
         orientation="horizontal">
 
         <Ui.Checkbox
-          onChange={\value : Bool => next { state | open = value }}
-          checked={state.open}/>
+          onChange={(value : Bool) : Void => { next { open = value } }}
+          checked={open}/>
 
       </Ui.Form.Field>
 
@@ -63,8 +55,8 @@ component Pages.Dropdown {
         orientation="horizontal">
 
         <Ui.Checkbox
-          onChange={\value : Bool => next { state | shouldAutomaticallyClose = value }}
-          checked={state.shouldAutomaticallyClose}/>
+          onChange={(value : Bool) : Void => { next { shouldAutomaticallyClose = value } }}
+          checked={shouldAutomaticallyClose}/>
 
       </Ui.Form.Field>
     </Ui.Showcase.Page>
