@@ -1,8 +1,6 @@
 {
   "name": "mint-ui-showcase",
   "source-directories": [
-    "../mint-core/source",
-    "../mint-ui/source",
     "source"
   ]
 }
