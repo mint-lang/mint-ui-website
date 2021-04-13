@@ -1,0 +1,31 @@
+{
+  "name": "mint-ui-website",
+  "application": {
+    "name": "Mint UI",
+    "title": "Mint UI - Beatuiful, Reliable Components for Mint",
+    "theme-color": "#FFF",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icon": "assets/icon.png",
+    "meta": {
+      "viewport": "width=device-width, initial-scale=1, user-scalable=no",
+      "description": "A fully featured reliable UI component library for Mint.",
+      "charset": "utf-8"
+    }
+  },
+  "source-directories": [
+    "source"
+  ],
+  "external": {
+    "javascripts": [
+      "assets/javascripts/hljs.js",
+      "assets/javascripts/hljs-mint.js"
+    ]
+  },
+  "dependencies": {
+    "mint-ui": {
+      "repository": "https://github.com/mint-lang/mint-ui",
+      "constraint": "1.0.0 <= v < 2.0.0"
+    }
+  }
+}
