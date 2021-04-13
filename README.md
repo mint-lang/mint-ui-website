@@ -1,6 +1,6 @@
 # Mint UI Website
 
-[![CI](https://github.com/mint-lang/mint-ui-website/actions/workflows/ci.yml/badge.svg)](https://github.com/mint-lang/mint-ui/actions/workflows/ci.yml)
+[![CI](https://github.com/mint-lang/mint-ui-website/actions/workflows/ci.yml/badge.svg)](https://github.com/mint-lang/mint-ui-website/actions/workflows/ci.yml)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/mint-lang/Lobby)
 [![Discord](https://img.shields.io/discord/698214718241767445)](https://discord.gg/NXFUJs2)
 
