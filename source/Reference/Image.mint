@@ -9,6 +9,7 @@ component Reference.Image {
   state alt : String = "white concrete buildings under blue sky"
   state src : String = "beach.jpg"
 
+  state transparent : Bool = false
   state draggable : Bool = false
   state fullWidth : Bool = false
 
@@ -28,6 +29,7 @@ component Reference.Image {
     |> ComponentBuilder.addString("borderRadius", borderRadius)
     |> ComponentBuilder.addString("objectPosition", objectPosition)
     |> ComponentBuilder.addString("objectFit", objectFit)
+    |> ComponentBuilder.addBool("transparent", transparent)
     |> ComponentBuilder.addBool("draggable", draggable)
     |> ComponentBuilder.addBool("fullWidth", fullWidth)
     |> ComponentBuilder.addString("src", src)
@@ -136,6 +138,16 @@ component Reference.Image {
                 <Ui.Checkbox
                   onChange={(value : Bool) { next { fullWidth = value } }}
                   checked={fullWidth}/>
+
+              </Ui.Field>
+
+              <Ui.Field
+                orientation="horizontal"
+                label="Transparent">
+
+                <Ui.Checkbox
+                  onChange={(value : Bool) { next { transparent = value } }}
+                  checked={transparent}/>
 
               </Ui.Field>
             }>
