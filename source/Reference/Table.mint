@@ -2,12 +2,14 @@ component Reference.Table {
   state orderDirection : String = "desc"
   state orderBy : String = "name"
   state breakpoint : Number = 0
+  state bordered : Bool = true
   state size : Number = 16
 
   get playgroundCode : String {
     "Ui.Table"
     |> ComponentBuilder.new()
     |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addBool("bordered", bordered)
     |> ComponentBuilder.addString("orderDirection", orderDirection)
     |> ComponentBuilder.addString("orderBy", orderBy)
     |> ComponentBuilder.addNumber("breakpoint", breakpoint)
@@ -124,15 +126,26 @@ component Reference.Table {
                   max={1500}
                   min={0}/>
               </Ui.Field>
+
+              <Ui.Field
+                orientation="horizontal"
+                label="Bordered">
+
+                <Ui.Checkbox
+                  onChange={(value : Bool) { next { bordered = value } }}
+                  checked={bordered}/>
+
+              </Ui.Field>
             }>
             data={
               {
                 <Ui.Table
                   orderDirection={orderDirection}
-                  breakpoint={breakpoint}
-                  orderBy={orderBy}
                   size={Ui.Size::Px(size)}
+                  breakpoint={breakpoint}
                   headers={HEADERS[0]}
+                  bordered={bordered}
+                  orderBy={orderBy}
                   rows={ROWS[0]}/>,
                 playgroundCode
               }
