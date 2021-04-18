@@ -174,6 +174,34 @@ component Reference.Card.Container {
               }
             }/>
         }/>
+
+      <DocBox
+        title="Image"
+        content={
+          <p>
+            "The thumbnail can be replaced with custom content with "
+
+            <code>"image"</code>
+
+            " property."
+          </p>
+        }
+        example={
+          <Example
+            horizontalSpacing={20}
+            data={
+              @format {
+                <Ui.Card.Container
+                  subtitle=<{ "Subtitle" }>
+                  title=<{ "Title" }>
+                  image={
+                    <Ui.Icon
+                      size={Ui.Size::Em(2.5)}
+                      icon={Ui.Icons:MINT}/>
+                  }/>
+              }
+            }/>
+        }/>
     </>
   }
 }
