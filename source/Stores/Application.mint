@@ -88,6 +88,11 @@ store Application {
             page = <Reference.FloatingButton/>
           },
           {
+            documentation = @documentation(Ui.ImageCrop),
+            name = "Ui.ImageCrop",
+            page = <Reference.ImageCrop/>
+          },
+          {
             documentation = @documentation(Ui.InteractiveList),
             name = "Ui.InteractiveList",
             page = <Reference.InteractiveList/>
