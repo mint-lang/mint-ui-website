@@ -24,7 +24,7 @@ component Main {
           Page::Example name item => "/ Example / #{name}"
           Page::Examples => "/ Examples"
 
-          => " - Beatuiful, Reliable Components for Mint"
+          => " - Beautiful, Reliable Components for Mint"
         }
 
       Window.setTitle("Mint UI #{content}")

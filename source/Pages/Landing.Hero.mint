@@ -92,7 +92,7 @@ component Pages.Landing.Hero {
     <div::base>
       <div::infos>
         <div::title>
-          "Beatuiful, Reliable"
+          "Beautiful, Reliable"
           <br/>
           "Components for Mint"
         </div>
