@@ -45,9 +45,11 @@ component Documentation.Theming {
                 "  connect Ui exposing { mobile }",
                 "",
                 "  fun render : Html {",
-                "    <Ui.Theme.Root>",
+                "   <Ui.Theme.Root",
+                "     fontConfiguration={Ui:DEFAULT_FONT_CONFIGURATION}",
+                "     tokens={Ui:DEFAULT_TOKENS}>",
                 "      /* Content goes here. */",
-                "    </Ui.Theme.Root>",
+                "   </Ui.Theme.Root>",
                 "  }",
                 "}"
               ]
