@@ -194,6 +194,7 @@ component Examples.Checkout {
                       <Ui.Select
                         onChange={(value : String) { next { country = value } }}
                         invalid={Map.has("country", errors)}
+                        position={Ui.Position::BottomLeft}
                         placeholder="United States"
                         items={COUNTRIES}
                         value={country}/>
