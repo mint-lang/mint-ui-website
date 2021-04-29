@@ -224,6 +224,87 @@ component Reference.Card {
               }
             }/>
         }/>
+
+      <DocBox
+        title="Link"
+        content={
+          <p>
+            "The component can be used as a link by providing a value for the "
+
+            <code>"href"</code>
+
+            " property."
+          </p>
+        }
+        example={
+          <Example
+            horizontalSpacing={30}
+            data={
+              @format {
+                <Ui.Card
+                  minWidth={Ui.Size::Px(200)}
+                  href="/">
+
+                  <Ui.Card.Image
+                    src={@asset(../../assets/images/beach.jpg)}
+                    height={Ui.Size::Px(100)}/>
+
+                  <Ui.Card.Container
+                    thumbnail={@asset(../../assets/images/avatar.jpg)}
+                    content=<{ "Some Content..." }>
+                    subtitle=<{ "Subtitle" }>
+                    title=<{ "Link to home" }>/>
+
+                </Ui.Card>
+              }
+            }/>
+        }/>
+
+      <DocBox
+        title="Click Event"
+        content=<{
+          <p>
+            "The click event handler can be specified using "
+
+            <code>"onClick"</code>
+
+            " property."
+          </p>
+
+          <p>
+            "It's only added if the "
+            <code>"href"</code>
+            " property is blank."
+          </p>
+        }>
+        example={
+          <Example
+            horizontalSpacing={30}
+            data={
+              @format {
+                <Ui.Card
+                  minWidth={Ui.Size::Px(200)}
+                  onClick={
+                    Maybe::Just(
+                      (event : Html.Event) {
+                        Ui.Notifications.notifyDefault(<{ "Clicked!" }>)
+                      })
+                  }>
+
+                  <Ui.Card.Image
+                    src={@asset(../../assets/images/beach.jpg)}
+                    height={Ui.Size::Px(100)}/>
+
+                  <Ui.Card.Container
+                    thumbnail={@asset(../../assets/images/avatar.jpg)}
+                    content=<{ "Some Content..." }>
+                    subtitle=<{ "Subtitle" }>
+                    title=<{ "Link to home" }>/>
+
+                </Ui.Card>
+              }
+            }/>
+        }/>
     </>
   }
 }

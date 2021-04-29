@@ -203,6 +203,11 @@ store Application {
             page = <Reference.ContentHint/>
           },
           {
+            documentation = @documentation(Ui.Column),
+            name = "Ui.Column",
+            page = <Reference.Column/>
+          },
+          {
             documentation = @documentation(Ui.DefinitionList),
             name = "Ui.DefinitionList",
             page = <Reference.DefinitionList/>
@@ -286,6 +291,11 @@ store Application {
             documentation = @documentation(Ui.RelativeTime),
             name = "Ui.RelativeTime",
             page = <Reference.RelativeTime/>
+          },
+          {
+            documentation = @documentation(Ui.Row),
+            name = "Ui.Row",
+            page = <Reference.Row/>
           },
           {
             documentation = @documentation(Ui.Table),
