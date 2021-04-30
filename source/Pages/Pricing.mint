@@ -133,13 +133,15 @@ component Pages.Pricing {
               iconBefore={Ui.Icons:CART}
               onClick={Promise.never1}
               size={Ui.Size::Em(1.25)}
+              href="https://gum.co/mint-ui"
               label="Buy a license"
+              target="_blank"
               type="danger"/>
           }>
           description=<{
             <p>
               "This license gives your company the "
-              <b>"permament right"</b>
+              <b>"permanent right"</b>
               " to use "
               <b>"Mint UI"</b>
               " in the software it creates."
@@ -148,8 +150,8 @@ component Pages.Pricing {
             <p>"In addition:"</p>
 
             <ul>
-              <li>"Priority for its issues"</li>
-              <li>"Priority for its component requests"</li>
+              <li>"Priority for component requests"</li>
+              <li>"Priority support for issues"</li>
 
               <li>
                 "Priority support via e-mail"
@@ -160,7 +162,7 @@ component Pages.Pricing {
               <li>
                 "Priority support via Discord"
                 <br/>
-                "(via private channel or direct message - within 24 hours)"
+                "(in a private channel or direct message - within 24 hours)"
               </li>
             </ul>
           }>/>
@@ -178,7 +180,9 @@ component Pages.Pricing {
               iconBefore={Ui.Icons:CART}
               onClick={Promise.never1}
               size={Ui.Size::Em(1.25)}
+              href="https://gum.co/mint-ui-license"
               label="Buy a license"
+              target="_blank"
               type="danger"/>
           }>
           description=<{
@@ -193,8 +197,8 @@ component Pages.Pricing {
             <p>"In addition:"</p>
 
             <ul>
-              <li>"Priority for its issues"</li>
-              <li>"Priority for its component requests"</li>
+              <li>"Priority for component requests"</li>
+              <li>"Priority support for issues"</li>
 
               <li>
                 "Priority support via e-mail"
@@ -205,7 +209,7 @@ component Pages.Pricing {
               <li>
                 "Priority support via Discord"
                 <br/>
-                "(via private channel or direct message - within 24 hours)"
+                "(in a private channel or direct message - within 24 hours)"
               </li>
             </ul>
           }>/>
