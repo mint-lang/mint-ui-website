@@ -1,8 +1,6 @@
 component Main {
   connect Application exposing { page, COMPONENT_ITEMS, DOCUMENTATION_ITEMS }
 
-  use Provider.Url { changes = setTitle }
-
   style content {
     align-content: start;
     margin-bottom: 2em;
@@ -13,22 +11,6 @@ component Main {
   style example {
     min-height: 100vh;
     display: grid;
-  }
-
-  fun setTitle (url : Url) : Promise(Never, Void) {
-    try {
-      content =
-        case (page) {
-          Page::Documentation name item => "/ Documentation / #{name}"
-          Page::Component item => "/ Components / #{item.name}"
-          Page::Example name item => "/ Example / #{name}"
-          Page::Examples => "/ Examples"
-
-          => " - Beautiful, Reliable Components for Mint"
-        }
-
-      Window.setTitle("Mint UI #{content}")
-    }
   }
 
   get content {

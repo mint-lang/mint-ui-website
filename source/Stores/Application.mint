@@ -430,9 +430,30 @@ store Application {
   /* Represents the current page. */
   state page : Page = Page::Initial
 
+  /* Sets the title of the browser tab. */
+  fun setTitle (page : Page) : Promise(Never, Void) {
+    try {
+      content =
+        case (page) {
+          Page::Documentation name item => "/ Documentation / #{name}"
+          Page::Component item => "/ Components / #{item.name}"
+          Page::Example name item => "/ Example / #{name}"
+          Page::Examples => "/ Examples"
+          Page::Pricing => "/ Pricing"
+
+          => " - Beautiful, Reliable Components for Mint"
+        }
+
+      Window.setTitle("Mint UI #{content}")
+    }
+  }
+
   /* Sets the page to the given page. */
   fun setPage (page : Page) : Promise(Never, Void) {
-    next { page = page }
+    sequence {
+      setTitle(page)
+      next { page = page }
+    }
   }
 
   /* Sets the page from a component key. */
