@@ -12,8 +12,11 @@ enum Page {
   /* A component page. */
   Component(Component)
 
-  /* The the fallback page. */
+  /* The fallback page. */
   NotFound
+
+  /* The pricing page. */
+  Pricing
 
   /* The initial page. */
   Initial

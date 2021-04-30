@@ -18,6 +18,7 @@ component Main {
       Page::Example item => <{ "This branch is handled one level up!" }>
       Page::NotFound => <Page.NotFound/>
       Page::Examples => <Page.Examples/>
+      Page::Pricing => <Pages.Pricing/>
       Page::Home => <Pages.Landing/>
       Page::Initial => <{  }>
 

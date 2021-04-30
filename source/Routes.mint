@@ -3,6 +3,10 @@ routes {
     Application.setPage(Page::Home)
   }
 
+  /pricing {
+    Application.setPage(Page::Pricing)
+  }
+
   /examples {
     Application.setPage(Page::Examples)
   }

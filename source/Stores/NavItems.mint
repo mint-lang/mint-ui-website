@@ -103,4 +103,12 @@ store NavItems {
       href = "https://twitter.com/mint_lang",
       label = "Twitter",
       target = "_blank")
+
+  const PRICING =
+    Ui.NavItem::Link(
+      iconBefore = Ui.Icons:CART,
+      iconAfter = <></>,
+      href = "/pricing",
+      label = "Pricing",
+      target = "")
 }

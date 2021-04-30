@@ -18,6 +18,7 @@ component Footer {
               NavItems:INSTALL,
               NavItems:COMPONENTS,
               NavItems:DOCUMENTATION,
+              NavItems:PRICING,
               NavItems:EXAMPLES
             ]
           },
