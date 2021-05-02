@@ -208,8 +208,8 @@ component Hljs {
   fun render : Html {
     <div::base>
       <div::toolbar>
-        <button::reset>
-          <div::icon-label(0.25) onClick={() { next { open = !open } }}>
+        <button::reset onClick={() { next { open = !open } }}>
+          <div::icon-label(0.25)>
             <Ui.Icon
               icon={
                 if (open) {
@@ -223,21 +223,21 @@ component Hljs {
           </div>
         </button>
 
-        <button::reset>
-          <div::icon-label(0.5)
-            onClick={
-              () {
-                sequence {
-                  Clipboard.set(code)
-                  Ui.Notifications.notifyDefault(<{ "Copied source code to the clipboard!" }>)
-                }
+        <button::reset
+          onClick={
+            () {
+              sequence {
+                Clipboard.set(code)
+                Ui.Notifications.notifyDefault(<{ "Copied source code to the clipboard!" }>)
               }
-            }>
+            }
+          }>
 
+          <div::icon-label(0.5)>
             <Ui.Icon icon={Ui.Icons:CLIPPY}/>
             <span::nudge>"COPY"</span>
-
           </div>
+
         </button>
       </div>
 
