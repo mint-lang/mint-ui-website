@@ -34,6 +34,7 @@ component Header {
       gap={Ui.Size::Em(1.5)}
       items=[
         NavItems:INSTALL,
+        NavItems:PRICING,
         NavItems:COMPONENTS,
         NavItems:DOCUMENTATION,
         NavItems:EXAMPLES,
