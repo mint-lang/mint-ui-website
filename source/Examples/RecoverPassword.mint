@@ -26,22 +26,14 @@ component Examples.RecoverPassword {
 
   fun render : Html {
     <Ui.Layout.Centered maxContentWidth="320px">
-      <Ui.Container
-        gap={Ui.Size::Em(1.5)}
-        orientation="vertical"
-        justify="stretch">
-
+      <Ui.Column gap={Ui.Size::Em(1.5)}>
         <Ui.Brand
           icon={Ui.Icons:BEAKER}
           name="Mint Labs"
           href="/examples"/>
 
         <Ui.Box title=<{ "Recover Password" }>>
-          <Ui.Container
-            orientation="vertical"
-            gap={Ui.Size::Em(1)}
-            align="stretch">
-
+          <Ui.Column gap={Ui.Size::Em(1)}>
             <Ui.Field
               error={Validation.getFirstError("email", errors)}
               label="Email *">
@@ -59,8 +51,7 @@ component Examples.RecoverPassword {
               iconAfter={Ui.Icons:ARROW_RIGHT}
               onClick={submit}
               label="Continue"/>
-
-          </Ui.Container>
+          </Ui.Column>
         </Ui.Box>
 
         <Ui.Content
@@ -84,8 +75,7 @@ component Examples.RecoverPassword {
           </div>
 
         </Ui.Content>
-
-      </Ui.Container>
+      </Ui.Column>
     </Ui.Layout.Centered>
   }
 }
