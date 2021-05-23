@@ -435,9 +435,9 @@ store Application {
     try {
       content =
         case (page) {
-          Page::Documentation name item => "/ Documentation / #{name}"
-          Page::Component item => "/ Components / #{item.name}"
-          Page::Example name item => "/ Example / #{name}"
+          Page::Documentation(name, item) => "/ Documentation / #{name}"
+          Page::Component(item) => "/ Components / #{item.name}"
+          Page::Example(name, item) => "/ Example / #{name}"
           Page::Examples => "/ Examples"
           Page::Pricing => "/ Pricing"
 
@@ -466,7 +466,7 @@ store Application {
         |> Array.find((item : Component) { String.parameterize(item.name) == key })
 
       case (comp) {
-        Maybe::Just item => setPage(Page::Component(item))
+        Maybe::Just(item) => setPage(Page::Component(item))
         Maybe::Nothing => setPage(Page::NotFound)
       }
     }
@@ -483,7 +483,7 @@ store Application {
         }[0]
 
       case (page) {
-        Maybe::Just item => setPage(Page::Documentation(item[0], item[1]))
+        Maybe::Just(item) => setPage(Page::Documentation(item[0], item[1]))
         Maybe::Nothing => setPage(Page::NotFound)
       }
     }
@@ -500,7 +500,7 @@ store Application {
         }[0]
 
       case (page) {
-        Maybe::Just item => setPage(Page::Example(item[0], item[1]))
+        Maybe::Just(item) => setPage(Page::Example(item[0], item[1]))
         Maybe::Nothing => setPage(Page::NotFound)
       }
     }

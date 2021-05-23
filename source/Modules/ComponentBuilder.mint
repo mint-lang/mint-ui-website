@@ -148,7 +148,7 @@ module ComponentBuilder {
           ""
         } else if (Array.size(builder.properties) == 1) {
           case (builder.properties[0]) {
-            Maybe::Just property =>
+            Maybe::Just(property) =>
               try {
                 {name, value} =
                   property

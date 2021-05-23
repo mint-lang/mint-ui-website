@@ -15,14 +15,14 @@ component Main {
 
   get content {
     case (page) {
-      Page::Example item => <{ "This branch is handled one level up!" }>
+      Page::Example(item) => <{ "This branch is handled one level up!" }>
       Page::NotFound => <Page.NotFound/>
       Page::Examples => <Page.Examples/>
       Page::Pricing => <Pages.Pricing/>
       Page::Home => <Pages.Landing/>
       Page::Initial => <{  }>
 
-      Page::Component item =>
+      Page::Component(item) =>
         <Ui.Layout.Documentation
           mobileNavigationLabel=<{ "Components" }>
           items={COMPONENT_ITEMS}>
@@ -35,7 +35,7 @@ component Main {
 
         </Ui.Layout.Documentation>
 
-      Page::Documentation name item =>
+      Page::Documentation(name, item) =>
         <Ui.Layout.Documentation items={DOCUMENTATION_ITEMS}>
           <div::content>
             <{ item }>
@@ -50,7 +50,7 @@ component Main {
       tokens={Ui:DEFAULT_TOKENS}>
 
       case (page) {
-        Page::Example name item =>
+        Page::Example(name, item) =>
           <div::example>
             <{ item }>
           </div>

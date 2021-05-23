@@ -41,7 +41,7 @@ component PropertiesTable {
                       <{ prop.name }>
                     </div>),
                   case (prop.description) {
-                    Maybe::Just value =>
+                    Maybe::Just(value) =>
                       Ui.Cell::Html(
                         <div::description>
                           <Ui.Html content={value}/>
@@ -50,13 +50,13 @@ component PropertiesTable {
                     Maybe::Nothing => Ui.Cell::String("")
                   },
                   case (prop.type) {
-                    Maybe::Just value =>
+                    Maybe::Just(value) =>
                       Ui.Cell::Code(code = value, breakSpaces = true)
 
                     Maybe::Nothing => Ui.Cell::String("")
                   },
                   case (prop.default) {
-                    Maybe::Just value => Ui.Cell::Code(code = value, breakSpaces = false)
+                    Maybe::Just(value) => Ui.Cell::Code(code = value, breakSpaces = false)
                     Maybe::Nothing => Ui.Cell::String("")
                   }
                 ]
