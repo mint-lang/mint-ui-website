@@ -61,6 +61,7 @@ component Main {
 
             <Ui.Layout.Website
               content={content}
+              maxWidth="100vw"
               footer={<Footer/>}
               header={<Header/>}/>
           </>
