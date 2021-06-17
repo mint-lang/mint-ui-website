@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: mint install
 
-      - name: Run tests
-        run: mint test
-
       - name: Build
         run: mint build
       
