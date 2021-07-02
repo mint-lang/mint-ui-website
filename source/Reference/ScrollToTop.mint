@@ -1,5 +1,5 @@
 component Reference.ScrollToTop {
-  state treshold : Number = 0
+  state threshold : Number = 0
   state global : Bool = false
   state size : Number = 16
 
@@ -8,7 +8,7 @@ component Reference.ScrollToTop {
     |> ComponentBuilder.new()
     |> ComponentBuilder.addSizePx("size", size)
     |> ComponentBuilder.addBool("global", global)
-    |> ComponentBuilder.addNumber("treshold", treshold)
+    |> ComponentBuilder.addNumber("threshold", threshold)
     |> ComponentBuilder.toString()
   }
 
@@ -44,10 +44,10 @@ component Reference.ScrollToTop {
                   min={0}/>
               </Ui.Field>
 
-              <Ui.Field label="Treshold (#{treshold}px)">
+              <Ui.Field label="Threshold (#{threshold}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { treshold = value } }}
-                  value={treshold}
+                  onChange={(value : Number) { next { threshold = value } }}
+                  value={threshold}
                   max={400}
                   min={0}/>
               </Ui.Field>
@@ -66,7 +66,7 @@ component Reference.ScrollToTop {
               {
                 <Ui.ScrollToTop
                   size={Ui.Size::Px(size)}
-                  treshold={treshold}
+                  threshold={threshold}
                   global={global}/>,
                 playgroundCode
               }
@@ -94,24 +94,24 @@ component Reference.ScrollToTop {
                   <Ui.ScrollToTop
                     size={Ui.Size::Px(12)}
                     global={false}
-                    treshold={0}/>
+                    threshold={0}/>
 
                   <Ui.ScrollToTop
                     size={Ui.Size::Px(16)}
                     global={false}
-                    treshold={0}/>
+                    threshold={0}/>
 
                   <Ui.ScrollToTop
                     size={Ui.Size::Px(20)}
                     global={false}
-                    treshold={0}/>
+                    threshold={0}/>
                 </>
               }
             }/>
         }/>
 
       <DocBox
-        title="Treshold"
+        title="Threshold"
         content={
           <p>
             "The scroll position which determines when to show the bu" \
@@ -130,15 +130,15 @@ component Reference.ScrollToTop {
               @format {
                 <>
                   <Ui.ScrollToTop
-                    treshold={400}
+                    threshold={400}
                     global={false}/>
 
                   <Ui.ScrollToTop
-                    treshold={550}
+                    threshold={550}
                     global={false}/>
 
                   <Ui.ScrollToTop
-                    treshold={700}
+                    threshold={700}
                     global={false}/>
                 </>
               }
