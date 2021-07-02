@@ -26,6 +26,7 @@ component Examples.UserList {
   fun render : Html {
     <Ui.Layout.Website
       alignContentToTop={true}
+      maxWidth="100vw"
       header={
         <Ui.Header
           brand={

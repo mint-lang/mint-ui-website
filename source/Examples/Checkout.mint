@@ -43,13 +43,14 @@ component Examples.Checkout {
       if (Map.isEmpty(errors)) {
         Ui.Notifications.notifyDefault(<{ "Thanks for filling in the data..." }>)
       } else {
-        next {  }
+        next { }
       }
     }
   }
 
   fun render : Html {
     <Ui.Layout.Website
+      maxWidth="100vw"
       breadcrumbs={
         <Ui.Breadcrumbs
           separator=<{ "»" }>
@@ -97,8 +98,8 @@ component Examples.Checkout {
 
           <Ui.Container
             orientation="vertical"
-            align="stretch"
-            gap={Ui.Size::Em(2)}>
+            gap={Ui.Size::Em(2)}
+            align="stretch">
 
             <Ui.Grid
               width={Ui.Size::Em(32)}

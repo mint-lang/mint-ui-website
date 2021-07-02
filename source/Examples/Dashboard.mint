@@ -140,6 +140,7 @@ component Examples.Dashboard {
   fun render : Html {
     <Ui.Layout.Website
       content={content}
+      maxWidth="100vw"
       header={
         <Ui.Header
           brand={
