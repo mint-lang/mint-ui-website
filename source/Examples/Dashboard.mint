@@ -66,7 +66,7 @@ component Examples.Dashboard {
 
             <Ui.Card.Container
               content=<{ "A simple book collecting application." }>
-              subtitle=<{ "Updated 2 monts ago" }>
+              subtitle=<{ "Updated 2 months ago" }>
               title=<{ "Mint Books" }>/>
           </Ui.Card>
         </Ui.Grid>
@@ -112,7 +112,7 @@ component Examples.Dashboard {
             <p::centered>"The storage space your files and photos takes up."</p>
           </Ui.Box>
 
-          <Ui.Box label=<{ "Bandwith" }>>
+          <Ui.Box label=<{ "Bandwidth" }>>
             <p::centered>
               <Ui.CircularProgress
                 format={FileSize.format}

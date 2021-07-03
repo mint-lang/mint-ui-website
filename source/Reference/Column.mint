@@ -146,7 +146,7 @@ component Reference.Column {
         title="Align"
         content={
           <p>
-            "The the alingment of the items can be controlled usign the "
+            "The the alignment of the items can be controlled usign the "
 
             <code>"align"</code>
 

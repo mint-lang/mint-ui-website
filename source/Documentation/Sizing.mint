@@ -105,7 +105,7 @@ component Documentation.Sizing {
 
           <p>
             "For example if we want to have a 10px padding on an elem" \
-            "ent which has a font size of 14px, then the caluclation " \
+            "ent which has a font size of 14px, then the calculation " \
             "will be: 10/14 = 0.7142"
           </p>
         }>/>

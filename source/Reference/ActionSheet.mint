@@ -17,7 +17,7 @@ component Reference.ActionSheet {
             " cyles focusable elements)."
           </li>
 
-          <li>"When closed the focus is returned to the last focused element before opening (which is usally the one that opened the action sheet)."</li>
+          <li>"When closed the focus is returned to the last focused element before opening (which is usually the one that opened the action sheet)."</li>
 
           <li>
             "When open pressing "

@@ -137,7 +137,7 @@ component Reference.InteractiveList.Item {
         title="Intended"
         content={
           <p>
-            "The component can maked as intended to be selected using the "
+            "The component can marked as intended to be selected using the "
 
             <code>"intended"</code>
 
@@ -166,7 +166,7 @@ component Reference.InteractiveList.Item {
         title="Selected"
         content={
           <p>
-            "The component can maked as selected using the "
+            "The component can marked as selected using the "
 
             <code>"selected"</code>
 

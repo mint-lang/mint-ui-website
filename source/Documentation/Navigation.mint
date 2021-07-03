@@ -17,7 +17,7 @@ component Documentation.Navigation {
 
           " component on desktop is displayed as a navigation list," \
           " but on mobile since there is no screen estate it's disp" \
-          "layed as an "
+          "laid as an "
 
           <a href="/components/ui-action-sheet">
             "Ui.ActionSheet"
