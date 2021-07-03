@@ -26,7 +26,7 @@
   "dependencies": {
     "mint-ui": {
       "repository": "https://github.com/mint-lang/mint-ui",
-      "constraint": "2.2.0 <= v < 3.0.0"
+      "constraint": "3.0.0 <= v < 4.0.0"
     },
     "mint-color": {
       "repository": "https://github.com/mint-lang/mint-color",
