@@ -346,7 +346,7 @@ component Reference.Pagination {
 
             <code>"onChange"</code>
 
-            " property when clicking on one of it's buttons."
+            " property when clicking on one of its buttons."
           </p>
         }
         example={

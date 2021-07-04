@@ -46,7 +46,7 @@ component Reference.Container {
   fun render : Html {
     <>
       <Ui.Box title=<{ "Ui.Container" }>>
-        <p>"This component displays it's children in a only one axis grid (in a line)."</p>
+        <p>"This component displays its children in a only one axis grid (in a line)."</p>
       </Ui.Box>
 
       <DocBox

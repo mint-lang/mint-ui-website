@@ -206,7 +206,7 @@ component Reference.Input {
             type="primary">
 
             "If an input delay is specified the component is semi-con" \
-            "trolled, meaning that during the typing it's value can c" \
+            "trolled, meaning that during the typing its value can c" \
             "hange but it will revert back to the given value once th" \
             "e typing is settled."
 

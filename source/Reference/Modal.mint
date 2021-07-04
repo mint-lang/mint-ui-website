@@ -4,7 +4,7 @@ component Reference.Modal {
       <Ui.Box title=<{ "Ui.Modal" }>>
         <p>"A simple, global, customizable modal component."</p>
 
-        <p>"Some of it's features:"</p>
+        <p>"Some of its features:"</p>
 
         <ul>
           <li>"Showing the component returns a promise which is resolved when its closed."</li>

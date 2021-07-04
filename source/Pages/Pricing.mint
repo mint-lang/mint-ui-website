@@ -74,7 +74,7 @@ component Pages.Pricing {
         "Get a company license for "
         <b>"Mint UI"</b>
 
-        " and leverage it's components to build "
+        " and leverage its components to build "
         <b>"beautiful and reliable web applications"</b>
         "."
       </p>

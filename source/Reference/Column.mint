@@ -43,7 +43,7 @@ component Reference.Column {
   fun render : Html {
     <>
       <Ui.Box title=<{ "Ui.Column" }>>
-        <p>"This component displays it's children in a vetical grid."</p>
+        <p>"This component displays its children in a vetical grid."</p>
       </Ui.Box>
 
       <DocBox

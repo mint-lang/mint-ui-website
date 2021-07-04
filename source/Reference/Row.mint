@@ -38,7 +38,7 @@ component Reference.Row {
   fun render : Html {
     <>
       <Ui.Box title=<{ "Ui.Row" }>>
-        <p>"This component displays it's children in a horizontal grid."</p>
+        <p>"This component displays its children in a horizontal grid."</p>
       </Ui.Box>
 
       <DocBox
