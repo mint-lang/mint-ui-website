@@ -21,7 +21,7 @@ component Examples.Login {
           Window.navigate("/examples/dashboard")
         }
       } else {
-        next {  }
+        next { }
       }
     }
   }

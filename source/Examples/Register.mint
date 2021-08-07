@@ -24,7 +24,7 @@ component Examples.Register {
           Window.navigate("/examples/dashboard")
         }
       } else {
-        next {  }
+        next { }
       }
     }
   }

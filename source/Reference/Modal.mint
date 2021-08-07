@@ -19,8 +19,8 @@ component Reference.Modal {
 
           <li>
             "When closed the focus is returned to the last focused el" \
-            "ement before opening (which is usually the one that opene" \
-            "d the modal)."
+            "ement before opening (which is usually the one that open" \
+            "ed the modal)."
           </li>
 
           <li>

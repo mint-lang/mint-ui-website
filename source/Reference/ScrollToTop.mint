@@ -16,8 +16,8 @@ component Reference.ScrollToTop {
     <>
       <Ui.Box title=<{ "Ui.ScrollToTop" }>>
         <p>
-          "A simple component that shows itself when the page is " \
-          "scrolled some and when clicking on it scrolls the page to " \
+          "A simple component that shows itself when the page is sc" \
+          "rolled some and when clicking on it scrolls the page to " \
           "the top."
         </p>
       </Ui.Box>
@@ -114,8 +114,8 @@ component Reference.ScrollToTop {
         title="Threshold"
         content={
           <p>
-            "The scroll position which determines when to show the " \
-            "button can be set using "
+            "The scroll position which determines when to show the bu" \
+            "tton can be set using "
 
             <code>"threshold"</code>
 

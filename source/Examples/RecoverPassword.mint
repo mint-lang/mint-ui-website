@@ -19,7 +19,7 @@ component Examples.RecoverPassword {
           Window.navigate("/examples")
         }
       } else {
-        next {  }
+        next { }
       }
     }
   }
