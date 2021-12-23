@@ -62,7 +62,7 @@ component Reference.Native.AutoComplete {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox
@@ -72,7 +72,7 @@ component Reference.Native.AutoComplete {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Invalid">
 
                 <Ui.Checkbox

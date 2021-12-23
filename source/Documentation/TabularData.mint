@@ -78,10 +78,12 @@ component Documentation.TabularData {
                         Ui.Cell::Number(124),
                         Ui.Cell::Code(code = "<div></div>", breakSpaces = false),
                         Ui.Cell::HtmlItems(
-                          [
-                            <Ui.Icon icon={Ui.Icons:PENCIL}/>,
-                            <Ui.Icon icon={Ui.Icons:CLOUD_DOWNLOAD}/>
-                          ])
+                          breakOnMobile = true,
+                          items =
+                            [
+                              <Ui.Icon icon={Ui.Icons:PENCIL}/>,
+                              <Ui.Icon icon={Ui.Icons:CLOUD_DOWNLOAD}/>
+                            ])
                       ]
                     }
                   ]

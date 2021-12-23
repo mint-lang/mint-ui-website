@@ -122,7 +122,7 @@ component Reference.Image {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Draggable">
 
                 <Ui.Checkbox
@@ -132,7 +132,7 @@ component Reference.Image {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Full Width">
 
                 <Ui.Checkbox
@@ -142,7 +142,7 @@ component Reference.Image {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Transparent">
 
                 <Ui.Checkbox

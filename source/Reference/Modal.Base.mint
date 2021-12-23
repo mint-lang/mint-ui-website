@@ -66,7 +66,7 @@ component Reference.Modal.Base {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Close on Outside Click">
 
                 <Ui.Checkbox
@@ -76,7 +76,7 @@ component Reference.Modal.Base {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Open">
 
                 <Ui.Checkbox

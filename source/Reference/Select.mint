@@ -17,13 +17,13 @@ component Reference.Select {
     |> ComponentBuilder.new()
     |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
     |> ComponentBuilder.addString("placeholder", placeholder)
+    |> ComponentBuilder.addSizePx("size", size)
     |> ComponentBuilder.addExpression("items", "ELEMENTS")
     |> ComponentBuilder.addBool("matchWidth", matchWidth)
     |> ComponentBuilder.addBool("disabled", disabled)
     |> ComponentBuilder.addBool("invalid", invalid)
     |> ComponentBuilder.addString("value", value)
     |> ComponentBuilder.addNumber("offset", offset)
-    |> ComponentBuilder.addNumber("size", size)
     |> ComponentBuilder.toString()
   }
 
@@ -92,7 +92,7 @@ component Reference.Select {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Match Width">
 
                 <Ui.Checkbox
@@ -102,7 +102,7 @@ component Reference.Select {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox
@@ -112,7 +112,7 @@ component Reference.Select {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Invalid">
 
                 <Ui.Checkbox

@@ -75,7 +75,7 @@ component Reference.Dropdown {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Open">
 
                 <Ui.Checkbox
@@ -86,7 +86,7 @@ component Reference.Dropdown {
 
               <Ui.Field
                 label="Close on Outside Click"
-                orientation="horizontal">
+                orientation={Ui.Field::Horizontal}>
 
                 <Ui.Checkbox
                   onChange={(value : Bool) { next { closeOnOutsideClick = value } }}
@@ -95,7 +95,7 @@ component Reference.Dropdown {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Match Width">
 
                 <Ui.Checkbox

@@ -98,7 +98,7 @@ component Reference.StickyPanel {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Should Calculate Position">
 
                 <Ui.Checkbox
@@ -108,7 +108,7 @@ component Reference.StickyPanel {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Pass Through">
 
                 <Ui.Checkbox

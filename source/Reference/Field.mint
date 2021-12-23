@@ -1,8 +1,8 @@
 component Reference.Field {
-  connect ListItems exposing { ORIENTATION_ITEMS }
+  connect ListItems exposing { ORIENTATION_ITEMS, getOrientation }
 
   state error : String = "Error message...."
-  state orientation : String = "vertical"
+  state orientation : String = "Vertical"
   state label : String = "Label"
 
   get playgroundCode : String {
@@ -16,7 +16,7 @@ component Reference.Field {
       "Ui.Field"
       |> ComponentBuilder.new()
       |> ComponentBuilder.addExpression("error", "Maybe::Just(\"#{error}\")")
-      |> ComponentBuilder.addString("orientation", orientation)
+      |> ComponentBuilder.addExpression("orientation", "Ui.Field::#{orientation}")
       |> ComponentBuilder.addString("label", label)
       |> ComponentBuilder.addChild(input)
       |> ComponentBuilder.toString()
@@ -45,7 +45,7 @@ component Reference.Field {
             data={
               {
                 <Ui.Field
-                  orientation={orientation}
+                  orientation={getOrientation(orientation)}
                   label={label}
                   error={Maybe::Just(error)}>
 
@@ -169,28 +169,32 @@ component Reference.Field {
         content=<{
           <p>
             "The field supports either "
-            <code>"vertical"</code>
+            <code>"Vertical"</code>
+            ","
+            <code>"Horizontal"</code>
             " or "
-            <code>"horizontal"</code>
+            <code>"HorizontalReverse"</code>
             " orientation."
           </p>
 
           <p>
             "The "
-            <code>"horizontal"</code>
-            " orientation is generally for smaller inputs like checkboxes."
+            <code>"Horizontal"</code>
+            " and "
+            <code>"HorizontalReverse"</code>
+            " orientations are generally for smaller inputs like checkboxes."
           </p>
         }>
         example={
           <Example
+            highlight=[2, 10, 18]
             verticalSpacing={20}
             controlled={true}
-            highlight=[2, 10]
             data={
               @format {
                 <>
                   <Ui.Field
-                    orientation="vertical"
+                    orientation={Ui.Field::Vertical}
                     label="E-mail">
 
                     <Ui.Input placeholder="user@example.com"/>
@@ -198,7 +202,15 @@ component Reference.Field {
                   </Ui.Field>
 
                   <Ui.Field
-                    orientation="horizontal"
+                    orientation={Ui.Field::Horizontal}
+                    label="Checkbox">
+
+                    <Ui.Checkbox/>
+
+                  </Ui.Field>
+
+                  <Ui.Field
+                    orientation={Ui.Field::HorizontalReverse}
                     label="Checkbox">
 
                     <Ui.Checkbox/>

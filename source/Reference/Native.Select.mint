@@ -53,7 +53,7 @@ component Reference.Native.Select {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox
@@ -63,7 +63,7 @@ component Reference.Native.Select {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Invalid">
 
                 <Ui.Checkbox

@@ -33,11 +33,16 @@ store ListItems {
     }
 
   const ORIENTATION_ITEMS =
-    Ui.ListItem.fromStringArray(
-      [
-        "vertical",
-        "horizontal"
-      ])
+    for (position of [
+      "Vertical",
+      "Horizontal",
+      "HorizontalReverse"
+    ]) {
+      Ui.ListItem::Item(
+        content = <{ position }>,
+        matchString = position,
+        key = position)
+    }
 
   const JUSTIFY_CONTENT_ITEMS =
     Ui.ListItem.fromStringArray(
@@ -642,6 +647,14 @@ store ListItems {
             </Ui.Container>)
       }
     }
+
+  fun getOrientation (key : String) {
+    case (key) {
+      "HorizontalReverse" => Ui.Field::HorizontalReverse
+      "Horizontal" => Ui.Field::Horizontal
+      => Ui.Field::Vertical
+    }
+  }
 
   fun getIcon (key : String) : Html {
     (Map.get(key, ICONS) or {"", <></>})[1]

@@ -101,7 +101,7 @@ component Reference.Slider {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox

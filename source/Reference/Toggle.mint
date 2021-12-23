@@ -52,7 +52,7 @@ component Pages.Toggle {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="checked">
 
                 <Ui.Checkbox
@@ -62,7 +62,7 @@ component Pages.Toggle {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="disabled">
 
                 <Ui.Checkbox

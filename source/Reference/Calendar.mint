@@ -68,7 +68,7 @@ component Reference.Calendar {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox
@@ -78,7 +78,7 @@ component Reference.Calendar {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Change Month on Select">
 
                 <Ui.Checkbox
@@ -88,7 +88,7 @@ component Reference.Calendar {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Embeeded">
 
                 <Ui.Checkbox

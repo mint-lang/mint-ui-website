@@ -128,7 +128,7 @@ component Reference.Table {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Bordered">
 
                 <Ui.Checkbox

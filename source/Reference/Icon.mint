@@ -73,7 +73,7 @@ component Reference.Icon {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Interactive">
 
                 <Ui.Checkbox
@@ -83,7 +83,7 @@ component Reference.Icon {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox

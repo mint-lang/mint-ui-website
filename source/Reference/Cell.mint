@@ -29,11 +29,13 @@ component Pages.Cell {
                   <Ui.Cell
                     cell={
                       Ui.Cell::HtmlItems(
-                        [
-                          <Ui.Icon icon={Ui.Icons:PENCIL}/>,
-                          <Ui.Icon icon={Ui.Icons:TRASHCAN}/>,
-                          <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
-                        ])
+                        breakOnMobile = true,
+                        items =
+                          [
+                            <Ui.Icon icon={Ui.Icons:PENCIL}/>,
+                            <Ui.Icon icon={Ui.Icons:TRASHCAN}/>,
+                            <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
+                          ])
                     }/>
                 </>
               }

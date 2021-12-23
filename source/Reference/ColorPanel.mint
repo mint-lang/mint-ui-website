@@ -59,7 +59,7 @@ component Reference.ColorPanel {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Embeeded">
 
                 <Ui.Checkbox

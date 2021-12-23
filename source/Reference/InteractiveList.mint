@@ -78,7 +78,7 @@ component Reference.InteractiveList {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Intendable">
 
                 <Ui.Checkbox
@@ -88,7 +88,7 @@ component Reference.InteractiveList {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Interactive">
 
                 <Ui.Checkbox

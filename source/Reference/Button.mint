@@ -110,7 +110,7 @@ component Reference.Button {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Break Words">
 
                 <Ui.Checkbox
@@ -120,7 +120,7 @@ component Reference.Button {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Ellipsis">
 
                 <Ui.Checkbox
@@ -130,7 +130,7 @@ component Reference.Button {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox

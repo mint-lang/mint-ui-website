@@ -87,19 +87,21 @@ component Examples.UserList {
                     Ui.Cell::Number(user[2]),
                     Ui.Cell::String(user[3]),
                     Ui.Cell::HtmlItems(
-                      [
-                        <Ui.Icon
-                          onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Edit" }>) }}
-                          icon={Ui.Icons:PENCIL}
-                          interactive={true}/>,
-                        <Ui.Icon
-                          onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Delete" }>) }}
-                          icon={Ui.Icons:TRASHCAN}
-                          interactive={true}/>,
-                        <Ui.Icon
-                          icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                          disabled={true}/>
-                      ])
+                      breakOnMobile = true,
+                      items =
+                        [
+                          <Ui.Icon
+                            onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Edit" }>) }}
+                            icon={Ui.Icons:PENCIL}
+                            interactive={true}/>,
+                          <Ui.Icon
+                            onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Delete" }>) }}
+                            icon={Ui.Icons:TRASHCAN}
+                            interactive={true}/>,
+                          <Ui.Icon
+                            icon={Ui.Icons:DESKTOP_DOWNLOAD}
+                            disabled={true}/>
+                        ])
                   ]
                 }
               }

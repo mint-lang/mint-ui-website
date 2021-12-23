@@ -52,7 +52,7 @@ component Reference.InteractiveList.Item {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Intended">
 
                 <Ui.Checkbox
@@ -62,7 +62,7 @@ component Reference.InteractiveList.Item {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Selected">
 
                 <Ui.Checkbox

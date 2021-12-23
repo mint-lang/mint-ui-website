@@ -51,7 +51,7 @@ component Reference.Checkbox {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Checked">
 
                 <Ui.Checkbox
@@ -61,7 +61,7 @@ component Reference.Checkbox {
               </Ui.Field>
 
               <Ui.Field
-                orientation="horizontal"
+                orientation={Ui.Field::Horizontal}
                 label="Disabled">
 
                 <Ui.Checkbox
