@@ -61,7 +61,7 @@ component Documentation.Introduction {
 
             <li>
               <strong>"Build to last"</strong>
-              " - Neither the components themselves or the design will change drasticly in the decades to come."
+              " - Neither the components themselves or the design will change drastically in the decades to come."
             </li>
 
             <li>
@@ -84,12 +84,12 @@ component Documentation.Introduction {
           <ul>
             <li>
               <strong>"Themeable"</strong>
-              " - All componens are themeable using CSS variables."
+              " - All components are themeable using CSS variables."
             </li>
 
             <li>
               <strong>"PWA ready"</strong>
-              " - Mint and Mint UI has a lot functinonalities for developing "
+              " - Mint and Mint UI has a lot functionalities for developing "
 
               <a
                 href="https://en.wikipedia.org/wiki/Progressive_web_application"
@@ -104,7 +104,7 @@ component Documentation.Introduction {
 
             <li>
               <strong>"Web forever"</strong>
-              " - Mint UI will not compile to any other target then the Web (iOs, Android, etc...)."
+              " - Mint UI will not compile to any other target then the Web (iOS, Android, etc...)."
             </li>
           </ul>
         }>/>
