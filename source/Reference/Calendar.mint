@@ -1,6 +1,6 @@
 component Reference.Calendar {
-  state month : Time = Time.startOf("month", Time.now())
-  state day : Time = Time.startOf("day", Time.now())
+  state month : Time = Time.atBeginningOfMonth(Time.now())
+  state day : Time = Time.atBeginningOfDay(Time.now())
   state size : Number = 16
 
   state changeMonthOnSelect : Bool = false
@@ -138,7 +138,7 @@ component Reference.Calendar {
                   <Ui.Calendar
                     onMonthChange={
                       (month : Time) {
-                        Ui.Notifications.notifyDefault(<{ Time.format("yyy-MM-dd", month) }>)
+                        Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", month) }>)
                       }
                     }
                     changeMonthOnSelect={false}/>
@@ -146,7 +146,7 @@ component Reference.Calendar {
                   <Ui.Calendar
                     onMonthChange={
                       (month : Time) {
-                        Ui.Notifications.notifyDefault(<{ Time.format("yyy-MM-dd", month) }>)
+                        Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", month) }>)
                       }
                     }
                     changeMonthOnSelect={true}/>
@@ -199,7 +199,7 @@ component Reference.Calendar {
                 <Ui.Calendar
                   onChange={
                     (day : Time) {
-                      Ui.Notifications.notifyDefault(<{ Time.format("yyyy-MM-dd", day) }>)
+                      Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", day) }>)
                     }
                   }/>
               }
@@ -225,7 +225,7 @@ component Reference.Calendar {
                 <Ui.Calendar
                   onMonthChange={
                     (day : Time) {
-                      Ui.Notifications.notifyDefault(<{ Time.format("yyyy-MM-dd", day) }>)
+                      Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", day) }>)
                     }
                   }/>
               }

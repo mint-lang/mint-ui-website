@@ -1,7 +1,7 @@
 component Reference.DatePicker {
   connect ListItems exposing { POSITIONS }
 
-  state value : Time = Time.startOf("day", Time.now())
+  state value : Time = Time.atBeginningOfDay(Time.now())
   state position : String = "BottomRight"
   state disabled : Bool = false
   state invalid : Bool = false
@@ -125,7 +125,7 @@ component Reference.DatePicker {
             controlled={true}
             data={
               @format {
-                <Ui.DatePicker value={Time.startOf("day", Time.now())}/>
+                <Ui.DatePicker value={Time.atBeginningOfDay(Time.now())}/>
               }
             }/>
         }/>

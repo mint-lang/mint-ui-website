@@ -1,5 +1,5 @@
 component Reference.RelativeTime {
-  state date : Time = Time.startOf("day", Time.now())
+  state date : Time = Time.atBeginningOfDay(Time.now())
 
   get playgroundCode : String {
     try {
@@ -64,8 +64,8 @@ component Reference.RelativeTime {
             data={
               @format {
                 <>
-                  <Ui.RelativeTime date={Time.from(2021, 1, 1)}/>
-                  <Ui.RelativeTime date={Time.from(2020, 1, 1)}/>
+                  <Ui.RelativeTime date={Time.utc(2021, 1, 1, 0, 0, 0, 0)}/>
+                  <Ui.RelativeTime date={Time.utc(2020, 1, 1, 0, 0, 0, 0)}/>
                 </>
               }
             }/>
