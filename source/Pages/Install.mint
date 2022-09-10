@@ -41,7 +41,7 @@ component Pages.Install {
                   "\"dependencies\": {",
                   "  \"mint-ui\": {",
                   "    \"repository\": \"https://github.com/mint-lang/mint-ui\",",
-                  "    \"constraint\": \"4.0.0 <= v < 5.0.0\"",
+                  "    \"constraint\": \"5.0.0 <= v < 6.0.0\"",
                   "  }",
                   "}"
                 ]
@@ -73,8 +73,8 @@ component Pages.Install {
                   "  ✔ Cloned mint-color(https://github.com/mint-lang/mint-color)",
                   "",
                   "⚙ Resolving dependency tree...",
-                  "  ◈ mint-ui ➔ 4.0.0",
-                  "  ◈ mint-color ➔ 0.5.0",
+                  "  ◈ mint-ui ➔ 5.0.0",
+                  "  ◈ mint-color ➔ 0.6.0",
                   "",
                   "⚙ Copying packages...",
                   "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
