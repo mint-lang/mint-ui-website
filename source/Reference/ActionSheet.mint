@@ -2,7 +2,7 @@ component Reference.ActionSheet {
   fun render : Html {
     <>
       <Ui.Box title=<{ "Ui.ActionSheet" }>>
-        <p>"An panel which comes up from the bottom of the screen and displays actions a user can take."</p>
+        <p>"A panel which comes up from the bottom of the screen and displays actions a user can take."</p>
 
         <p>"Some of its features:"</p>
 
