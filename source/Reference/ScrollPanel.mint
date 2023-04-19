@@ -1,7 +1,7 @@
 component Reference.ScrollPanel {
   connect ListItems exposing { ORIENTATION_ITEMS }
 
-  state orientation : String = "vertical"
+  state orientation : String = "Vertical"
   state extraPadding : Number = 0
   state shadowSize : Number = 20
   state maxSize : Number = 300
@@ -54,14 +54,14 @@ component Reference.ScrollPanel {
             controls=<{
               <Ui.Field label="Orientation">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { orientation = value } }}
+                  onChange={(value : String) { next { orientation: value } }}
                   items={ORIENTATION_ITEMS}
                   value={orientation}/>
               </Ui.Field>
 
               <Ui.Field label="Shadow Size">
                 <Ui.Slider
-                  onChange={(value : Number) { next { shadowSize = value } }}
+                  onChange={(value : Number) { next { shadowSize: value } }}
                   value={shadowSize}
                   max={200}
                   min={0}/>
@@ -69,7 +69,7 @@ component Reference.ScrollPanel {
 
               <Ui.Field label="Maximum Size">
                 <Ui.Slider
-                  onChange={(value : Number) { next { maxSize = value } }}
+                  onChange={(value : Number) { next { maxSize: value } }}
                   value={maxSize}
                   max={1000}
                   min={0}/>
@@ -77,7 +77,7 @@ component Reference.ScrollPanel {
 
               <Ui.Field label="Extra Padding">
                 <Ui.Slider
-                  onChange={(value : Number) { next { extraPadding = value } }}
+                  onChange={(value : Number) { next { extraPadding: value } }}
                   value={extraPadding}
                   max={100}
                   min={0}/>

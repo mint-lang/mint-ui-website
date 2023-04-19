@@ -151,24 +151,24 @@ component Examples.Dashboard {
           }
           items=[
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:DASHBOARD,
-              iconAfter = <></>,
-              href = "/examples/dashboard",
-              label = "Dashboard",
-              target = ""),
+              iconBefore: Ui.Icons:DASHBOARD,
+              iconAfter: <></>,
+              href: "/examples/dashboard",
+              label: "Dashboard",
+              target: ""),
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:PERSON,
-              iconAfter = <></>,
-              href = "/examples/user-list",
-              label = "Users",
-              target = ""),
+              iconBefore: Ui.Icons:PERSON,
+              iconAfter: <></>,
+              href: "/examples/user-list",
+              label: "Users",
+              target: ""),
             Ui.NavItem::Divider,
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:SIGN_OUT,
-              iconAfter = <></>,
-              href = "/examples/login",
-              label = "Logout",
-              target = "")
+              iconBefore: Ui.Icons:SIGN_OUT,
+              iconAfter: <></>,
+              href: "/examples/login",
+              label: "Logout",
+              target: "")
           ]/>
       }/>
   }

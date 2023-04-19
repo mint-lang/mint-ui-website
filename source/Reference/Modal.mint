@@ -51,68 +51,60 @@ component Reference.Modal {
           <Example
             data={
               @format {
-                try {
-                  content =
-                    <Ui.Modal.Content
-                      title=<{ "Hello There!" }>
-                      icon={Ui.Icons:INFINITY}
-                      content=<{ "Content" }>
-                      actions=<{
-                        <Ui.Button
-                          onClick={(event : Html.Event) { Ui.Modal.cancel() }}
-                          label="Cancel"
-                          type="faded"/>
+                let content =
+                  <Ui.Modal.Content
+                    title=<{ "Hello There!" }>
+                    icon={ Ui.Icons:INFINITY }
+                    content=<{ "Content" }>
+                    actions=<{
+                      <Ui.Button
+                        onClick={ (event : Html.Event) { Ui.Modal.cancel() } }
+                        label="Cancel"
+                        type="faded"/>
 
-                        <Ui.Button
-                          onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                          label="Cool!"/>
-                      }>/>
+                      <Ui.Button
+                        onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                        label="Cool!"/>
+                    }>/>
 
-                  clickHandler =
-                    (event : Html.Event) : Promise(Never, Void) {
-                      sequence {
-                        Ui.Modal.show(content)
-                        Ui.Notifications.notifyDefault(<{ "Closed!" }>)
-                      } catch {
-                        Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      }
+                let clickHandler =
+                  (event : Html.Event) : Promise(Void) {
+                    case (await Ui.Modal.show(content)) {
+                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
+                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
                     }
+                  }
 
-                  <Ui.Button
-                    onClick={clickHandler}
-                    label="Click to Open"/>
-                }
+                <Ui.Button
+                  onClick={clickHandler}
+                  label="Click to Open"/>
               }
             }/>
         }/>
 
       <DocBox
         title="Custom Content"
-        content={<p>"The given content is shown in the center of the screen above the backdrop."</p>}
+        content={ <p>"The given content is shown in the center of the screen above the backdrop."</p> }
         example={
           <Example
             data={
               @format {
-                try {
-                  content =
-                    <Ui.Button
-                      onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                      label="Cool!"/>
-
-                  clickHandler =
-                    (event : Html.Event) {
-                      sequence {
-                        Ui.Modal.show(content)
-                        Ui.Notifications.notifyDefault(<{ "Closed!" }>)
-                      } catch {
-                        Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      }
-                    }
-
+                let content =
                   <Ui.Button
-                    onClick={clickHandler}
-                    label="Click to Open"/>
-                }
+                    onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                    label="Cool!"/>
+
+                let clickHandler =
+                  (event : Html.Event) {
+                    case (await Ui.Modal.show(content)) {
+                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
+                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
+                    }
+                  }
+
+                <Ui.Button
+                  onClick={ clickHandler }
+                  label="Click to Open"/>
               }
             }/>
         }/>
@@ -130,31 +122,28 @@ component Reference.Modal {
           <Example
             data={
               @format {
-                try {
-                  content =
-                    <Ui.Button
-                      onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                      label="Cool!"/>
-
-                  clickHandler =
-                    (event : Html.Event) {
-                      sequence {
-                        Ui.Modal.showWithOptions(
-                          content,
-                          900,
-                          240,
-                          () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
-
-                        Ui.Notifications.notifyDefault(<{ "Closed!" }>)
-                      } catch {
-                        Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      }
-                    }
-
+                let content =
                   <Ui.Button
-                    onClick={clickHandler}
-                    label="Click to Open"/>
-                }
+                    onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                    label="Cool!"/>
+
+                let clickHandler =
+                  (event : Html.Event) {
+                    let result = await Ui.Modal.showWithOptions(
+                      content,
+                      900,
+                      240,
+                      () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
+
+                    case (await result) {
+                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
+                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
+                    }
+                  }
+
+                <Ui.Button
+                  onClick={ clickHandler }
+                  label="Click to Open"/>
               }
             }/>
         }/>

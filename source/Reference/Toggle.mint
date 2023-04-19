@@ -41,13 +41,13 @@ component Pages.Toggle {
             controls=<{
               <Ui.Field label="On Label">
                 <Ui.Input
-                  onChange={(value : String) { next { onLabel = value } }}
+                  onChange={(value : String) { next { onLabel: value } }}
                   value={onLabel}/>
               </Ui.Field>
 
               <Ui.Field label="Off Label">
                 <Ui.Input
-                  onChange={(value : String) { next { offLabel = value } }}
+                  onChange={(value : String) { next { offLabel: value } }}
                   value={offLabel}/>
               </Ui.Field>
 
@@ -56,7 +56,7 @@ component Pages.Toggle {
                 label="checked">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked = value } }}
+                  onChange={(value : Bool) { next { checked: value } }}
                   checked={checked}/>
 
               </Ui.Field>
@@ -66,14 +66,14 @@ component Pages.Toggle {
                 label="disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -81,7 +81,7 @@ component Pages.Toggle {
 
               <Ui.Field label="Width (#{width}em)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width = value } }}
+                  onChange={(value : Number) { next { width: value } }}
                   value={width}
                   step={0.5}
                   max={40}
@@ -91,7 +91,7 @@ component Pages.Toggle {
             data={
               {
                 <Ui.Toggle
-                  onChange={(value : Bool) { next { checked = value } }}
+                  onChange={(value : Bool) { next { checked: value } }}
                   width={Ui.Size::Em(width)}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}

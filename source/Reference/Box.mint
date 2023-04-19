@@ -39,25 +39,25 @@ component Reference.Box {
             controls=<{
               <Ui.Field label="Title">
                 <Ui.Input
-                  onChange={(value : String) { next { title = value } }}
+                  onChange={(value : String) { next { title: value } }}
                   value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Label">
                 <Ui.Input
-                  onChange={(value : String) { next { label = value } }}
+                  onChange={(value : String) { next { label: value } }}
                   value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
                 <Ui.Input
-                  onChange={(value : String) { next { content = value } }}
+                  onChange={(value : String) { next { content: value } }}
                   value={content}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

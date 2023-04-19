@@ -37,129 +37,133 @@ component Examples.UserList {
           }
           items=[
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:DASHBOARD,
-              iconAfter = <></>,
-              href = "/examples/dashboard",
-              label = "Dashboard",
-              target = ""),
+              iconBefore: Ui.Icons:DASHBOARD,
+              iconAfter: <></>,
+              href: "/examples/dashboard",
+              label: "Dashboard",
+              target: ""),
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:PERSON,
-              iconAfter = <></>,
-              href = "/examples/user-list",
-              label = "Users",
-              target = ""),
+              iconBefore: Ui.Icons:PERSON,
+              iconAfter: <></>,
+              href: "/examples/user-list",
+              label: "Users",
+              target: ""),
             Ui.NavItem::Divider,
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:SIGN_OUT,
-              iconAfter = <></>,
-              href = "/examples/login",
-              label = "Logout",
-              target = "")
+              iconBefore: Ui.Icons:SIGN_OUT,
+              iconAfter: <></>,
+              href: "/examples/login",
+              label: "Logout",
+              target: "")
           ]/>
       }
       content={
         <Ui.Box title=<{ "Users" }>>
           <p>"Here you can see all users of the system."</p>
 
-          try {
-            processedUsers =
-              USERS
-              |> Array.sortBy(
-                (user : Tuple(String, String, Number, String)) {
-                  case (sortBy) {
-                    "age" => Number.toString(user[2])
-                    "address" => user[3]
-                    "email" => user[1]
-                    "name" => user[0]
-                    => user[0]
-                  }
-                })
-              |> Array.reverseIf(sortDirection == "desc")
-              |> Array.slice(page * 10, (page + 1) * 10)
-
-            rows =
-              for (user of processedUsers) {
-                {
-                  user[0],
-                  [
-                    Ui.Cell::String(user[0]),
-                    Ui.Cell::Code(code = user[1], breakSpaces = false),
-                    Ui.Cell::Number(user[2]),
-                    Ui.Cell::String(user[3]),
-                    Ui.Cell::HtmlItems(
-                      breakOnMobile = true,
-                      items =
-                        [
-                          <Ui.Icon
-                            onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Edit" }>) }}
-                            icon={Ui.Icons:PENCIL}
-                            interactive={true}/>,
-                          <Ui.Icon
-                            onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Delete" }>) }}
-                            icon={Ui.Icons:TRASHCAN}
-                            interactive={true}/>,
-                          <Ui.Icon
-                            icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                            disabled={true}/>
-                        ])
-                  ]
-                }
-              }
-
-            <Ui.Table
-              orderDirection={sortDirection}
-              orderBy={sortBy}
-              onOrderChange={
-                (data : Tuple(String, String)) {
-                  next
-                    {
-                      sortDirection = data[1],
-                      sortBy = data[0]
+          <{
+            {
+              let processedUsers =
+                USERS
+                |> Array.sortBy(
+                  (user : Tuple(String, String, Number, String)) {
+                    case (sortBy) {
+                      "age" => Number.toString(user[2])
+                      "address" => user[3]
+                      "email" => user[1]
+                      "name" => user[0]
+                      => user[0]
                     }
-                }
-              }
-              headers=[
-                {
-                  sortKey = "name",
-                  sortable = true,
-                  label = "Name",
-                  shrink = false
-                },
-                {
-                  sortKey = "email",
-                  sortable = true,
-                  label = "Email",
-                  shrink = false
-                },
-                {
-                  sortKey = "age",
-                  sortable = true,
-                  label = "Age",
-                  shrink = false
-                },
-                {
-                  sortKey = "address",
-                  sortable = true,
-                  label = "Address",
-                  shrink = false
-                },
-                {
-                  sortKey = "",
-                  sortable = false,
-                  label = "Actions",
-                  shrink = true
-                }
-              ]
-              rows={rows}/>
-          }
+                  })
+                |> Array.reverseIf(sortDirection == "desc")
+                |> Array.slice(page * 10, (page + 1) * 10)
 
-          <p>
-            <Ui.Pagination
-              onChange={(page : Number) { next { page = page } }}
-              total={Array.size(USERS)}
-              size={Ui.Size::Em(0.75)}
-              page={page}/>
-          </p>
+              let rows =
+                for (user of processedUsers) {
+                  {
+                    user[0],
+                    [
+                      Ui.Cell::String(user[0]),
+                      Ui.Cell::Code(code: user[1], breakSpaces: false),
+                      Ui.Cell::Number(user[2]),
+                      Ui.Cell::String(user[3]),
+                      Ui.Cell::HtmlItems(
+                        breakOnMobile: true,
+                        items:
+                          [
+                            <Ui.Icon
+                              onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Edit" }>) }}
+                              icon={Ui.Icons:PENCIL}
+                              interactive={true}/>,
+                            <Ui.Icon
+                              onClick={(event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Delete" }>) }}
+                              icon={Ui.Icons:TRASHCAN}
+                              interactive={true}/>,
+                            <Ui.Icon
+                              icon={Ui.Icons:DESKTOP_DOWNLOAD}
+                              disabled={true}/>
+                          ])
+                    ]
+                  }
+                }
+
+              <>
+                <Ui.Table
+                  orderDirection={sortDirection}
+                  orderBy={sortBy}
+                  onOrderChange={
+                    (data : Tuple(String, String)) {
+                      next
+                        {
+                          sortDirection: data[1],
+                          sortBy: data[0]
+                        }
+                    }
+                  }
+                  headers=[
+                    {
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: false
+                    },
+                    {
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
+                    },
+                    {
+                      sortKey: "age",
+                      sortable: true,
+                      label: "Age",
+                      shrink: false
+                    },
+                    {
+                      sortKey: "address",
+                      sortable: true,
+                      label: "Address",
+                      shrink: false
+                    },
+                    {
+                      sortKey: "",
+                      sortable: false,
+                      label: "Actions",
+                      shrink: true
+                    }
+                  ]
+                  rows={rows}/>
+
+                <p>
+                  <Ui.Pagination
+                    onChange={(page : Number) { next { page: page } }}
+                    total={Array.size(USERS)}
+                    size={Ui.Size::Em(0.75)}
+                    page={page}/>
+                </p>
+              </>
+            }
+          }>
         </Ui.Box>
       }/>
   }

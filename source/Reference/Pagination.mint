@@ -40,7 +40,7 @@ component Reference.Pagination {
             controls=<{
               <Ui.Field label="Page (#{page})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { page = value } }}
+                  onChange={(value : Number) { next { page: value } }}
                   max={Math.floor(Math.max(total - 1, 0) / perPage)}
                   value={page}
                   min={0}/>
@@ -52,8 +52,8 @@ component Reference.Pagination {
                     (value : Number) {
                       next
                         {
-                          total = value,
-                          page = 0
+                          total: value,
+                          page: 0
                         }
                     }
                   }
@@ -64,7 +64,7 @@ component Reference.Pagination {
 
               <Ui.Field label="Side Pages (#{sidePages})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { sidePages = value } }}
+                  onChange={(value : Number) { next { sidePages: value } }}
                   value={sidePages}
                   max={100}
                   min={0}/>
@@ -76,8 +76,8 @@ component Reference.Pagination {
                     (value : Number) {
                       next
                         {
-                          perPage = value,
-                          page = 0
+                          perPage: value,
+                          page: 0
                         }
                     }
                   }
@@ -88,7 +88,7 @@ component Reference.Pagination {
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -99,7 +99,7 @@ component Reference.Pagination {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -107,7 +107,7 @@ component Reference.Pagination {
             data={
               {
                 <Ui.Pagination
-                  onChange={(value : Number) { next { page = value } }}
+                  onChange={(value : Number) { next { page: value } }}
                   size={Ui.Size::Px(size)}
                   sidePages={sidePages}
                   disabled={disabled}

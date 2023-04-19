@@ -38,25 +38,23 @@ component Documentation.Theming {
           </ul>
         }>
         example={
-          try {
-            code =
-              [
-                "component Main {",
-                "  connect Ui exposing { mobile }",
-                "",
-                "  fun render : Html {",
-                "   <Ui.Theme.Root",
-                "     fontConfiguration={Ui:DEFAULT_FONT_CONFIGURATION}",
-                "     tokens={Ui:DEFAULT_TOKENS}>",
-                "      /* Content goes here. */",
-                "   </Ui.Theme.Root>",
-                "  }",
-                "}"
-              ]
-              |> String.join("\n")
+          let code =
+            [
+              "component Main {",
+              "  connect Ui exposing { mobile }",
+              "",
+              "  fun render : Html {",
+              "   <Ui.Theme.Root",
+              "     fontConfiguration={Ui:DEFAULT_FONT_CONFIGURATION}",
+              "     tokens={Ui:DEFAULT_TOKENS}>",
+              "      /* Content goes here. */",
+              "   </Ui.Theme.Root>",
+              "  }",
+              "}"
+            ]
+            |> String.join("\n")
 
-            <Hljs code={code}/>
-          }
+          <Hljs code={code}/>
         }/>
 
       <DocBox
@@ -89,16 +87,16 @@ component Documentation.Theming {
             breakpoint={700}
             headers=[
               {
-                sortable = false,
-                sortKey = "name",
-                label = "Name",
-                shrink = false
+                sortable: false,
+                sortKey: "name",
+                label: "Name",
+                shrink: false
               },
               {
-                sortable = false,
-                sortKey = "value",
-                label = "Value",
-                shrink = false
+                sortable: false,
+                sortKey: "value",
+                label: "Value",
+                shrink: false
               }
             ]
             rows={
@@ -109,8 +107,8 @@ component Documentation.Theming {
                       {
                         name,
                         [
-                          Ui.Cell::Code(code = "--#{name}", breakSpaces = false),
-                          Ui.Cell::Code(code = value, breakSpaces = false)
+                          Ui.Cell::Code(code: "--#{name}", breakSpaces: false),
+                          Ui.Cell::Code(code: value, breakSpaces: false)
                         ]
                       })
 
@@ -126,16 +124,16 @@ component Documentation.Theming {
             breakpoint={700}
             headers=[
               {
-                sortable = false,
-                sortKey = "name",
-                label = "Name",
-                shrink = false
+                sortable: false,
+                sortKey: "name",
+                label: "Name",
+                shrink: false
               },
               {
-                sortable = false,
-                sortKey = "value",
-                label = "Value",
-                shrink = false
+                sortable: false,
+                sortKey: "value",
+                label: "Value",
+                shrink: false
               }
             ]
             rows={
@@ -145,8 +143,8 @@ component Documentation.Theming {
                     Maybe::Just(
                       {
                         name, [
-                          Ui.Cell::Code(code = "--light-#{name}", breakSpaces = false),
-                          Ui.Cell::Code(code = light, breakSpaces = false)
+                          Ui.Cell::Code(code: "--light-#{name}", breakSpaces: false),
+                          Ui.Cell::Code(code: light, breakSpaces: false)
                         ]
                       })
 
@@ -162,16 +160,16 @@ component Documentation.Theming {
             breakpoint={700}
             headers=[
               {
-                sortable = false,
-                sortKey = "name",
-                label = "Name",
-                shrink = false
+                sortable: false,
+                sortKey: "name",
+                label: "Name",
+                shrink: false
               },
               {
-                sortable = false,
-                sortKey = "value",
-                label = "Value",
-                shrink = false
+                sortable: false,
+                sortKey: "value",
+                label: "Value",
+                shrink: false
               }
             ]
             rows={
@@ -182,8 +180,8 @@ component Documentation.Theming {
                       {
                         name,
                         [
-                          Ui.Cell::Code(code = "--dark-#{name}", breakSpaces = false),
-                          Ui.Cell::Code(code = dark, breakSpaces = false)
+                          Ui.Cell::Code(code: "--dark-#{name}", breakSpaces: false),
+                          Ui.Cell::Code(code: dark, breakSpaces: false)
                         ]
                       })
 

@@ -3,27 +3,25 @@ component Header {
 
   get darkModeToggle : Ui.NavItem {
     if (mobile) {
-      try {
-        label =
-          if (darkMode) {
-            "Light Mode"
-          } else {
-            "Dark Mode"
-          }
+      let label =
+        if (darkMode) {
+          "Light Mode"
+        } else {
+          "Dark Mode"
+        }
 
-        iconBefore =
-          if (darkMode) {
-            Ui.Icons:SUN
-          } else {
-            Ui.Icons:MOON
-          }
+      let iconBefore =
+        if (darkMode) {
+          Ui.Icons:SUN
+        } else {
+          Ui.Icons:MOON
+        }
 
-        Ui.NavItem::Item(
-          action = (event : Html.Event) { toggleDarkMode() },
-          iconBefore = iconBefore,
-          iconAfter = <></>,
-          label = label)
-      }
+      Ui.NavItem::Item(
+        action: (event : Html.Event) { toggleDarkMode() },
+        iconBefore: iconBefore,
+        iconAfter: <></>,
+        label: label)
     } else {
       Ui.NavItem::Html(<Ui.DarkModeToggle/>)
     }

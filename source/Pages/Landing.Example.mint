@@ -27,56 +27,55 @@ component Pages.Landing.Example {
   }
 
   get code : String {
-    try {
-      image =
-        "Ui.Card.Image"
-        |> ComponentBuilder.new()
-        |> ComponentBuilder.addExpression("src", IMAGE[1])
-        |> ComponentBuilder.toString()
-
-      container =
-        "Ui.Card.Container"
-        |> ComponentBuilder.new()
-        |> ComponentBuilder.addExpression("thumbnail", AVATAR[1])
-        |> ComponentBuilder.addString("content", content)
-        |> ComponentBuilder.addString("subtitle", subtitle)
-        |> ComponentBuilder.addString("title", title)
-        |> ComponentBuilder.toString()
-
-      "Ui.Card"
+    let image =
+      "Ui.Card.Image"
       |> ComponentBuilder.new()
-      |> ComponentBuilder.addString("href", "/components/ui-card")
-      |> ComponentBuilder.addChild(image)
-      |> ComponentBuilder.addChild(container)
+      |> ComponentBuilder.addExpression("src", IMAGE[1])
       |> ComponentBuilder.toString()
-    }
+
+    let container =
+      "Ui.Card.Container"
+      |> ComponentBuilder.new()
+      |> ComponentBuilder.addExpression("thumbnail", AVATAR[1])
+      |> ComponentBuilder.addString("content", content)
+      |> ComponentBuilder.addString("subtitle", subtitle)
+      |> ComponentBuilder.addString("title", title)
+      |> ComponentBuilder.toString()
+
+    "Ui.Card"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addString("href", "/components/ui-card")
+    |> ComponentBuilder.addChild(image)
+    |> ComponentBuilder.addChild(container)
+    |> ComponentBuilder.toString()
   }
 
   fun render {
     <div::base>
       <Example
+        size={Ui.Size::Inherit}
         horizontalSpacing={0}
         verticalSpacing={0}
+        breakpoint={500}
         controls=<{
           <Ui.Field label="Title">
             <Ui.Input
-              onChange={(value : String) { next { title = value } }}
+              onChange={(value : String) { next { title: value } }}
               value={title}/>
           </Ui.Field>
 
           <Ui.Field label="Subtitle">
             <Ui.Input
-              onChange={(value : String) { next { subtitle = value } }}
+              onChange={(value : String) { next { subtitle: value } }}
               value={subtitle}/>
           </Ui.Field>
 
           <Ui.Field label="Content">
             <Ui.Textarea
-              onChange={(value : String) { next { content = value } }}
+              onChange={(value : String) { next { content: value } }}
               value={content}/>
           </Ui.Field>
         }>
-        breakpoint={500}
         data={
           {
             <Ui.Card href="/components/ui-card">
@@ -92,8 +91,7 @@ component Pages.Landing.Example {
             </Ui.Card>,
             code
           }
-        }
-        size={Ui.Size::Inherit}/>
+        }/>
     </div>
   }
 }

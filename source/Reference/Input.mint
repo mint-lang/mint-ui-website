@@ -50,19 +50,19 @@ component Reference.Input {
             controls=<{
               <Ui.Field label="Placeholder">
                 <Ui.Input
-                  onChange={(value : String) { next { placeholder = value } }}
+                  onChange={(value : String) { next { placeholder: value } }}
                   value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Value">
                 <Ui.Input
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
@@ -72,7 +72,7 @@ component Reference.Input {
                 label="Icon Interactive">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { iconInteractive = value } }}
+                  onChange={(value : Bool) { next { iconInteractive: value } }}
                   checked={iconInteractive}/>
 
               </Ui.Field>
@@ -82,7 +82,7 @@ component Reference.Input {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -92,14 +92,14 @@ component Reference.Input {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -108,7 +108,7 @@ component Reference.Input {
             data={
               {
                 <Ui.Input
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   iconInteractive={iconInteractive}
                   placeholder={placeholder}
                   size={Ui.Size::Px(size)}

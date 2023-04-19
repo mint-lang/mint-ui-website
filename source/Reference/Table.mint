@@ -22,22 +22,22 @@ component Reference.Table {
     @format {
       [
         {
-          sortKey = "name",
-          sortable = true,
-          label = "Name",
-          shrink = true
+          sortKey: "name",
+          sortable: true,
+          label: "Name",
+          shrink: true
         },
         {
-          sortKey = "email",
-          sortable = true,
-          label = "Email",
-          shrink = false
+          sortKey: "email",
+          sortable: true,
+          label: "Email",
+          shrink: false
         },
         {
-          sortKey = "active",
-          sortable = false,
-          label = "Active",
-          shrink = true
+          sortKey: "active",
+          sortable: false,
+          label: "Active",
+          shrink: true
         }
       ]
     }
@@ -49,14 +49,14 @@ component Reference.Table {
           "John Doe", [
             Ui.Cell::String("John Doe"),
             Ui.Cell::String("john.doe@example.com"),
-            Ui.Cell::Code(code = "false", breakSpaces = false)
+            Ui.Cell::Code(code: "false", breakSpaces: false)
           ]
         },
         {
           "Jane Doe", [
             Ui.Cell::String("Jane Doe"),
             Ui.Cell::String("jane.doe@example.com"),
-            Ui.Cell::Code(code = "true", breakSpaces = false)
+            Ui.Cell::Code(code: "true", breakSpaces: false)
           ]
         }
       ]
@@ -100,20 +100,20 @@ component Reference.Table {
               <Ui.Field label="Order Direction">
                 <Ui.Native.Select
                   items={Ui.ListItem.fromStringArray(["asc", "desc"])}
-                  onChange={(value : String) { next { orderDirection = value } }}
+                  onChange={(value : String) { next { orderDirection: value } }}
                   value={orderDirection}/>
               </Ui.Field>
 
               <Ui.Field label="Order By">
                 <Ui.Native.Select
                   items={Ui.ListItem.fromStringArray(["name", "email"])}
-                  onChange={(value : String) { next { orderBy = value } }}
+                  onChange={(value : String) { next { orderBy: value } }}
                   value={orderBy}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -121,7 +121,7 @@ component Reference.Table {
 
               <Ui.Field label="Breakpoint (#{breakpoint}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { breakpoint = value } }}
+                  onChange={(value : Number) { next { breakpoint: value } }}
                   value={breakpoint}
                   max={1500}
                   min={0}/>
@@ -132,7 +132,7 @@ component Reference.Table {
                 label="Bordered">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { bordered = value } }}
+                  onChange={(value : Bool) { next { bordered: value } }}
                   checked={bordered}/>
 
               </Ui.Field>
@@ -169,8 +169,7 @@ component Reference.Table {
             highlight=[30, 37]
             data={
               @format {
-                try {
-                  rows =
+                  let rows =
                     [
                       {
                         "John Doe",
@@ -181,19 +180,19 @@ component Reference.Table {
                       }
                     ]
 
-                  headers =
+                  let headers =
                     [
                       {
-                        sortKey = "name",
-                        sortable = true,
-                        label = "Name",
-                        shrink = true
+                        sortKey: "name",
+                        sortable: true,
+                        label: "Name",
+                        shrink: true
                       },
                       {
-                        sortKey = "email",
-                        sortable = true,
-                        label = "Email",
-                        shrink = false
+                        sortKey: "email",
+                        sortable: true,
+                        label: "Email",
+                        shrink: false
                       }
                     ]
 
@@ -212,7 +211,6 @@ component Reference.Table {
                       breakpoint={0}
                       rows={rows}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -234,8 +232,7 @@ component Reference.Table {
             highlight=[32, 37]
             data={
               @format {
-                try {
-                  rows =
+                  let rows =
                     [
                       {
                         "John Doe",
@@ -246,19 +243,19 @@ component Reference.Table {
                       }
                     ]
 
-                  headers =
+                  let headers =
                     [
                       {
-                        sortKey = "name",
-                        sortable = true,
-                        label = "Name",
-                        shrink = true
+                        sortKey: "name",
+                        sortable: true,
+                        label: "Name",
+                        shrink: true
                       },
                       {
-                        sortKey = "email",
-                        sortable = true,
-                        label = "Email",
-                        shrink = false
+                        sortKey: "email",
+                        sortable: true,
+                        label: "Email",
+                        shrink: false
                       }
                     ]
 
@@ -275,7 +272,6 @@ component Reference.Table {
                       breakpoint={0}
                       rows={rows}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -300,31 +296,29 @@ component Reference.Table {
                 <Ui.Table
                   onOrderChange={
                     (data : Tuple(String, String)) {
-                      try {
-                        {column, direction} =
-                          data
+                      let {column, direction} =
+                        data
 
-                        Ui.Notifications.notifyDefault(
-                          <{
-                            "Order change to: "
-                            <b>"#{column}/#{direction}"</b>
-                          }>)
-                      }
+                      Ui.Notifications.notifyDefault(
+                        <{
+                          "Order change to: "
+                          <b>"#{column}/#{direction}"</b>
+                        }>)
                     }
                   }
                   breakpoint={0}
                   headers=[
                     {
-                      sortKey = "name",
-                      sortable = true,
-                      label = "Name",
-                      shrink = true
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: true
                     },
                     {
-                      sortKey = "email",
-                      sortable = true,
-                      label = "Email",
-                      shrink = false
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
                     }
                   ]
                   rows=[
@@ -357,8 +351,7 @@ component Reference.Table {
             verticalSpacing={20}
             data={
               @format {
-                try {
-                  rows =
+                  let rows =
                     [
                       {
                         "John Doe",
@@ -369,19 +362,19 @@ component Reference.Table {
                       }
                     ]
 
-                  headers =
+                  let headers =
                     [
                       {
-                        sortKey = "name",
-                        sortable = true,
-                        label = "Name",
-                        shrink = true
+                        sortKey: "name",
+                        sortable: true,
+                        label: "Name",
+                        shrink: true
                       },
                       {
-                        sortKey = "email",
-                        sortable = true,
-                        label = "Email",
-                        shrink = false
+                        sortKey: "email",
+                        sortable: true,
+                        label: "Email",
+                        shrink: false
                       }
                     ]
 
@@ -404,7 +397,6 @@ component Reference.Table {
                       breakpoint={0}
                       rows={rows}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -432,8 +424,7 @@ component Reference.Table {
             highlight=[31, 36]
             data={
               @format {
-                try {
-                  rows =
+                  let rows =
                     [
                       {
                         "John Doe",
@@ -444,19 +435,19 @@ component Reference.Table {
                       }
                     ]
 
-                  headers =
+                  let headers =
                     [
                       {
-                        sortKey = "name",
-                        sortable = true,
-                        label = "Name",
-                        shrink = true
+                        sortKey: "name",
+                        sortable: true,
+                        label: "Name",
+                        shrink: true
                       },
                       {
-                        sortKey = "email",
-                        sortable = true,
-                        label = "Email",
-                        shrink = false
+                        sortKey: "email",
+                        sortable: true,
+                        label: "Email",
+                        shrink: false
                       }
                     ]
 
@@ -471,7 +462,6 @@ component Reference.Table {
                       breakpoint={0}
                       rows={rows}/>
                   </>
-                }
               }
             }/>
         }/>

@@ -38,7 +38,7 @@ component Reference.ScrollToTop {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -46,7 +46,7 @@ component Reference.ScrollToTop {
 
               <Ui.Field label="Threshold (#{threshold}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { threshold = value } }}
+                  onChange={(value : Number) { next { threshold: value } }}
                   value={threshold}
                   max={400}
                   min={0}/>
@@ -57,7 +57,7 @@ component Reference.ScrollToTop {
                 label="Global">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { global = value } }}
+                  onChange={(value : Bool) { next { global: value } }}
                   checked={global}/>
 
               </Ui.Field>

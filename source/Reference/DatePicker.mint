@@ -9,8 +9,7 @@ component Reference.DatePicker {
   state size : Number = 16
 
   get playgroundCode : String {
-    try {
-      valueValue =
+      let valueValue =
         "Time.from(#{`#{value}.getFullYear()`}, #{`#{value}.getMonth() + 1`}, #{`#{value}.getDate()`})"
 
       "Ui.DatePicker"
@@ -22,7 +21,6 @@ component Reference.DatePicker {
       |> ComponentBuilder.addBool("invalid", invalid)
       |> ComponentBuilder.addNumber("offset", offset)
       |> ComponentBuilder.toString()
-    }
   }
 
   fun render : Html {
@@ -47,20 +45,20 @@ component Reference.DatePicker {
             controls=<{
               <Ui.Field label="Value">
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { value = value } }}
+                  onChange={(value : Time) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(position : String) { next { position = position } }}
+                  onChange={(position : String) { next { position: position } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -68,7 +66,7 @@ component Reference.DatePicker {
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -79,7 +77,7 @@ component Reference.DatePicker {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -89,7 +87,7 @@ component Reference.DatePicker {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
@@ -97,7 +95,7 @@ component Reference.DatePicker {
             data={
               {
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { value = value } }}
+                  onChange={(value : Time) { next { value: value } }}
                   position={Ui.Position.fromString(position)}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}

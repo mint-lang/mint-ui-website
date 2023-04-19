@@ -11,34 +11,32 @@ component Reference.Dropdown {
   state zIndex : Number = 1
 
   get playgroundCode : String {
-    try {
-      content =
-        "Ui.Dropdown.Panel"
-        |> ComponentBuilder.new
-        |> ComponentBuilder.addStringChild("Content")
-        |> ComponentBuilder.toString()
-        |> String.wrap("\n", "\n")
-        |> String.indentWithOptions(2, " ", false)
-
-      button =
-        "Ui.Button"
-        |> ComponentBuilder.new
-        |> ComponentBuilder.addString("label", "Click to Toggle")
-        |> ComponentBuilder.toString()
-        |> String.wrap("\n", "\n")
-        |> String.indentWithOptions(2, " ", false)
-
-      "Ui.Dropdown"
+    let content =
+      "Ui.Dropdown.Panel"
       |> ComponentBuilder.new
-      |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
-      |> ComponentBuilder.addBool("closeOnOutsideClick", closeOnOutsideClick)
-      |> ComponentBuilder.addBool("matchWidth", matchWidth)
-      |> ComponentBuilder.addBool("open", open)
-      |> ComponentBuilder.addNumber("offset", offset)
-      |> ComponentBuilder.addExpression("element", button)
-      |> ComponentBuilder.addExpression("content", content)
+      |> ComponentBuilder.addStringChild("Content")
       |> ComponentBuilder.toString()
-    }
+      |> String.wrap("\n", "\n")
+      |> String.indent(2, " ", false)
+
+    let button =
+      "Ui.Button"
+      |> ComponentBuilder.new
+      |> ComponentBuilder.addString("label", "Click to Toggle")
+      |> ComponentBuilder.toString()
+      |> String.wrap("\n", "\n")
+      |> String.indent(2, " ", false)
+
+    "Ui.Dropdown"
+    |> ComponentBuilder.new
+    |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
+    |> ComponentBuilder.addBool("closeOnOutsideClick", closeOnOutsideClick)
+    |> ComponentBuilder.addBool("matchWidth", matchWidth)
+    |> ComponentBuilder.addBool("open", open)
+    |> ComponentBuilder.addNumber("offset", offset)
+    |> ComponentBuilder.addExpression("element", button)
+    |> ComponentBuilder.addExpression("content", content)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -69,7 +67,7 @@ component Reference.Dropdown {
             controls=<{
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(position : String) { next { position = position } }}
+                  onChange={(position : String) { next { position: position } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
@@ -79,7 +77,7 @@ component Reference.Dropdown {
                 label="Open">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { open = value } }}
+                  onChange={(value : Bool) { next { open: value } }}
                   checked={open}/>
 
               </Ui.Field>
@@ -89,7 +87,7 @@ component Reference.Dropdown {
                 orientation={Ui.Field::Horizontal}>
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { closeOnOutsideClick = value } }}
+                  onChange={(value : Bool) { next { closeOnOutsideClick: value } }}
                   checked={closeOnOutsideClick}/>
 
               </Ui.Field>
@@ -99,14 +97,14 @@ component Reference.Dropdown {
                 label="Match Width">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { matchWidth = value } }}
+                  onChange={(value : Bool) { next { matchWidth: value } }}
                   checked={matchWidth}/>
 
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -114,7 +112,7 @@ component Reference.Dropdown {
 
               <Ui.Field label="Z-index (#{zIndex})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { zIndex = value } }}
+                  onChange={(value : Number) { next { zIndex: value } }}
                   value={zIndex}
                   max={100}
                   min={0}/>
@@ -125,14 +123,14 @@ component Reference.Dropdown {
                 <Ui.Dropdown
                   position={Ui.Position.fromString(position)}
                   closeOnOutsideClick={closeOnOutsideClick}
-                  onClose={() { next { open = false } }}
+                  onClose={() { next { open: false } }}
                   matchWidth={matchWidth}
                   offset={offset}
                   zIndex={zIndex}
                   open={open}
                   element={
                     <Ui.Button
-                      onClick={(event : Html.Event) { next { open = !open } }}
+                      onClick={(event : Html.Event) { next { open: !open } }}
                       label="Click to Toggle"/>
                   }
                   content={<Ui.Dropdown.Panel>"Content"</Ui.Dropdown.Panel>}/>,

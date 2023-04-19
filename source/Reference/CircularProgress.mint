@@ -41,7 +41,7 @@ component Reference.CircularProgress {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -49,7 +49,7 @@ component Reference.CircularProgress {
 
               <Ui.Field label="Thickness (#{thickness}em)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { thickness = value } }}
+                  onChange={(value : Number) { next { thickness: value } }}
                   value={thickness}
                   step={0.1}
                   max={10}
@@ -58,7 +58,7 @@ component Reference.CircularProgress {
 
               <Ui.Field label="Width (#{width})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width = value } }}
+                  onChange={(value : Number) { next { width: value } }}
                   value={width}
                   max={100}
                   min={0}/>
@@ -70,8 +70,8 @@ component Reference.CircularProgress {
                     (value : Number) {
                       next
                         {
-                          current = Math.clamp(0, current, value),
-                          max = value
+                          current: Math.clamp(value, 0, current),
+                          max: value
                         }
                     }
                   }
@@ -86,8 +86,8 @@ component Reference.CircularProgress {
                     (value : Number) {
                       next
                         {
-                          max = Math.max(value, max),
-                          current = value
+                          max: Math.max(value, max),
+                          current: value
                         }
                     }
                   }

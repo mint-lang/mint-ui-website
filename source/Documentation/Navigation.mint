@@ -66,29 +66,29 @@ component Documentation.Navigation {
               @format {
                 [
                   Ui.NavItem::Link(
-                    iconBefore = Ui.Icons:HOME,
-                    iconAfter = <></>,
-                    label = "Home",
-                    target = "",
-                    href = "/"),
+                    iconBefore: Ui.Icons:HOME,
+                    iconAfter: <></>,
+                    label: "Home",
+                    target: "",
+                    href: "/"),
                   Ui.NavItem::Item(
-                    action = (event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Item clicked!" }>) },
-                    iconBefore = Ui.Icons:PUZZLE,
-                    iconAfter = <></>,
-                    label = "Components"),
+                    action: (event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Item clicked!" }>) },
+                    iconBefore: Ui.Icons:PUZZLE,
+                    iconAfter: <></>,
+                    label: "Components"),
                   Ui.NavItem::Divider,
                   Ui.NavItem::Group(
-                    iconBefore = Ui.Icons:BRIEFCASE,
-                    iconAfter = <></>,
-                    label = "Group",
-                    items =
+                    iconBefore: Ui.Icons:BRIEFCASE,
+                    iconAfter: <></>,
+                    label: "Group",
+                    items:
                       [
                         Ui.NavItem::Link(
-                          iconBefore = Ui.Icons:HOME,
-                          iconAfter = <></>,
-                          label = "Sub Item",
-                          target = "",
-                          href = "/")
+                          iconBefore: Ui.Icons:HOME,
+                          iconAfter: <></>,
+                          label: "Sub Item",
+                          target: "",
+                          href: "/")
                       ])
                 ]
               }[1]

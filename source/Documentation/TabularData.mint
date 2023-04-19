@@ -36,34 +36,34 @@ component Documentation.TabularData {
                 <Ui.Table
                   headers=[
                     {
-                      sortKey = "string",
-                      sortable = false,
-                      label = "String",
-                      shrink = false
+                      sortKey: "string",
+                      sortable: false,
+                      label: "String",
+                      shrink: false
                     },
                     {
-                      sortKey = "html",
-                      sortable = false,
-                      label = "Html",
-                      shrink = false
+                      sortKey: "html",
+                      sortable: false,
+                      label: "Html",
+                      shrink: false
                     },
                     {
-                      sortKey = "number",
-                      sortable = false,
-                      label = "Number",
-                      shrink = true
+                      sortKey: "number",
+                      sortable: false,
+                      label: "Number",
+                      shrink: true
                     },
                     {
-                      sortKey = "code",
-                      sortable = false,
-                      label = "Code",
-                      shrink = true
+                      sortKey: "code",
+                      sortable: false,
+                      label: "Code",
+                      shrink: true
                     },
                     {
-                      sortKey = "html-items",
-                      label = "Html Items",
-                      sortable = false,
-                      shrink = true
+                      sortKey: "html-items",
+                      label: "Html Items",
+                      sortable: false,
+                      shrink: true
                     }
                   ]
                   rows=[
@@ -76,10 +76,10 @@ component Documentation.TabularData {
                             size={Ui.Size::Em(0.75)}
                             label="A Button!"/>),
                         Ui.Cell::Number(124),
-                        Ui.Cell::Code(code = "<div></div>", breakSpaces = false),
+                        Ui.Cell::Code(code: "<div></div>", breakSpaces: false),
                         Ui.Cell::HtmlItems(
-                          breakOnMobile = true,
-                          items =
+                          breakOnMobile: true,
+                          items:
                             [
                               <Ui.Icon icon={Ui.Icons:PENCIL}/>,
                               <Ui.Icon icon={Ui.Icons:CLOUD_DOWNLOAD}/>

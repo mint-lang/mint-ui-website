@@ -21,7 +21,7 @@ component Pages.Cell {
             data={
               @format {
                 <>
-                  <Ui.Cell cell={Ui.Cell::Code(code = "<div></div>", breakSpaces = false)}/>
+                  <Ui.Cell cell={Ui.Cell::Code(code: "<div></div>", breakSpaces: false)}/>
                   <Ui.Cell cell={Ui.Cell::Html(<{ "Hello!" }>)}/>
                   <Ui.Cell cell={Ui.Cell::String("Hello!")}/>
                   <Ui.Cell cell={Ui.Cell::Number(0)}/>
@@ -29,8 +29,8 @@ component Pages.Cell {
                   <Ui.Cell
                     cell={
                       Ui.Cell::HtmlItems(
-                        breakOnMobile = true,
-                        items =
+                        breakOnMobile: true,
+                        items:
                           [
                             <Ui.Icon icon={Ui.Icons:PENCIL}/>,
                             <Ui.Icon icon={Ui.Icons:TRASHCAN}/>,
@@ -59,7 +59,7 @@ component Pages.Cell {
             data={
               @format {
                 <>
-                  <Ui.Cell cell={Ui.Cell::Code(code = "<div></div>", breakSpaces = false)}/>
+                  <Ui.Cell cell={Ui.Cell::Code(code: "<div></div>", breakSpaces: false)}/>
                   <Ui.Cell cell={Ui.Cell::Html(<{ "Hello!" }>)}/>
                   <Ui.Cell cell={Ui.Cell::String("Hello!")}/>
                   <Ui.Cell cell={Ui.Cell::Number(0)}/>

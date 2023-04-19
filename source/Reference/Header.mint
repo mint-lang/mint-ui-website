@@ -7,37 +7,35 @@ component Reference.Header {
   state size : Number = 16
 
   get playgroundCode : String {
-    try {
-      {items, code} =
-        navitems
+    let {items, code} =
+      navitems
 
-      "Ui.Header"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("icon", "Ui.Icons:#{icon}")
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addStringHtml("brand", brand)
-      |> ComponentBuilder.addNumber("breakpoint", breakpoint)
-      |> ComponentBuilder.addExpression("items", code)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.Header"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addExpression("icon", "Ui.Icons:#{icon}")
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addStringHtml("brand", brand)
+    |> ComponentBuilder.addNumber("breakpoint", breakpoint)
+    |> ComponentBuilder.addExpression("items", code)
+    |> ComponentBuilder.toString()
   }
 
   get navitems {
     @format {
       [
         Ui.NavItem::Link(
-          iconBefore = Ui.Icons:HOME,
-          iconAfter = <{  }>,
-          label = "Home",
-          target = "",
-          href = "/"),
+          iconBefore: Ui.Icons:HOME,
+          iconAfter: <{  }>,
+          label: "Home",
+          target: "",
+          href: "/"),
         Ui.NavItem::Divider,
         Ui.NavItem::Link(
-          iconBefore = Ui.Icons:BEAKER,
-          label = "Laboratory",
-          iconAfter = <{  }>,
-          target = "",
-          href = "/")
+          iconBefore: Ui.Icons:BEAKER,
+          label: "Laboratory",
+          iconAfter: <{  }>,
+          target: "",
+          href: "/")
       ]
     }
   }
@@ -71,20 +69,20 @@ component Reference.Header {
             controls=<{
               <Ui.Field label="Brand">
                 <Ui.Input
-                  onChange={(value : String) { next { brand = value } }}
+                  onChange={(value : String) { next { brand: value } }}
                   value={brand}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={200}
                   min={0}/>
@@ -92,7 +90,7 @@ component Reference.Header {
 
               <Ui.Field label="Breakpoint (#{breakpoint}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { breakpoint = value } }}
+                  onChange={(value : Number) { next { breakpoint: value } }}
                   value={breakpoint}
                   max={1000}
                   min={0}/>
@@ -100,8 +98,8 @@ component Reference.Header {
             }>
             data={
               {
-                try {
-                  {items, code} =
+                {
+                  let {items, code} =
                     navitems
 
                   <Ui.Header
@@ -158,30 +156,30 @@ component Reference.Header {
                   breakpoint={0}
                   items=[
                     Ui.NavItem::Link(
-                      iconBefore = Ui.Icons:HOME,
-                      iconAfter = <{  }>,
-                      label = "Home",
-                      target = "",
-                      href = "/"),
+                      iconBefore: Ui.Icons:HOME,
+                      iconAfter: <{  }>,
+                      label: "Home",
+                      target: "",
+                      href: "/"),
                     Ui.NavItem::Divider,
                     Ui.NavItem::Group(
-                      iconBefore = Ui.Icons:CHEVRON_DOWN,
-                      iconAfter = <{  }>,
-                      label = "Actions",
-                      items =
+                      iconBefore: Ui.Icons:CHEVRON_DOWN,
+                      iconAfter: <{  }>,
+                      label: "Actions",
+                      items:
                         [
                           Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:KEY,
-                            iconAfter = <{  }>,
-                            label = "Sign Up",
-                            target = "",
-                            href = "/"),
+                            iconBefore: Ui.Icons:KEY,
+                            iconAfter: <{  }>,
+                            label: "Sign Up",
+                            target: "",
+                            href: "/"),
                           Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:SIGN_IN,
-                            iconAfter = <{  }>,
-                            label = "Sign in",
-                            target = "",
-                            href = "/")
+                            iconBefore: Ui.Icons:SIGN_IN,
+                            iconAfter: <{  }>,
+                            label: "Sign in",
+                            target: "",
+                            href: "/")
                         ])
                   ]/>
               }
@@ -211,11 +209,11 @@ component Reference.Header {
                     brand=<{ "Brand" }>
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <{  }>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <{  }>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     ]/>
 
                   <Ui.Header
@@ -223,11 +221,11 @@ component Reference.Header {
                     brand=<{ "Brand" }>
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <{  }>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <{  }>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     ]/>
                 </>
               }
@@ -259,11 +257,11 @@ component Reference.Header {
                     brand=<{ "Brand" }>
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <{  }>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <{  }>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     ]/>
 
                   <Ui.Header
@@ -271,11 +269,11 @@ component Reference.Header {
                     brand=<{ "Brand" }>
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <{  }>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <{  }>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     ]/>
 
                   <Ui.Header
@@ -283,11 +281,11 @@ component Reference.Header {
                     brand=<{ "Brand" }>
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <{  }>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <{  }>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     ]/>
                 </>
               }

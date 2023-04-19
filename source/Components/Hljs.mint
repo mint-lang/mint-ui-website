@@ -9,12 +9,12 @@ component Hljs {
   state open : Bool = !Ui.mobile
 
   fun componentDidMount {
-    next { content = highlightedCode }
+    next { content: highlightedCode }
   }
 
   get highlightedCode {
     if (language == "plain") {
-      String.split("\n", code)
+      String.split(code, "\n")
     } else {
       `hljs.highlight(#{language}, #{code}, true).value`
       |> String.split("\n")
@@ -22,15 +22,13 @@ component Hljs {
   }
 
   fun componentDidUpdate {
-    try {
-      nextContent =
-        highlightedCode
+    let nextContent =
+      highlightedCode
 
-      if (nextContent != content) {
-        next { content = nextContent }
-      } else {
-        `null`
-      }
+    if (nextContent != content) {
+      next { content: nextContent }
+    } else {
+      `null`
     }
   }
 
@@ -208,7 +206,7 @@ component Hljs {
   fun render : Html {
     <div::base>
       <div::toolbar>
-        <button::reset onClick={() { next { open = !open } }}>
+        <button::reset onClick={() { next { open: !open } }}>
           <div::icon-label(0.25)>
             <Ui.Icon
               icon={
@@ -226,10 +224,8 @@ component Hljs {
         <button::reset
           onClick={
             () {
-              sequence {
-                Clipboard.set(code)
-                Ui.Notifications.notifyDefault(<{ "Copied source code to the clipboard!" }>)
-              }
+              await Clipboard.set(code)
+              Ui.Notifications.notifyDefault(<{ "Copied source code to the clipboard!" }>)
             }
           }>
 
@@ -245,10 +241,10 @@ component Hljs {
         <pre::pre>
           <{
             Array.mapWithIndex(
+              content,
               (line : String, index : Number) {
-                <div::line(Array.contains(index, highlight)) dangerouslySetInnerHTML={`{__html: #{line}}`}/>
-              },
-              content)
+                <div::line(Array.contains(highlight, index)) dangerouslySetInnerHTML={`{__html: #{line}}`}/>
+              })
           }>
         </pre>
       }

@@ -30,7 +30,7 @@ component Reference.Html {
             controls=<{
               <Ui.Field label="Html">
                 <Ui.Textarea
-                  onChange={(value : String) { next { content = value } }}
+                  onChange={(value : String) { next { content: value } }}
                   value={content}/>
               </Ui.Field>
             }>

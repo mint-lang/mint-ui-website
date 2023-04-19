@@ -11,16 +11,16 @@ module ComponentBuilder {
   /* Creates an empty component builder record. */
   fun new (tag : String) : ComponentBuilder {
     {
-      addNewLines = true,
-      properties = [],
-      children = [],
-      tag = tag
+      addNewLines: true,
+      properties: [],
+      children: [],
+      tag: tag
     }
   }
 
   /* Renders an array of strings as a tuple. */
   fun tuple (items : Array(String)) : String {
-    "{#{String.join(", ", items)}"
+    "{#{String.join(items, ", ")}"
   }
 
   /* Renders an array of items. */
@@ -33,28 +33,28 @@ module ComponentBuilder {
   }
 
   /* Sets the `addNewLines` field. */
-  fun setAddNewLines (value : Bool, builder : ComponentBuilder) {
-    { builder | addNewLines = value }
+  fun setAddNewLines (builder : ComponentBuilder, value : Bool) {
+    { builder | addNewLines: value }
   }
 
   /* Adds a string child node. */
-  fun addStringChild (child : String, builder : ComponentBuilder) {
-    { builder | children = Array.push("\"#{child}\"", builder.children) }
+  fun addStringChild (builder : ComponentBuilder, child : String) {
+    { builder | children: Array.push(builder.children, "\"#{child}\"") }
   }
 
   /* Adds a raw child node. */
-  fun addChild (child : String, builder : ComponentBuilder) {
-    { builder | children = Array.push(child, builder.children) }
+  fun addChild (builder : ComponentBuilder, child : String) {
+    { builder | children: Array.push(builder.children, child) }
   }
 
   /* Adds a raw attribute. */
   fun addRaw (
+    builder : ComponentBuilder,
     name : String,
-    value : String,
-    builder : ComponentBuilder
+    value : String
   ) {
     if (String.isNotBlank(value)) {
-      { builder | properties = Array.push({name, value}, builder.properties) }
+      { builder | properties: Array.push(builder.properties, {name, value}) }
     } else {
       builder
     }
@@ -62,21 +62,21 @@ module ComponentBuilder {
 
   /* Adds a string HTML attribute. */
   fun addStringHtml (
+    builder : ComponentBuilder,
     name : String,
-    value : String,
-    builder : ComponentBuilder
+    value : String
   ) {
-    { builder | properties = Array.push({name, "<{ \"#{value}\" }>"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "<{ \"#{value}\" }>"}) }
   }
 
   /* Adds a string attribute. */
   fun addString (
+    builder : ComponentBuilder,
     name : String,
-    value : String,
-    builder : ComponentBuilder
+    value : String
   ) {
     if (String.isNotBlank(value)) {
-      { builder | properties = Array.push({name, "\"#{value}\""}, builder.properties) }
+      { builder | properties: Array.push(builder.properties, {name, "\"#{value}\""}) }
     } else {
       builder
     }
@@ -84,111 +84,107 @@ module ComponentBuilder {
 
   /* Adds a boolean attribute. */
   fun addBool (
+    builder : ComponentBuilder,
     name : String,
     value : Bool,
-    builder : ComponentBuilder
   ) {
-    { builder | properties = Array.push({name, "{#{Bool.toString(value)}}"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "{#{Bool.toString(value)}}"}) }
   }
 
   /* Adds a number attribute. */
   fun addNumber (
+    builder : ComponentBuilder,
     name : String,
-    value : Number,
-    builder : ComponentBuilder
+    value : Number
   ) {
-    { builder | properties = Array.push({name, "{#{value}}"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "{#{value}}"}) }
   }
 
   /* Adds a pixel size size enum attribute. */
   fun addSizePx (
+    builder : ComponentBuilder,
     name : String,
-    value : Number,
-    builder : ComponentBuilder
+    value : Number
   ) {
-    { builder | properties = Array.push({name, "{Ui.Size::Px(#{value})}"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "{Ui.Size::Px(#{value})}"}) }
   }
 
   /* Adds a em size size enum attribute. */
   fun addSizeEm (
+    builder : ComponentBuilder,
     name : String,
-    value : Number,
-    builder : ComponentBuilder
+    value : Number
   ) {
-    { builder | properties = Array.push({name, "{Ui.Size::Em(#{value})}"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "{Ui.Size::Em(#{value})}"}) }
   }
 
   /* Adds an expression attribute. */
   fun addExpression (
+    builder : ComponentBuilder,
     name : String,
     value : String,
-    builder : ComponentBuilder
   ) {
-    { builder | properties = Array.push({name, "{#{value}}"}, builder.properties) }
+    { builder | properties: Array.push(builder.properties, {name, "{#{value}}"}) }
   }
 
   /* Adds a Ui.Icons icon attribute. */
   fun addIcon (
+    builder : ComponentBuilder,
     name : String,
     icon : String,
-    builder : ComponentBuilder
   ) {
     if (String.isBlank(icon)) {
       builder
     } else {
-      addExpression(name, "Ui.Icons:#{icon}", builder)
+      addExpression(builder, name, "Ui.Icons:#{icon}")
     }
   }
 
   /* Renders the builder as a component source. */
   fun toString (builder : ComponentBuilder) {
-    try {
-      props =
+      let props =
         if (Array.isEmpty(builder.properties)) {
           ""
         } else if (Array.size(builder.properties) == 1) {
           case (builder.properties[0]) {
-            Maybe::Just(property) =>
-              try {
-                {name, value} =
-                  property
+            Maybe::Just(property) => {
+              let {name, value} =
+                property
 
-                " #{name}=#{value}"
-              }
+              " #{name}=#{value}"
+            }
 
             => ""
           }
         } else {
           for (property of builder.properties) {
-            try {
-              {name, value} =
-                property
+            let {name, value} =
+              property
 
-              "#{name}=#{value}"
-            }
+            "#{name}=#{value}"
           }
           |> String.join("\n")
           |> String.indent(2)
           |> String.wrap("\n", "")
         }
 
-      endTag =
+      let endTag =
         if (Array.isEmpty(builder.children)) {
           ""
         } else {
           "\n</#{builder.tag}>"
         }
 
-      tagEnd =
+      let tagEnd =
         if (Array.isEmpty(builder.children)) {
           "/>"
         } else {
           ">\n"
         }
 
-      children =
+      let children =
         builder.children
-        |> Array.map(String.indent(2))
+        |> Array.map((string : String) { String.indent(string, 2) })
         |> String.join(
           if (builder.addNewLines) {
             "\n\n"
@@ -197,6 +193,5 @@ module ComponentBuilder {
           })
 
       "<#{builder.tag}#{props}#{tagEnd}#{children}#{endTag}"
-    }
   }
 }

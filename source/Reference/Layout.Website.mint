@@ -68,11 +68,11 @@ component Reference.Layout.Website {
                       }
                       items=[
                         Ui.NavItem::Link(
-                          iconBefore = Ui.Icons:HOME,
-                          iconAfter = <></>,
-                          label = "Home",
-                          target = "",
-                          href = "/")
+                          iconBefore: Ui.Icons:HOME,
+                          iconAfter: <></>,
+                          label: "Home",
+                          target: "",
+                          href: "/")
                       ]/>
                   }
                   breadcrumbs={
@@ -102,33 +102,33 @@ component Reference.Layout.Website {
                         {
                           "Site", [
                             Ui.NavItem::Link(
-                              iconBefore = Ui.Icons:HOME,
-                              iconAfter = <></>,
-                              label = "Home",
-                              target = "",
-                              href = "/"),
+                              iconBefore: Ui.Icons:HOME,
+                              iconAfter: <></>,
+                              label: "Home",
+                              target: "",
+                              href: "/"),
                             Ui.NavItem::Link(
-                              iconBefore = Ui.Icons:PUZZLE,
-                              iconAfter = <></>,
-                              href = "/components",
-                              label = "Components",
-                              target = "")
+                              iconBefore: Ui.Icons:PUZZLE,
+                              iconAfter: <></>,
+                              href: "/components",
+                              label: "Components",
+                              target: "")
                           ]
                         },
                         {
                           "Social", [
                             Ui.NavItem::Link(
-                              iconBefore = @svg(../../assets/svgs/discord-icon.svg),
-                              iconAfter = <></>,
-                              href = "https://discord.gg/NXFUJs2",
-                              target = "_blank",
-                              label = "Discord"),
+                              iconBefore: @svg(../../assets/svgs/discord-icon.svg),
+                              iconAfter: <></>,
+                              href: "https://discord.gg/NXFUJs2",
+                              target: "_blank",
+                              label: "Discord"),
                             Ui.NavItem::Link(
-                              iconBefore = @svg(../../assets/svgs/twitter-icon.svg),
-                              iconAfter = <></>,
-                              href = "https://twitter.com/mint_lang",
-                              target = "_blank",
-                              label = "Twitter")
+                              iconBefore: @svg(../../assets/svgs/twitter-icon.svg),
+                              iconAfter: <></>,
+                              href: "https://twitter.com/mint_lang",
+                              target: "_blank",
+                              label: "Twitter")
                           ]
                         }
                       ]/>

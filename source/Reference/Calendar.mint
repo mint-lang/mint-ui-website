@@ -8,23 +8,21 @@ component Reference.Calendar {
   state embedded : Bool = false
 
   get playgroundCode {
-    try {
-      monthValue =
-        "Time.from(#{`#{month}.getFullYear()`}, #{`#{month}.getMonth() + 1`}, #{`#{month}.getDate()`})"
+    let monthValue =
+      "Time.from(#{`#{month}.getFullYear()`}, #{`#{month}.getMonth() + 1`}, #{`#{month}.getDate()`})"
 
-      dayValue =
-        "Time.from(#{`#{day}.getFullYear()`}, #{`#{day}.getMonth() + 1`}, #{`#{day}.getDate()`})"
+    let dayValue =
+      "Time.from(#{`#{day}.getFullYear()`}, #{`#{day}.getMonth() + 1`}, #{`#{day}.getDate()`})"
 
-      "Ui.Calendar"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("month", monthValue)
-      |> ComponentBuilder.addExpression("day", dayValue)
-      |> ComponentBuilder.addBool("changeMonthOnSelect", changeMonthOnSelect)
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addBool("disabled", disabled)
-      |> ComponentBuilder.addBool("embedded", embedded)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.Calendar"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addExpression("month", monthValue)
+    |> ComponentBuilder.addExpression("day", dayValue)
+    |> ComponentBuilder.addBool("changeMonthOnSelect", changeMonthOnSelect)
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addBool("disabled", disabled)
+    |> ComponentBuilder.addBool("embedded", embedded)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -49,19 +47,19 @@ component Reference.Calendar {
             controls=<{
               <Ui.Field label="Day">
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { day = value } }}
+                  onChange={(value : Time) { next { day: value } }}
                   value={day}/>
               </Ui.Field>
 
               <Ui.Field label="Month">
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { month = value } }}
+                  onChange={(value : Time) { next { month: value } }}
                   value={month}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -72,7 +70,7 @@ component Reference.Calendar {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -82,7 +80,7 @@ component Reference.Calendar {
                 label="Change Month on Select">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { changeMonthOnSelect = value } }}
+                  onChange={(value : Bool) { next { changeMonthOnSelect: value } }}
                   checked={changeMonthOnSelect}/>
 
               </Ui.Field>
@@ -92,7 +90,7 @@ component Reference.Calendar {
                 label="Embeeded">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { embedded = value } }}
+                  onChange={(value : Bool) { next { embedded: value } }}
                   checked={embedded}/>
 
               </Ui.Field>
@@ -100,8 +98,8 @@ component Reference.Calendar {
             data={
               {
                 <Ui.Calendar
-                  onMonthChange={(month : Time) { next { month = month } }}
-                  onChange={(day : Time) { next { day = day } }}
+                  onMonthChange={(month : Time) { next { month: month } }}
+                  onChange={(day : Time) { next { day: day } }}
                   changeMonthOnSelect={changeMonthOnSelect}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}
@@ -138,7 +136,7 @@ component Reference.Calendar {
                   <Ui.Calendar
                     onMonthChange={
                       (month : Time) {
-                        Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", month) }>)
+                        Ui.Notifications.notifyDefault(<{ Time.format(month, Time.Format:ENGLISH, "%Y-%m-%d") }>)
                       }
                     }
                     changeMonthOnSelect={false}/>
@@ -146,7 +144,7 @@ component Reference.Calendar {
                   <Ui.Calendar
                     onMonthChange={
                       (month : Time) {
-                        Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", month) }>)
+                        Ui.Notifications.notifyDefault(<{ Time.format(month, Time.Format:ENGLISH, "%Y-%m-%d") }>)
                       }
                     }
                     changeMonthOnSelect={true}/>
@@ -199,7 +197,7 @@ component Reference.Calendar {
                 <Ui.Calendar
                   onChange={
                     (day : Time) {
-                      Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", day) }>)
+                      Ui.Notifications.notifyDefault(<{ Time.format(day, Time.Format:ENGLISH, "%Y-%m-%d") }>)
                     }
                   }/>
               }
@@ -225,7 +223,7 @@ component Reference.Calendar {
                 <Ui.Calendar
                   onMonthChange={
                     (day : Time) {
-                      Ui.Notifications.notifyDefault(<{ Time.format(Time.Format:ENGLISH, "%Y-%m-%d", day) }>)
+                      Ui.Notifications.notifyDefault(<{ Time.format(day, Time.Format:ENGLISH, "%Y-%m-%d") }>)
                     }
                   }/>
               }

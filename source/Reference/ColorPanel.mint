@@ -4,19 +4,17 @@ component Reference.ColorPanel {
   state size : Number = 16
 
   get playgroundCode : String {
-    try {
-      color =
-        value
-        |> Color.toCSSHex()
-        |> String.lchop("#")
+    let color =
+      value
+      |> Color.toCSSHex()
+      |> String.chopStart("#")
 
-      "Ui.ColorPanel"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("value", "Color::HEX(\"#{color}\")")
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addBool("embedded", embedded)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.ColorPanel"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addExpression("value", "Color::HEX(\"#{color}\")")
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addBool("embedded", embedded)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -46,7 +44,7 @@ component Reference.ColorPanel {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={50}
                   min={0}/>
@@ -54,7 +52,7 @@ component Reference.ColorPanel {
 
               <Ui.Field label="Value">
                 <Ui.ColorPicker
-                  onChange={(value : Color) { next { value = value } }}
+                  onChange={(value : Color) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
@@ -63,7 +61,7 @@ component Reference.ColorPanel {
                 label="Embeeded">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { embedded = value } }}
+                  onChange={(value : Bool) { next { embedded: value } }}
                   checked={embedded}/>
 
               </Ui.Field>
@@ -71,7 +69,7 @@ component Reference.ColorPanel {
             data={
               {
                 <Ui.ColorPanel
-                  onChange={(value : Color) { next { value = value } }}
+                  onChange={(value : Color) { next { value: value } }}
                   size={Ui.Size::Px(size)}
                   embedded={embedded}
                   value={value}/>,
@@ -183,18 +181,15 @@ component Reference.ColorPanel {
                 <Ui.ColorPanel
                   onChange={
                     Function.debounce1(
-                      200,
                       (color : Color) {
-                        try {
-                          colorString =
-                            Color.toCSSHex(color)
+                        let colorString =
+                          Color.toCSSHex(color)
 
-                          content =
-                            <{ "Color changed to: #{colorString}" }>
+                        let content =
+                          <{ "Color changed to: #{colorString}" }>
 
-                          Ui.Notifications.notifyDefault(content)
-                        }
-                      })
+                        Ui.Notifications.notifyDefault(content)
+                      }, 200)
                   }/>
               }
             }/>

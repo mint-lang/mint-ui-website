@@ -20,28 +20,26 @@ component Reference.Picker {
     }
 
   get playgroundCode : String {
-    try {
-      maybeLabel =
-        if (String.isBlank(label)) {
-          "Maybe::Nothing"
-        } else {
-          "Maybe::Just(<{ \"#{label}\" }>)"
-        }
+    let maybeLabel =
+      if (String.isBlank(label)) {
+        "Maybe::Nothing"
+      } else {
+        "Maybe::Just(<{ \"#{label}\" }>)"
+      }
 
-      "Ui.Picker"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addString("placeholder", placeholder)
-      |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
-      |> ComponentBuilder.addIcon("icon", icon)
-      |> ComponentBuilder.addExpression("label", maybeLabel)
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addRaw("panel", PANEL[1])
-      |> ComponentBuilder.addBool("matchWidth", matchWidth)
-      |> ComponentBuilder.addBool("disabled", disabled)
-      |> ComponentBuilder.addBool("invalid", invalid)
-      |> ComponentBuilder.addNumber("offset", offset)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.Picker"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addString("placeholder", placeholder)
+    |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
+    |> ComponentBuilder.addIcon("icon", icon)
+    |> ComponentBuilder.addExpression("label", maybeLabel)
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addRaw("panel", PANEL[1])
+    |> ComponentBuilder.addBool("matchWidth", matchWidth)
+    |> ComponentBuilder.addBool("disabled", disabled)
+    |> ComponentBuilder.addBool("invalid", invalid)
+    |> ComponentBuilder.addNumber("offset", offset)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -94,33 +92,33 @@ component Reference.Picker {
             controls=<{
               <Ui.Field label="Placeholder">
                 <Ui.Input
-                  onChange={(value : String) { next { placeholder = value } }}
+                  onChange={(value : String) { next { placeholder: value } }}
                   value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Label">
                 <Ui.Input
-                  onChange={(value : String) { next { label = value } }}
+                  onChange={(value : String) { next { label: value } }}
                   value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { position = value } }}
+                  onChange={(value : String) { next { position: value } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -128,7 +126,7 @@ component Reference.Picker {
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -139,7 +137,7 @@ component Reference.Picker {
                 label="Match Width">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { matchWidth = value } }}
+                  onChange={(value : Bool) { next { matchWidth: value } }}
                   checked={matchWidth}/>
 
               </Ui.Field>
@@ -149,7 +147,7 @@ component Reference.Picker {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -159,7 +157,7 @@ component Reference.Picker {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>

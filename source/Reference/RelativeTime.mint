@@ -2,15 +2,13 @@ component Reference.RelativeTime {
   state date : Time = Time.atBeginningOfDay(Time.now())
 
   get playgroundCode : String {
-    try {
-      dateValue =
-        "Time.from(#{`#{date}.getFullYear()`}, #{`#{date}.getMonth() + 1`}, #{`#{date}.getDate()`})"
+    let value =
+      "Time.from(#{`#{date}.getFullYear()`}, #{`#{date}.getMonth() + 1`}, #{`#{date}.getDate()`})"
 
-      "Ui.RelativeTime"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("date", dateValue)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.RelativeTime"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addExpression("date", value)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -35,7 +33,7 @@ component Reference.RelativeTime {
             controls=<{
               <Ui.Field label="Date">
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { date = value } }}
+                  onChange={(value : Time) { next { date: value } }}
                   value={date}/>
               </Ui.Field>
             }>

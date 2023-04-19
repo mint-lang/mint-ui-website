@@ -42,13 +42,13 @@ component Reference.Native.Select {
             controls=<{
               <Ui.Field label="Placeholder">
                 <Ui.Input
-                  onChange={(value : String) { next { placeholder = value } }}
+                  onChange={(value : String) { next { placeholder: value } }}
                   value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Value">
                 <Ui.Input
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
@@ -57,7 +57,7 @@ component Reference.Native.Select {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -67,14 +67,14 @@ component Reference.Native.Select {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -84,7 +84,7 @@ component Reference.Native.Select {
               {
                 <>
                   <Ui.Native.Select
-                    onChange={(value : String) { next { value = value } }}
+                    onChange={(value : String) { next { value: value } }}
                     placeholder={placeholder}
                     size={Ui.Size::Px(size)}
                     disabled={disabled}
@@ -126,17 +126,17 @@ component Reference.Native.Select {
                   value="item_1"
                   items=[
                     Ui.ListItem::Item(
-                      content = <{ "Item 1" }>,
-                      matchString = "Item 1",
-                      key = "item_1"),
+                      content: <{ "Item 1" }>,
+                      matchString: "Item 1",
+                      key: "item_1"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 2" }>,
-                      matchString = "Item 2",
-                      key = "item_2"),
+                      content: <{ "Item 2" }>,
+                      matchString: "Item 2",
+                      key: "item_2"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 3" }>,
-                      matchString = "Item 3",
-                      key = "item_3")
+                      content: <{ "Item 3" }>,
+                      matchString: "Item 3",
+                      key: "item_3")
                   ]/>
               }
             }/>
@@ -187,9 +187,9 @@ component Reference.Native.Select {
                     value="item_1"
                     items=[
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "Item 1",
-                        key = "item_1")
+                        content: <{ "Item 1" }>,
+                        matchString: "Item 1",
+                        key: "item_1")
                     ]/>
 
                   <Ui.Native.Select
@@ -197,9 +197,9 @@ component Reference.Native.Select {
                     value="item_1"
                     items=[
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "Item 1",
-                        key = "item_1")
+                        content: <{ "Item 1" }>,
+                        matchString: "Item 1",
+                        key: "item_1")
                     ]/>
 
                   <Ui.Native.Select
@@ -207,9 +207,9 @@ component Reference.Native.Select {
                     value="item_1"
                     items=[
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "Item 1",
-                        key = "item_1")
+                        content: <{ "Item 1" }>,
+                        matchString: "Item 1",
+                        key: "item_1")
                     ]/>
                 </>
               }

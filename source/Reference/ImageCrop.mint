@@ -5,34 +5,36 @@ component Reference.ImageCrop {
 
   state value : Ui.ImageCrop.Value =
     {
-      source = @asset(../../assets/images/white-beach.jpg),
-      height = 0.5,
-      width = 0.5,
-      y = 0.25,
-      x = 0.25
+      source: @asset(../../assets/images/white-beach.jpg),
+      height: 0.5,
+      width: 0.5,
+      y: 0.25,
+      x: 0.25
     }
+
+  style base {
+    display: grid;
+    height: 300px;
+  }
 
   get playgroundCode : String {
-    try {
-      stringValue =
-        [
-          "{",
-          "  source = @asset(../../assets/images/white-beach.jpg),",
-          "  height = #{toFixed(value.height)},",
-          "  width = #{toFixed(value.width)},",
-          "  y = #{toFixed(value.y)},",
-          "  x = #{toFixed(value.x)}",
-          "}"
-        ]
-        |> String.join("\n")
+    let stringValue =
+      <<~MINT
+      {
+        source = @asset(../../assets/images/white-beach.jpg),
+        height = #{toFixed(value.height)},
+        width = #{toFixed(value.width)},
+        y = #{toFixed(value.y)},
+        x = #{toFixed(value.x)}
+      }
+      MINT
 
-      "Ui.ImageCrop"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addBool("embedded", embedded)
-      |> ComponentBuilder.addExpression("value", stringValue)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.ImageCrop"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addBool("embedded", embedded)
+    |> ComponentBuilder.addExpression("value", stringValue)
+    |> ComponentBuilder.toString()
   }
 
   fun toFixed (number : Number) : String {
@@ -58,10 +60,11 @@ component Reference.ImageCrop {
         }
         example={
           <Example
+            fullWidth={true}
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -72,18 +75,20 @@ component Reference.ImageCrop {
                 label="Embeeded">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { embedded = value } }}
+                  onChange={(value : Bool) { next { embedded: value } }}
                   checked={embedded}/>
 
               </Ui.Field>
             }>
             data={
               {
-                <Ui.ImageCrop
-                  onChange={(value : Ui.ImageCrop.Value) { next { value = value } }}
-                  size={Ui.Size::Px(size)}
-                  embedded={embedded}
-                  value={value}/>,
+                <div::base>
+                  <Ui.ImageCrop
+                    onChange={(value : Ui.ImageCrop.Value) { next { value: value } }}
+                    size={Ui.Size::Px(size)}
+                    embedded={embedded}
+                    value={value}/>
+                </div>,
                 playgroundCode
               }
             }/>
@@ -111,11 +116,11 @@ component Reference.ImageCrop {
                     size={Ui.Size::Px(12)}
                     value={
                       {
-                        source = @asset(../../assets/images/white-beach.jpg),
-                        height = 0.5,
-                        width = 0.5,
-                        y = 0.25,
-                        x = 0.25
+                        source: @asset(../../assets/images/white-beach.jpg),
+                        height: 0.5,
+                        width: 0.5,
+                        y: 0.25,
+                        x: 0.25
                       }
                     }/>
 
@@ -123,11 +128,11 @@ component Reference.ImageCrop {
                     size={Ui.Size::Px(16)}
                     value={
                       {
-                        source = @asset(../../assets/images/white-beach.jpg),
-                        height = 0.5,
-                        width = 0.5,
-                        y = 0.25,
-                        x = 0.25
+                        source: @asset(../../assets/images/white-beach.jpg),
+                        height: 0.5,
+                        width: 0.5,
+                        y: 0.25,
+                        x: 0.25
                       }
                     }/>
 
@@ -135,11 +140,11 @@ component Reference.ImageCrop {
                     size={Ui.Size::Px(20)}
                     value={
                       {
-                        source = @asset(../../assets/images/white-beach.jpg),
-                        height = 0.5,
-                        width = 0.5,
-                        y = 0.25,
-                        x = 0.25
+                        source: @asset(../../assets/images/white-beach.jpg),
+                        height: 0.5,
+                        width: 0.5,
+                        y: 0.25,
+                        x: 0.25
                       }
                     }/>
                 </>
@@ -171,11 +176,11 @@ component Reference.ImageCrop {
                   embedded={true}
                   value={
                     {
-                      source = @asset(../../assets/images/white-beach.jpg),
-                      height = 0.5,
-                      width = 0.5,
-                      y = 0.25,
-                      x = 0.25
+                      source: @asset(../../assets/images/white-beach.jpg),
+                      height: 0.5,
+                      width: 0.5,
+                      y: 0.25,
+                      x: 0.25
                     }
                   }/>
               }

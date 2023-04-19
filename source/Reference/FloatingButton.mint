@@ -36,14 +36,14 @@ component Reference.FloatingButton {
             controls=<{
               <Ui.Field label="Type">
                 <Ui.Native.Select
-                  onChange={(type : String) { next { type = type } }}
+                  onChange={(type : String) { next { type: type } }}
                   items={TYPES}
                   value={type}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={200}
                   min={0}/>
@@ -51,7 +51,7 @@ component Reference.FloatingButton {
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>

@@ -45,7 +45,7 @@ component Reference.InteractiveList.Item {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -56,7 +56,7 @@ component Reference.InteractiveList.Item {
                 label="Intended">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { intended = value } }}
+                  onChange={(value : Bool) { next { intended: value } }}
                   checked={intended}/>
 
               </Ui.Field>
@@ -66,7 +66,7 @@ component Reference.InteractiveList.Item {
                 label="Selected">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { selected = value } }}
+                  onChange={(value : Bool) { next { selected: value } }}
                   checked={selected}/>
 
               </Ui.Field>

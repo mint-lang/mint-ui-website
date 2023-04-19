@@ -42,33 +42,31 @@ component Example {
   }
 
   fun render {
-    try {
-      highlightFunction =
-        (code : String) {
-          <Hljs
-            highlight={highlight}
-            code={code}/>
-        }
+    let highlightFunction =
+      (code : String) {
+        <Hljs
+          highlight={highlight}
+          code={code}/>
+      }
 
-      warning =
-        if (controlled) {
-          <div::warning>
-            <Ui.Icon icon={Ui.Icons:ALERT}/>
-          </div>
-        } else {
-          <></>
-        }
+    let warning =
+      if (controlled) {
+        <div::warning>
+          <Ui.Icon icon={Ui.Icons:ALERT}/>
+        </div>
+      } else {
+        <></>
+      }
 
-      <Ui.Example
-        horizontalSpacing={horizontalSpacing}
-        verticalSpacing={verticalSpacing}
-        highlight={highlightFunction}
-        breakpoint={breakpoint}
-        fullWidth={fullWidth}
-        controls={controls}
-        warning={warning}
-        data={data}
-        size={size}/>
-    }
+    <Ui.Example
+      horizontalSpacing={horizontalSpacing}
+      verticalSpacing={verticalSpacing}
+      highlight={highlightFunction}
+      breakpoint={breakpoint}
+      fullWidth={fullWidth}
+      controls={controls}
+      warning={warning}
+      data={data}
+      size={size}/>
   }
 }

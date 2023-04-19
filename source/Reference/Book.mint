@@ -51,26 +51,26 @@ component Reference.Book {
             controls=<{
               <Ui.Field label="Source">
                 <Ui.Select
-                  onChange={(value : String) { next { src = value } }}
+                  onChange={(value : String) { next { src: value } }}
                   items={IMAGE_ITEMS}
                   value={src}/>
               </Ui.Field>
 
               <Ui.Field label="Alt">
                 <Ui.Input
-                  onChange={(value : String) { next { alt = value } }}
+                  onChange={(value : String) { next { alt: value } }}
                   value={alt}/>
               </Ui.Field>
 
               <Ui.Field label="Href">
                 <Ui.Input
-                  onChange={(value : String) { next { href = value } }}
+                  onChange={(value : String) { next { href: value } }}
                   value={href}/>
               </Ui.Field>
 
               <Ui.Field label="Height (#{height}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { height = value } }}
+                  onChange={(value : Number) { next { height: value } }}
                   value={height}
                   max={360}
                   min={0}/>
@@ -78,7 +78,7 @@ component Reference.Book {
 
               <Ui.Field label="Width (#{width}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width = value } }}
+                  onChange={(value : Number) { next { width: value } }}
                   value={width}
                   max={360}
                   min={0}/>
@@ -86,7 +86,7 @@ component Reference.Book {
 
               <Ui.Field label="Perspective (#{perspective}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { perspective = value } }}
+                  onChange={(value : Number) { next { perspective: value } }}
                   value={perspective}
                   max={2000}
                   min={0}/>
@@ -94,7 +94,7 @@ component Reference.Book {
 
               <Ui.Field label="Thickness (#{thickness}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { thickness = value } }}
+                  onChange={(value : Number) { next { thickness: value } }}
                   value={thickness}
                   max={100}
                   min={0}/>
@@ -102,7 +102,7 @@ component Reference.Book {
 
               <Ui.Field label="Border Radius (#{borderRadius}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { borderRadius = value } }}
+                  onChange={(value : Number) { next { borderRadius: value } }}
                   value={borderRadius}
                   max={30}
                   min={0}/>
@@ -110,7 +110,7 @@ component Reference.Book {
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={50}
                   min={0}/>
@@ -118,7 +118,7 @@ component Reference.Book {
 
               <Ui.Field label="Rotation (#{rotation}deg)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { rotation = value } }}
+                  onChange={(value : Number) { next { rotation: value } }}
                   value={rotation}
                   max={360}
                   min={0}/>
@@ -127,7 +127,7 @@ component Reference.Book {
             data={
               {
                 <Ui.Book
-                  src={Map.get(src, IMAGES) or ""}
+                  src={Map.get(IMAGES, src) or ""}
                   borderRadius={borderRadius}
                   perspective={perspective}
                   thickness={thickness}

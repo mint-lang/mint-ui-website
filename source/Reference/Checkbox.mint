@@ -34,7 +34,7 @@ component Reference.Checkbox {
             data={
               {
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked = value } }}
+                  onChange={(value : Bool) { next { checked: value } }}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}
                   checked={checked}/>,
@@ -44,7 +44,7 @@ component Reference.Checkbox {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -55,7 +55,7 @@ component Reference.Checkbox {
                 label="Checked">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked = value } }}
+                  onChange={(value : Bool) { next { checked: value } }}
                   checked={checked}/>
 
               </Ui.Field>
@@ -65,7 +65,7 @@ component Reference.Checkbox {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>

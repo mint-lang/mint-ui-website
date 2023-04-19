@@ -20,31 +20,29 @@ component Examples.Checkout {
   }
 
   fun submit (event : Html.Event) {
-    sequence {
-      errors =
-        Validation.merge(
-          [
-            Validation.isNotBlank(firstName, {"firstName", "Please enter the first name."}),
-            Validation.isNotBlank(message, {"message", "Please enter the message."}),
-            Validation.isNotBlank(lastName, {"lastName", "Please enter the last name."}),
-            Validation.isNotBlank(phone, {"phone", "Please enter the phone number."}),
-            Validation.isNotBlank(email, {"email", "Please enter the email address."}),
-            Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
-            Validation.isNotBlank(address, {"address", "Please enter the address."}),
-            Validation.isNotBlank(city, {"city", "Please enter the city address."}),
-            Validation.isNotBlank(country, {"country", "Please select the country."}),
-            Validation.isNotBlank(zip, {"zip", "Please enter the zip code."}),
-            Validation.isNumber(zip, {"zip", "The zip code can only contain numbers."}),
-            Validation.hasExactNumberOfCharacters(zip, 5, {"zip", "The zip code needs to have 5 digits."})
-          ])
+    let errors =
+      Validation.merge(
+        [
+          Validation.isNotBlank(firstName, {"firstName", "Please enter the first name."}),
+          Validation.isNotBlank(message, {"message", "Please enter the message."}),
+          Validation.isNotBlank(lastName, {"lastName", "Please enter the last name."}),
+          Validation.isNotBlank(phone, {"phone", "Please enter the phone number."}),
+          Validation.isNotBlank(email, {"email", "Please enter the email address."}),
+          Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
+          Validation.isNotBlank(address, {"address", "Please enter the address."}),
+          Validation.isNotBlank(city, {"city", "Please enter the city address."}),
+          Validation.isNotBlank(country, {"country", "Please select the country."}),
+          Validation.isNotBlank(zip, {"zip", "Please enter the zip code."}),
+          Validation.isNumber(zip, {"zip", "The zip code can only contain numbers."}),
+          Validation.hasExactNumberOfCharacters(zip, 5, {"zip", "The zip code needs to have 5 digits."})
+        ])
 
-      next { errors = errors }
+    await next { errors: errors }
 
-      if (Map.isEmpty(errors)) {
-        Ui.Notifications.notifyDefault(<{ "Thanks for filling in the data..." }>)
-      } else {
-        next { }
-      }
+    if (Map.isEmpty(errors)) {
+      Ui.Notifications.notifyDefault(<{ "Thanks for filling in the data..." }>)
+    } else {
+      next { }
     }
   }
 
@@ -70,24 +68,24 @@ component Examples.Checkout {
           }
           items=[
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:HOME,
-              iconAfter = <></>,
-              label = "Home",
-              href = "/examples",
-              target = ""),
+              iconBefore: Ui.Icons:HOME,
+              iconAfter: <></>,
+              label: "Home",
+              href: "/examples",
+              target: ""),
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:JERSEY,
-              iconAfter = <></>,
-              label = "Products",
-              href = "/examples",
-              target = ""),
+              iconBefore: Ui.Icons:JERSEY,
+              iconAfter: <></>,
+              label: "Products",
+              href: "/examples",
+              target: ""),
             Ui.NavItem::Divider,
             Ui.NavItem::Link(
-              iconBefore = Ui.Icons:CART,
-              iconAfter = <></>,
-              label = "Cart",
-              href = "/examples",
-              target = "")
+              iconBefore: Ui.Icons:CART,
+              iconAfter: <></>,
+              label: "Cart",
+              href: "/examples",
+              target: "")
           ]/>
       }
       content={
@@ -117,84 +115,84 @@ component Examples.Checkout {
                     gap={Ui.Size::Em(1)}>
 
                     <Ui.Field
-                      error={Validation.getFirstError("firstName", errors)}
+                      error={Validation.getFirstError(errors, "firstName")}
                       label="First Name *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { firstName = value } }}
-                        invalid={Map.has("firstName", errors)}
+                        onChange={(value : String) { next { firstName: value } }}
+                        invalid={Map.has(errors, "firstName" )}
                         placeholder="John"
                         value={firstName}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("lastName", errors)}
+                      error={Validation.getFirstError(errors, "lastName")}
                       label="Last Name *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { lastName = value } }}
-                        invalid={Map.has("lastName", errors)}
+                        onChange={(value : String) { next { lastName: value } }}
+                        invalid={Map.has(errors, "lastName" )}
                         placeholder="Doe"
                         value={lastName}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("phone", errors)}
+                      error={Validation.getFirstError(errors, "phone")}
                       label="Phone * ">
 
                       <Ui.Input
-                        onChange={(value : String) { next { phone = value } }}
-                        invalid={Map.has("phone", errors)}
+                        onChange={(value : String) { next { phone: value } }}
+                        invalid={Map.has(errors, "phone")}
                         placeholder="+360123467"
                         value={phone}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("email", errors)}
+                      error={Validation.getFirstError(errors, "email")}
                       label="Email *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { email = value } }}
-                        invalid={Map.has("email", errors)}
+                        onChange={(value : String) { next { email: value } }}
+                        invalid={Map.has(errors, "email")}
                         placeholder="john@doe.com"
                         value={email}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("address", errors)}
+                      error={Validation.getFirstError(errors, "address")}
                       label="Address *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { address = value } }}
-                        invalid={Map.has("address", errors)}
+                        onChange={(value : String) { next { address: value } }}
+                        invalid={Map.has(errors, "address")}
                         placeholder="20 Paoli Pike"
                         value={address}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("city", errors)}
+                      error={Validation.getFirstError(errors, "city")}
                       label="City *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { city = value } }}
-                        invalid={Map.has("city", errors)}
+                        onChange={(value : String) { next { city: value } }}
+                        invalid={Map.has(errors, "city")}
                         placeholder="Paoli"
                         value={city}/>
 
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("country", errors)}
+                      error={Validation.getFirstError(errors, "country")}
                       label="Country *">
 
                       <Ui.Select
-                        onChange={(value : String) { next { country = value } }}
-                        invalid={Map.has("country", errors)}
+                        onChange={(value : String) { next { country: value } }}
+                        invalid={Map.has(errors, "country")}
                         position={Ui.Position::BottomLeft}
                         placeholder="United States"
                         items={COUNTRIES}
@@ -203,12 +201,12 @@ component Examples.Checkout {
                     </Ui.Field>
 
                     <Ui.Field
-                      error={Validation.getFirstError("zip", errors)}
+                      error={Validation.getFirstError(errors, "zip")}
                       label="Zip Code *">
 
                       <Ui.Input
-                        onChange={(value : String) { next { zip = value } }}
-                        invalid={Map.has("zip", errors)}
+                        onChange={(value : String) { next { zip: value } }}
+                        invalid={Map.has(errors, "zip")}
                         placeholder="19301"
                         value={zip}/>
 
@@ -217,12 +215,12 @@ component Examples.Checkout {
                   </Ui.Grid>
 
                   <Ui.Field
-                    error={Validation.getFirstError("message", errors)}
+                    error={Validation.getFirstError(errors, "message")}
                     label="Message">
 
                     <Ui.Textarea
-                      onChange={(value : String) { next { message = value } }}
-                      invalid={Map.has("message", errors)}
+                      onChange={(value : String) { next { message: value } }}
+                      invalid={Map.has(errors, "message")}
                       behavior="resize-vertical"
                       value={message}/>
 

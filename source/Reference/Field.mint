@@ -6,21 +6,19 @@ component Reference.Field {
   state label : String = "Label"
 
   get playgroundCode : String {
-    try {
-      input =
-        "Ui.Input"
-        |> ComponentBuilder.new()
-        |> ComponentBuilder.addString("placeholder", "Content...")
-        |> ComponentBuilder.toString()
-
-      "Ui.Field"
+    let input =
+      "Ui.Input"
       |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("error", "Maybe::Just(\"#{error}\")")
-      |> ComponentBuilder.addExpression("orientation", "Ui.Field::#{orientation}")
-      |> ComponentBuilder.addString("label", label)
-      |> ComponentBuilder.addChild(input)
+      |> ComponentBuilder.addString("placeholder", "Content...")
       |> ComponentBuilder.toString()
-    }
+
+    "Ui.Field"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addExpression("error", "Maybe::Just(\"#{error}\")")
+    |> ComponentBuilder.addExpression("orientation", "Ui.Field::#{orientation}")
+    |> ComponentBuilder.addString("label", label)
+    |> ComponentBuilder.addChild(input)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -58,20 +56,20 @@ component Reference.Field {
             controls=<{
               <Ui.Field label="Orientation">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { orientation = value } }}
+                  onChange={(value : String) { next { orientation: value } }}
                   items={ORIENTATION_ITEMS}
                   value={orientation}/>
               </Ui.Field>
 
               <Ui.Field label="label">
                 <Ui.Input
-                  onChange={(value : String) { next { label = value } }}
+                  onChange={(value : String) { next { label: value } }}
                   value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Error">
                 <Ui.Input
-                  onChange={(value : String) { next { error = value } }}
+                  onChange={(value : String) { next { error: value } }}
                   value={error}/>
               </Ui.Field>
             }>/>

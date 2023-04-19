@@ -5,27 +5,23 @@ component Examples.Register {
   state email : String = ""
 
   fun submit (event : Html.Event) {
-    sequence {
-      errors =
-        Validation.merge(
-          [
-            Validation.isNotBlank(email, {"email", "Please enter the email address."}),
-            Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
-            Validation.isNotBlank(password, {"password", "Please enter the password."}),
-            Validation.isNotBlank(confirmation, {"password-confirmation", "Please enter the password for confirmation."}),
-            Validation.isSame(password, confirmation, {"password-confirmation", "The password confirmation must match the password."})
-          ])
+    let errors =
+      Validation.merge(
+        [
+          Validation.isNotBlank(email, {"email", "Please enter the email address."}),
+          Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
+          Validation.isNotBlank(password, {"password", "Please enter the password."}),
+          Validation.isNotBlank(confirmation, {"password-confirmation", "Please enter the password for confirmation."}),
+          Validation.isSame(password, confirmation, {"password-confirmation", "The password confirmation must match the password."})
+        ])
 
-      next { errors = errors }
+    await next { errors: errors }
 
-      if (Map.isEmpty(errors)) {
-        parallel {
-          Ui.Notifications.notifyDefault(<{ "You are now registered and logged in 👋" }>)
-          Window.navigate("/examples/dashboard")
-        }
-      } else {
-        next { }
-      }
+    if (Map.isEmpty(errors)) {
+      Ui.Notifications.notifyDefault(<{ "You are now registered and logged in 👋" }>)
+      Window.navigate("/examples/dashboard")
+    } else {
+      next { }
     }
   }
 
@@ -40,12 +36,12 @@ component Examples.Register {
         <Ui.Box title=<{ "Register" }>>
           <Ui.Column gap={Ui.Size::Em(1)}>
             <Ui.Field
-              error={Validation.getFirstError("email", errors)}
+              error={Validation.getFirstError(errors, "email")}
               label="Email *">
 
               <Ui.Input
-                onChange={(value : String) { next { email = value } }}
-                invalid={Map.has("email", errors)}
+                onChange={(value : String) { next { email: value } }}
+                invalid={Map.has(errors, "email")}
                 placeholder="john@doe.com"
                 value={email}
                 type="email"/>
@@ -53,12 +49,12 @@ component Examples.Register {
             </Ui.Field>
 
             <Ui.Field
-              error={Validation.getFirstError("password", errors)}
+              error={Validation.getFirstError(errors, "password")}
               label="Password *">
 
               <Ui.Input
-                onChange={(value : String) { next { password = value } }}
-                invalid={Map.has("password", errors)}
+                onChange={(value : String) { next { password: value } }}
+                invalid={Map.has(errors, "password")}
                 placeholder="12345678"
                 value={password}
                 type="password"/>
@@ -66,12 +62,12 @@ component Examples.Register {
             </Ui.Field>
 
             <Ui.Field
-              error={Validation.getFirstError("password-confirmation", errors)}
+              error={Validation.getFirstError(errors, "password-confirmation")}
               label="Password Confirmation *">
 
               <Ui.Input
-                onChange={(value : String) { next { confirmation = value } }}
-                invalid={Map.has("password-confirmation", errors)}
+                onChange={(value : String) { next { confirmation: value } }}
+                invalid={Map.has(errors, "password-confirmation")}
                 placeholder="12345678"
                 value={confirmation}
                 type="password"/>

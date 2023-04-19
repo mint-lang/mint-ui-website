@@ -19,22 +19,22 @@ component Reference.InteractiveList {
     @format {
       [
         Ui.ListItem::Item(
-          content = <{ "Item 1" }>,
-          matchString = "item-1",
-          key = "item-1"),
+          content: <{ "Item 1" }>,
+          matchString: "item-1",
+          key: "item-1"),
         Ui.ListItem::Item(
-          content = <{ "Item 2" }>,
-          matchString = "item-2",
-          key = "item-2"),
+          content: <{ "Item 2" }>,
+          matchString: "item-2",
+          key: "item-2"),
         Ui.ListItem::Divider,
         Ui.ListItem::Item(
-          content = <{ "Item 4" }>,
-          matchString = "item-4",
-          key = "item-4"),
+          content: <{ "Item 4" }>,
+          matchString: "item-4",
+          key: "item-4"),
         Ui.ListItem::Item(
-          content = <{ "Item 3" }>,
-          matchString = "item-3",
-          key = "item-3")
+          content: <{ "Item 3" }>,
+          matchString: "item-3",
+          key: "item-3")
       ]
     }
 
@@ -64,14 +64,14 @@ component Reference.InteractiveList {
             controls=<{
               <Ui.Field label="Selected">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { selected = value } }}
+                  onChange={(value : String) { next { selected: value } }}
                   items={ITEMS[0]}
                   value={selected}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -82,7 +82,7 @@ component Reference.InteractiveList {
                 label="Intendable">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { intendable = value } }}
+                  onChange={(value : Bool) { next { intendable: value } }}
                   checked={intendable}/>
 
               </Ui.Field>
@@ -92,7 +92,7 @@ component Reference.InteractiveList {
                 label="Interactive">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { interactive = value } }}
+                  onChange={(value : Bool) { next { interactive: value } }}
                   checked={interactive}/>
 
               </Ui.Field>
@@ -100,8 +100,8 @@ component Reference.InteractiveList {
             data={
               {
                 <Ui.InteractiveList
-                  onClickSelect={(key : String) { next { selected = key } }}
-                  onSelect={(key : String) { next { selected = key } }}
+                  onClickSelect={(key : String) { next { selected: key } }}
+                  onSelect={(key : String) { next { selected: key } }}
                   selected={Set.fromArray([selected])}
                   interactive={interactive}
                   size={Ui.Size::Px(size)}
@@ -135,21 +135,20 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "item-1",
-                        key = "item-1"),
+                        content: <{ "Item 1" }>,
+                        matchString: "item-1",
+                        key: "item-1"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 2" }>,
-                        matchString = "item-2",
-                        key = "item-2"),
+                        content: <{ "Item 2" }>,
+                        matchString: "item-2",
+                        key: "item-2"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 3" }>,
-                        matchString = "item-3",
-                        key = "item-3")
+                        content: <{ "Item 3" }>,
+                        matchString: "item-3",
+                        key: "item-3")
                     ]
 
                   <>
@@ -163,7 +162,6 @@ component Reference.InteractiveList {
                       intendable={false}
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -190,21 +188,20 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "item-1",
-                        key = "item-1"),
+                        content: <{ "Item 1" }>,
+                        matchString: "item-1",
+                        key: "item-1"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 2" }>,
-                        matchString = "item-2",
-                        key = "item-2"),
+                        content: <{ "Item 2" }>,
+                        matchString: "item-2",
+                        key: "item-2"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 3" }>,
-                        matchString = "item-3",
-                        key = "item-3")
+                        content: <{ "Item 3" }>,
+                        matchString: "item-3",
+                        key: "item-3")
                     ]
 
                   <>
@@ -220,7 +217,6 @@ component Reference.InteractiveList {
                       intendable={true}
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -246,21 +242,20 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "item-1",
-                        key = "item-1"),
+                        content: <{ "Item 1" }>,
+                        matchString: "item-1",
+                        key: "item-1"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 2" }>,
-                        matchString = "item-2",
-                        key = "item-2"),
+                        content: <{ "Item 2" }>,
+                        matchString: "item-2",
+                        key: "item-2"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 3" }>,
-                        matchString = "item-3",
-                        key = "item-3")
+                        content: <{ "Item 3" }>,
+                        matchString: "item-3",
+                        key: "item-3")
                     ]
 
                   <>
@@ -274,7 +269,6 @@ component Reference.InteractiveList {
                       interactive={false}
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -297,21 +291,20 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       Ui.ListItem::Item(
-                        content = <{ "Item 1" }>,
-                        matchString = "item-1",
-                        key = "item-1"),
+                        content: <{ "Item 1" }>,
+                        matchString: "item-1",
+                        key: "item-1"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 2" }>,
-                        matchString = "item-2",
-                        key = "item-2"),
+                        content: <{ "Item 2" }>,
+                        matchString: "item-2",
+                        key: "item-2"),
                       Ui.ListItem::Item(
-                        content = <{ "Item 3" }>,
-                        matchString = "item-3",
-                        key = "item-3")
+                        content: <{ "Item 3" }>,
+                        matchString: "item-3",
+                        key: "item-3")
                     ]
 
                   <>
@@ -333,7 +326,6 @@ component Reference.InteractiveList {
                       interactive={false}
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -364,17 +356,17 @@ component Reference.InteractiveList {
                   }
                   items=[
                     Ui.ListItem::Item(
-                      content = <{ "Item 1" }>,
-                      matchString = "item-1",
-                      key = "item-1"),
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 2" }>,
-                      matchString = "item-2",
-                      key = "item-2"),
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 3" }>,
-                      matchString = "item-3",
-                      key = "item-3")
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
                   ]/>
               }
             }/>
@@ -406,17 +398,17 @@ component Reference.InteractiveList {
                   }
                   items=[
                     Ui.ListItem::Item(
-                      content = <{ "Item 1" }>,
-                      matchString = "item-1",
-                      key = "item-1"),
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 2" }>,
-                      matchString = "item-2",
-                      key = "item-2"),
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
                     Ui.ListItem::Item(
-                      content = <{ "Item 3" }>,
-                      matchString = "item-3",
-                      key = "item-3")
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
                   ]/>
               }
             }/>

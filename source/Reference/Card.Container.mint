@@ -7,15 +7,13 @@ component Reference.Card.Container {
   state title : String = "Title"
 
   get playgroundCode : String {
-    try {
-      "Ui.Card.Container"
-      |> ComponentBuilder.new()
-      |> ComponentBuilder.addStringHtml("content", content)
-      |> ComponentBuilder.addStringHtml("subtitle", subtitle)
-      |> ComponentBuilder.addString("thumbnail", thumbnail)
-      |> ComponentBuilder.addStringHtml("title", title)
-      |> ComponentBuilder.toString()
-    }
+    "Ui.Card.Container"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addStringHtml("content", content)
+    |> ComponentBuilder.addStringHtml("subtitle", subtitle)
+    |> ComponentBuilder.addString("thumbnail", thumbnail)
+    |> ComponentBuilder.addStringHtml("title", title)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -40,33 +38,33 @@ component Reference.Card.Container {
             controls=<{
               <Ui.Field label="Thumbnail">
                 <Ui.Select
-                  onChange={(value : String) { next { thumbnail = value } }}
+                  onChange={(value : String) { next { thumbnail: value } }}
                   items={IMAGE_ITEMS}
                   value={thumbnail}/>
               </Ui.Field>
 
               <Ui.Field label="Title">
                 <Ui.Input
-                  onChange={(value : String) { next { title = value } }}
+                  onChange={(value : String) { next { title: value } }}
                   value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Subtitle">
                 <Ui.Input
-                  onChange={(value : String) { next { subtitle = value } }}
+                  onChange={(value : String) { next { subtitle: value } }}
                   value={subtitle}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
                 <Ui.Input
-                  onChange={(value : String) { next { content = value } }}
+                  onChange={(value : String) { next { content: value } }}
                   value={content}/>
               </Ui.Field>
             }>
             data={
               {
                 <Ui.Card.Container
-                  thumbnail={Map.get(thumbnail, IMAGES) or ""}
+                  thumbnail={Map.get(IMAGES, thumbnail) or ""}
                   subtitle=<{ subtitle }>
                   content=<{ content }>
                   title=<{ title }>/>,

@@ -17,22 +17,19 @@ component PropertiesTable {
   }
 
   fun render : Html {
-    try {
-      decoded =
-        decode documentation as Documentation
-
-      if (Array.isEmpty(decoded.properties)) {
-        <></>
-      } else {
-        try {
-          sorted =
+    case (decode documentation as Documentation) {
+      Result::Ok(decoded) =>
+        if (Array.isEmpty(decoded.properties)) {
+          <></>
+        } else {
+          let sorted =
             Array.sortBy(
+              decoded.properties,
               (item : Documentation.Property) {
                 item.name
-              },
-              decoded.properties)
+              })
 
-          rows =
+          let rows =
             for (prop of sorted) {
               {
                 prop.name, [
@@ -44,19 +41,22 @@ component PropertiesTable {
                     Maybe::Just(value) =>
                       Ui.Cell::Html(
                         <div::description>
-                          <Ui.Html content={value}/>
+                          <Ui.Html
+                            content={
+                              value
+                            }/>
                         </div>)
 
                     Maybe::Nothing => Ui.Cell::String("")
                   },
                   case (prop.type) {
                     Maybe::Just(value) =>
-                      Ui.Cell::Code(code = value, breakSpaces = true)
+                      Ui.Cell::Code(code: value, breakSpaces: true)
 
                     Maybe::Nothing => Ui.Cell::String("")
                   },
                   case (prop.default) {
-                    Maybe::Just(value) => Ui.Cell::Code(code = value, breakSpaces = false)
+                    Maybe::Just(value) => Ui.Cell::Code(code: value, breakSpaces: false)
                     Maybe::Nothing => Ui.Cell::String("")
                   }
                 ]
@@ -73,40 +73,43 @@ component PropertiesTable {
             <p>"These are all the properties of the component:"</p>
 
             <Ui.Table
-              breakpoint={700}
+              breakpoint={
+                700
+              }
               headers=[
                 {
-                  sortKey = "name",
-                  sortable = false,
-                  label = "Name",
-                  shrink = false
+                  sortKey: "name",
+                  sortable: false,
+                  label: "Name",
+                  shrink: false
                 },
                 {
-                  sortKey = "description",
-                  sortable = false,
-                  label = "Description",
-                  shrink = false
+                  sortKey: "description",
+                  sortable: false,
+                  label: "Description",
+                  shrink: false
                 },
                 {
-                  sortKey = "type",
-                  sortable = false,
-                  label = "Type",
-                  shrink = true
+                  sortKey: "type",
+                  sortable: false,
+                  label: "Type",
+                  shrink: true
                 },
                 {
-                  sortKey = "name",
-                  sortable = false,
-                  label = "Default Value",
-                  shrink = true
+                  sortKey: "name",
+                  sortable: false,
+                  label: "Default Value",
+                  shrink: true
                 }
               ]
-              rows={rows}/>
+              rows={
+                rows
+              }/>
 
           </Ui.Box>
         }
-      }
-    } catch {
-      <></>
+
+      => <></>
     }
   }
 }

@@ -45,28 +45,28 @@ component Reference.Card.Image {
             controls=<{
               <Ui.Field label="Src">
                 <Ui.Select
-                  onChange={(value : String) { next { src = value } }}
+                  onChange={(value : String) { next { src: value } }}
                   items={IMAGE_ITEMS}
                   value={src}/>
               </Ui.Field>
 
               <Ui.Field label="Object Fit">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectFit = value } }}
+                  onChange={(value : String) { next { objectFit: value } }}
                   items={OBJECT_FIT_ITEMS}
                   value={objectFit}/>
               </Ui.Field>
 
               <Ui.Field label="Object Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectPosition = value } }}
+                  onChange={(value : String) { next { objectPosition: value } }}
                   items={OBJECT_POSITION_ITEMS}
                   value={objectPosition}/>
               </Ui.Field>
 
               <Ui.Field label="Height (#{height}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { height = value } }}
+                  onChange={(value : Number) { next { height: value } }}
                   value={height}
                   max={300}
                   min={0}/>
@@ -75,7 +75,7 @@ component Reference.Card.Image {
             data={
               {
                 <Ui.Card.Image
-                  src={Map.get(src, IMAGES) or ""}
+                  src={Map.get(IMAGES, src) or ""}
                   objectPosition={objectPosition}
                   height={Ui.Size::Px(height)}
                   objectFit={objectFit}/>,

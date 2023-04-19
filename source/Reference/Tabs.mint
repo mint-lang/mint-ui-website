@@ -7,25 +7,25 @@ component Reference.Tabs {
     @format {
       [
         {
-          iconBefore = Ui.Icons:ALERT,
-          iconAfter = <></>,
-          content = <{ "First Content" }>,
-          label = "First Tab",
-          key = "first_tab"
+          iconBefore: Ui.Icons:ALERT,
+          iconAfter: <></>,
+          content: <{ "First Content" }>,
+          label: "First Tab",
+          key: "first_tab"
         },
         {
-          iconBefore = Ui.Icons:ARCHIVE,
-          iconAfter = <></>,
-          content = <{ "Second Content" }>,
-          label = "Second Tab",
-          key = "second_tab"
+          iconBefore: Ui.Icons:ARCHIVE,
+          iconAfter: <></>,
+          content: <{ "Second Content" }>,
+          label: "Second Tab",
+          key: "second_tab"
         },
         {
-          iconBefore = Ui.Icons:BEAKER,
-          iconAfter = <></>,
-          content = <{ "Third Content" }>,
-          label = "Third Tab",
-          key = "third_tab"
+          iconBefore: Ui.Icons:BEAKER,
+          iconAfter: <></>,
+          content: <{ "Third Content" }>,
+          label: "Third Tab",
+          key: "third_tab"
         }
       ]
     }
@@ -33,9 +33,9 @@ component Reference.Tabs {
   const ITEMS =
     for (tab of TABS[0]) {
       Ui.ListItem::Item(
-        matchString = String.toLowerCase(tab.label),
-        content = <{ tab.label }>,
-        key = tab.key)
+        matchString: String.toLowerCase(tab.label),
+        content: <{ tab.label }>,
+        key: tab.key)
     }
 
   get playgroundCode : String {
@@ -71,14 +71,14 @@ component Reference.Tabs {
             controls=<{
               <Ui.Field label="Active">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { active = value } }}
+                  onChange={(value : String) { next { active: value } }}
                   items={ITEMS}
                   value={active}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) : Promise(Never, Void) { next { size = value } }}
+                  onChange={(value : Number) : Promise(Void) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -86,7 +86,7 @@ component Reference.Tabs {
 
               <Ui.Field label="Breakpoint (#{breakpoint}px)">
                 <Ui.Slider
-                  onChange={(value : Number) : Promise(Never, Void) { next { breakpoint = value } }}
+                  onChange={(value : Number) : Promise(Void) { next { breakpoint: value } }}
                   value={breakpoint}
                   max={1500}
                   min={0}/>
@@ -95,7 +95,7 @@ component Reference.Tabs {
             data={
               {
                 <Ui.Tabs
-                  onChange={(tab : String) { next { active = tab } }}
+                  onChange={(tab : String) { next { active: tab } }}
                   size={Ui.Size::Px(size)}
                   breakpoint={breakpoint}
                   active={active}
@@ -122,22 +122,21 @@ component Reference.Tabs {
             highlight=[22, 27]
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       {
-                        content = <{ "Tab 1" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 1",
-                        key = "tab_1"
+                        content: <{ "Tab 1" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 1",
+                        key: "tab_1"
                       },
                       {
-                        content = <{ "Tab 2" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 2",
-                        key = "tab_2"
+                        content: <{ "Tab 2" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 2",
+                        key: "tab_2"
                       }
                     ]
 
@@ -152,7 +151,6 @@ component Reference.Tabs {
                       active="tab_2"
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -174,22 +172,21 @@ component Reference.Tabs {
             highlight=[21, 27, 33]
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       {
-                        content = <{ "Tab 1" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 1",
-                        key = "tab_1"
+                        content: <{ "Tab 1" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 1",
+                        key: "tab_1"
                       },
                       {
-                        content = <{ "Tab 2" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 2",
-                        key = "tab_2"
+                        content: <{ "Tab 2" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 2",
+                        key: "tab_2"
                       }
                     ]
 
@@ -212,7 +209,6 @@ component Reference.Tabs {
                       active="tab_1"
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -240,22 +236,21 @@ component Reference.Tabs {
             highlight=[21, 26]
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       {
-                        content = <{ "Tab 1" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 1",
-                        key = "tab_1"
+                        content: <{ "Tab 1" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 1",
+                        key: "tab_1"
                       },
                       {
-                        content = <{ "Tab 2" }>,
-                        iconBefore = <></>,
-                        iconAfter = <></>,
-                        label = "Tab 2",
-                        key = "tab_2"
+                        content: <{ "Tab 2" }>,
+                        iconBefore: <></>,
+                        iconAfter: <></>,
+                        label: "Tab 2",
+                        key: "tab_2"
                       }
                     ]
 
@@ -270,7 +265,6 @@ component Reference.Tabs {
                       active="tab_1"
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -302,18 +296,18 @@ component Reference.Tabs {
                   }
                   items=[
                     {
-                      content = <{ "Tab 1" }>,
-                      iconBefore = <></>,
-                      iconAfter = <></>,
-                      label = "Tab 1",
-                      key = "tab_1"
+                      content: <{ "Tab 1" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 1",
+                      key: "tab_1"
                     },
                     {
-                      content = <{ "Tab 2" }>,
-                      iconBefore = <></>,
-                      iconAfter = <></>,
-                      label = "Tab 2",
-                      key = "tab_2"
+                      content: <{ "Tab 2" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 2",
+                      key: "tab_2"
                     }
                   ]/>
               }

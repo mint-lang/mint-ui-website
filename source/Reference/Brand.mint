@@ -38,26 +38,26 @@ component Reference.Brand {
             controls=<{
               <Ui.Field label="Name">
                 <Ui.Input
-                  onChange={(value : String) { next { name = value } }}
+                  onChange={(value : String) { next { name: value } }}
                   value={name}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
 
               <Ui.Field label="Href">
                 <Ui.Input
-                  onChange={(value : String) { next { href = value } }}
+                  onChange={(value : String) { next { href: value } }}
                   value={href}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

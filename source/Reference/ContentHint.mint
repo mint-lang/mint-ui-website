@@ -38,27 +38,27 @@ component Reference.ContentHint {
             controls=<{
               <Ui.Field label="Type">
                 <Ui.Native.Select
-                  onChange={(type : String) { next { type = type } }}
+                  onChange={(type : String) { next { type: type } }}
                   value={type}
                   items={TYPES}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(icon : String) { next { icon = icon } }}
+                  onChange={(icon : String) { next { icon: icon } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
                 <Ui.Input
-                  onChange={(value : String) { next { content = value } }}
+                  onChange={(value : String) { next { content: value } }}
                   value={content}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

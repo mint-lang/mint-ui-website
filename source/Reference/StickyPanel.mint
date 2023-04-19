@@ -76,14 +76,14 @@ component Reference.StickyPanel {
             controls=<{
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { position = value } }}
+                  onChange={(value : String) { next { position: value } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -91,7 +91,7 @@ component Reference.StickyPanel {
 
               <Ui.Field label="Z-index (#{zIndex})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { zIndex = value } }}
+                  onChange={(value : Number) { next { zIndex: value } }}
                   value={zIndex}
                   max={100}
                   min={0}/>
@@ -102,7 +102,7 @@ component Reference.StickyPanel {
                 label="Should Calculate Position">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { shouldCalculate = value } }}
+                  onChange={(value : Bool) { next { shouldCalculate: value } }}
                   checked={shouldCalculate}/>
 
               </Ui.Field>
@@ -112,7 +112,7 @@ component Reference.StickyPanel {
                 label="Pass Through">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { passThrough = value } }}
+                  onChange={(value : Bool) { next { passThrough: value } }}
                   checked={passThrough}/>
 
               </Ui.Field>

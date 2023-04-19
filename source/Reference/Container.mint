@@ -66,28 +66,28 @@ component Reference.Container {
             controls=<{
               <Ui.Field label="Orientation">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { orientation = value } }}
+                  onChange={(value : String) { next { orientation: value } }}
                   items={ORIENTATION_ITEMS}
                   value={orientation}/>
               </Ui.Field>
 
               <Ui.Field label="Justify">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { justify = value } }}
+                  onChange={(value : String) { next { justify: value } }}
                   items={JUSTIFY_CONTENT_ITEMS}
                   value={justify}/>
               </Ui.Field>
 
               <Ui.Field label="Align">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { align = value } }}
+                  onChange={(value : String) { next { align: value } }}
                   items={ALING_ITEMS_ITEMS}
                   value={align}/>
               </Ui.Field>
 
               <Ui.Field label="Gap (#{gap}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { gap = value } }}
+                  onChange={(value : Number) { next { gap: value } }}
                   value={gap}
                   max={100}
                   min={0}/>

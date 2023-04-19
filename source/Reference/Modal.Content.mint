@@ -54,20 +54,20 @@ component Reference.Modal.Content {
             controls=<{
               <Ui.Field label="Title">
                 <Ui.Input
-                  onChange={(value : String) { next { title = value } }}
+                  onChange={(value : String) { next { title: value } }}
                   value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
                 <Ui.Textarea
                   inputDelay={200}
-                  onChange={(value : String) { next { content = value } }}
+                  onChange={(value : String) { next { content: value } }}
                   value={content}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
@@ -78,8 +78,8 @@ component Reference.Modal.Content {
                     (value : Number) {
                       next
                         {
-                          minWidth = Math.min(minWidth, value),
-                          maxWidth = value
+                          minWidth: Math.min(minWidth, value),
+                          maxWidth: value
                         }
                     }
                   }
@@ -94,8 +94,8 @@ component Reference.Modal.Content {
                     (value : Number) {
                       next
                         {
-                          maxWidth = Math.max(maxWidth, value),
-                          minWidth = value
+                          maxWidth: Math.max(maxWidth, value),
+                          minWidth: value
                         }
                     }
                   }
@@ -106,7 +106,7 @@ component Reference.Modal.Content {
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

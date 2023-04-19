@@ -9,6 +9,11 @@ component Reference.ColorPicker {
   state size : Number = 16
 
   get playgroundCode : String {
+    let color =
+      value
+      |> Color.toCSSHex()
+      |> String.chopStart("#")
+
     "Ui.ColorPicker"
     |> ComponentBuilder.new
     |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
@@ -18,11 +23,6 @@ component Reference.ColorPicker {
     |> ComponentBuilder.addBool("invalid", invalid)
     |> ComponentBuilder.addNumber("offset", offset)
     |> ComponentBuilder.toString()
-  } where {
-    color =
-      value
-      |> Color.toCSSHex()
-      |> String.lchop("#")
   }
 
   fun render : Html {
@@ -47,20 +47,20 @@ component Reference.ColorPicker {
             controls=<{
               <Ui.Field label="Value">
                 <Ui.ColorPicker
-                  onChange={(value : Color) { next { value = value } }}
+                  onChange={(value : Color) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(position : String) { next { position = position } }}
+                  onChange={(position : String) { next { position: position } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -68,7 +68,7 @@ component Reference.ColorPicker {
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -79,7 +79,7 @@ component Reference.ColorPicker {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -89,7 +89,7 @@ component Reference.ColorPicker {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
@@ -97,7 +97,7 @@ component Reference.ColorPicker {
             data={
               {
                 <Ui.ColorPicker
-                  onChange={(value : Color) { next { value = value } }}
+                  onChange={(value : Color) { next { value: value } }}
                   position={Ui.Position.fromString(position)}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}

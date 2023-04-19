@@ -44,7 +44,7 @@ component Reference.Slider {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -52,7 +52,7 @@ component Reference.Slider {
 
               <Ui.Field label="Value (#{currentValue})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { currentValue = value } }}
+                  onChange={(value : Number) { next { currentValue: value } }}
                   value={currentValue}
                   max={max}
                   min={min}/>
@@ -64,9 +64,9 @@ component Reference.Slider {
                     (value : Number) {
                       next
                         {
-                          currentValue = Math.clamp(value, max, currentValue),
-                          max = Math.max(value, max),
-                          min = value
+                          currentValue: Math.clamp(currentValue, value, max),
+                          max: Math.max(value, max),
+                          min: value
                         }
                     }
                   }
@@ -81,9 +81,9 @@ component Reference.Slider {
                     (value : Number) {
                       next
                         {
-                          currentValue = Math.clamp(min, value, currentValue),
-                          min = Math.min(value, min),
-                          max = value
+                          currentValue: Math.clamp(currentValue, min, value),
+                          min: Math.min(value, min),
+                          max: value
                         }
                     }
                   }
@@ -94,7 +94,7 @@ component Reference.Slider {
 
               <Ui.Field label="Step (#{step})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { step = value } }}
+                  onChange={(value : Number) { next { step: value } }}
                   value={step}
                   max={10}
                   min={1}/>
@@ -105,7 +105,7 @@ component Reference.Slider {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -113,7 +113,7 @@ component Reference.Slider {
             data={
               {
                 <Ui.Slider
-                  onChange={(value : Number) { next { currentValue = value } }}
+                  onChange={(value : Number) { next { currentValue: value } }}
                   size={Ui.Size::Px(size)}
                   value={currentValue}
                   disabled={disabled}

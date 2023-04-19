@@ -5,46 +5,46 @@ component Reference.NavItems {
     @format {
       [
         Ui.NavItem::Link(
-          iconBefore = Ui.Icons:HOME,
-          iconAfter = <></>,
-          label = "Home",
-          target = "",
-          href = "/"),
+          iconBefore: Ui.Icons:HOME,
+          iconAfter: <></>,
+          label: "Home",
+          target: "",
+          href: "/"),
         Ui.NavItem::Item(
-          iconBefore = Ui.Icons:BROADCAST,
-          label = "Click Me!",
-          iconAfter = <></>,
-          action =
+          iconBefore: Ui.Icons:BROADCAST,
+          label: "Click Me!",
+          iconAfter: <></>,
+          action:
             (event : Html.Event) {
               Ui.Notifications.notifyDefault(<{ "Clicked!" }>)
             }),
         Ui.NavItem::Divider,
         Ui.NavItem::Group(
-          iconBefore = Ui.Icons:FILE_DIRECTORY,
-          iconAfter = <></>,
-          label = "Files",
-          items =
+          iconBefore: Ui.Icons:FILE_DIRECTORY,
+          iconAfter: <></>,
+          label: "Files",
+          items:
             [
               Ui.NavItem::Item(
-                iconBefore = Ui.Icons:FILE_CODE,
-                action = Promise.never1,
-                label = "Main.mint",
-                iconAfter = <></>),
+                iconBefore: Ui.Icons:FILE_CODE,
+                action: Promise.never1,
+                label: "Main.mint",
+                iconAfter: <></>),
               Ui.NavItem::Item(
-                iconBefore = Ui.Icons:FILE_CODE,
-                action = Promise.never1,
-                label = "Header.mint",
-                iconAfter = <></>),
+                iconBefore: Ui.Icons:FILE_CODE,
+                action: Promise.never1,
+                label: "Header.mint",
+                iconAfter: <></>),
               Ui.NavItem::Item(
-                iconBefore = Ui.Icons:FILE_CODE,
-                action = Promise.never1,
-                label = "Footer.mint",
-                iconAfter = <></>),
+                iconBefore: Ui.Icons:FILE_CODE,
+                action: Promise.never1,
+                label: "Footer.mint",
+                iconAfter: <></>),
               Ui.NavItem::Item(
-                iconBefore = Ui.Icons:FILE_MEDIA,
-                action = Promise.never1,
-                label = "Logo.svg",
-                iconAfter = <></>)
+                iconBefore: Ui.Icons:FILE_MEDIA,
+                action: Promise.never1,
+                label: "Logo.svg",
+                iconAfter: <></>)
             ])
       ]
     }
@@ -87,7 +87,7 @@ component Reference.NavItems {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -123,21 +123,21 @@ component Reference.NavItems {
                   <Ui.NavItems
                     items=[
                       Ui.NavItem::Group(
-                        iconBefore = Ui.Icons:FILE_DIRECTORY,
-                        iconAfter = <></>,
-                        label = "Files",
-                        items =
+                        iconBefore: Ui.Icons:FILE_DIRECTORY,
+                        iconAfter: <></>,
+                        label: "Files",
+                        items:
                           [
                             Ui.NavItem::Item(
-                              iconBefore = Ui.Icons:FILE_CODE,
-                              action = Promise.never1,
-                              label = "Main.mint",
-                              iconAfter = <></>),
+                              iconBefore: Ui.Icons:FILE_CODE,
+                              action: Promise.never1,
+                              label: "Main.mint",
+                              iconAfter: <></>),
                             Ui.NavItem::Item(
-                              iconBefore = Ui.Icons:FILE_MEDIA,
-                              action = Promise.never1,
-                              label = "Logo.svg",
-                              iconAfter = <></>)
+                              iconBefore: Ui.Icons:FILE_MEDIA,
+                              action: Promise.never1,
+                              label: "Logo.svg",
+                              iconAfter: <></>)
                           ])
                     ]/>
                 </>
@@ -167,54 +167,54 @@ component Reference.NavItems {
                     size={Ui.Size::Px(12)}
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        href = "/",
-                        target = ""),
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        href: "/",
+                        target: ""),
                       Ui.NavItem::Divider,
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:TELESCOPE,
-                        iconAfter = <></>,
-                        label = "Explore",
-                        href = "/",
-                        target = "")
+                        iconBefore: Ui.Icons:TELESCOPE,
+                        iconAfter: <></>,
+                        label: "Explore",
+                        href: "/",
+                        target: "")
                     ]/>
 
                   <Ui.NavItems
                     size={Ui.Size::Px(16)}
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/"),
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/"),
                       Ui.NavItem::Divider,
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:TELESCOPE,
-                        iconAfter = <></>,
-                        label = "Explore",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:TELESCOPE,
+                        iconAfter: <></>,
+                        label: "Explore",
+                        target: "",
+                        href: "/")
                     ]/>
 
                   <Ui.NavItems
                     size={Ui.Size::Px(20)}
                     items=[
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/"),
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/"),
                       Ui.NavItem::Divider,
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:TELESCOPE,
-                        iconAfter = <></>,
-                        label = "Explore",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:TELESCOPE,
+                        iconAfter: <></>,
+                        label: "Explore",
+                        target: "",
+                        href: "/")
                     ]/>
                 </>
               }

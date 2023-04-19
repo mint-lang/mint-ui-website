@@ -19,7 +19,9 @@ store ListItems {
   const IMAGE_ITEMS =
     for (name, image of IMAGES) {
       Ui.ListItem::Item(
-        content =
+        matchString: name,
+        key: name,
+        content:
           <Ui.Container justify="start">
             <Ui.Image
               height={Ui.Size::Px(25)}
@@ -27,9 +29,7 @@ store ListItems {
               src={image}/>
 
             <{ name }>
-          </Ui.Container>,
-        matchString = name,
-        key = name)
+          </Ui.Container>)
     }
 
   const ORIENTATION_ITEMS =
@@ -39,9 +39,9 @@ store ListItems {
       "HorizontalReverse"
     ]) {
       Ui.ListItem::Item(
-        content = <{ position }>,
-        matchString = position,
-        key = position)
+        content: <{ position }>,
+        matchString: position,
+        key: position)
     }
 
   const JUSTIFY_CONTENT_ITEMS =
@@ -83,9 +83,9 @@ store ListItems {
       "bottom left"
     ]) {
       Ui.ListItem::Item(
-        content = <{ position }>,
-        matchString = position,
-        key = position)
+        content: <{ position }>,
+        matchString: position,
+        key: position)
     }
 
   const SIMPLE_ELEMENTS =
@@ -125,9 +125,9 @@ store ListItems {
   const ELEMENTS =
     for (element of SIMPLE_ELEMENTS) {
       Ui.ListItem::Item(
-        key = String.parameterize(element),
-        content = <{ element }>,
-        matchString = element)
+        key: String.parameterize(element),
+        content: <{ element }>,
+        matchString: element)
     }
 
   const POSITIONS =
@@ -146,9 +146,9 @@ store ListItems {
       "LeftTop"
     ]) {
       Ui.ListItem::Item(
-        content = <{ position }>,
-        matchString = position,
-        key = position)
+        content: <{ position }>,
+        matchString: position,
+        key: position)
     }
 
   const TYPES =
@@ -633,19 +633,17 @@ store ListItems {
 
   const ICON_ITEMS =
     for (key, item of ICONS) {
-      try {
-        {label, icon} =
-          item
+      let {label, icon} =
+        item
 
-        Ui.ListItem::Item(
-          matchString = label,
-          key = key,
-          content =
-            <Ui.Container justify="start">
-              <Ui.Icon icon={icon}/>
-              <{ label }>
-            </Ui.Container>)
-      }
+      Ui.ListItem::Item(
+        matchString: label,
+        key: key,
+        content:
+          <Ui.Container justify="start">
+            <Ui.Icon icon={icon}/>
+            <{ label }>
+          </Ui.Container>)
     }
 
   fun getOrientation (key : String) {
@@ -657,6 +655,6 @@ store ListItems {
   }
 
   fun getIcon (key : String) : Html {
-    (Map.get(key, ICONS) or {"", <></>})[1]
+    (Map.get(ICONS, key) or {"", <></>})[1]
   }
 }

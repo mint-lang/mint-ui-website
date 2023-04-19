@@ -57,27 +57,27 @@ component Reference.Select {
             controls=<{
               <Ui.Field label="Placeholder">
                 <Ui.Input
-                  onChange={(value : String) { next { placeholder = value } }}
+                  onChange={(value : String) { next { placeholder: value } }}
                   value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Value">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   items={ELEMENTS}
                   value={value}/>
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { position = value } }}
+                  onChange={(value : String) { next { position: value } }}
                   items={POSITIONS}
                   value={position}/>
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { offset = value } }}
+                  onChange={(value : Number) { next { offset: value } }}
                   value={offset}
                   max={100}
                   min={0}/>
@@ -85,7 +85,7 @@ component Reference.Select {
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -96,7 +96,7 @@ component Reference.Select {
                 label="Match Width">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { matchWidth = value } }}
+                  onChange={(value : Bool) { next { matchWidth: value } }}
                   checked={matchWidth}/>
 
               </Ui.Field>
@@ -106,7 +106,7 @@ component Reference.Select {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -116,7 +116,7 @@ component Reference.Select {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
@@ -124,7 +124,7 @@ component Reference.Select {
             data={
               {
                 <Ui.Select
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   position={Ui.Position.fromString(position)}
                   placeholder={placeholder}
                   size={Ui.Size::Px(size)}
@@ -159,13 +159,13 @@ component Reference.Select {
                   placeholder="Select something!"
                   items=[
                     Ui.ListItem::Item(
-                      content = <{ "Something" }>,
-                      matchString = "something",
-                      key = "something"),
+                      content: <{ "Something" }>,
+                      matchString: "something",
+                      key: "something"),
                     Ui.ListItem::Item(
-                      content = <{ "An other thing" }>,
-                      matchString = "an other thing",
-                      key = "an-other-thing")
+                      content: <{ "An other thing" }>,
+                      matchString: "an other thing",
+                      key: "an-other-thing")
                   ]/>
               }
             }/>
@@ -191,13 +191,13 @@ component Reference.Select {
                   value="something"
                   items=[
                     Ui.ListItem::Item(
-                      content = <{ "Something" }>,
-                      matchString = "something",
-                      key = "something"),
+                      content: <{ "Something" }>,
+                      matchString: "something",
+                      key: "something"),
                     Ui.ListItem::Item(
-                      content = <{ "An other thing" }>,
-                      matchString = "an other thing",
-                      key = "an-other-thing")
+                      content: <{ "An other thing" }>,
+                      matchString: "an other thing",
+                      key: "an-other-thing")
                   ]/>
               }
             }/>

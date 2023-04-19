@@ -35,19 +35,19 @@ component Reference.Dropdown.Panel {
             controls=<{
               <Ui.Field label="Title">
                 <Ui.Input
-                  onChange={(value : String) { next { title = value } }}
+                  onChange={(value : String) { next { title: value } }}
                   value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Width">
                 <Ui.Input
-                  onChange={(value : String) { next { width = value } }}
+                  onChange={(value : String) { next { width: value } }}
                   value={width}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

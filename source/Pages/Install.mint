@@ -36,17 +36,17 @@ component Pages.Install {
 
           <pre>
             <code>
-              try {
-                [
-                  "\"dependencies\": {",
-                  "  \"mint-ui\": {",
-                  "    \"repository\": \"https://github.com/mint-lang/mint-ui\",",
-                  "    \"constraint\": \"5.0.0 <= v < 6.0.0\"",
-                  "  }",
-                  "}"
-                ]
-                |> String.join("\n")
-              }
+            <{
+              [
+                "\"dependencies\": {",
+                "  \"mint-ui\": {",
+                "    \"repository\": \"https://github.com/mint-lang/mint-ui\",",
+                "    \"constraint\": \"6.0.0 <= v < 7.0.0\"",
+                "  }",
+                "}"
+              ]
+              |> String.join("\n")
+              }>
             </code>
           </pre>
 
@@ -64,24 +64,24 @@ component Pages.Install {
 
           <pre>
             <code>
-              try {
-                [
-                  "Mint - Installing dependencies",
-                  "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-                  "⚙ Constructing dependency tree...",
-                  "  ✔ Cloned mint-ui(https://github.com/mint-lang/mint-ui)",
-                  "  ✔ Cloned mint-color(https://github.com/mint-lang/mint-color)",
-                  "",
-                  "⚙ Resolving dependency tree...",
-                  "  ◈ mint-ui ➔ 5.0.0",
-                  "  ◈ mint-color ➔ 0.6.0",
-                  "",
-                  "⚙ Copying packages...",
-                  "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-                  "All done in 2.387s!"
-                ]
-                |> String.join("\n")
-              }
+            <{
+              [
+                "Mint - Installing dependencies",
+                "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                "⚙ Constructing dependency tree...",
+                "  ✔ Cloned mint-ui(https://github.com/mint-lang/mint-ui)",
+                "  ✔ Cloned mint-color(https://github.com/mint-lang/mint-color)",
+                "",
+                "⚙ Resolving dependency tree...",
+                "  ◈ mint-ui ➔ 6.0.0",
+                "  ◈ mint-color ➔ 0.7.0",
+                "",
+                "⚙ Copying packages...",
+                "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                "All done in 2.387s!"
+              ]
+              |> String.join("\n")
+              }>
             </code>
           </pre>
 

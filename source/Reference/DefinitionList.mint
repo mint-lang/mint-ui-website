@@ -123,8 +123,7 @@ component Reference.DefinitionList {
             highlight=[20, 25, 30]
             data={
               @format {
-                try {
-                  rows =
+                  let rows =
                     [
                       {
                         "John Doe", [
@@ -156,7 +155,6 @@ component Reference.DefinitionList {
                       size={Ui.Size::Px(20)}
                       rows={rows}/>
                   </>
-                }
               }
             }/>
         }/>

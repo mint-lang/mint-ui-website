@@ -44,20 +44,20 @@ component Reference.Icon {
             controls=<{
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon = value } }}
+                  onChange={(value : String) { next { icon: value } }}
                   items={ICON_ITEMS}
                   value={icon}/>
               </Ui.Field>
 
               <Ui.Field label="Href">
                 <Ui.Input
-                  onChange={(value : String) { next { href = value } }}
+                  onChange={(value : String) { next { href: value } }}
                   value={href}/>
               </Ui.Field>
 
               <Ui.Field label="Opacity (#{opacity})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { opacity = value } }}
+                  onChange={(value : Number) { next { opacity: value } }}
                   value={opacity}
                   step={0.1}
                   max={1}
@@ -66,7 +66,7 @@ component Reference.Icon {
 
               <Ui.Field label="Size">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={200}
                   min={0}/>
@@ -77,7 +77,7 @@ component Reference.Icon {
                 label="Interactive">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { interactive = value } }}
+                  onChange={(value : Bool) { next { interactive: value } }}
                   checked={interactive}/>
 
               </Ui.Field>
@@ -87,7 +87,7 @@ component Reference.Icon {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>

@@ -41,7 +41,7 @@ component Reference.Textarea {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -49,13 +49,13 @@ component Reference.Textarea {
 
               <Ui.Field label="Placeholder">
                 <Ui.Input
-                  onChange={(value : String) { next { placeholder = value } }}
+                  onChange={(value : String) { next { placeholder: value } }}
                   value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Value">
                 <Ui.Textarea
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   value={value}/>
               </Ui.Field>
 
@@ -64,7 +64,7 @@ component Reference.Textarea {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>
@@ -74,7 +74,7 @@ component Reference.Textarea {
                 label="Invalid">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid = value } }}
+                  onChange={(value : Bool) { next { invalid: value } }}
                   checked={invalid}/>
 
               </Ui.Field>
@@ -82,7 +82,7 @@ component Reference.Textarea {
             data={
               {
                 <Ui.Textarea
-                  onChange={(value : String) { next { value = value } }}
+                  onChange={(value : String) { next { value: value } }}
                   placeholder={placeholder}
                   size={Ui.Size::Px(size)}
                   disabled={disabled}

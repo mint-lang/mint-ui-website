@@ -39,55 +39,55 @@ component Reference.Layout.Documentation {
                 <Ui.Layout.Documentation
                   items=[
                     Ui.NavItem::Link(
-                      iconBefore = Ui.Icons:HOME,
-                      iconAfter = <></>,
-                      label = "Home",
-                      target = "",
-                      href = "/"),
+                      iconBefore: Ui.Icons:HOME,
+                      iconAfter: <></>,
+                      label: "Home",
+                      target: "",
+                      href: "/"),
                     Ui.NavItem::Divider,
                     Ui.NavItem::Group(
-                      iconBefore = Ui.Icons:CHECKLIST,
-                      iconAfter = <></>,
-                      label = "Group",
-                      items =
+                      iconBefore: Ui.Icons:CHECKLIST,
+                      iconAfter: <></>,
+                      label: "Group",
+                      items:
                         [
                           Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:CHECK,
-                            iconAfter = <></>,
-                            label = "Subitem",
-                            target = "",
-                            href = "/"),
+                            iconBefore: Ui.Icons:CHECK,
+                            iconAfter: <></>,
+                            label: "Subitem",
+                            target: "",
+                            href: "/"),
                           Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:CHECK,
-                            iconAfter = <></>,
-                            label = "Subitem 2",
-                            target = "",
-                            href = "/"),
+                            iconBefore: Ui.Icons:CHECK,
+                            iconAfter: <></>,
+                            label: "Subitem 2",
+                            target: "",
+                            href: "/"),
                           Ui.NavItem::Group(
-                            iconBefore = Ui.Icons:CHECKLIST,
-                            iconAfter = <></>,
-                            label = "Sub Group",
-                            items =
+                            iconBefore: Ui.Icons:CHECKLIST,
+                            iconAfter: <></>,
+                            label: "Sub Group",
+                            items:
                               [
                                 Ui.NavItem::Link(
-                                  iconBefore = Ui.Icons:CHECK,
-                                  iconAfter = <></>,
-                                  label = "Subitem 3",
-                                  target = "",
-                                  href = "/"),
+                                  iconBefore: Ui.Icons:CHECK,
+                                  iconAfter: <></>,
+                                  label: "Subitem 3",
+                                  target: "",
+                                  href: "/"),
                                 Ui.NavItem::Link(
-                                  iconBefore = Ui.Icons:CHECK,
-                                  iconAfter = <></>,
-                                  label = "Subitem 4",
-                                  target = "",
-                                  href = "/")
+                                  iconBefore: Ui.Icons:CHECK,
+                                  iconAfter: <></>,
+                                  label: "Subitem 4",
+                                  target: "",
+                                  href: "/")
                               ])
                         ]),
                     Ui.NavItem::Item(
-                      action = (event : Html.Event) { Window.alert("Download!") },
-                      iconBefore = Ui.Icons:DESKTOP_DOWNLOAD,
-                      label = "Download",
-                      iconAfter = <></>)
+                      action: (event : Html.Event) { Window.alert("Download!") },
+                      iconBefore: Ui.Icons:DESKTOP_DOWNLOAD,
+                      label: "Download",
+                      iconAfter: <></>)
                   ]>
 
                   <Ui.Box title=<{ "Documentation" }>>

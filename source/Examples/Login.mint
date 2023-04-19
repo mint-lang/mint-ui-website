@@ -4,25 +4,21 @@ component Examples.Login {
   state email : String = ""
 
   fun submit (event : Html.Event) {
-    sequence {
-      errors =
-        Validation.merge(
-          [
-            Validation.isNotBlank(email, {"email", "Please enter the email address."}),
-            Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
-            Validation.isNotBlank(password, {"password", "Please enter the password."})
-          ])
+    let errors =
+      Validation.merge(
+        [
+          Validation.isNotBlank(email, {"email", "Please enter the email address."}),
+          Validation.isValidEmail(email, {"email", "Please enter a valid email address."}),
+          Validation.isNotBlank(password, {"password", "Please enter the password."})
+        ])
 
-      next { errors = errors }
+    await next { errors: errors }
 
-      if (Map.isEmpty(errors)) {
-        parallel {
-          Ui.Notifications.notifyDefault(<{ "You are now logged in 👋" }>)
-          Window.navigate("/examples/dashboard")
-        }
-      } else {
-        next { }
-      }
+    if (Map.isEmpty(errors)) {
+      Ui.Notifications.notifyDefault(<{ "You are now logged in 👋" }>)
+      Window.navigate("/examples/dashboard")
+    } else {
+      next { }
     }
   }
 
@@ -37,12 +33,12 @@ component Examples.Login {
         <Ui.Box title=<{ "Login" }>>
           <Ui.Column gap={Ui.Size::Em(1)}>
             <Ui.Field
-              error={Validation.getFirstError("email", errors)}
+              error={Validation.getFirstError(errors, "email")}
               label="Email *">
 
               <Ui.Input
-                onChange={(value : String) { next { email = value } }}
-                invalid={Map.has("email", errors)}
+                onChange={(value : String) { next { email: value } }}
+                invalid={Map.has(errors, "email")}
                 placeholder="john@doe.com"
                 value={email}
                 type="email"/>
@@ -50,12 +46,12 @@ component Examples.Login {
             </Ui.Field>
 
             <Ui.Field
-              error={Validation.getFirstError("password", errors)}
+              error={Validation.getFirstError(errors, "password")}
               label="Password *">
 
               <Ui.Input
-                onChange={(value : String) { next { password = value } }}
-                invalid={Map.has("password", errors)}
+                onChange={(value : String) { next { password: value } }}
+                invalid={Map.has(errors, "password")}
                 placeholder="12345678"
                 value={password}
                 type="password"/>

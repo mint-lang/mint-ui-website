@@ -14,6 +14,7 @@ component Documentation.Tabs {
         content=<{ "A tab consist of a label, icon (before or after), a key and content." }>
         example={
           <Example
+            fullWidth={true}
             data={
               @format {
                 <Ui.Tabs
@@ -21,23 +22,22 @@ component Documentation.Tabs {
                   breakpoint={600}
                   items=[
                     {
-                      content = <p>"This is the content for the campfire tab!"</p>,
-                      iconBefore = Ui.Icons:FLAME,
-                      iconAfter = <></>,
-                      label = "Campfire",
-                      key = "campfire"
+                      content: <p>"This is the content for the campfire tab!"</p>,
+                      iconBefore: Ui.Icons:FLAME,
+                      iconAfter: <></>,
+                      label: "Campfire",
+                      key: "campfire"
                     },
                     {
-                      content = <p>"This is the content for the code tab!"</p>,
-                      iconBefore = Ui.Icons:CODE,
-                      iconAfter = <></>,
-                      label = "Code",
-                      key = "code"
+                      content: <p>"This is the content for the code tab!"</p>,
+                      iconBefore: Ui.Icons:CODE,
+                      iconAfter: <></>,
+                      label: "Code",
+                      key: "code"
                     }
                   ]/>
               }
-            }
-            fullWidth={true}/>
+            }/>
         }/>
     </>
   }

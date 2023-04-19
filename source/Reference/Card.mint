@@ -59,7 +59,7 @@ component Reference.Card {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -67,7 +67,7 @@ component Reference.Card {
 
               <Ui.Field label="Min Width (#{minWidth}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { minWidth = value } }}
+                  onChange={(value : Number) { next { minWidth: value } }}
                   value={minWidth}
                   max={500}
                   min={0}/>
@@ -75,13 +75,13 @@ component Reference.Card {
 
               <Ui.Field label="Href">
                 <Ui.Input
-                  onChange={(value : String) { next { href = value } }}
+                  onChange={(value : String) { next { href: value } }}
                   value={href}/>
               </Ui.Field>
 
               <Ui.Field label="Target">
                 <Ui.Input
-                  onChange={(value : String) { next { target = value } }}
+                  onChange={(value : String) { next { target: value } }}
                   value={target}/>
               </Ui.Field>
             }>

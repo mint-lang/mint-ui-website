@@ -35,17 +35,16 @@ component Documentation.ListItems {
             verticalSpacing={20}
             data={
               @format {
-                try {
-                  items =
+                  let items =
                     [
                       Ui.ListItem::Item(
-                        content = <{ "Something" }>,
-                        matchString = "something",
-                        key = "something"),
+                        content: <{ "Something" }>,
+                        matchString: "something",
+                        key: "something"),
                       Ui.ListItem::Item(
-                        content = <{ "An other thing" }>,
-                        matchString = "an other thing",
-                        key = "an-other-thing")
+                        content: <{ "An other thing" }>,
+                        matchString: "an other thing",
+                        key: "an-other-thing")
                     ]
 
                   <>
@@ -58,7 +57,6 @@ component Documentation.ListItems {
                       matchWidth={true}
                       items={items}/>
                   </>
-                }
               }
             }/>
         }/>
@@ -88,14 +86,14 @@ component Documentation.ListItems {
               @format {
                 [
                   Ui.ListItem::Item(
-                    content = <{ "A list item!" }>,
-                    matchString = "a list item",
-                    key = "a-list-item"),
+                    content: <{ "A list item!" }>,
+                    matchString: "a list item",
+                    key: "a-list-item"),
                   Ui.ListItem::Divider,
                   Ui.ListItem::Item(
-                    content = <{ "An other list item!" }>,
-                    matchString = "an other list item",
-                    key = "an-other-list-item")
+                    content: <{ "An other list item!" }>,
+                    matchString: "an other list item",
+                    key: "an-other-list-item")
                 ]
               }[1]
             }/>

@@ -40,31 +40,31 @@ component Reference.FileInput {
             controls=<{
               <Ui.Field label="Accept">
                 <Ui.Input
-                  onChange={(value : String) { next { accept = value } }}
+                  onChange={(value : String) { next { accept: value } }}
                   value={accept}/>
               </Ui.Field>
 
               <Ui.Field label="Select Label">
                 <Ui.Input
-                  onChange={(value : String) { next { selectLabel = value } }}
+                  onChange={(value : String) { next { selectLabel: value } }}
                   value={selectLabel}/>
               </Ui.Field>
 
               <Ui.Field label="Select Another Label">
                 <Ui.Input
-                  onChange={(value : String) { next { selectAnotherLabel = value } }}
+                  onChange={(value : String) { next { selectAnotherLabel: value } }}
                   value={selectAnotherLabel}/>
               </Ui.Field>
 
               <Ui.Field label="Clear Label">
                 <Ui.Input
-                  onChange={(value : String) { next { clearLabel = value } }}
+                  onChange={(value : String) { next { clearLabel: value } }}
                   value={clearLabel}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -73,7 +73,7 @@ component Reference.FileInput {
             data={
               {
                 <Ui.FileInput
-                  onChange={(file : Maybe(File)) { next { value = file } }}
+                  onChange={(file : Maybe(File)) { next { value: file } }}
                   selectAnotherLabel={selectAnotherLabel}
                   selectLabel={selectLabel}
                   size={Ui.Size::Px(size)}

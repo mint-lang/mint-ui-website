@@ -74,34 +74,34 @@ component Reference.Image {
             controls=<{
               <Ui.Field label="Src">
                 <Ui.Select
-                  onChange={(value : String) { next { src = value } }}
+                  onChange={(value : String) { next { src: value } }}
                   items={IMAGE_ITEMS}
                   value={src}/>
               </Ui.Field>
 
               <Ui.Field label="Alt">
                 <Ui.Input
-                  onChange={(value : String) { next { alt = value } }}
+                  onChange={(value : String) { next { alt: value } }}
                   value={alt}/>
               </Ui.Field>
 
               <Ui.Field label="Object Fit">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectFit = value } }}
+                  onChange={(value : String) { next { objectFit: value } }}
                   items={OBJECT_FIT_ITEMS}
                   value={objectFit}/>
               </Ui.Field>
 
               <Ui.Field label="Object Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectPosition = value } }}
+                  onChange={(value : String) { next { objectPosition: value } }}
                   items={OBJECT_POSITION_ITEMS}
                   value={objectPosition}/>
               </Ui.Field>
 
               <Ui.Field label="Width (#{width}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width = value } }}
+                  onChange={(value : Number) { next { width: value } }}
                   value={width}
                   max={300}
                   min={0}/>
@@ -109,7 +109,7 @@ component Reference.Image {
 
               <Ui.Field label="Height (#{height}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { height = value } }}
+                  onChange={(value : Number) { next { height: value } }}
                   value={height}
                   max={300}
                   min={0}/>
@@ -117,7 +117,7 @@ component Reference.Image {
 
               <Ui.Field label="Border Radius">
                 <Ui.Input
-                  onChange={(value : String) { next { borderRadius = value } }}
+                  onChange={(value : String) { next { borderRadius: value } }}
                   value={borderRadius}/>
               </Ui.Field>
 
@@ -126,7 +126,7 @@ component Reference.Image {
                 label="Draggable">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { draggable = value } }}
+                  onChange={(value : Bool) { next { draggable: value } }}
                   checked={draggable}/>
 
               </Ui.Field>
@@ -136,7 +136,7 @@ component Reference.Image {
                 label="Full Width">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { fullWidth = value } }}
+                  onChange={(value : Bool) { next { fullWidth: value } }}
                   checked={fullWidth}/>
 
               </Ui.Field>
@@ -146,7 +146,7 @@ component Reference.Image {
                 label="Transparent">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { transparent = value } }}
+                  onChange={(value : Bool) { next { transparent: value } }}
                   checked={transparent}/>
 
               </Ui.Field>
@@ -154,7 +154,7 @@ component Reference.Image {
             data={
               {
                 <Ui.Image
-                  src={Map.get(src, IMAGES) or ""}
+                  src={Map.get(IMAGES, src) or ""}
                   objectPosition={objectPosition}
                   height={Ui.Size::Px(height)}
                   borderRadius={borderRadius}

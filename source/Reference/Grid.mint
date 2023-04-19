@@ -43,7 +43,7 @@ component Reference.Grid {
             controls=<{
               <Ui.Field label="Width (#{width}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width = value } }}
+                  onChange={(value : Number) { next { width: value } }}
                   value={width}
                   max={400}
                   min={100}/>
@@ -51,7 +51,7 @@ component Reference.Grid {
 
               <Ui.Field label="Mobile Width (#{mobileWidth}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { mobileWidth = value } }}
+                  onChange={(value : Number) { next { mobileWidth: value } }}
                   value={mobileWidth}
                   max={400}
                   min={0}/>
@@ -59,7 +59,7 @@ component Reference.Grid {
 
               <Ui.Field label="Gap (#{gap}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { gap = value } }}
+                  onChange={(value : Number) { next { gap: value } }}
                   value={gap}
                   max={150}
                   min={0}/>

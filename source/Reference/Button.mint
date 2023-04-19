@@ -70,7 +70,7 @@ component Reference.Button {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -78,33 +78,33 @@ component Reference.Button {
 
               <Ui.Field label="Type">
                 <Ui.Native.Select
-                  onChange={(type : String) { next { type = type } }}
+                  onChange={(type : String) { next { type: type } }}
                   items={TYPES}
                   value={type}/>
               </Ui.Field>
 
               <Ui.Field label="Label">
                 <Ui.Input
-                  onChange={(value : String) { next { label = value } }}
+                  onChange={(value : String) { next { label: value } }}
                   value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Href">
                 <Ui.Input
-                  onChange={(value : String) { next { href = value } }}
+                  onChange={(value : String) { next { href: value } }}
                   value={href}/>
               </Ui.Field>
 
               <Ui.Field label="Icon Before">
                 <Ui.Native.Select
-                  onChange={(icon : String) { next { iconBefore = icon } }}
+                  onChange={(icon : String) { next { iconBefore: icon } }}
                   items={ICON_ITEMS}
                   value={iconBefore}/>
               </Ui.Field>
 
               <Ui.Field label="Icon After">
                 <Ui.Native.Select
-                  onChange={(icon : String) { next { iconAfter = icon } }}
+                  onChange={(icon : String) { next { iconAfter: icon } }}
                   items={ListItems:ICON_ITEMS}
                   value={iconAfter}/>
               </Ui.Field>
@@ -114,7 +114,7 @@ component Reference.Button {
                 label="Break Words">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { breakWords = value } }}
+                  onChange={(value : Bool) { next { breakWords: value } }}
                   checked={breakWords}/>
 
               </Ui.Field>
@@ -124,7 +124,7 @@ component Reference.Button {
                 label="Ellipsis">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { ellipsis = value } }}
+                  onChange={(value : Bool) { next { ellipsis: value } }}
                   checked={ellipsis}/>
 
               </Ui.Field>
@@ -134,7 +134,7 @@ component Reference.Button {
                 label="Disabled">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled = value } }}
+                  onChange={(value : Bool) { next { disabled: value } }}
                   checked={disabled}/>
 
               </Ui.Field>

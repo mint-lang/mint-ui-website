@@ -5,23 +5,21 @@ component Reference.Modal.Base {
   state open : Bool = false
 
   get playgroundCode : String {
-    try {
-      button =
-        "Ui.Button"
-        |> ComponentBuilder.new()
-        |> ComponentBuilder.addExpression("onClick", "(event : Html.Event) { /* Handle event...*/ }")
-        |> ComponentBuilder.addString("label", "Close")
-        |> ComponentBuilder.toString()
-
-      "Ui.Modal.Base"
+    let button =
+      "Ui.Button"
       |> ComponentBuilder.new()
-      |> ComponentBuilder.addBool("closeOnOutsideClick", closeOnOutsideClick)
-      |> ComponentBuilder.addNumber("transitionDuration", transitionDuration)
-      |> ComponentBuilder.addNumber("zIndex", zIndex)
-      |> ComponentBuilder.addBool("open", open)
-      |> ComponentBuilder.addChild(button)
+      |> ComponentBuilder.addExpression("onClick", "(event : Html.Event) { /* Handle event...*/ }")
+      |> ComponentBuilder.addString("label", "Close")
       |> ComponentBuilder.toString()
-    }
+
+    "Ui.Modal.Base"
+    |> ComponentBuilder.new()
+    |> ComponentBuilder.addBool("closeOnOutsideClick", closeOnOutsideClick)
+    |> ComponentBuilder.addNumber("transitionDuration", transitionDuration)
+    |> ComponentBuilder.addNumber("zIndex", zIndex)
+    |> ComponentBuilder.addBool("open", open)
+    |> ComponentBuilder.addChild(button)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {
@@ -51,7 +49,7 @@ component Reference.Modal.Base {
             controls=<{
               <Ui.Field label="Transition Duration (#{transitionDuration}ms)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { transitionDuration = value } }}
+                  onChange={(value : Number) { next { transitionDuration: value } }}
                   value={transitionDuration}
                   max={2000}
                   min={0}/>
@@ -59,7 +57,7 @@ component Reference.Modal.Base {
 
               <Ui.Field label="Z-index (#{zIndex})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { zIndex = value } }}
+                  onChange={(value : Number) { next { zIndex: value } }}
                   value={zIndex}
                   min={-100}
                   max={100}/>
@@ -70,7 +68,7 @@ component Reference.Modal.Base {
                 label="Close on Outside Click">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { closeOnOutsideClick = value } }}
+                  onChange={(value : Bool) { next { closeOnOutsideClick: value } }}
                   checked={closeOnOutsideClick}/>
 
               </Ui.Field>
@@ -80,7 +78,7 @@ component Reference.Modal.Base {
                 label="Open">
 
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { open = value } }}
+                  onChange={(value : Bool) { next { open: value } }}
                   checked={open}/>
 
               </Ui.Field>
@@ -89,7 +87,7 @@ component Reference.Modal.Base {
               {
                 <>
                   <Ui.Button
-                    onClick={(event : Html.Event) { next { open = true } }}
+                    onClick={(event : Html.Event) { next { open: true } }}
                     label="Open"/>
 
                   <Ui.Modal.Base
@@ -99,15 +97,13 @@ component Reference.Modal.Base {
                     open={open}
                     onClose={
                       () {
-                        sequence {
-                          next { open = false }
-                          Ui.Notifications.notifyDefault(<{ "Modal closed!" }>)
-                        }
+                        next { open: false }
+                        Ui.Notifications.notifyDefault(<{ "Modal closed!" }>)
                       }
                     }>
 
                     <Ui.Button
-                      onClick={(event : Html.Event) { next { open = false } }}
+                      onClick={(event : Html.Event) { next { open: false } }}
                       label="Close"/>
 
                   </Ui.Modal.Base>

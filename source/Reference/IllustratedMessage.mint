@@ -62,20 +62,20 @@ component Reference.IllustratedMessage {
             controls=<{
               <Ui.Field label="Title">
                 <Ui.Input
-                  onChange={(value : String) { next { title = value } }}
+                  onChange={(value : String) { next { title: value } }}
                   value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Subtitle">
                 <Ui.Textarea
-                  onChange={(value : String) { next { subtitle = value } }}
+                  onChange={(value : String) { next { subtitle: value } }}
                   value={subtitle}
                   behavior="grow"/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>

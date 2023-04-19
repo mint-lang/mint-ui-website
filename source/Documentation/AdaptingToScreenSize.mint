@@ -10,97 +10,75 @@ component Documentation.AdaptingToScreenSize {
 
       <DocBox
         title="Mobile vs Desktop"
-        content=<{
-          <p>
-            "The easiest way to make sure that your component display" \
-            "s well on desktop and mobile is to have different conten" \
-            "t for each."
-          </p>
+        content={
+          <<#MARKDOWN
+          The easiest way to make sure that your component displays well on
+          desktop and mobile is to have different content for each. To achieve
+          that you can connect to the `Ui` store and expose / use the `mobile`
+          variable.
 
-          <p>
-            "To achieve that you can connect to the "
-            <code>"Ui"</code>
-            " store and expose / use the "
-            <code>"mobile"</code>
-            " variable."
-          </p>
-
-          <p>
-            "The value of the variable dynamically changes when the s" \
-            "creen is resized."
-          </p>
-        }>
+          The value of the variable dynamically changes when the screen is
+          resized.
+          MARKDOWN
+        }
         example={
-          try {
-            code =
-              [
-                "component Main {",
-                "  connect Ui exposing { mobile }",
-                "",
-                "  fun render : Html {",
-                "    if (mobile) {",
-                "      <div>\"MOBILE\"</div>",
-                "    } else {",
-                "      <div>\"DESKTOP\"</div>",
-                "    }",
-                "  }",
-                "}"
-              ]
-              |> String.join("\n")
+            <Hljs code={
+              <<~MINT
+              component Main {
+                connect Ui exposing { mobile }
 
-            <Hljs code={code}/>
-          }
+                fun render : Html {
+                  if (mobile) {
+                    <div>"MOBILE"</div>
+                  } else {
+                    <div>"DESKTOP"</div>
+                  }
+                }
+              }
+              MINT
+            }/>
         }/>
 
       <DocBox
         title="Provider.ElementSize"
-        content=<{
-          <p>
-            "The other way is to measure the size of the element and " \
-            "use that to decide what to show"
-          </p>
+        content={
+          <<#MARKDOWN
+            The other way is to measure the size of the element and use that to
+            decide what to show.
 
-          <p>
-            "To achieve that you can use the "
-            <code>"Provider.ElementSize"</code>
-
-            " provider which calls the given function when the observ" \
-            "ed element is resized."
-          </p>
-        }>
+            To achieve that you can use the `Provider.ElementSize` provider
+            which calls the given function when the observed element is resized.
+          MARKDOWN
+        }
         example={
-          try {
-            code =
-              [
-                "component Main {",
-                "  state width : Number = 0",
-                "",
-                "  use Provider.ElementSize {",
-                "   changes = updateWidth,",
-                "   element = base",
-                "  }",
-                "",
-                "  fun updateWidth (dimensions : Dom.Dimensions) {",
-                "    next { width = dimensions.width }",
-                "  }",
-                "",
-                "  fun render : Html {",
-                "    <div as base>",
-                "      if (width < 700) {",
-                "        <div>\"MOBILE\"</div>",
-                "      } else if (width < 1100) {",
-                "        <div>\"TABLET\"</div>",
-                "      } else {",
-                "        <div>\"DESKTOP\"</div>",
-                "      }",
-                "    </div>",
-                "  }",
-                "}"
-              ]
-              |> String.join("\n")
+          <Hljs code={
+            <<~MINT
+            component Main {
+              state width : Number = 0
 
-            <Hljs code={code}/>
-          }
+              use Provider.ElementSize {
+               changes: updateWidth,
+               element: base
+              }
+
+              fun updateWidth (dimensions : Dom.Dimensions) {
+                next { width: dimensions.width }
+              }
+
+              fun render : Html {
+                <div as base>
+                  if (width < 700) {
+                    <div>"MOBILE"</div>
+                  } else if (width < 1100) {
+                    <div>"TABLET"</div>
+                  } else {
+                    <div>"DESKTOP"</div>
+                  }
+                </div>
+              }
+            }
+            MINT
+          }/>
         }/>
     </>
   }

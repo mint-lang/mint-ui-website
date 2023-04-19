@@ -45,7 +45,7 @@ component Reference.Breadcrumbs {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -53,7 +53,7 @@ component Reference.Breadcrumbs {
 
               <Ui.Field label="Separator">
                 <Ui.Input
-                  onChange={(value : String) { next { separator = value } }}
+                  onChange={(value : String) { next { separator: value } }}
                   value={separator}/>
               </Ui.Field>
             }>

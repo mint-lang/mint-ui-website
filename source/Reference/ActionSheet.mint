@@ -44,73 +44,71 @@ component Reference.ActionSheet {
           <Example
             data={
               @format {
-                try {
-                  clickHandler =
-                    (event : Html.Event) {
-                      Ui.ActionSheet.show(
-                        [
-                          Ui.NavItem::Group(
-                            iconBefore = Ui.Icons:CHECKLIST,
-                            iconAfter = <></>,
-                            label = "Group",
-                            items =
-                              [
-                                Ui.NavItem::Link(
-                                  iconBefore = Ui.Icons:CHECK,
-                                  iconAfter = <></>,
-                                  label = "Subitem",
-                                  target = "",
-                                  href = "/"),
-                                Ui.NavItem::Divider,
-                                Ui.NavItem::Link(
-                                  iconBefore = Ui.Icons:CHECK,
-                                  iconAfter = <></>,
-                                  label = "Subitem 2",
-                                  target = "",
-                                  href = "/"),
-                                Ui.NavItem::Group(
-                                  iconBefore = Ui.Icons:CHECKLIST,
-                                  iconAfter = <></>,
-                                  label = "Sub Group",
-                                  items =
-                                    [
-                                      Ui.NavItem::Link(
-                                        iconBefore = Ui.Icons:CHECK,
-                                        iconAfter = <></>,
-                                        label = "Subitem 3",
-                                        target = "",
-                                        href = "/"),
-                                      Ui.NavItem::Divider,
-                                      Ui.NavItem::Link(
-                                        iconBefore = Ui.Icons:CHECK,
-                                        iconAfter = <></>,
-                                        label = "Subitem 4",
-                                        target = "",
-                                        href = "/")
-                                    ])
-                              ]),
-                          Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:HOME,
-                            iconAfter = <></>,
-                            label = "Home",
-                            target = "",
-                            href = "/"),
-                          Ui.NavItem::Divider,
-                          Ui.NavItem::Item(
-                            iconBefore = Ui.Icons:DESKTOP_DOWNLOAD,
-                            label = "Download",
-                            iconAfter = <></>,
-                            action =
-                              (event : Html.Event) {
-                                Ui.Notifications.notifyDefault(<{ "Download!" }>)
-                              })
-                        ])
-                    }
+                let clickHandler =
+                  (event : Html.Event) {
+                    Ui.ActionSheet.show(
+                      [
+                        Ui.NavItem::Group(
+                          iconBefore: Ui.Icons:CHECKLIST,
+                          iconAfter: <></>,
+                          label: "Group",
+                          items:
+                            [
+                              Ui.NavItem::Link(
+                                iconBefore: Ui.Icons:CHECK,
+                                iconAfter: <></>,
+                                label: "Subitem",
+                                target: "",
+                                href: "/"),
+                              Ui.NavItem::Divider,
+                              Ui.NavItem::Link(
+                                iconBefore: Ui.Icons:CHECK,
+                                iconAfter: <></>,
+                                label: "Subitem 2",
+                                target: "",
+                                href: "/"),
+                              Ui.NavItem::Group(
+                                iconBefore: Ui.Icons:CHECKLIST,
+                                iconAfter: <></>,
+                                label: "Sub Group",
+                                items:
+                                  [
+                                    Ui.NavItem::Link(
+                                      iconBefore: Ui.Icons:CHECK,
+                                      iconAfter: <></>,
+                                      label: "Subitem 3",
+                                      target: "",
+                                      href: "/"),
+                                    Ui.NavItem::Divider,
+                                    Ui.NavItem::Link(
+                                      iconBefore: Ui.Icons:CHECK,
+                                      iconAfter: <></>,
+                                      label: "Subitem 4",
+                                      target: "",
+                                      href: "/")
+                                  ])
+                            ]),
+                        Ui.NavItem::Link(
+                          iconBefore: Ui.Icons:HOME,
+                          iconAfter: <></>,
+                          label: "Home",
+                          target: "",
+                          href: "/"),
+                        Ui.NavItem::Divider,
+                        Ui.NavItem::Item(
+                          iconBefore: Ui.Icons:DESKTOP_DOWNLOAD,
+                          label: "Download",
+                          iconAfter: <></>,
+                          action:
+                            (event : Html.Event) {
+                              Ui.Notifications.notifyDefault(<{ "Download!" }>)
+                            })
+                      ])
+                  }
 
-                  <Ui.Button
-                    label="Show Action Sheet"
-                    onClick={clickHandler}/>
-                }
+                <Ui.Button
+                  label="Show Action Sheet"
+                  onClick={ clickHandler }/>
               }
             }/>
         }/>
@@ -136,17 +134,17 @@ component Reference.ActionSheet {
                         Ui.Size::Px(30),
                         [
                           Ui.NavItem::Link(
-                            iconBefore = Ui.Icons:HOME,
-                            iconAfter = <></>,
-                            label = "Home",
-                            target = "",
-                            href = "/"),
+                            iconBefore: Ui.Icons:HOME,
+                            iconAfter: <></>,
+                            label: "Home",
+                            target: "",
+                            href: "/"),
                           Ui.NavItem::Divider,
                           Ui.NavItem::Item(
-                            iconBefore = Ui.Icons:DESKTOP_DOWNLOAD,
-                            iconAfter = <></>,
-                            label = "Download",
-                            action =
+                            iconBefore: Ui.Icons:DESKTOP_DOWNLOAD,
+                            iconAfter: <></>,
+                            label: "Download",
+                            action:
                               (event : Html.Event) {
                                 Ui.Notifications.notifyDefault(<{ "Download!" }>)
                               })
@@ -184,28 +182,26 @@ component Reference.ActionSheet {
                   label="Show Action Sheet"
                   onClick={
                     (event : Html.Event) {
-                      sequence {
-                        Ui.ActionSheet.show(
-                          [
-                            Ui.NavItem::Link(
-                              iconBefore = Ui.Icons:HOME,
-                              iconAfter = <></>,
-                              label = "Home",
-                              target = "",
-                              href = "/"),
-                            Ui.NavItem::Divider,
-                            Ui.NavItem::Item(
-                              iconBefore = Ui.Icons:DESKTOP_DOWNLOAD,
-                              label = "Download",
-                              iconAfter = <></>,
-                              action =
-                                (event : Html.Event) {
-                                  Ui.Notifications.notifyDefault(<{ "Download!" }>)
-                                })
-                          ])
+                      await Ui.ActionSheet.show(
+                        [
+                          Ui.NavItem::Link(
+                            iconBefore: Ui.Icons:HOME,
+                            iconAfter: <></>,
+                            label: "Home",
+                            target: "",
+                            href: "/"),
+                          Ui.NavItem::Divider,
+                          Ui.NavItem::Item(
+                            iconBefore: Ui.Icons:DESKTOP_DOWNLOAD,
+                            label: "Download",
+                            iconAfter: <></>,
+                            action:
+                              (event : Html.Event) {
+                                Ui.Notifications.notifyDefault(<{ "Download!" }>)
+                              })
+                        ])
 
-                        Ui.Notifications.notifyDefault(<{ "Closed!" }>)
-                      }
+                      Ui.Notifications.notifyDefault(<{ "Closed!" }>)
                     }
                   }/>
               }

@@ -4,11 +4,11 @@ component Reference.NavItem {
   const ITEM =
     @format {
       Ui.NavItem::Link(
-        iconBefore = Ui.Icons:HOME,
-        iconAfter = <></>,
-        label = "Home",
-        target = "",
-        href = "/")
+        iconBefore: Ui.Icons:HOME,
+        iconAfter: <></>,
+        label: "Home",
+        target: "",
+        href: "/")
     }
 
   get playgroundCode : String {
@@ -47,7 +47,7 @@ component Reference.NavItem {
             controls=<{
               <Ui.Field label="Size (#{size}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { size = value } }}
+                  onChange={(value : Number) { next { size: value } }}
                   value={size}
                   max={100}
                   min={0}/>
@@ -83,20 +83,20 @@ component Reference.NavItem {
                   <Ui.NavItem
                     item={
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     }/>
 
                   <Ui.NavItem
                     item={
                       Ui.NavItem::Item(
-                        iconBefore = Ui.Icons:BROADCAST,
-                        label = "Click Me!",
-                        iconAfter = <></>,
-                        action =
+                        iconBefore: Ui.Icons:BROADCAST,
+                        label: "Click Me!",
+                        iconAfter: <></>,
+                        action:
                           (event : Html.Event) {
                             Ui.Notifications.notifyDefault(<{ "Clicked!" }>)
                           })
@@ -107,21 +107,21 @@ component Reference.NavItem {
                   <Ui.NavItem
                     item={
                       Ui.NavItem::Group(
-                        iconBefore = Ui.Icons:FILE_DIRECTORY,
-                        iconAfter = <></>,
-                        label = "Files",
-                        items =
+                        iconBefore: Ui.Icons:FILE_DIRECTORY,
+                        iconAfter: <></>,
+                        label: "Files",
+                        items:
                           [
                             Ui.NavItem::Item(
-                              iconBefore = Ui.Icons:FILE_CODE,
-                              action = Promise.never1,
-                              label = "Main.mint",
-                              iconAfter = <></>),
+                              iconBefore: Ui.Icons:FILE_CODE,
+                              action: Promise.never1,
+                              label: "Main.mint",
+                              iconAfter: <></>),
                             Ui.NavItem::Item(
-                              iconBefore = Ui.Icons:FILE_MEDIA,
-                              action = Promise.never1,
-                              label = "Logo.svg",
-                              iconAfter = <></>)
+                              iconBefore: Ui.Icons:FILE_MEDIA,
+                              action: Promise.never1,
+                              label: "Logo.svg",
+                              iconAfter: <></>)
                           ])
                     }/>
                 </>
@@ -151,33 +151,33 @@ component Reference.NavItem {
                     size={Ui.Size::Px(12)}
                     item={
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     }/>
 
                   <Ui.NavItem
                     size={Ui.Size::Px(16)}
                     item={
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     }/>
 
                   <Ui.NavItem
                     size={Ui.Size::Px(20)}
                     item={
                       Ui.NavItem::Link(
-                        iconBefore = Ui.Icons:HOME,
-                        iconAfter = <></>,
-                        label = "Home",
-                        target = "",
-                        href = "/")
+                        iconBefore: Ui.Icons:HOME,
+                        iconAfter: <></>,
+                        label: "Home",
+                        target: "",
+                        href: "/")
                     }/>
                 </>
               }
