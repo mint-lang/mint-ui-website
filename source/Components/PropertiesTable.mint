@@ -73,9 +73,8 @@ component PropertiesTable {
             <p>"These are all the properties of the component:"</p>
 
             <Ui.Table
-              breakpoint={
-                700
-              }
+              breakpoint={700}
+              rows={rows}
               headers=[
                 {
                   sortKey: "name",
@@ -101,10 +100,7 @@ component PropertiesTable {
                   label: "Default Value",
                   shrink: true
                 }
-              ]
-              rows={
-                rows
-              }/>
+              ]/>
 
           </Ui.Box>
         }
