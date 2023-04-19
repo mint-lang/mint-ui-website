@@ -108,7 +108,7 @@ component Reference.ActionSheet {
 
                 <Ui.Button
                   label="Show Action Sheet"
-                  onClick={ clickHandler }/>
+                  onClick={clickHandler}/>
               }
             }/>
         }/>

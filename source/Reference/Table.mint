@@ -169,48 +169,48 @@ component Reference.Table {
             highlight=[30, 37]
             data={
               @format {
-                  let rows =
-                    [
-                      {
-                        "John Doe",
-                        [
-                          Ui.Cell::String("John Doe"),
-                          Ui.Cell::String("john.doe@example.com")
-                        ]
-                      }
-                    ]
+                let rows =
+                  [
+                    {
+                      "John Doe",
+                      [
+                        Ui.Cell::String("John Doe"),
+                        Ui.Cell::String("john.doe@example.com")
+                      ]
+                    }
+                  ]
 
-                  let headers =
-                    [
-                      {
-                        sortKey: "name",
-                        sortable: true,
-                        label: "Name",
-                        shrink: true
-                      },
-                      {
-                        sortKey: "email",
-                        sortable: true,
-                        label: "Email",
-                        shrink: false
-                      }
-                    ]
+                let headers =
+                  [
+                    {
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: true
+                    },
+                    {
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
+                    }
+                  ]
 
-                  <>
-                    <Ui.Table
-                      orderDirection="asc"
-                      headers={headers}
-                      breakpoint={0}
-                      orderBy="name"
-                      rows={rows}/>
+                <>
+                  <Ui.Table
+                    orderDirection="asc"
+                    headers={headers}
+                    breakpoint={0}
+                    orderBy="name"
+                    rows={rows}/>
 
-                    <Ui.Table
-                      orderDirection="desc"
-                      headers={headers}
-                      orderBy="name"
-                      breakpoint={0}
-                      rows={rows}/>
-                  </>
+                  <Ui.Table
+                    orderDirection="desc"
+                    headers={headers}
+                    orderBy="name"
+                    breakpoint={0}
+                    rows={rows}/>
+                </>
               }
             }/>
         }/>
@@ -232,46 +232,46 @@ component Reference.Table {
             highlight=[32, 37]
             data={
               @format {
-                  let rows =
-                    [
-                      {
-                        "John Doe",
-                        [
-                          Ui.Cell::String("John Doe"),
-                          Ui.Cell::String("john.doe@example.com")
-                        ]
-                      }
-                    ]
+                let rows =
+                  [
+                    {
+                      "John Doe",
+                      [
+                        Ui.Cell::String("John Doe"),
+                        Ui.Cell::String("john.doe@example.com")
+                      ]
+                    }
+                  ]
 
-                  let headers =
-                    [
-                      {
-                        sortKey: "name",
-                        sortable: true,
-                        label: "Name",
-                        shrink: true
-                      },
-                      {
-                        sortKey: "email",
-                        sortable: true,
-                        label: "Email",
-                        shrink: false
-                      }
-                    ]
+                let headers =
+                  [
+                    {
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: true
+                    },
+                    {
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
+                    }
+                  ]
 
-                  <>
-                    <Ui.Table
-                      headers={headers}
-                      breakpoint={0}
-                      orderBy="name"
-                      rows={rows}/>
+                <>
+                  <Ui.Table
+                    headers={headers}
+                    breakpoint={0}
+                    orderBy="name"
+                    rows={rows}/>
 
-                    <Ui.Table
-                      headers={headers}
-                      orderBy="email"
-                      breakpoint={0}
-                      rows={rows}/>
-                  </>
+                  <Ui.Table
+                    headers={headers}
+                    orderBy="email"
+                    breakpoint={0}
+                    rows={rows}/>
+                </>
               }
             }/>
         }/>
@@ -351,52 +351,52 @@ component Reference.Table {
             verticalSpacing={20}
             data={
               @format {
-                  let rows =
-                    [
-                      {
-                        "John Doe",
-                        [
-                          Ui.Cell::String("John Doe"),
-                          Ui.Cell::String("john.doe@example.com")
-                        ]
-                      }
-                    ]
+                let rows =
+                  [
+                    {
+                      "John Doe",
+                      [
+                        Ui.Cell::String("John Doe"),
+                        Ui.Cell::String("john.doe@example.com")
+                      ]
+                    }
+                  ]
 
-                  let headers =
-                    [
-                      {
-                        sortKey: "name",
-                        sortable: true,
-                        label: "Name",
-                        shrink: true
-                      },
-                      {
-                        sortKey: "email",
-                        sortable: true,
-                        label: "Email",
-                        shrink: false
-                      }
-                    ]
+                let headers =
+                  [
+                    {
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: true
+                    },
+                    {
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
+                    }
+                  ]
 
-                  <>
-                    <Ui.Table
-                      size={Ui.Size::Px(12)}
-                      headers={headers}
-                      breakpoint={0}
-                      rows={rows}/>
+                <>
+                  <Ui.Table
+                    size={Ui.Size::Px(12)}
+                    headers={headers}
+                    breakpoint={0}
+                    rows={rows}/>
 
-                    <Ui.Table
-                      size={Ui.Size::Px(16)}
-                      headers={headers}
-                      breakpoint={0}
-                      rows={rows}/>
+                  <Ui.Table
+                    size={Ui.Size::Px(16)}
+                    headers={headers}
+                    breakpoint={0}
+                    rows={rows}/>
 
-                    <Ui.Table
-                      size={Ui.Size::Px(20)}
-                      headers={headers}
-                      breakpoint={0}
-                      rows={rows}/>
-                  </>
+                  <Ui.Table
+                    size={Ui.Size::Px(20)}
+                    headers={headers}
+                    breakpoint={0}
+                    rows={rows}/>
+                </>
               }
             }/>
         }/>
@@ -424,44 +424,44 @@ component Reference.Table {
             highlight=[31, 36]
             data={
               @format {
-                  let rows =
-                    [
-                      {
-                        "John Doe",
-                        [
-                          Ui.Cell::String("John Doe"),
-                          Ui.Cell::String("john.doe@example.com")
-                        ]
-                      }
-                    ]
+                let rows =
+                  [
+                    {
+                      "John Doe",
+                      [
+                        Ui.Cell::String("John Doe"),
+                        Ui.Cell::String("john.doe@example.com")
+                      ]
+                    }
+                  ]
 
-                  let headers =
-                    [
-                      {
-                        sortKey: "name",
-                        sortable: true,
-                        label: "Name",
-                        shrink: true
-                      },
-                      {
-                        sortKey: "email",
-                        sortable: true,
-                        label: "Email",
-                        shrink: false
-                      }
-                    ]
+                let headers =
+                  [
+                    {
+                      sortKey: "name",
+                      sortable: true,
+                      label: "Name",
+                      shrink: true
+                    },
+                    {
+                      sortKey: "email",
+                      sortable: true,
+                      label: "Email",
+                      shrink: false
+                    }
+                  ]
 
-                  <>
-                    <Ui.Table
-                      headers={headers}
-                      breakpoint={500}
-                      rows={rows}/>
+                <>
+                  <Ui.Table
+                    headers={headers}
+                    breakpoint={500}
+                    rows={rows}/>
 
-                    <Ui.Table
-                      headers={headers}
-                      breakpoint={0}
-                      rows={rows}/>
-                  </>
+                  <Ui.Table
+                    headers={headers}
+                    breakpoint={0}
+                    rows={rows}/>
+                </>
               }
             }/>
         }/>

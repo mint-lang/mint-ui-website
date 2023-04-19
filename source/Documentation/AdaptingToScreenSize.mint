@@ -22,7 +22,8 @@ component Documentation.AdaptingToScreenSize {
           MARKDOWN
         }
         example={
-            <Hljs code={
+          <Hljs
+            code={
               <<~MINT
               component Main {
                 connect Ui exposing { mobile }
@@ -51,8 +52,9 @@ component Documentation.AdaptingToScreenSize {
           MARKDOWN
         }
         example={
-          <Hljs code={
-            <<~MINT
+          <Hljs
+            code={
+              <<~MINT
             component Main {
               state width : Number = 0
 
@@ -78,7 +80,7 @@ component Documentation.AdaptingToScreenSize {
               }
             }
             MINT
-          }/>
+            }/>
         }/>
     </>
   }

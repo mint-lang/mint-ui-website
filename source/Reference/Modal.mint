@@ -54,16 +54,16 @@ component Reference.Modal {
                 let content =
                   <Ui.Modal.Content
                     title=<{ "Hello There!" }>
-                    icon={ Ui.Icons:INFINITY }
+                    icon={Ui.Icons:INFINITY}
                     content=<{ "Content" }>
                     actions=<{
                       <Ui.Button
-                        onClick={ (event : Html.Event) { Ui.Modal.cancel() } }
+                        onClick={(event : Html.Event) { Ui.Modal.cancel() }}
                         label="Cancel"
                         type="faded"/>
 
                       <Ui.Button
-                        onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                        onClick={(event : Html.Event) { Ui.Modal.hide() }}
                         label="Cool!"/>
                     }>/>
 
@@ -84,14 +84,14 @@ component Reference.Modal {
 
       <DocBox
         title="Custom Content"
-        content={ <p>"The given content is shown in the center of the screen above the backdrop."</p> }
+        content={<p>"The given content is shown in the center of the screen above the backdrop."</p>}
         example={
           <Example
             data={
               @format {
                 let content =
                   <Ui.Button
-                    onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                    onClick={(event : Html.Event) { Ui.Modal.hide() }}
                     label="Cool!"/>
 
                 let clickHandler =
@@ -103,7 +103,7 @@ component Reference.Modal {
                   }
 
                 <Ui.Button
-                  onClick={ clickHandler }
+                  onClick={clickHandler}
                   label="Click to Open"/>
               }
             }/>
@@ -124,16 +124,17 @@ component Reference.Modal {
               @format {
                 let content =
                   <Ui.Button
-                    onClick={ (event : Html.Event) { Ui.Modal.hide() } }
+                    onClick={(event : Html.Event) { Ui.Modal.hide() }}
                     label="Cool!"/>
 
                 let clickHandler =
                   (event : Html.Event) {
-                    let result = await Ui.Modal.showWithOptions(
-                      content,
-                      900,
-                      240,
-                      () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
+                    let result =
+                      await Ui.Modal.showWithOptions(
+                        content,
+                        900,
+                        240,
+                        () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
 
                     case (await result) {
                       Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
@@ -142,7 +143,7 @@ component Reference.Modal {
                   }
 
                 <Ui.Button
-                  onClick={ clickHandler }
+                  onClick={clickHandler}
                   label="Click to Open"/>
               }
             }/>

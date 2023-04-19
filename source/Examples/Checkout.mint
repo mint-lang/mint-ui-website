@@ -120,7 +120,7 @@ component Examples.Checkout {
 
                       <Ui.Input
                         onChange={(value : String) { next { firstName: value } }}
-                        invalid={Map.has(errors, "firstName" )}
+                        invalid={Map.has(errors, "firstName")}
                         placeholder="John"
                         value={firstName}/>
 
@@ -132,7 +132,7 @@ component Examples.Checkout {
 
                       <Ui.Input
                         onChange={(value : String) { next { lastName: value } }}
-                        invalid={Map.has(errors, "lastName" )}
+                        invalid={Map.has(errors, "lastName")}
                         placeholder="Doe"
                         value={lastName}/>
 

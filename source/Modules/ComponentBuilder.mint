@@ -86,7 +86,7 @@ module ComponentBuilder {
   fun addBool (
     builder : ComponentBuilder,
     name : String,
-    value : Bool,
+    value : Bool
   ) {
     { builder | properties: Array.push(builder.properties, {name, "{#{Bool.toString(value)}}"}) }
   }
@@ -122,7 +122,7 @@ module ComponentBuilder {
   fun addExpression (
     builder : ComponentBuilder,
     name : String,
-    value : String,
+    value : String
   ) {
     { builder | properties: Array.push(builder.properties, {name, "{#{value}}"}) }
   }
@@ -131,7 +131,7 @@ module ComponentBuilder {
   fun addIcon (
     builder : ComponentBuilder,
     name : String,
-    icon : String,
+    icon : String
   ) {
     if (String.isBlank(icon)) {
       builder
@@ -142,56 +142,57 @@ module ComponentBuilder {
 
   /* Renders the builder as a component source. */
   fun toString (builder : ComponentBuilder) {
-      let props =
-        if (Array.isEmpty(builder.properties)) {
-          ""
-        } else if (Array.size(builder.properties) == 1) {
-          case (builder.properties[0]) {
-            Maybe::Just(property) => {
+    let props =
+      if (Array.isEmpty(builder.properties)) {
+        ""
+      } else if (Array.size(builder.properties) == 1) {
+        case (builder.properties[0]) {
+          Maybe::Just(property) =>
+            {
               let {name, value} =
                 property
 
               " #{name}=#{value}"
             }
 
-            => ""
-          }
-        } else {
-          for (property of builder.properties) {
-            let {name, value} =
-              property
-
-            "#{name}=#{value}"
-          }
-          |> String.join("\n")
-          |> String.indent(2)
-          |> String.wrap("\n", "")
+          => ""
         }
+      } else {
+        for (property of builder.properties) {
+          let {name, value} =
+            property
 
-      let endTag =
-        if (Array.isEmpty(builder.children)) {
-          ""
-        } else {
-          "\n</#{builder.tag}>"
+          "#{name}=#{value}"
         }
+        |> String.join("\n")
+        |> String.indent(2)
+        |> String.wrap("\n", "")
+      }
 
-      let tagEnd =
-        if (Array.isEmpty(builder.children)) {
-          "/>"
+    let endTag =
+      if (Array.isEmpty(builder.children)) {
+        ""
+      } else {
+        "\n</#{builder.tag}>"
+      }
+
+    let tagEnd =
+      if (Array.isEmpty(builder.children)) {
+        "/>"
+      } else {
+        ">\n"
+      }
+
+    let children =
+      builder.children
+      |> Array.map((string : String) { String.indent(string, 2) })
+      |> String.join(
+        if (builder.addNewLines) {
+          "\n\n"
         } else {
-          ">\n"
-        }
+          "\n"
+        })
 
-      let children =
-        builder.children
-        |> Array.map((string : String) { String.indent(string, 2) })
-        |> String.join(
-          if (builder.addNewLines) {
-            "\n\n"
-          } else {
-            "\n"
-          })
-
-      "<#{builder.tag}#{props}#{tagEnd}#{children}#{endTag}"
+    "<#{builder.tag}#{props}#{tagEnd}#{children}#{endTag}"
   }
 }

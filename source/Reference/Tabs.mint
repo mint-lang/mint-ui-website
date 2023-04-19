@@ -122,35 +122,35 @@ component Reference.Tabs {
             highlight=[22, 27]
             data={
               @format {
-                  let items =
-                    [
-                      {
-                        content: <{ "Tab 1" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 1",
-                        key: "tab_1"
-                      },
-                      {
-                        content: <{ "Tab 2" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 2",
-                        key: "tab_2"
-                      }
-                    ]
+                let items =
+                  [
+                    {
+                      content: <{ "Tab 1" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 1",
+                      key: "tab_1"
+                    },
+                    {
+                      content: <{ "Tab 2" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 2",
+                      key: "tab_2"
+                    }
+                  ]
 
-                  <>
-                    <Ui.Tabs
-                      breakpoint={0}
-                      active="tab_1"
-                      items={items}/>
+                <>
+                  <Ui.Tabs
+                    breakpoint={0}
+                    active="tab_1"
+                    items={items}/>
 
-                    <Ui.Tabs
-                      breakpoint={0}
-                      active="tab_2"
-                      items={items}/>
-                  </>
+                  <Ui.Tabs
+                    breakpoint={0}
+                    active="tab_2"
+                    items={items}/>
+                </>
               }
             }/>
         }/>
@@ -172,43 +172,43 @@ component Reference.Tabs {
             highlight=[21, 27, 33]
             data={
               @format {
-                  let items =
-                    [
-                      {
-                        content: <{ "Tab 1" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 1",
-                        key: "tab_1"
-                      },
-                      {
-                        content: <{ "Tab 2" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 2",
-                        key: "tab_2"
-                      }
-                    ]
+                let items =
+                  [
+                    {
+                      content: <{ "Tab 1" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 1",
+                      key: "tab_1"
+                    },
+                    {
+                      content: <{ "Tab 2" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 2",
+                      key: "tab_2"
+                    }
+                  ]
 
-                  <>
-                    <Ui.Tabs
-                      size={Ui.Size::Px(12)}
-                      breakpoint={0}
-                      active="tab_1"
-                      items={items}/>
+                <>
+                  <Ui.Tabs
+                    size={Ui.Size::Px(12)}
+                    breakpoint={0}
+                    active="tab_1"
+                    items={items}/>
 
-                    <Ui.Tabs
-                      size={Ui.Size::Px(16)}
-                      breakpoint={0}
-                      active="tab_1"
-                      items={items}/>
+                  <Ui.Tabs
+                    size={Ui.Size::Px(16)}
+                    breakpoint={0}
+                    active="tab_1"
+                    items={items}/>
 
-                    <Ui.Tabs
-                      size={Ui.Size::Px(20)}
-                      breakpoint={0}
-                      active="tab_1"
-                      items={items}/>
-                  </>
+                  <Ui.Tabs
+                    size={Ui.Size::Px(20)}
+                    breakpoint={0}
+                    active="tab_1"
+                    items={items}/>
+                </>
               }
             }/>
         }/>
@@ -236,35 +236,35 @@ component Reference.Tabs {
             highlight=[21, 26]
             data={
               @format {
-                  let items =
-                    [
-                      {
-                        content: <{ "Tab 1" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 1",
-                        key: "tab_1"
-                      },
-                      {
-                        content: <{ "Tab 2" }>,
-                        iconBefore: <></>,
-                        iconAfter: <></>,
-                        label: "Tab 2",
-                        key: "tab_2"
-                      }
-                    ]
+                let items =
+                  [
+                    {
+                      content: <{ "Tab 1" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 1",
+                      key: "tab_1"
+                    },
+                    {
+                      content: <{ "Tab 2" }>,
+                      iconBefore: <></>,
+                      iconAfter: <></>,
+                      label: "Tab 2",
+                      key: "tab_2"
+                    }
+                  ]
 
-                  <>
-                    <Ui.Tabs
-                      breakpoint={0}
-                      active="tab_1"
-                      items={items}/>
+                <>
+                  <Ui.Tabs
+                    breakpoint={0}
+                    active="tab_1"
+                    items={items}/>
 
-                    <Ui.Tabs
-                      breakpoint={1000}
-                      active="tab_1"
-                      items={items}/>
-                  </>
+                  <Ui.Tabs
+                    breakpoint={1000}
+                    active="tab_1"
+                    items={items}/>
+                </>
               }
             }/>
         }/>

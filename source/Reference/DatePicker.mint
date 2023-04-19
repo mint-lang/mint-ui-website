@@ -9,18 +9,18 @@ component Reference.DatePicker {
   state size : Number = 16
 
   get playgroundCode : String {
-      let valueValue =
-        "Time.from(#{`#{value}.getFullYear()`}, #{`#{value}.getMonth() + 1`}, #{`#{value}.getDate()`})"
+    let valueValue =
+      "Time.from(#{`#{value}.getFullYear()`}, #{`#{value}.getMonth() + 1`}, #{`#{value}.getDate()`})"
 
-      "Ui.DatePicker"
-      |> ComponentBuilder.new
-      |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
-      |> ComponentBuilder.addExpression("value", valueValue)
-      |> ComponentBuilder.addSizePx("size", size)
-      |> ComponentBuilder.addBool("disabled", disabled)
-      |> ComponentBuilder.addBool("invalid", invalid)
-      |> ComponentBuilder.addNumber("offset", offset)
-      |> ComponentBuilder.toString()
+    "Ui.DatePicker"
+    |> ComponentBuilder.new
+    |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
+    |> ComponentBuilder.addExpression("value", valueValue)
+    |> ComponentBuilder.addSizePx("size", size)
+    |> ComponentBuilder.addBool("disabled", disabled)
+    |> ComponentBuilder.addBool("invalid", invalid)
+    |> ComponentBuilder.addNumber("offset", offset)
+    |> ComponentBuilder.toString()
   }
 
   fun render : Html {

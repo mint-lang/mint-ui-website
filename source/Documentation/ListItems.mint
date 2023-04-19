@@ -35,28 +35,28 @@ component Documentation.ListItems {
             verticalSpacing={20}
             data={
               @format {
-                  let items =
-                    [
-                      Ui.ListItem::Item(
-                        content: <{ "Something" }>,
-                        matchString: "something",
-                        key: "something"),
-                      Ui.ListItem::Item(
-                        content: <{ "An other thing" }>,
-                        matchString: "an other thing",
-                        key: "an-other-thing")
-                    ]
+                let items =
+                  [
+                    Ui.ListItem::Item(
+                      content: <{ "Something" }>,
+                      matchString: "something",
+                      key: "something"),
+                    Ui.ListItem::Item(
+                      content: <{ "An other thing" }>,
+                      matchString: "an other thing",
+                      key: "an-other-thing")
+                  ]
 
-                  <>
-                    <Ui.Native.Select
-                      placeholder="Select something!"
-                      items={items}/>
+                <>
+                  <Ui.Native.Select
+                    placeholder="Select something!"
+                    items={items}/>
 
-                    <Ui.Select
-                      placeholder="Select something!"
-                      matchWidth={true}
-                      items={items}/>
-                  </>
+                  <Ui.Select
+                    placeholder="Select something!"
+                    matchWidth={true}
+                    items={items}/>
+                </>
               }
             }/>
         }/>

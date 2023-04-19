@@ -454,45 +454,45 @@ store Application {
 
   /* Sets the page from a component key. */
   fun setComponentPage (key : String) : Promise(Void) {
-      let comp =
-        COMPONENTS
-        |> Map.values
-        |> Array.concat
-        |> Array.find((item : Component) { String.parameterize(item.name) == key })
+    let comp =
+      COMPONENTS
+      |> Map.values
+      |> Array.concat
+      |> Array.find((item : Component) { String.parameterize(item.name) == key })
 
-      case (comp) {
-        Maybe::Just(item) => setPage(Page::Component(item))
-        Maybe::Nothing => setPage(Page::NotFound)
-      }
+    case (comp) {
+      Maybe::Just(item) => setPage(Page::Component(item))
+      Maybe::Nothing => setPage(Page::NotFound)
+    }
   }
 
   /* Sets the page from a documentation page key. */
   fun setDocumentationPage (key : String) {
-      let page =
-        for (item of Array.concat(Map.values(DOCUMENTATION))) {
-          item
-        } when {
-          String.parameterize(item[0]) == key
-        }[0]
+    let page =
+      for (item of Array.concat(Map.values(DOCUMENTATION))) {
+        item
+      } when {
+        String.parameterize(item[0]) == key
+      }[0]
 
-      case (page) {
-        Maybe::Just(item) => setPage(Page::Documentation(item[0], item[1]))
-        Maybe::Nothing => setPage(Page::NotFound)
-      }
+    case (page) {
+      Maybe::Just(item) => setPage(Page::Documentation(item[0], item[1]))
+      Maybe::Nothing => setPage(Page::NotFound)
+    }
   }
 
   /* Sets the page from an example key. */
   fun setExamplePage (key : String) {
-      let page =
-        for (name, item of EXAMPLES) {
-          item
-        } when {
-          String.parameterize(name) == key
-        }[0]
+    let page =
+      for (name, item of EXAMPLES) {
+        item
+      } when {
+        String.parameterize(name) == key
+      }[0]
 
-      case (page) {
-        Maybe::Just(item) => setPage(Page::Example(item[0], item[1]))
-        Maybe::Nothing => setPage(Page::NotFound)
-      }
+    case (page) {
+      Maybe::Just(item) => setPage(Page::Example(item[0], item[1]))
+      Maybe::Nothing => setPage(Page::NotFound)
+    }
   }
 }

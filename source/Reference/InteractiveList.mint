@@ -135,33 +135,33 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                  let items =
-                    [
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
-                        matchString: "item-1",
-                        key: "item-1"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 2" }>,
-                        matchString: "item-2",
-                        key: "item-2"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 3" }>,
-                        matchString: "item-3",
-                        key: "item-3")
-                    ]
+                let items =
+                  [
+                    Ui.ListItem::Item(
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
+                  ]
 
-                  <>
-                    <Ui.InteractiveList
-                      interactive={true}
-                      intendable={true}
-                      items={items}/>
+                <>
+                  <Ui.InteractiveList
+                    interactive={true}
+                    intendable={true}
+                    items={items}/>
 
-                    <Ui.InteractiveList
-                      interactive={true}
-                      intendable={false}
-                      items={items}/>
-                  </>
+                  <Ui.InteractiveList
+                    interactive={true}
+                    intendable={false}
+                    items={items}/>
+                </>
               }
             }/>
         }/>
@@ -188,35 +188,35 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                  let items =
-                    [
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
-                        matchString: "item-1",
-                        key: "item-1"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 2" }>,
-                        matchString: "item-2",
-                        key: "item-2"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 3" }>,
-                        matchString: "item-3",
-                        key: "item-3")
-                    ]
+                let items =
+                  [
+                    Ui.ListItem::Item(
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
+                  ]
 
-                  <>
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      interactive={true}
-                      intendable={true}
-                      items={items}/>
+                <>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    interactive={true}
+                    intendable={true}
+                    items={items}/>
 
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      interactive={false}
-                      intendable={true}
-                      items={items}/>
-                  </>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    interactive={false}
+                    intendable={true}
+                    items={items}/>
+                </>
               }
             }/>
         }/>
@@ -242,33 +242,33 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                  let items =
-                    [
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
-                        matchString: "item-1",
-                        key: "item-1"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 2" }>,
-                        matchString: "item-2",
-                        key: "item-2"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 3" }>,
-                        matchString: "item-3",
-                        key: "item-3")
-                    ]
+                let items =
+                  [
+                    Ui.ListItem::Item(
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
+                  ]
 
-                  <>
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      interactive={false}
-                      items={items}/>
+                <>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    interactive={false}
+                    items={items}/>
 
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1", "item-3"])}
-                      interactive={false}
-                      items={items}/>
-                  </>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1", "item-3"])}
+                    interactive={false}
+                    items={items}/>
+                </>
               }
             }/>
         }/>
@@ -291,41 +291,41 @@ component Reference.InteractiveList {
             fullWidth={true}
             data={
               @format {
-                  let items =
-                    [
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
-                        matchString: "item-1",
-                        key: "item-1"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 2" }>,
-                        matchString: "item-2",
-                        key: "item-2"),
-                      Ui.ListItem::Item(
-                        content: <{ "Item 3" }>,
-                        matchString: "item-3",
-                        key: "item-3")
-                    ]
+                let items =
+                  [
+                    Ui.ListItem::Item(
+                      content: <{ "Item 1" }>,
+                      matchString: "item-1",
+                      key: "item-1"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 2" }>,
+                      matchString: "item-2",
+                      key: "item-2"),
+                    Ui.ListItem::Item(
+                      content: <{ "Item 3" }>,
+                      matchString: "item-3",
+                      key: "item-3")
+                  ]
 
-                  <>
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      size={Ui.Size::Px(12)}
-                      interactive={false}
-                      items={items}/>
+                <>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    size={Ui.Size::Px(12)}
+                    interactive={false}
+                    items={items}/>
 
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      size={Ui.Size::Px(16)}
-                      interactive={false}
-                      items={items}/>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    size={Ui.Size::Px(16)}
+                    interactive={false}
+                    items={items}/>
 
-                    <Ui.InteractiveList
-                      selected={Set.fromArray(["item-1"])}
-                      size={Ui.Size::Px(20)}
-                      interactive={false}
-                      items={items}/>
-                  </>
+                  <Ui.InteractiveList
+                    selected={Set.fromArray(["item-1"])}
+                    size={Ui.Size::Px(20)}
+                    interactive={false}
+                    items={items}/>
+                </>
               }
             }/>
         }/>

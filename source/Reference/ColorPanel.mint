@@ -189,7 +189,8 @@ component Reference.ColorPanel {
                           <{ "Color changed to: #{colorString}" }>
 
                         Ui.Notifications.notifyDefault(content)
-                      }, 200)
+                      },
+                      200)
                   }/>
               }
             }/>

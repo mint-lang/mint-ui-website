@@ -123,38 +123,38 @@ component Reference.DefinitionList {
             highlight=[20, 25, 30]
             data={
               @format {
-                  let rows =
-                    [
-                      {
-                        "John Doe", [
-                          Ui.Cell::String("John"),
-                          Ui.Cell::String("Doe")
-                        ]
-                      },
-                      {
-                        "Jane Doe", [
-                          Ui.Cell::String("Jane"),
-                          Ui.Cell::String("Doe")
-                        ]
-                      }
-                    ]
+                let rows =
+                  [
+                    {
+                      "John Doe", [
+                        Ui.Cell::String("John"),
+                        Ui.Cell::String("Doe")
+                      ]
+                    },
+                    {
+                      "Jane Doe", [
+                        Ui.Cell::String("Jane"),
+                        Ui.Cell::String("Doe")
+                      ]
+                    }
+                  ]
 
-                  <>
-                    <Ui.DefinitionList
-                      headers=["First Name", "Last Name"]
-                      size={Ui.Size::Px(12)}
-                      rows={rows}/>
+                <>
+                  <Ui.DefinitionList
+                    headers=["First Name", "Last Name"]
+                    size={Ui.Size::Px(12)}
+                    rows={rows}/>
 
-                    <Ui.DefinitionList
-                      headers=["First Name", "Last Name"]
-                      size={Ui.Size::Px(16)}
-                      rows={rows}/>
+                  <Ui.DefinitionList
+                    headers=["First Name", "Last Name"]
+                    size={Ui.Size::Px(16)}
+                    rows={rows}/>
 
-                    <Ui.DefinitionList
-                      headers=["First Name", "Last Name"]
-                      size={Ui.Size::Px(20)}
-                      rows={rows}/>
-                  </>
+                  <Ui.DefinitionList
+                    headers=["First Name", "Last Name"]
+                    size={Ui.Size::Px(20)}
+                    rows={rows}/>
+                </>
               }
             }/>
         }/>
