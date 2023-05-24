@@ -153,7 +153,7 @@ component Reference.Icon {
             width={Ui.Size::Px(170)}
             gap={Ui.Size::Px(10)}>
 
-            for (item of ListItems:ICON_ITEMS) {
+            for item of ListItems:ICON_ITEMS {
               <Ui.Card>
                 <DemoArea>
                   <Ui.Icon

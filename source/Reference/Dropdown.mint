@@ -151,7 +151,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -190,7 +190,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -229,7 +229,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -268,7 +268,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -339,7 +339,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -392,7 +392,7 @@ component Reference.Dropdown {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>

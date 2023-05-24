@@ -29,7 +29,7 @@ component Documentation.AdaptingToScreenSize {
                 connect Ui exposing { mobile }
 
                 fun render : Html {
-                  if (mobile) {
+                  if mobile {
                     <div>"MOBILE"</div>
                   } else {
                     <div>"DESKTOP"</div>
@@ -69,7 +69,7 @@ component Documentation.AdaptingToScreenSize {
 
               fun render : Html {
                 <div as base>
-                  if (width < 700) {
+                  if width < 700 {
                     <div>"MOBILE"</div>
                   } else if (width < 1100) {
                     <div>"TABLET"</div>

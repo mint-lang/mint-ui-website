@@ -69,7 +69,7 @@ component Reference.Modal {
 
                 let clickHandler =
                   (event : Html.Event) : Promise(Void) {
-                    case (await Ui.Modal.show(content)) {
+                    case await Ui.Modal.show(content) {
                       Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
                       Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
                     }
@@ -96,7 +96,7 @@ component Reference.Modal {
 
                 let clickHandler =
                   (event : Html.Event) {
-                    case (await Ui.Modal.show(content)) {
+                    case await Ui.Modal.show(content) {
                       Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
                       Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
                     }
@@ -136,7 +136,7 @@ component Reference.Modal {
                         240,
                         () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
 
-                    case (await result) {
+                    case await result {
                       Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
                       Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
                     }

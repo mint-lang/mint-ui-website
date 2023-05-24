@@ -5,7 +5,7 @@ component Page.NotFound {
     place-content: center;
     display: grid;
 
-    if (mobile) {
+    if mobile {
       min-height: auto;
       padding: 2em 0;
     } else {

@@ -63,14 +63,14 @@ component Page.Examples {
       <Ui.Grid
         gap={Ui.Size::Em(2)}
         width={
-          if (mobile) {
+          if mobile {
             Ui.Size::Inherit
           } else {
             Ui.Size::Em(30)
           }
         }>
 
-        for (name, page of EXAMPLES) {
+        for name, page of EXAMPLES {
           <Ui.Card href="/examples/#{String.parameterize(name)}">
             <div::example>
               <Ui.AvoidFocus>

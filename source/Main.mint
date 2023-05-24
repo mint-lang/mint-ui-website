@@ -14,7 +14,7 @@ component Main {
   }
 
   get content {
-    case (page) {
+    case page {
       Page::Example(item) => <{ "This branch is handled one level up!" }>
       Page::NotFound => <Page.NotFound/>
       Page::Examples => <Page.Examples/>
@@ -49,22 +49,20 @@ component Main {
       fontConfiguration={Ui:DEFAULT_FONT_CONFIGURATION}
       tokens={Ui:DEFAULT_TOKENS}>
 
-      case (page) {
-        Page::Example(name, item) =>
-          <div::example>
-            <{ item }>
-          </div>
+      if let Page::Example(name, item) = page {
+        <div::example>
+          <{ item }>
+        </div>
+      } else {
+        <>
+          <Ui.ScrollToTop/>
 
-        =>
-          <>
-            <Ui.ScrollToTop/>
-
-            <Ui.Layout.Website
-              content={content}
-              maxWidth="100vw"
-              footer={<Footer/>}
-              header={<Header/>}/>
-          </>
+          <Ui.Layout.Website
+            footer={<Footer/>}
+            header={<Header/>}
+            content={content}
+            maxWidth="100vw"/>
+        </>
       }
 
     </Ui.Theme.Root>

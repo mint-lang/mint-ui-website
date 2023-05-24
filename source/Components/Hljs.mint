@@ -13,7 +13,7 @@ component Hljs {
   }
 
   get highlightedCode {
-    if (language == "plain") {
+    if language == "plain" {
       String.split(code, "\n")
     } else {
       `hljs.highlight(#{language}, #{code}, true).value`
@@ -25,7 +25,7 @@ component Hljs {
     let nextContent =
       highlightedCode
 
-    if (nextContent != content) {
+    if nextContent != content {
       next { content: nextContent }
     } else {
       `null`
@@ -53,7 +53,7 @@ component Hljs {
     padding: 0.5em 1em;
     display: flex;
 
-    if (open) {
+    if open {
       border-bottom: 1px solid var(--content-border);
     }
 
@@ -101,13 +101,13 @@ component Hljs {
   style line (highlighted : Bool) {
     counter-increment: line-number;
 
-    if (highlighted && darkMode) {
+    if highlighted && darkMode {
       background: #2C2C2C;
-    } else if (highlighted && !darkMode) {
+    } else if highlighted && !darkMode {
       background: #F9F9F9;
     }
 
-    if (highlighted) {
+    if highlighted {
       line-height: 1.6;
       opacity: 1;
     } else {
@@ -125,9 +125,9 @@ component Hljs {
       text-align: right;
       color: #999;
 
-      if (highlighted && darkMode) {
+      if highlighted && darkMode {
         border-right-color: #222;
-      } else if (highlighted) {
+      } else if highlighted {
         border-right-color: #DDD;
       } else {
         border-right-color: var(--title-border);
@@ -144,7 +144,7 @@ component Hljs {
     color: #999;
     margin: 0;
 
-    if (Array.isEmpty(highlight)) {
+    if Array.isEmpty(highlight) {
       --unhighlighted-opacity: 1;
     } else {
       --highlighted-background: #EEE;
@@ -154,7 +154,7 @@ component Hljs {
     .hljs-doctag,
     .hljs-keyword,
     .hljs-formula {
-      if (darkMode) {
+      if darkMode {
         color: #d959ff;
       } else {
         color: #bc35e3;
@@ -169,7 +169,7 @@ component Hljs {
     .hljs-selector-attr,
     .hljs-selector-pseudo,
     .hljs-number {
-      if (darkMode) {
+      if darkMode {
         color: #59AFF2;
       } else {
         color: #1D8FE8;
@@ -181,7 +181,7 @@ component Hljs {
     .hljs-addition,
     .hljs-attribute,
     .hljs-meta-string {
-      if (darkMode) {
+      if darkMode {
         color: #1CCE3A;
       } else {
         color: #26AE3D;
@@ -195,7 +195,7 @@ component Hljs {
     .hljs-subst {
       font-weight: bold;
 
-      if (darkMode) {
+      if darkMode {
         color: #F4D352;
       } else {
         color: #D5841C;
@@ -210,7 +210,7 @@ component Hljs {
           <div::icon-label(0.25)>
             <Ui.Icon
               icon={
-                if (open) {
+                if open {
                   Ui.Icons:CHEVRON_DOWN
                 } else {
                   Ui.Icons:CHEVRON_RIGHT
@@ -237,7 +237,7 @@ component Hljs {
         </button>
       </div>
 
-      if (open) {
+      if open {
         <pre::pre>
           <{
             Array.mapWithIndex(

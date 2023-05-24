@@ -23,7 +23,7 @@ component Pages.Pricing {
     max-width: 72em;
     margin: 0 auto;
 
-    if (mobile) {
+    if mobile {
       grid-template-columns: 1fr;
     } else {
       grid-template-columns: 1fr 1fr;
@@ -41,12 +41,12 @@ component Pages.Pricing {
     display: grid;
 
     > * {
-      if (!mobile) {
+      if !mobile {
         min-height: 46.25em;
       }
     }
 
-    if (mobile) {
+    if mobile {
       grid-template-columns: 1fr;
     } else {
       grid-template-columns: repeat(auto-fit, 22em);
@@ -59,7 +59,7 @@ component Pages.Pricing {
 
     max-width: 72em;
 
-    if (mobile) {
+    if mobile {
       margin: 2em auto;
     } else {
       margin: 4em auto;
@@ -117,7 +117,7 @@ component Pages.Pricing {
           price={Maybe::Just({"$", "200", "/ one time"})}
           name=<{ "Lifetime License" }>
           size={
-            if (mobile) {
+            if mobile {
               Ui.Size::Em(1)
             } else {
               Ui.Size::Em(1.05)

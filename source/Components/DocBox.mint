@@ -39,7 +39,7 @@ component DocBox {
 
   fun render {
     <div>
-      if (String.isNotBlank(title)) {
+      if String.isNotBlank(title) {
         <a::anchor
           name={String.parameterize(title)}
           aria-hidden="true">

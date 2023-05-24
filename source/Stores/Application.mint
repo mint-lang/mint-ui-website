@@ -394,13 +394,13 @@ store Application {
 
   /* Component navigation items. */
   const COMPONENT_ITEMS =
-    for (category, items of COMPONENTS) {
+    for category, items of COMPONENTS {
       Ui.NavItem::Group(
         label: category,
         iconBefore: <></>,
         iconAfter: <></>,
         items:
-          for (comp of Array.sortBy(items, (item : Component) { item.name })) {
+          for comp of Array.sortBy(items, (item : Component) { item.name }) {
             Ui.NavItem::Link(
               iconBefore: <></>,
               iconAfter: <></>,
@@ -411,13 +411,13 @@ store Application {
     }
 
   const DOCUMENTATION_ITEMS =
-    for (category, items of DOCUMENTATION) {
+    for category, items of DOCUMENTATION {
       Ui.NavItem::Group(
         label: category,
         iconBefore: <></>,
         iconAfter: <></>,
         items:
-          for (item of items) {
+          for item of items {
             Ui.NavItem::Link(
               iconBefore: <></>,
               iconAfter: <></>,
@@ -433,7 +433,7 @@ store Application {
   /* Sets the title of the browser tab. */
   fun setTitle (page : Page) : Promise(Void) {
     let content =
-      case (page) {
+      case page {
         Page::Documentation(name, item) => "/ Documentation / #{name}"
         Page::Component(item) => "/ Components / #{item.name}"
         Page::Example(name, item) => "/ Example / #{name}"
@@ -460,7 +460,7 @@ store Application {
       |> Array.concat
       |> Array.find((item : Component) { String.parameterize(item.name) == key })
 
-    case (comp) {
+    case comp {
       Maybe::Just(item) => setPage(Page::Component(item))
       Maybe::Nothing => setPage(Page::NotFound)
     }
@@ -469,13 +469,13 @@ store Application {
   /* Sets the page from a documentation page key. */
   fun setDocumentationPage (key : String) {
     let page =
-      for (item of Array.concat(Map.values(DOCUMENTATION))) {
+      for item of Array.concat(Map.values(DOCUMENTATION)) {
         item
       } when {
         String.parameterize(item[0]) == key
       }[0]
 
-    case (page) {
+    case page {
       Maybe::Just(item) => setPage(Page::Documentation(item[0], item[1]))
       Maybe::Nothing => setPage(Page::NotFound)
     }
@@ -484,13 +484,13 @@ store Application {
   /* Sets the page from an example key. */
   fun setExamplePage (key : String) {
     let page =
-      for (name, item of EXAMPLES) {
+      for name, item of EXAMPLES {
         item
       } when {
         String.parameterize(name) == key
       }[0]
 
-    case (page) {
+    case page {
       Maybe::Just(item) => setPage(Page::Example(item[0], item[1]))
       Maybe::Nothing => setPage(Page::NotFound)
     }

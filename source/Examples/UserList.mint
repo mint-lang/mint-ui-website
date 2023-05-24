@@ -67,7 +67,7 @@ component Examples.UserList {
                 USERS
                 |> Array.sortBy(
                   (user : Tuple(String, String, Number, String)) {
-                    case (sortBy) {
+                    case sortBy {
                       "age" => Number.toString(user[2])
                       "address" => user[3]
                       "email" => user[1]
@@ -79,7 +79,7 @@ component Examples.UserList {
                 |> Array.slice(page * 10, (page + 1) * 10)
 
               let rows =
-                for (user of processedUsers) {
+                for user of processedUsers {
                   {
                     user[0],
                     [

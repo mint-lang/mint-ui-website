@@ -100,8 +100,8 @@ component Documentation.Theming {
               }
             ]
             rows={
-              for (token of DEFAULT_TOKENS) {
-                case (token) {
+              for token of DEFAULT_TOKENS {
+                case token {
                   Ui.Token::Simple(name, value) =>
                     Maybe::Just(
                       {
@@ -137,8 +137,8 @@ component Documentation.Theming {
               }
             ]
             rows={
-              for (token of DEFAULT_TOKENS) {
-                case (token) {
+              for token of DEFAULT_TOKENS {
+                case token {
                   Ui.Token::Schemed(name, light, dark) =>
                     Maybe::Just(
                       {
@@ -173,8 +173,8 @@ component Documentation.Theming {
               }
             ]
             rows={
-              for (token of DEFAULT_TOKENS) {
-                case (token) {
+              for token of DEFAULT_TOKENS {
+                case token {
                   Ui.Token::Schemed(name, dark) =>
                     Maybe::Just(
                       {

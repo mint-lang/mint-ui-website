@@ -12,11 +12,9 @@ component Examples.RecoverPassword {
 
     await next { errors: errors }
 
-    if (Map.isEmpty(errors)) {
+    if Map.isEmpty(errors) {
       Ui.Notifications.notifyDefault(<{ "An email would have been sent here...📭" }>)
       Window.navigate("/examples")
-    } else {
-      next { }
     }
   }
 

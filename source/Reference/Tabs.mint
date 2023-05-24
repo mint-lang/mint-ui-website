@@ -31,7 +31,7 @@ component Reference.Tabs {
     }
 
   const ITEMS =
-    for (tab of TABS[0]) {
+    for tab of TABS[0] {
       Ui.ListItem::Item(
         matchString: String.toLowerCase(tab.label),
         content: <{ tab.label }>,

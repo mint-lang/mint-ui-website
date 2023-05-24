@@ -23,7 +23,7 @@ component Reference.Container {
     }
 
   state orientation : String =
-    if (Ui.mobile) {
+    if Ui.mobile {
       "vertical"
     } else {
       "horizontal"

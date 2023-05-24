@@ -17,9 +17,9 @@ component PropertiesTable {
   }
 
   fun render : Html {
-    case (decode documentation as Documentation) {
+    case decode documentation as Documentation {
       Result::Ok(decoded) =>
-        if (Array.isEmpty(decoded.properties)) {
+        if Array.isEmpty(decoded.properties) {
           <></>
         } else {
           let sorted =
@@ -30,14 +30,14 @@ component PropertiesTable {
               })
 
           let rows =
-            for (prop of sorted) {
+            for prop of sorted {
               {
                 prop.name, [
                   Ui.Cell::Html(
                     <div::name>
                       <{ prop.name }>
                     </div>),
-                  case (prop.description) {
+                  case prop.description {
                     Maybe::Just(value) =>
                       Ui.Cell::Html(
                         <div::description>
@@ -49,13 +49,13 @@ component PropertiesTable {
 
                     Maybe::Nothing => Ui.Cell::String("")
                   },
-                  case (prop.type) {
+                  case prop.type {
                     Maybe::Just(value) =>
                       Ui.Cell::Code(code: value, breakSpaces: true)
 
                     Maybe::Nothing => Ui.Cell::String("")
                   },
-                  case (prop.default) {
+                  case prop.default {
                     Maybe::Just(value) => Ui.Cell::Code(code: value, breakSpaces: false)
                     Maybe::Nothing => Ui.Cell::String("")
                   }

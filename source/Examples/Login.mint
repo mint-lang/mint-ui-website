@@ -14,11 +14,9 @@ component Examples.Login {
 
     await next { errors: errors }
 
-    if (Map.isEmpty(errors)) {
+    if Map.isEmpty(errors) {
       Ui.Notifications.notifyDefault(<{ "You are now logged in 👋" }>)
       Window.navigate("/examples/dashboard")
-    } else {
-      next { }
     }
   }
 

@@ -39,10 +39,8 @@ component Examples.Checkout {
 
     await next { errors: errors }
 
-    if (Map.isEmpty(errors)) {
+    if Map.isEmpty(errors) {
       Ui.Notifications.notifyDefault(<{ "Thanks for filling in the data..." }>)
-    } else {
-      next { }
     }
   }
 

@@ -36,17 +36,14 @@ component Pages.Install {
 
           <pre>
             <code>
-              <{
-                [
-                  "\"dependencies\": {",
-                  "  \"mint-ui\": {",
-                  "    \"repository\": \"https://github.com/mint-lang/mint-ui\",",
-                  "    \"constraint\": \"6.0.0 <= v < 7.0.0\"",
-                  "  }",
-                  "}"
-                ]
-                |> String.join("\n")
-              }>
+              <<~JSON
+              "dependencies": {
+                "mint-ui": {
+                  "repository": "https://github.com/mint-lang/mint-ui",
+                  "constraint": "7.0.0 <= v < 8.0.0"
+                }
+              }
+              JSON
             </code>
           </pre>
 
@@ -64,24 +61,21 @@ component Pages.Install {
 
           <pre>
             <code>
-              <{
-                [
-                  "Mint - Installing dependencies",
-                  "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-                  "⚙ Constructing dependency tree...",
-                  "  ✔ Cloned mint-ui(https://github.com/mint-lang/mint-ui)",
-                  "  ✔ Cloned mint-color(https://github.com/mint-lang/mint-color)",
-                  "",
-                  "⚙ Resolving dependency tree...",
-                  "  ◈ mint-ui ➔ 6.0.0",
-                  "  ◈ mint-color ➔ 0.7.0",
-                  "",
-                  "⚙ Copying packages...",
-                  "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-                  "All done in 2.387s!"
-                ]
-                |> String.join("\n")
-              }>
+              <<~TEXT
+              Mint - Installing dependencies
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              ⚙ Constructing dependency tree...
+                ✔ Cloned mint-ui(https://github.com/mint-lang/mint-ui)
+                ✔ Cloned mint-color(https://github.com/mint-lang/mint-color)
+
+              ⚙ Resolving dependency tree...
+                ◈ mint-ui ➔ 6.0.0
+                ◈ mint-color ➔ 0.7.0
+
+              ⚙ Copying packages...
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              All done in 2.387s!
+              TEXT
             </code>
           </pre>
 

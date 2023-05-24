@@ -13,7 +13,7 @@ component Pages.Landing.Hero {
     grid-gap: 4em;
     display: grid;
 
-    if (darkMode) {
+    if darkMode {
       background-image: radial-gradient(ellipse closest-side, transparent, var(--background-color)),
                         radial-gradient(#333 1.5px, transparent 1.5px);
     } else {
@@ -21,7 +21,7 @@ component Pages.Landing.Hero {
                         radial-gradient(#D9D9D9 1.5px, transparent 1.5px);
     }
 
-    if (mobile) {
+    if mobile {
       grid-template-columns: 1fr;
       align-self: start;
       grid-gap: 1em;
@@ -36,7 +36,7 @@ component Pages.Landing.Hero {
     font-weight: 800;
     font-size: 2.5em;
 
-    if (darkMode) {
+    if darkMode {
       color: #EEE;
     } else {
       color: #222;
@@ -55,7 +55,7 @@ component Pages.Landing.Hero {
 
     font-size: 1em;
 
-    if (mobile) {
+    if mobile {
       justify-content: stretch;
       grid-auto-flow: row;
       grid-gap: 0.5em;

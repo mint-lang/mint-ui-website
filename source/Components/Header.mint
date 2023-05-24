@@ -2,16 +2,16 @@ component Header {
   connect Ui exposing { mobile, darkMode, toggleDarkMode }
 
   get darkModeToggle : Ui.NavItem {
-    if (mobile) {
+    if mobile {
       let label =
-        if (darkMode) {
+        if darkMode {
           "Light Mode"
         } else {
           "Dark Mode"
         }
 
       let iconBefore =
-        if (darkMode) {
+        if darkMode {
           Ui.Icons:SUN
         } else {
           Ui.Icons:MOON

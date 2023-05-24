@@ -17,7 +17,7 @@ store ListItems {
       ])
 
   const IMAGE_ITEMS =
-    for (name, image of IMAGES) {
+    for name, image of IMAGES {
       Ui.ListItem::Item(
         matchString: name,
         key: name,
@@ -33,11 +33,11 @@ store ListItems {
     }
 
   const ORIENTATION_ITEMS =
-    for (position of [
+    for position of [
       "Vertical",
       "Horizontal",
       "HorizontalReverse"
-    ]) {
+    ] {
       Ui.ListItem::Item(
         content: <{ position }>,
         matchString: position,
@@ -73,7 +73,7 @@ store ListItems {
       ])
 
   const OBJECT_POSITION_ITEMS =
-    for (position of [
+    for position of [
       "center",
       "top center",
       "top right",
@@ -81,7 +81,7 @@ store ListItems {
       "bottom center",
       "bottom right",
       "bottom left"
-    ]) {
+    ] {
       Ui.ListItem::Item(
         content: <{ position }>,
         matchString: position,
@@ -123,7 +123,7 @@ store ListItems {
     ]
 
   const ELEMENTS =
-    for (element of SIMPLE_ELEMENTS) {
+    for element of SIMPLE_ELEMENTS {
       Ui.ListItem::Item(
         key: String.parameterize(element),
         content: <{ element }>,
@@ -131,7 +131,7 @@ store ListItems {
     }
 
   const POSITIONS =
-    for (position of [
+    for position of [
       "BottomCenter",
       "BottomRight",
       "BottomLeft",
@@ -144,7 +144,7 @@ store ListItems {
       "LeftBottom",
       "LeftCenter",
       "LeftTop"
-    ]) {
+    ] {
       Ui.ListItem::Item(
         content: <{ position }>,
         matchString: position,
@@ -632,7 +632,7 @@ store ListItems {
     |> Map.fromArray()
 
   const ICON_ITEMS =
-    for (key, item of ICONS) {
+    for key, item of ICONS {
       let {label, icon} =
         item
 
@@ -647,7 +647,7 @@ store ListItems {
     }
 
   fun getOrientation (key : String) {
-    case (key) {
+    case key {
       "HorizontalReverse" => Ui.Field::HorizontalReverse
       "Horizontal" => Ui.Field::Horizontal
       => Ui.Field::Vertical

@@ -50,7 +50,7 @@ component Example {
       }
 
     let warning =
-      if (controlled) {
+      if controlled {
         <div::warning>
           <Ui.Icon icon={Ui.Icons:ALERT}/>
         </div>

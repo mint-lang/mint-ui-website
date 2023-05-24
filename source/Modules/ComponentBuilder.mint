@@ -53,7 +53,7 @@ module ComponentBuilder {
     name : String,
     value : String
   ) {
-    if (String.isNotBlank(value)) {
+    if String.isNotBlank(value) {
       { builder | properties: Array.push(builder.properties, {name, value}) }
     } else {
       builder
@@ -75,7 +75,7 @@ module ComponentBuilder {
     name : String,
     value : String
   ) {
-    if (String.isNotBlank(value)) {
+    if String.isNotBlank(value) {
       { builder | properties: Array.push(builder.properties, {name, "\"#{value}\""}) }
     } else {
       builder
@@ -133,7 +133,7 @@ module ComponentBuilder {
     name : String,
     icon : String
   ) {
-    if (String.isBlank(icon)) {
+    if String.isBlank(icon) {
       builder
     } else {
       addExpression(builder, name, "Ui.Icons:#{icon}")
@@ -143,10 +143,10 @@ module ComponentBuilder {
   /* Renders the builder as a component source. */
   fun toString (builder : ComponentBuilder) {
     let props =
-      if (Array.isEmpty(builder.properties)) {
+      if Array.isEmpty(builder.properties) {
         ""
-      } else if (Array.size(builder.properties) == 1) {
-        case (builder.properties[0]) {
+      } else if Array.size(builder.properties) == 1 {
+        case builder.properties[0] {
           Maybe::Just(property) =>
             {
               let {name, value} =
@@ -158,7 +158,7 @@ module ComponentBuilder {
           => ""
         }
       } else {
-        for (property of builder.properties) {
+        for property of builder.properties {
           let {name, value} =
             property
 
@@ -170,14 +170,14 @@ module ComponentBuilder {
       }
 
     let endTag =
-      if (Array.isEmpty(builder.children)) {
+      if Array.isEmpty(builder.children) {
         ""
       } else {
         "\n</#{builder.tag}>"
       }
 
     let tagEnd =
-      if (Array.isEmpty(builder.children)) {
+      if Array.isEmpty(builder.children) {
         "/>"
       } else {
         ">\n"
@@ -187,7 +187,7 @@ module ComponentBuilder {
       builder.children
       |> Array.map((string : String) { String.indent(string, 2) })
       |> String.join(
-        if (builder.addNewLines) {
+        if builder.addNewLines {
           "\n\n"
         } else {
           "\n"

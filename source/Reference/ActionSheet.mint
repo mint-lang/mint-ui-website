@@ -2,44 +2,31 @@ component Reference.ActionSheet {
   fun render : Html {
     <>
       <Ui.Box title=<{ "Ui.ActionSheet" }>>
-        <p>"A panel which comes up from the bottom of the screen and displays actions a user can take."</p>
+        <<#MARKDOWN
+        A panel which comes up from the bottom of the screen and displays
+        actions a user can take.
 
-        <p>"Some of its features:"</p>
+        Some of its features:
 
-        <ul>
-          <li>"Showing the component returns a promise which is resolved when its closed."</li>
-
-          <li>
-            "The keyboard focus is trapped in the list ("
-            <kbd>"Tab"</kbd>
-            " and "
-            <kbd>"Shift-Tab"</kbd>
-            " cyles focusable elements)."
-          </li>
-
-          <li>"When closed the focus is returned to the last focused element before opening (which is usually the one that opened the action sheet)."</li>
-
-          <li>
-            "When open pressing "
-            <kbd>"Esc"</kbd>
-            " closes it."
-          </li>
-
-          <li>"After opened it will focus the first focusable item."</li>
-        </ul>
+        * Showing the component returns a promise which is resolved when its
+          closed.
+        * The keyboard focus is trapped in the list (`Tab` and `Shift-Tab`
+          cyles focusable elements).
+        * When closed the focus is returned to the last focused element before
+          opening (which is usually the one that opened the action sheet).
+        * When open pressing `Esc` closes it.
+        * After opened it will focus the first focusable item.
+        MARKDOWN
       </Ui.Box>
 
       <DocBox
         title="Basic Usage"
-        content=<{
-          <p>
-            "Since the action-sheet is a global component you can just call "
-
-            <code>"Ui.ActionSheet.show(items)"</code>
-
-            " to show it."
-          </p>
-        }>
+        content={
+          <<#MARKDOWN
+          Since the action-sheet is a global component you can just call
+          `Ui.ActionSheet.show(items)` to show it.
+          MARKDOWN
+        }
         example={
           <Example
             data={
@@ -116,11 +103,10 @@ component Reference.ActionSheet {
       <DocBox
         title="Advanced Usage"
         content={
-          <p>
-            "If you need more control over the size can call: "
-
-            <code>"Ui.ActionSheet.showWithOptions(size, items)"</code>
-          </p>
+          <<#MARKDOWN
+          If you need more control over the size can call:
+          `Ui.ActionSheet.showWithOptions(size, items)`
+          MARKDOWN
         }
         example={
           <Example
@@ -158,21 +144,10 @@ component Reference.ActionSheet {
       <DocBox
         title="On Close"
         content={
-          <p>
-            "Both "
-
-            <code>"show"</code>
-
-            " and "
-
-            <code>"showWithOptions"</code>
-
-            " returns a "
-
-            <code>"Promise"</code>
-
-            " which resolves when the action-sheet is closed."
-          </p>
+          <<#MARKDOWN
+            Both `show` and `showWithOptions` returns a `Promise` which
+            resolves when the action-sheet is closed.
+          MARKDOWN
         }
         example={
           <Example

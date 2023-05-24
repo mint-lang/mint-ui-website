@@ -21,7 +21,7 @@ component Reference.Picker {
 
   get playgroundCode : String {
     let maybeLabel =
-      if (String.isBlank(label)) {
+      if String.isBlank(label) {
         "Maybe::Nothing"
       } else {
         "Maybe::Just(<{ \"#{label}\" }>)"
@@ -175,7 +175,7 @@ component Reference.Picker {
                   panel={PANEL[0]}
                   offset={offset}
                   label={
-                    if (String.isBlank(label)) {
+                    if String.isBlank(label) {
                       Maybe::Nothing
                     } else {
                       Maybe::Just(label)
@@ -351,7 +351,7 @@ component Reference.Picker {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -410,7 +410,7 @@ component Reference.Picker {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
@@ -453,7 +453,7 @@ component Reference.Picker {
           </p>
         }
         example={
-          if (mobile) {
+          if mobile {
             <Ui.ContentHint icon={Ui.Icons:INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>

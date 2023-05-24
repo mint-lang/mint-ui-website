@@ -100,7 +100,7 @@ component Reference.Grid {
             highlight=[4, 18, 32]
             verticalSpacing={50}
             data={
-              if (mobile) {
+              if mobile {
                 @format {
                   <>
                     <div style="width: 260px;">
@@ -212,7 +212,7 @@ component Reference.Grid {
             highlight=[4, 17, 30]
             verticalSpacing={50}
             data={
-              if (mobile) {
+              if mobile {
                 @format {
                   <>
                     <div style="width: 250px;">

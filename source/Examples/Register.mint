@@ -17,11 +17,9 @@ component Examples.Register {
 
     await next { errors: errors }
 
-    if (Map.isEmpty(errors)) {
+    if Map.isEmpty(errors) {
       Ui.Notifications.notifyDefault(<{ "You are now registered and logged in 👋" }>)
       Window.navigate("/examples/dashboard")
-    } else {
-      next { }
     }
   }
 
