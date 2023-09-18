@@ -21,8 +21,8 @@ Mint - Installing dependencies
   ✔ Cloned mint-color (https://github.com/mint-lang/mint-color)
 
 ⚙ Resolving dependency tree...
-  ◈ mint-ui ➔ 6.0.0
-  ◈ mint-color ➔ 0.7.0
+  ◈ mint-ui ➔ 9.0.0
+  ◈ mint-color ➔ 0.8.0
 
 ⚙ Copying packages...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
