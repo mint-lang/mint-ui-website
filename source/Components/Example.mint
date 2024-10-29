@@ -1,6 +1,5 @@
 component Example {
-  property size : Ui.Size = Ui.Size::Inherit
-  property highlight : Array(Number) = []
+  property size : Ui.Size = Ui.Size.Inherit
   property horizontalSpacing : Number = 0
   property verticalSpacing : Number = 0
   property breakpoint : Number = 650
@@ -43,17 +42,11 @@ component Example {
 
   fun render {
     let highlightFunction =
-      (code : String) {
-        <Hljs
-          highlight={highlight}
-          code={code}/>
-      }
+      (code : String) { <Hljs code={code}/> }
 
     let warning =
       if controlled {
-        <div::warning>
-          <Ui.Icon icon={Ui.Icons:ALERT}/>
-        </div>
+        <div::warning><Ui.Icon icon={Ui.Icons.ALERT}/></div>
       } else {
         <></>
       }
@@ -67,6 +60,7 @@ component Example {
       controls={controls}
       warning={warning}
       data={data}
-      size={size}/>
+      size={size}
+    />
   }
 }

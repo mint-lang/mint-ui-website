@@ -4,6 +4,7 @@
   "application": {
     "name": "Mint UI",
     "title": "Mint UI - Beautiful, Reliable Components for Mint",
+    "head": "assets/head.html",
     "theme-color": "#FFF",
     "display": "standalone",
     "orientation": "portrait",
@@ -15,18 +16,13 @@
     }
   },
   "source-directories": [
+    "../mint-ui/source",
     "source"
   ],
-  "external": {
-    "javascripts": [
-      "assets/javascripts/hljs.js",
-      "assets/javascripts/hljs-mint.js"
-    ]
-  },
   "dependencies": {
-    "mint-ui": {
-      "repository": "https://github.com/mint-lang/mint-ui",
-      "constraint": "8.0.0 <= v < 9.0.0"
+    "mint-color": {
+      "repository": "https://github.com/mint-lang/mint-color",
+      "constraint": "0.9.0 <= v < 1.0.0"
     }
   }
 }

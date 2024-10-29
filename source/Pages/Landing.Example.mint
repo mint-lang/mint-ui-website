@@ -53,45 +53,37 @@ component Pages.Landing.Example {
   fun render {
     <div::base>
       <Example
-        size={Ui.Size::Inherit}
+        size={Ui.Size.Inherit}
         horizontalSpacing={0}
         verticalSpacing={0}
         breakpoint={500}
-        controls=<{
-          <Ui.Field label="Title">
-            <Ui.Input
-              onChange={(value : String) { next { title: value } }}
-              value={title}/>
-          </Ui.Field>
+        controls=<>
+          <Ui.Field label="Title"><Ui.Input onChange={-> title} value={title}/></Ui.Field>
 
           <Ui.Field label="Subtitle">
-            <Ui.Input
-              onChange={(value : String) { next { subtitle: value } }}
-              value={subtitle}/>
+            <Ui.Input onChange={-> subtitle} value={subtitle}/>
           </Ui.Field>
 
           <Ui.Field label="Content">
-            <Ui.Textarea
-              onChange={(value : String) { next { content: value } }}
-              value={content}/>
+            <Ui.Textarea onChange={-> content} value={content}/>
           </Ui.Field>
-        }>
+        </>
         data={
           {
             <Ui.Card href="/components/ui-card">
-              <Ui.Card.Image
-                height={Ui.Size::Em(height)}
-                src={IMAGE[0]}/>
+              <Ui.Card.Image height={Ui.Size.Em(height)} src={IMAGE[0]}/>
 
               <Ui.Card.Container
-                subtitle=<{ subtitle }>
+                subtitle=<>subtitle</>
                 thumbnail={AVATAR[0]}
-                content=<{ content }>
-                title=<{ title }>/>
+                content=<>content</>
+                title=<>title</>
+              />
             </Ui.Card>,
             code
           }
-        }/>
+        }
+      />
     </div>
   }
 }

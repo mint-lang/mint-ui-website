@@ -1,16 +1,12 @@
 component Pages.Install {
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Install" }>>
+      <Ui.Box title=<>"Install"</>>
         <p>
           "This guide assumes that you already have Mint installed. If not, check out the "
 
-          <a
-            href="https://www.mint-lang.com/install"
-            target="_blank">
-
+          <a href="https://www.mint-lang.com/install" target="_blank">
             "Mint installation methods"
-
           </a>
 
           " and come back when you’re done."
@@ -19,12 +15,9 @@ component Pages.Install {
 
       <DocBox
         title="Installing Mint UI"
-        content=<{
+        content=<>
           <p>"First you need to create your application:"</p>
-
-          <pre>
-            <code>"mint init your-application\ncd your-application"</code>
-          </pre>
+          <pre><code>"mint init your-application\ncd your-application"</code></pre>
 
           <p>
             "Then add "
@@ -50,13 +43,10 @@ component Pages.Install {
           <p>
             "Finally run "
             <code>"mint install"</code>
-            "to get the dependencies:"
+            " to get the dependencies:"
           </p>
 
-          <pre>
-            <code>"mint install"</code>
-          </pre>
-
+          <pre><code>"mint install"</code></pre>
           <p>"You should see something like this:"</p>
 
           <pre>
@@ -80,7 +70,8 @@ component Pages.Install {
           </pre>
 
           <p>"That’s it! You’re now ready to use Mint UI in your application."</p>
-        }>/>
+        </>
+      />
     </>
   }
 }

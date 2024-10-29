@@ -18,8 +18,6 @@ component DemoArea {
   }
 
   fun render : Html {
-    <div::base>
-      <{ children }>
-    </div>
+    <div::base>children</div>
   }
 }

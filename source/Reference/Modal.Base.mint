@@ -8,7 +8,8 @@ component Reference.Modal.Base {
     let button =
       "Ui.Button"
       |> ComponentBuilder.new()
-      |> ComponentBuilder.addExpression("onClick", "(event : Html.Event) { /* Handle event...*/ }")
+      |> ComponentBuilder.addExpression("onClick",
+        "(event : Html.Event) { /* Handle event...*/ }")
       |> ComponentBuilder.addString("label", "Close")
       |> ComponentBuilder.toString()
 
@@ -24,10 +25,10 @@ component Reference.Modal.Base {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Modal.Base" }>>
+      <Ui.Box title=<>"Ui.Modal.Base"</>>
         <p>
-          "The base component for a modal, this contains the backdr" \
-          "op and the centered content with transitions."
+          "The base component for a modal, this contains the backdrop and " \
+          "the centered content with transitions."
         </p>
 
         <p>"Use this when you want to create a custom modal."</p>
@@ -38,57 +39,52 @@ component Reference.Modal.Base {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Modal.Base"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Transition Duration (#{transitionDuration}ms)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { transitionDuration: value } }}
+                  onChange={-> transitionDuration}
                   value={transitionDuration}
                   max={2000}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
 
               <Ui.Field label="Z-index (#{zIndex})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { zIndex: value } }}
+                  onChange={-> zIndex}
                   value={zIndex}
                   min={-100}
-                  max={100}/>
+                  max={100}
+                />
               </Ui.Field>
 
               <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Close on Outside Click">
-
+                orientation={Ui.Field.Horizontal}
+                label="Close on Outside Click"
+              >
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { closeOnOutsideClick: value } }}
-                  checked={closeOnOutsideClick}/>
-
+                  onChange={-> closeOnOutsideClick}
+                  checked={closeOnOutsideClick}
+                />
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Open">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { open: value } }}
-                  checked={open}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Open">
+                <Ui.Checkbox onChange={-> open} checked={open}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <>
                   <Ui.Button
                     onClick={(event : Html.Event) { next { open: true } }}
-                    label="Open"/>
+                    label="Open"
+                  />
 
                   <Ui.Modal.Base
                     closeOnOutsideClick={closeOnOutsideClick}
@@ -98,20 +94,22 @@ component Reference.Modal.Base {
                     onClose={
                       () {
                         next { open: false }
-                        Ui.Notifications.notifyDefault(<{ "Modal closed!" }>)
+                        Ui.Notifications.notifyDefault(<>"Modal closed!"</>)
                       }
-                    }>
-
+                    }
+                  >
                     <Ui.Button
                       onClick={(event : Html.Event) { next { open: false } }}
-                      label="Close"/>
-
+                      label="Close"
+                    />
                   </Ui.Modal.Base>
                 </>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

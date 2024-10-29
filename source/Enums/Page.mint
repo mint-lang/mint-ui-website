@@ -1,5 +1,5 @@
 /* Represents a page in the website. */
-enum Page {
+type Page {
   /* A full page example. */
   Example(String, Html)
 

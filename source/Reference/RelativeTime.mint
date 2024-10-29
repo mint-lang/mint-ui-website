@@ -13,8 +13,10 @@ component Reference.RelativeTime {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.RelativeTime" }>>
-        <p>"Renders a time relative from the current time in human readable language."</p>
+      <Ui.Box title=<>"Ui.RelativeTime"</>>
+        <p>
+          "Renders a time relative from the current time in human readable language."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -22,37 +24,28 @@ component Reference.RelativeTime {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.RelativeTime"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Date">
-                <Ui.DatePicker
-                  onChange={(value : Time) { next { date: value } }}
-                  value={date}/>
+                <Ui.DatePicker onChange={-> date} value={date}/>
               </Ui.Field>
-            }>
-            data={
-              {
-                <Ui.RelativeTime date={date}/>,
-                playgroundCode
-              }
-            }/>
-        }/>
+            </>
+            data={{<Ui.RelativeTime date={date}/>, playgroundCode}}
+          />
+        }
+      />
 
       <DocBox
         title="Date"
         content={
           <p>
             "The date can be set with the "
-
             <code>"date"</code>
-
             " property."
           </p>
         }
@@ -66,8 +59,10 @@ component Reference.RelativeTime {
                   <Ui.RelativeTime date={Time.utc(2020, 1, 1, 0, 0, 0, 0)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

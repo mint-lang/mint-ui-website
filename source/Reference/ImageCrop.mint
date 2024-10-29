@@ -43,7 +43,7 @@ component Reference.ImageCrop {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.ImageCrop" }>>
+      <Ui.Box title=<>"Ui.ImageCrop"</>>
         <p>"A simple image cropper component."</p>
       </Ui.Box>
 
@@ -52,56 +52,45 @@ component Reference.ImageCrop {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.ImageCrop"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
             fullWidth={true}
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Embeeded">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { embedded: value } }}
-                  checked={embedded}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Embeeded">
+                <Ui.Checkbox onChange={-> embedded} checked={embedded}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <div::base>
                   <Ui.ImageCrop
-                    onChange={(value : Ui.ImageCrop.Value) { next { value: value } }}
-                    size={Ui.Size::Px(size)}
+                    size={Ui.Size.Px(size)}
+                    onChange={-> value}
                     embedded={embedded}
-                    value={value}/>
+                    value={value}
+                  />
                 </div>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -113,7 +102,7 @@ component Reference.ImageCrop {
               @format {
                 <>
                   <Ui.ImageCrop
-                    size={Ui.Size::Px(12)}
+                    size={Ui.Size.Px(12)}
                     value={
                       {
                         source: @asset(../../assets/images/white-beach.jpg),
@@ -122,10 +111,11 @@ component Reference.ImageCrop {
                         y: 0.25,
                         x: 0.25
                       }
-                    }/>
+                    }
+                  />
 
                   <Ui.ImageCrop
-                    size={Ui.Size::Px(16)}
+                    size={Ui.Size.Px(16)}
                     value={
                       {
                         source: @asset(../../assets/images/white-beach.jpg),
@@ -134,10 +124,11 @@ component Reference.ImageCrop {
                         y: 0.25,
                         x: 0.25
                       }
-                    }/>
+                    }
+                  />
 
                   <Ui.ImageCrop
-                    size={Ui.Size::Px(20)}
+                    size={Ui.Size.Px(20)}
                     value={
                       {
                         source: @asset(../../assets/images/white-beach.jpg),
@@ -146,26 +137,27 @@ component Reference.ImageCrop {
                         y: 0.25,
                         x: 0.25
                       }
-                    }/>
+                    }
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Embedded"
-        content=<{
+        content=<>
           <p>
             "The image cropper can be embedded by setting "
-
             <code>"embedded"</code>
-
             " property to "
             <code>"true"</code>
           </p>
 
           <p>"This will remove the background, border and padding."</p>
-        }>
+        </>
         example={
           <Example
             verticalSpacing={20}
@@ -182,10 +174,13 @@ component Reference.ImageCrop {
                       y: 0.25,
                       x: 0.25
                     }
-                  }/>
+                  }
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

@@ -22,7 +22,7 @@ component Reference.Native.Select {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Native.Select" }>>
+      <Ui.Box title=<>"Ui.Native.Select"</>>
         <p>"A wrapper around the browser native select input."</p>
       </Ui.Box>
 
@@ -31,125 +31,102 @@ component Reference.Native.Select {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Native.Select"</code>
-
             " below using the controls:"
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Placeholder">
-                <Ui.Input
-                  onChange={(value : String) { next { placeholder: value } }}
-                  value={placeholder}/>
+                <Ui.Input onChange={-> placeholder} value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Value">
-                <Ui.Input
-                  onChange={(value : String) { next { value: value } }}
-                  value={value}/>
+                <Ui.Input onChange={-> value} value={value}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Invalid">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid: value } }}
-                  checked={invalid}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Invalid">
+                <Ui.Checkbox onChange={-> invalid} checked={invalid}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <>
                   <Ui.Native.Select
-                    onChange={(value : String) { next { value: value } }}
                     placeholder={placeholder}
-                    size={Ui.Size::Px(size)}
+                    size={Ui.Size.Px(size)}
                     disabled={disabled}
+                    onChange={-> value}
                     invalid={invalid}
                     items={ELEMENTS}
-                    value={value}/>
+                    value={value}
+                  />
                 </>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Value"
-        content=<{
+        content=<>
           <p>
             "The selected item can be controlled with the "
-
             <code>"value"</code>
-
             " property."
           </p>
 
           <p>
             "It must match the "
-
             <code>"key"</code>
-
             " of the item you want to select."
           </p>
-        }>
+        </>
         example={
           <Example
             controlled={true}
-            highlight=[1, 6]
             data={
               @format {
                 <Ui.Native.Select
                   value="item_1"
                   items=[
-                    Ui.ListItem::Item(
-                      content: <{ "Item 1" }>,
+                    Ui.ListItem.Item(
+                      content: <>"Item 1"</>,
                       matchString: "Item 1",
                       key: "item_1"),
-                    Ui.ListItem::Item(
-                      content: <{ "Item 2" }>,
+                    Ui.ListItem.Item(
+                      content: <>"Item 2"</>,
                       matchString: "Item 2",
                       key: "item_2"),
-                    Ui.ListItem::Item(
-                      content: <{ "Item 3" }>,
+                    Ui.ListItem.Item(
+                      content: <>"Item 3"</>,
                       matchString: "Item 3",
                       key: "item_3")
-                  ]/>
+                  ]
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Placeholder"
         content={
           <p>
             "The placeholder can be changed with the "
-
             <code>"placeholder"</code>
-
             " property. It is only visible if none of items match the given value."
           </p>
         }
@@ -160,109 +137,107 @@ component Reference.Native.Select {
               @format {
                 <Ui.Native.Select placeholder="Select an item..."/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[2, 12, 22]
             controlled={true}
             data={
               @format {
                 <>
                   <Ui.Native.Select
-                    size={Ui.Size::Px(12)}
+                    size={Ui.Size.Px(12)}
                     value="item_1"
                     items=[
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
+                      Ui.ListItem.Item(
+                        content: <>"Item 1"</>,
                         matchString: "Item 1",
                         key: "item_1")
-                    ]/>
+                    ]
+                  />
 
                   <Ui.Native.Select
-                    size={Ui.Size::Px(16)}
+                    size={Ui.Size.Px(16)}
                     value="item_1"
                     items=[
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
+                      Ui.ListItem.Item(
+                        content: <>"Item 1"</>,
                         matchString: "Item 1",
                         key: "item_1")
-                    ]/>
+                    ]
+                  />
 
                   <Ui.Native.Select
-                    size={Ui.Size::Px(20)}
+                    size={Ui.Size.Px(20)}
                     value="item_1"
                     items=[
-                      Ui.ListItem::Item(
-                        content: <{ "Item 1" }>,
+                      Ui.ListItem.Item(
+                        content: <>"Item 1"</>,
                         matchString: "Item 1",
                         key: "item_1")
-                    ]/>
+                    ]
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Disabled"
         content={
           <p>
             "The component can be disabled using the "
-
             <code>"disabled"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             controlled={true}
-            highlight=[2]
             data={
               @format {
-                <Ui.Native.Select
-                  placeholder="Disabled..."
-                  disabled={true}/>
+                <Ui.Native.Select placeholder="Disabled..." disabled={true}/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Invalid"
         content={
           <p>
             "The component can be marked invalid using the "
-
             <code>"invalid"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             controlled={true}
-            highlight=[2]
             data={
               @format {
-                <Ui.Native.Select
-                  placeholder="Invalid..."
-                  invalid={true}/>
+                <Ui.Native.Select placeholder="Invalid..." invalid={true}/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

@@ -1,10 +1,10 @@
 component Documentation.AdaptingToScreenSize {
   fun render {
     <>
-      <Ui.Box title=<{ "Adapting to screen size" }>>
+      <Ui.Box title=<>"Adapting to screen size"</>>
         <p>
-          "This document shows two methods of adapting your compone" \
-          "nt to different screen sizes."
+          "This document shows two methods of adapting your component to " \
+          "different screen sizes."
         </p>
       </Ui.Box>
 
@@ -37,51 +37,55 @@ component Documentation.AdaptingToScreenSize {
                 }
               }
               MINT
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Provider.ElementSize"
         content={
           <<#MARKDOWN
-            The other way is to measure the size of the element and use that to
-            decide what to show.
+          The other way is to measure the size of the element and use that to
+          decide what to show.
 
-            To achieve that you can use the `Provider.ElementSize` provider
-            which calls the given function when the observed element is resized.
+          To achieve that you can use the `Provider.ElementSize` provider
+          which calls the given function when the observed element is resized.
           MARKDOWN
         }
         example={
           <Hljs
             code={
               <<~MINT
-            component Main {
-              state width : Number = 0
+              component Main {
+                state width : Number = 0
 
-              use Provider.ElementSize {
-               changes: updateWidth,
-               element: base
-              }
+                use Provider.ElementSize {
+                 changes: updateWidth,
+                 element: base
+                }
 
-              fun updateWidth (dimensions : Dom.Dimensions) {
-                next { width: dimensions.width }
-              }
+                fun updateWidth (dimensions : Dom.Dimensions) {
+                  next { width: dimensions.width }
+                }
 
-              fun render : Html {
-                <div as base>
-                  if width < 700 {
-                    <div>"MOBILE"</div>
-                  } else if (width < 1100) {
-                    <div>"TABLET"</div>
-                  } else {
-                    <div>"DESKTOP"</div>
-                  }
-                </div>
+                fun render : Html {
+                  <div as base>
+                    if width < 700 {
+                      <div>"MOBILE"</div>
+                    } else if (width < 1100) {
+                      <div>"TABLET"</div>
+                    } else {
+                      <div>"DESKTOP"</div>
+                    }
+                  </div>
+                }
               }
+              MINT
             }
-            MINT
-            }/>
-        }/>
+          />
+        }
+      />
     </>
   }
 }

@@ -30,8 +30,7 @@ component DocBox {
         transform: rotate(-45deg) translateY(5px);
       }
 
-      &:hover,
-      &:focus {
+      &:hover, &:focus {
         opacity: 1;
       }
     }
@@ -40,35 +39,27 @@ component DocBox {
   fun render {
     <div>
       if String.isNotBlank(title) {
-        <a::anchor
-          name={String.parameterize(title)}
-          aria-hidden="true">
-
-          <{ title }>
-
-        </a>
+        <a::anchor name={String.parameterize(title)} aria-hidden="true">title</a>
       }
 
       <div::base>
         <Ui.Box
           title={
             <div::title>
-              <{ title }>
+              title
 
               <span title="Permalink to #{title}">
                 <Ui.Icon
                   href="##{String.parameterize(title)}"
-                  icon={Ui.Icons:LINK}/>
+                  icon={Ui.Icons.LINK}
+                />
               </span>
             </div>
-          }>
+          }
+        >content</Ui.Box>
 
-          <{ content }>
-
-        </Ui.Box>
-
-        <{ hint }>
-        <{ example }>
+        hint
+        example
       </div>
     </div>
   }

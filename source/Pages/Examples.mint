@@ -47,55 +47,50 @@ component Page.Examples {
         <h1>"Examples"</h1>
 
         <p>
-          "Here you can find some pages that are built with Mint UI" \
-          ", feel free use them as examples the sources are availab" \
-          "le on Github."
+          "Here you can find some pages that are built with Mint UI, feel " \
+          "free use them as examples the sources are available on Github."
         </p>
 
         <p>
-          "Most of the examples are static, some have some interact" \
-          "ions but all of them are not functional (in the login pa" \
-          "ge you cannot log in etc...) - since they are built only" \
-          " to showcase components."
+          "Most of the examples are static, some have some interactions but " \
+          "all of them are not functional (in the login page you cannot log " \
+          "in etc...) - since they are built only to showcase components."
         </p>
       </Ui.Content>
 
       <Ui.Grid
-        gap={Ui.Size::Em(2)}
+        gap={Ui.Size.Em(2)}
         width={
           if mobile {
-            Ui.Size::Inherit
+            Ui.Size.Inherit
           } else {
-            Ui.Size::Em(30)
+            Ui.Size.Em(30)
           }
-        }>
-
+        }
+      >
         for name, page of EXAMPLES {
           <Ui.Card href="/examples/#{String.parameterize(name)}">
-            <div::example>
-              <Ui.AvoidFocus>
-                <{ page[1] }>
-              </Ui.AvoidFocus>
-            </div>
+            <div::example><Ui.AvoidFocus><>page[1]</></Ui.AvoidFocus></div>
 
             <Ui.Card.Container
               content={
                 <Ui.Container justify="space-between">
-                  <{ page[0] }>
+                  <>page[0]</>
 
                   <Ui.Button
                     href="https://github.com/mint-lang/mint-ui-website/blob/master/source/Examples/#{page[2]}"
-                    iconBefore={Ui.Icons:CODE}
-                    size={Ui.Size::Em(0.75)}
+                    iconBefore={Ui.Icons.CODE}
+                    size={Ui.Size.Em(0.75)}
                     target="_blank"
                     label="Source"
-                    type="faded"/>
+                    type="faded"
+                  />
                 </Ui.Container>
               }
-              title=<{ name }>/>
+              title=<>name</>
+            />
           </Ui.Card>
         }
-
       </Ui.Grid>
     </div>
   }

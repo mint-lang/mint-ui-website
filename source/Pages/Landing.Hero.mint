@@ -124,21 +124,21 @@ component Pages.Landing.Hero {
 
         <div::actions>
           <Ui.Button
-            iconBefore={Ui.Icons:PUZZLE}
+            iconBefore={Ui.Icons.PUZZLE}
             label="Browse Components"
-            href="/components"/>
+            href="/components"
+          />
 
           <Ui.Button
-            iconBefore={Ui.Icons:TELESCOPE}
+            iconBefore={Ui.Icons.TELESCOPE}
             label="Explore Examples"
             href="/examples"
-            type="secondary"/>
+            type="secondary"
+          />
         </div>
       </div>
 
-      <div::example>
-        <Pages.Landing.Example/>
-      </div>
+      <div::example><Pages.Landing.Example/></div>
     </div>
   }
 }

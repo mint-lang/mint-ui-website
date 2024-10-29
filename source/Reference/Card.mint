@@ -13,16 +13,18 @@ component Reference.Card {
     @format {
       <Ui.Card.Image
         src={@asset(../../assets/images/beach.jpg)}
-        height={Ui.Size::Em(12.5)}/>
+        height={Ui.Size.Em(12.5)}
+      />
     }
 
   const CONTAINER =
     @format {
       <Ui.Card.Container
-        content=<{ "Cards display content and actions on a single topic." }>
+        content=<>"Cards display content and actions on a single topic."</>
         thumbnail={@asset(../../assets/images/avatar.jpg)}
-        subtitle=<{ "Subtitle" }>
-        title=<{ "Title" }>/>
+        subtitle=<>"Subtitle"</>
+        title=<>"Title"</>
+      />
     }
 
   get playgroundCode : String {
@@ -39,8 +41,10 @@ component Reference.Card {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Card" }>>
-        <p>"Cards are surfaces that display content and actions on a single topic."</p>
+      <Ui.Box title=<>"Ui.Card"</>>
+        <p>
+          "Cards are surfaces that display content and actions on a single topic."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -48,61 +52,51 @@ component Reference.Card {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Card"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Min Width (#{minWidth}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { minWidth: value } }}
+                  onChange={-> minWidth}
                   value={minWidth}
                   max={500}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
 
-              <Ui.Field label="Href">
-                <Ui.Input
-                  onChange={(value : String) { next { href: value } }}
-                  value={href}/>
-              </Ui.Field>
+              <Ui.Field label="Href"><Ui.Input onChange={-> href} value={href}/></Ui.Field>
 
               <Ui.Field label="Target">
-                <Ui.Input
-                  onChange={(value : String) { next { target: value } }}
-                  value={target}/>
+                <Ui.Input onChange={-> target} value={target}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <div::container>
                   <Ui.Card
-                    minWidth={Ui.Size::Px(minWidth)}
-                    size={Ui.Size::Px(size)}
+                    minWidth={Ui.Size.Px(minWidth)}
+                    size={Ui.Size.Px(size)}
                     target={target}
-                    href={href}>
-
-                    <{ IMAGE[0] }>
-                    <{ CONTAINER[0] }>
-
+                    href={href}
+                  >
+                    <>IMAGE[0]</>
+                    <>CONTAINER[0]</>
                   </Ui.Card>
                 </div>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Variations"
@@ -113,126 +107,126 @@ component Reference.Card {
             data={
               @format {
                 <>
-                  <Ui.Card minWidth={Ui.Size::Px(200)}>
+                  <Ui.Card minWidth={Ui.Size.Px(200)}>
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Px(100)}/>
+                      height={Ui.Size.Px(100)}
+                    />
 
                     <Ui.Card.Container
                       thumbnail={@asset(../../assets/images/avatar.jpg)}
-                      content=<{ "Some Content..." }>
-                      subtitle=<{ "Subtitle" }>
-                      title=<{ "Title" }>/>
+                      content=<>"Some Content..."</>
+                      subtitle=<>"Subtitle"</>
+                      title=<>"Title"</>
+                    />
                   </Ui.Card>
 
-                  <Ui.Card minWidth={Ui.Size::Px(200)}>
+                  <Ui.Card minWidth={Ui.Size.Px(200)}>
                     <Ui.Card.Container
                       thumbnail={@asset(../../assets/images/avatar.jpg)}
-                      content=<{ "Some Content..." }>
-                      subtitle=<{ "Subtitle" }>
-                      title=<{ "Title" }>/>
+                      content=<>"Some Content..."</>
+                      subtitle=<>"Subtitle"</>
+                      title=<>"Title"</>
+                    />
 
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Px(100)}/>
+                      height={Ui.Size.Px(100)}
+                    />
                   </Ui.Card>
 
-                  <Ui.Card minWidth={Ui.Size::Px(200)}>
+                  <Ui.Card minWidth={Ui.Size.Px(200)}>
                     <Ui.Card.Image
                       src={@asset(../../assets/images/avatar.jpg)}
-                      height={Ui.Size::Px(100)}/>
+                      height={Ui.Size.Px(100)}
+                    />
 
                     <Ui.Card.Container
-                      content=<{ "Some Content..." }>
-                      title=<{ "Some title..." }>/>
+                      content=<>"Some Content..."</>
+                      title=<>"Some title..."</>
+                    />
 
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Px(100)}/>
+                      height={Ui.Size.Px(100)}
+                    />
                   </Ui.Card>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of a card can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={30}
-            highlight=[3, 19, 35]
             data={
               @format {
                 <>
-                  <Ui.Card
-                    minWidth={Ui.Size::Px(200)}
-                    size={Ui.Size::Px(12)}>
-
+                  <Ui.Card minWidth={Ui.Size.Px(200)} size={Ui.Size.Px(12)}>
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Em(7)}/>
+                      height={Ui.Size.Em(7)}
+                    />
 
                     <Ui.Card.Container
                       thumbnail={@asset(../../assets/images/avatar.jpg)}
-                      content=<{ "Content..." }>
-                      subtitle=<{ "Subtitle" }>
-                      title=<{ "Title" }>/>
-
+                      content=<>"Content..."</>
+                      subtitle=<>"Subtitle"</>
+                      title=<>"Title"</>
+                    />
                   </Ui.Card>
 
-                  <Ui.Card
-                    minWidth={Ui.Size::Px(200)}
-                    size={Ui.Size::Px(16)}>
-
+                  <Ui.Card minWidth={Ui.Size.Px(200)} size={Ui.Size.Px(16)}>
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Em(7)}/>
+                      height={Ui.Size.Em(7)}
+                    />
 
                     <Ui.Card.Container
                       thumbnail={@asset(../../assets/images/avatar.jpg)}
-                      content=<{ "Content..." }>
-                      subtitle=<{ "Subtitle" }>
-                      title=<{ "Title" }>/>
-
+                      content=<>"Content..."</>
+                      subtitle=<>"Subtitle"</>
+                      title=<>"Title"</>
+                    />
                   </Ui.Card>
 
-                  <Ui.Card
-                    minWidth={Ui.Size::Px(200)}
-                    size={Ui.Size::Px(20)}>
-
+                  <Ui.Card minWidth={Ui.Size.Px(200)} size={Ui.Size.Px(20)}>
                     <Ui.Card.Image
                       src={@asset(../../assets/images/beach.jpg)}
-                      height={Ui.Size::Em(7)}/>
+                      height={Ui.Size.Em(7)}
+                    />
 
                     <Ui.Card.Container
                       thumbnail={@asset(../../assets/images/avatar.jpg)}
-                      content=<{ "Some Content..." }>
-                      subtitle=<{ "Subtitle" }>
-                      title=<{ "Title" }>/>
-
+                      content=<>"Some Content..."</>
+                      subtitle=<>"Subtitle"</>
+                      title=<>"Title"</>
+                    />
                   </Ui.Card>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Link"
         content={
           <p>
             "The component can be used as a link by providing a value for the "
-
             <code>"href"</code>
-
             " property."
           </p>
         }
@@ -241,33 +235,31 @@ component Reference.Card {
             horizontalSpacing={30}
             data={
               @format {
-                <Ui.Card
-                  minWidth={Ui.Size::Px(200)}
-                  href="/">
-
+                <Ui.Card minWidth={Ui.Size.Px(200)} href="/">
                   <Ui.Card.Image
                     src={@asset(../../assets/images/beach.jpg)}
-                    height={Ui.Size::Px(100)}/>
+                    height={Ui.Size.Px(100)}
+                  />
 
                   <Ui.Card.Container
                     thumbnail={@asset(../../assets/images/avatar.jpg)}
-                    content=<{ "Some Content..." }>
-                    subtitle=<{ "Subtitle" }>
-                    title=<{ "Link to home" }>/>
-
+                    content=<>"Some Content..."</>
+                    subtitle=<>"Subtitle"</>
+                    title=<>"Link to home"</>
+                  />
                 </Ui.Card>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Click Event"
-        content=<{
+        content=<>
           <p>
             "The click event handler can be specified using "
-
             <code>"onClick"</code>
-
             " property."
           </p>
 
@@ -276,35 +268,38 @@ component Reference.Card {
             <code>"href"</code>
             " property is blank."
           </p>
-        }>
+        </>
         example={
           <Example
             horizontalSpacing={30}
             data={
               @format {
                 <Ui.Card
-                  minWidth={Ui.Size::Px(200)}
+                  minWidth={Ui.Size.Px(200)}
                   onClick={
-                    Maybe::Just(
+                    Maybe.Just(
                       (event : Html.Event) {
-                        Ui.Notifications.notifyDefault(<{ "Clicked!" }>)
+                        Ui.Notifications.notifyDefault(<>"Clicked!"</>)
                       })
-                  }>
-
+                  }
+                >
                   <Ui.Card.Image
                     src={@asset(../../assets/images/beach.jpg)}
-                    height={Ui.Size::Px(100)}/>
+                    height={Ui.Size.Px(100)}
+                  />
 
                   <Ui.Card.Container
                     thumbnail={@asset(../../assets/images/avatar.jpg)}
-                    content=<{ "Some Content..." }>
-                    subtitle=<{ "Subtitle" }>
-                    title=<{ "Link to home" }>/>
-
+                    content=<>"Some Content..."</>
+                    subtitle=<>"Subtitle"</>
+                    title=<>"Link to home"</>
+                  />
                 </Ui.Card>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

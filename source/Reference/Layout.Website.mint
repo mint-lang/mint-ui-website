@@ -1,7 +1,7 @@
 component Reference.Layout.Website {
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Layout.Website" }>>
+      <Ui.Box title=<>"Ui.Layout.Website"</>>
         <p>"A layout for websites, with slots for:"</p>
 
         <ul>
@@ -35,20 +35,14 @@ component Reference.Layout.Website {
       <DocBox
         title="Demo"
         hint={
-          <Ui.ContentHint
-            icon={Ui.Icons:NOTE}
-            type="primary">
-
+          <Ui.ContentHint icon={Ui.Icons.NOTE} type="primary">
             "The component has a miniumum height of the screen!"
-
           </Ui.ContentHint>
         }
         content={
           <p>
             "You can see a demo of a "
-
             <code>"Ui.Layout.Website"</code>
-
             " below."
           </p>
         }
@@ -58,41 +52,42 @@ component Reference.Layout.Website {
             data={
               @format {
                 <Ui.Layout.Website
-                  notification=<{ "Notification slot..." }>
+                  notification=<>"Notification slot..."</>
                   header={
                     <Ui.Header
                       brand={
-                        <Ui.Icon
-                          size={Ui.Size::Em(1.2)}
-                          icon={Ui.Icons:BEAKER}/>
+                        <Ui.Icon size={Ui.Size.Em(1.2)} icon={Ui.Icons.BEAKER}/>
                       }
                       items=[
-                        Ui.NavItem::Link(
-                          iconBefore: Ui.Icons:HOME,
+                        Ui.NavItem.Link(
+                          iconBefore: Ui.Icons.HOME,
                           iconAfter: <></>,
                           label: "Home",
                           target: "",
                           href: "/")
-                      ]/>
+                      ]
+                    />
                   }
                   breadcrumbs={
                     <Ui.Breadcrumbs
                       items=[
-                        {"/", <{ "Home" }>},
-                        {"/components", <{ "Components" }>},
-                        {"", <{ "Ui.Breadcrumbs" }>}
-                      ]/>
+                        {"/", <>"Home"</>},
+                        {"/components", <>"Components"</>},
+                        {"", <>"Ui.Breadcrumbs"</>}
+                      ]
+                    />
                   }
                   content={
-                    <Ui.Box title=<{ "Content" }>>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit," \
-                      " sed do eiusmod tempor incididunt ut labore et dolore ma" \
-                      "gna aliqua. Ut enim ad minim veniam, quis nostrud exerci" \
-                      "tation ullamco laboris nisi ut aliquip ex ea commodo con" \
-                      "sequat. Duis aute irure dolor in reprehenderit in volupt" \
-                      "ate velit esse cillum dolore eu fugiat nulla pariatur. E" \
-                      "xcepteur sint occaecat cupidatat non proident, sunt in c" \
-                      "ulpa qui officia deserunt mollit anim id est laborum."
+                    <Ui.Box title=<>"Content"</>>
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing " \
+                      "elit, sed do eiusmod tempor incididunt ut labore et " \
+                      "dolore magna aliqua. Ut enim ad minim veniam, quis " \
+                      "nostrud exercitation ullamco laboris nisi ut aliquip " \
+                      "ex ea commodo consequat. Duis aute irure dolor in " \
+                      "reprehenderit in voluptate velit esse cillum dolore " \
+                      "eu fugiat nulla pariatur. Excepteur sint occaecat " \
+                      "cupidatat non proident, sunt in culpa qui officia " \
+                      "deserunt mollit anim id est laborum."
                     </Ui.Box>
                   }
                   footer={
@@ -100,15 +95,16 @@ component Reference.Layout.Website {
                       infos={<p>"Infos content"</p>}
                       navitems=[
                         {
-                          "Site", [
-                            Ui.NavItem::Link(
-                              iconBefore: Ui.Icons:HOME,
+                          "Site",
+                          [
+                            Ui.NavItem.Link(
+                              iconBefore: Ui.Icons.HOME,
                               iconAfter: <></>,
                               label: "Home",
                               target: "",
                               href: "/"),
-                            Ui.NavItem::Link(
-                              iconBefore: Ui.Icons:PUZZLE,
+                            Ui.NavItem.Link(
+                              iconBefore: Ui.Icons.PUZZLE,
                               iconAfter: <></>,
                               href: "/components",
                               label: "Components",
@@ -116,26 +112,33 @@ component Reference.Layout.Website {
                           ]
                         },
                         {
-                          "Social", [
-                            Ui.NavItem::Link(
-                              iconBefore: @svg(../../assets/svgs/discord-icon.svg),
+                          "Social",
+                          [
+                            Ui.NavItem.Link(
+                              iconBefore:
+                                @svg(../../assets/svgs/discord-icon.svg),
                               iconAfter: <></>,
                               href: "https://discord.gg/NXFUJs2",
                               target: "_blank",
                               label: "Discord"),
-                            Ui.NavItem::Link(
-                              iconBefore: @svg(../../assets/svgs/twitter-icon.svg),
+                            Ui.NavItem.Link(
+                              iconBefore:
+                                @svg(../../assets/svgs/twitter-icon.svg),
                               iconAfter: <></>,
                               href: "https://twitter.com/mint_lang",
                               target: "_blank",
                               label: "Twitter")
                           ]
                         }
-                      ]/>
-                  }/>
+                      ]
+                    />
+                  }
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

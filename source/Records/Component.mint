@@ -1,6 +1,5 @@
 /* Represents a component. */
-record Component {
-  documentation : Object,
+type Component {
   name : String,
   page : Html
 }

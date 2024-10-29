@@ -10,11 +10,14 @@ component Reference.Notifications {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Notifications" }>>
+      <Ui.Box title=<>"Ui.Notifications"</>>
         <p>"A global component to display notifications."</p>
 
         <ul>
-          <li>"Notifications are displayed in the top-right corner of the screen."</li>
+          <li>
+            "Notifications are displayed in the top-right corner of the screen."
+          </li>
+
           <li>"By default a notification remains on the screen for 7 seconds."</li>
           <li>"Any HTML or component can be the body of the notification."</li>
           <li>"Clicking on the notification dismisses it."</li>
@@ -27,9 +30,7 @@ component Reference.Notifications {
         content={
           <p>
             "You can display a notification using the "
-
             <code>"Ui.Notifications.notifyDefault(content)"</code>
-
             " function."
           </p>
         }
@@ -41,21 +42,22 @@ component Reference.Notifications {
                   label="Show notification!"
                   onClick={
                     (event : Html.Event) {
-                      Ui.Notifications.notifyDefault(<{ "Notification!" }>)
+                      Ui.Notifications.notifyDefault(<>"Notification!"</>)
                     }
-                  }/>
+                  }
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Advanced Usage"
         content={
           <p>
             "If you need more control over the duration can use the "
-
             <code>"Ui.Notifications.notify(content, duration)"</code>
-
             " function."
           </p>
         }
@@ -68,16 +70,17 @@ component Reference.Notifications {
                   <Ui.Button
                     onClick={
                       (event : Html.Event) {
-                        Ui.Notifications.notify(
-                          <{ "Notification!" }>,
-                          2000)
+                        Ui.Notifications.notify(<>"Notification!"</>, 2000)
                       }
                     }
-                    label="Show notification!"/>
+                    label="Show notification!"
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Content"
@@ -98,17 +101,19 @@ component Reference.Notifications {
                     onClick={
                       (event : Html.Event) {
                         Ui.Notifications.notify(
-                          <Ui.Container gap={Ui.Size::Em(0.75)}>
-                            <Ui.Icon icon={Ui.Icons:CHECK}/>
+                          <Ui.Container gap={Ui.Size.Em(0.75)}>
+                            <Ui.Icon icon={Ui.Icons.CHECK}/>
                             "It's done"
-                          </Ui.Container>,
-                          2000)
+                          </Ui.Container>, 2000)
                       }
-                    }/>
+                    }
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

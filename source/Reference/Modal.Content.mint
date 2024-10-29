@@ -23,18 +23,16 @@ component Reference.Modal.Content {
 
   const ACTIONS =
     @format {
-      <{
-        <Ui.Button
-          label="Cancel"
-          type="faded"/>
+      <>
+        <Ui.Button label="Cancel" type="faded"/>
 
         <Ui.Button label="Ok"/>
-      }>
+      </>
     }
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Modal.Content" }>>
+      <Ui.Box title=<>"Ui.Modal.Content"</>>
         <p>"The content part of a modal, with a title, content and actions."</p>
       </Ui.Box>
 
@@ -43,89 +41,86 @@ component Reference.Modal.Content {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Modal.Content"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Title">
-                <Ui.Input
-                  onChange={(value : String) { next { title: value } }}
-                  value={title}/>
+                <Ui.Input onChange={-> title} value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
                 <Ui.Textarea
                   inputDelay={200}
-                  onChange={(value : String) { next { content: value } }}
-                  value={content}/>
+                  onChange={-> content}
+                  value={content}
+                />
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon: value } }}
+                  onChange={-> icon}
                   items={ICON_ITEMS}
-                  value={icon}/>
+                  value={icon}
+                />
               </Ui.Field>
 
               <Ui.Field label="Maximum Width (#{maxWidth}px)">
                 <Ui.Slider
                   onChange={
                     (value : Number) {
-                      next
-                        {
-                          minWidth: Math.min(minWidth, value),
-                          maxWidth: value
-                        }
+                      next {
+                        minWidth: Math.min(minWidth, value),
+                        maxWidth: value
+                      }
                     }
                   }
                   value={maxWidth}
                   max={600}
-                  min={300}/>
+                  min={300}
+                />
               </Ui.Field>
 
               <Ui.Field label="Minimum Width (#{minWidth}px)">
                 <Ui.Slider
                   onChange={
                     (value : Number) {
-                      next
-                        {
-                          maxWidth: Math.max(maxWidth, value),
-                          minWidth: value
-                        }
+                      next {
+                        maxWidth: Math.max(maxWidth, value),
+                        minWidth: value
+                      }
                     }
                   }
                   value={minWidth}
                   max={600}
-                  min={300}/>
+                  min={300}
+                />
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Modal.Content
-                  maxWidth={Ui.Size::Px(maxWidth)}
-                  minWidth={Ui.Size::Px(minWidth)}
-                  size={Ui.Size::Px(size)}
-                  content=<{ content }>
+                  maxWidth={Ui.Size.Px(maxWidth)}
+                  minWidth={Ui.Size.Px(minWidth)}
+                  size={Ui.Size.Px(size)}
+                  content=<>content</>
                   actions={ACTIONS[0]}
                   icon={getIcon(icon)}
-                  title=<{ title }>/>,
+                  title=<>title</>
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

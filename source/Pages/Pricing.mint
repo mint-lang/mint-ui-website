@@ -83,20 +83,22 @@ component Pages.Pricing {
 
       <div::items>
         <Ui.PricingItem
-          name=<{ "Free License" }>
+          name=<>"Free License"</>
           image={
             <Ui.Icon
               icon={@svg(../../assets/svgs/license.svg)}
-              size={Ui.Size::Em(4)}/>
+              size={Ui.Size.Em(4)}
+            />
           }
-          actions=<{
+          actions=<>
             <Ui.Button
-              iconBefore={Ui.Icons:DESKTOP_DOWNLOAD}
+              iconBefore={Ui.Icons.DESKTOP_DOWNLOAD}
               href="/documentation/installation"
-              size={Ui.Size::Em(1.25)}
-              label="Install"/>
-          }>
-          description=<{
+              size={Ui.Size.Em(1.25)}
+              label="Install"
+            />
+          </>
+          description=<>
             <p>
               <b>"Mint UI"</b>
               " can be used commercially with a free license by:"
@@ -111,34 +113,37 @@ component Pages.Pricing {
                 "(3 or less employees)"
               </li>
             </ul>
-          }>/>
+          </>
+        />
 
         <Ui.PricingItem
-          price={Maybe::Just({"$", "200", "/ one time"})}
-          name=<{ "Lifetime License" }>
+          price={Maybe.Just({"$", "200", "/ one time"})}
+          name=<>"Lifetime License"</>
           size={
             if mobile {
-              Ui.Size::Em(1)
+              Ui.Size.Em(1)
             } else {
-              Ui.Size::Em(1.05)
+              Ui.Size.Em(1.05)
             }
           }
           image={
             <Ui.Icon
-              size={Ui.Size::Em(4)}
-              icon={@svg(../../assets/svgs/license-buy.svg)}/>
+              size={Ui.Size.Em(4)}
+              icon={@svg(../../assets/svgs/license-buy.svg)}
+            />
           }
-          actions=<{
+          actions=<>
             <Ui.Button
-              iconBefore={Ui.Icons:CART}
+              iconBefore={Ui.Icons.CART}
               onClick={Promise.never1}
-              size={Ui.Size::Em(1.25)}
+              size={Ui.Size.Em(1.25)}
               href="https://gum.co/mint-ui"
               label="Buy a license"
               target="_blank"
-              type="danger"/>
-          }>
-          description=<{
+              type="danger"
+            />
+          </>
+          description=<>
             <p>
               "This license gives your company the "
               <b>"permanent right"</b>
@@ -165,27 +170,30 @@ component Pages.Pricing {
                 "(in a private channel or direct message - within 24 hours)"
               </li>
             </ul>
-          }>/>
+          </>
+        />
 
         <Ui.PricingItem
-          name=<{ "Yearly License" }>
+          name=<>"Yearly License"</>
           image={
             <Ui.Icon
               icon={@svg(../../assets/svgs/license-recurring.svg)}
-              size={Ui.Size::Em(4)}/>
+              size={Ui.Size.Em(4)}
+            />
           }
-          price={Maybe::Just({"$", "50", "/ year"})}
-          actions=<{
+          price={Maybe.Just({"$", "50", "/ year"})}
+          actions=<>
             <Ui.Button
-              iconBefore={Ui.Icons:CART}
+              iconBefore={Ui.Icons.CART}
               onClick={Promise.never1}
-              size={Ui.Size::Em(1.25)}
+              size={Ui.Size.Em(1.25)}
               href="https://gum.co/mint-ui-license"
               label="Buy a license"
               target="_blank"
-              type="danger"/>
-          }>
-          description=<{
+              type="danger"
+            />
+          </>
+          description=<>
             <p>
               "This license gives your company the right to use "
               <b>"Mint UI"</b>
@@ -212,7 +220,8 @@ component Pages.Pricing {
                 "(in a private channel or direct message - within 24 hours)"
               </li>
             </ul>
-          }>/>
+          </>
+        />
       </div>
 
       <hr::hr/>
@@ -233,13 +242,13 @@ component Pages.Pricing {
               <li>"a for-profit organisation with up to 3 employees"</li>
 
               <li>
-                "a non-profit or not-for-profit organisation evaluating w" \
-                "hether "
+                "a non-profit or not-for-profit organisation evaluating " \
+                "whether "
 
                 <b>"Mint UI"</b>
 
-                " is a good fit, and are not yet using it in a commercial" \
-                " way"
+                " is a good fit, and are not yet using it in a commercial " \
+                "way"
               </li>
             </ul>
 
@@ -248,16 +257,11 @@ component Pages.Pricing {
             <p>
               "Don't hesitate to "
 
-              <a
-                href="mailto:gusztav.szikszai@gmail.com"
-                target="_blank">
-
+              <a href="mailto:gusztav.szikszai@gmail.com" target="_blank">
                 "contact us"
-
               </a>
 
-              " if you need confirmation that your use case is acceptab" \
-              "le."
+              " if you need confirmation that your use case is acceptable."
             </p>
 
             <h3>
@@ -269,27 +273,26 @@ component Pages.Pricing {
             <p>
               <b>"Mint UI"</b>
 
-              " works similarly as many open source projects, in that t" \
-              "he code is openly available on Github and that individua" \
-              "ls use it freely and contribute back. But to pay for the" \
-              " time that it takes to maintain such an ambitious projec" \
-              "t, we need to generate money. This is also good for you:" \
-              " You get regular updates, good support, motivated mainta" \
-              "iners and an overall healthy product. By separating indi" \
-              "viduals and companies, we are charging those who are mos" \
-              "t able to afford it."
+              " works similarly as many open source projects, in that the " \
+              "code is openly available on Github and that individuals use " \
+              "it freely and contribute back. But to pay for the time that " \
+              "it takes to maintain such an ambitious project, we need to " \
+              "generate money. This is also good for you: You get regular " \
+              "updates, good support, motivated maintainers and an overall " \
+              "healthy product. By separating individuals and companies, we " \
+              "are charging those who are most able to afford it."
             </p>
 
             <h3>"What kind of commercial use is allowed?"</h3>
 
             <p>
-              "Any commercial use case is allowed as long as you are no" \
-              "t selling "
+              "Any commercial use case is allowed as long as you are not " \
+              "selling "
 
               <b>"Mint UI"</b>
 
-              " as a product itself or allowing people to circumvent ca" \
-              "ses where they would have to buy a license themselves."
+              " as a product itself or allowing people to circumvent cases " \
+              "where they would have to buy a license themselves."
             </p>
           </div>
 
@@ -298,12 +301,11 @@ component Pages.Pricing {
 
             <p>
               "Support is provided on a best-effort basis, but we will " \
-              "respond first to people who own a company license. We tr" \
-              "y to reply and help everybody who files an issue or cont" \
-              "acts us. We recommend to ask questions or get help in pu" \
-              "blic channels such as Github Issues or Discord whenever " \
-              "possible where community members also have the chance to" \
-              " reply."
+              "respond first to people who own a company license. We try to " \
+              "reply and help everybody who files an issue or contacts us. " \
+              "We recommend to ask questions or get help in public channels " \
+              "such as Github Issues or Discord whenever possible where " \
+              "community members also have the chance to reply."
             </p>
 
             <h3>"What if these plans don't fit our use case?"</h3>
@@ -311,12 +313,8 @@ component Pages.Pricing {
             <p>
               "You can "
 
-              <a
-                href="mailto:gusztav.szikszai@gmail.com"
-                target="_blank">
-
+              <a href="mailto:gusztav.szikszai@gmail.com" target="_blank">
                 "contact us"
-
               </a>
 
               " if you would like to discuss a custom agreement."
@@ -333,8 +331,8 @@ component Pages.Pricing {
             <h3>"Can we cancel / get a receipt?"</h3>
 
             <p>
-              "Our payment handler Gumroad allows you to do all of thes" \
-              "e without having to contact a human."
+              "Our payment handler Gumroad allows you to do all of these " \
+              "without having to contact a human."
             </p>
 
             <h3>"What payment methods are accepted?"</h3>
@@ -343,12 +341,8 @@ component Pages.Pricing {
             <h3>"I still have questions!"</h3>
 
             <p>
-              <a
-                href="mailto:gusztav.szikszai@gmail.com"
-                target="_blank">
-
+              <a href="mailto:gusztav.szikszai@gmail.com" target="_blank">
                 "Contact us"
-
               </a>
             </p>
           </div>

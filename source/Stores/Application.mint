@@ -37,12 +37,35 @@ store Application {
   /* The example pages with a title and subtitle. */
   const EXAMPLES =
     [
-      {"Dashboard", {"A simple login page.", <Examples.Dashboard/>, "Dashboard.mint"}},
-      {"User List", {"A page to display a list users with pagination.", <Examples.UserList/>, "UserList.mint"}},
+      {
+        "Dashboard",
+        {"A simple login page.", <Examples.Dashboard/>, "Dashboard.mint"}
+      },
+      {
+        "User List",
+        {
+          "A page to display a list users with pagination.",
+          <Examples.UserList/>,
+          "UserList.mint"
+        }
+      },
       {"Login", {"A simple login page.", <Examples.Login/>, "Login.mint"}},
-      {"Register", {"A simple registration page.", <Examples.Register/>, "Register.mint"}},
-      {"Recover Password", {"A simple recover password page.", <Examples.RecoverPassword/>, "RecoverPassword.mint"}},
-      {"Checkout", {"An e-commerce checkout page.", <Examples.Checkout/>, "Checkout.mint"}}
+      {
+        "Register",
+        {"A simple registration page.", <Examples.Register/>, "Register.mint"}
+      },
+      {
+        "Recover Password",
+        {
+          "A simple recover password page.",
+          <Examples.RecoverPassword/>,
+          "RecoverPassword.mint"
+        }
+      },
+      {
+        "Checkout",
+        {"An e-commerce checkout page.", <Examples.Checkout/>, "Checkout.mint"}
+      }
     ]
     |> Map.fromArray()
 
@@ -52,341 +75,94 @@ store Application {
       {
         "Controls",
         [
+          { name: "Ui.ActionSheet", page: <Reference.ActionSheet/> },
+          { name: "Ui.Button", page: <Reference.Button/> },
+          { name: "Ui.ColorPanel", page: <Reference.ColorPanel/> },
+          { name: "Ui.DarkModeToggle", page: <Reference.DarkModeToggle/> },
+          { name: "Ui.Dropdown", page: <Reference.Dropdown/> },
+          { name: "Ui.Dropdown.Panel", page: <Reference.Dropdown.Panel/> },
+          { name: "Ui.FloatingButton", page: <Reference.FloatingButton/> },
+          { name: "Ui.ImageCrop", page: <Reference.ImageCrop/> },
+          { name: "Ui.InteractiveList", page: <Reference.InteractiveList/> },
           {
-            documentation: @documentation(Ui.ActionSheet),
-            page: <Reference.ActionSheet/>,
-            name: "Ui.ActionSheet"
-          },
-          {
-            documentation: @documentation(Ui.Button),
-            page: <Reference.Button/>,
-            name: "Ui.Button"
-          },
-          {
-            documentation: @documentation(Ui.ColorPanel),
-            name: "Ui.ColorPanel",
-            page: <Reference.ColorPanel/>
-          },
-          {
-            documentation: @documentation(Ui.DarkModeToggle),
-            name: "Ui.DarkModeToggle",
-            page: <Reference.DarkModeToggle/>
-          },
-          {
-            documentation: @documentation(Ui.Dropdown),
-            name: "Ui.Dropdown",
-            page: <Reference.Dropdown/>
-          },
-          {
-            documentation: @documentation(Ui.Dropdown.Panel),
-            name: "Ui.Dropdown.Panel",
-            page: <Reference.Dropdown.Panel/>
-          },
-          {
-            documentation: @documentation(Ui.FloatingButton),
-            name: "Ui.FloatingButton",
-            page: <Reference.FloatingButton/>
-          },
-          {
-            documentation: @documentation(Ui.ImageCrop),
-            name: "Ui.ImageCrop",
-            page: <Reference.ImageCrop/>
-          },
-          {
-            documentation: @documentation(Ui.InteractiveList),
-            name: "Ui.InteractiveList",
-            page: <Reference.InteractiveList/>
-          },
-          {
-            documentation: @documentation(Ui.InteractiveList.Item),
             name: "Ui.InteractiveList.Item",
             page: <Reference.InteractiveList.Item/>
           },
-          {
-            documentation: @documentation(Ui.Notifications),
-            name: "Ui.Notifications",
-            page: <Reference.Notifications/>
-          },
-          {
-            documentation: @documentation(Ui.Modal.Base),
-            name: "Ui.Modal.Base",
-            page: <Reference.Modal.Base/>
-          },
-          {
-            documentation: @documentation(Ui.Modal.Content),
-            name: "Ui.Modal.Content",
-            page: <Reference.Modal.Content/>
-          },
-          {
-            documentation: @documentation(Ui.Modal),
-            name: "Ui.Modal",
-            page: <Reference.Modal/>
-          },
-          {
-            documentation: @documentation(Ui.Pagination),
-            name: "Ui.Pagination",
-            page: <Reference.Pagination/>
-          },
-          {
-            documentation: @documentation(Ui.Picker),
-            name: "Ui.Picker",
-            page: <Reference.Picker/>
-          },
-          {
-            documentation: @documentation(Ui.ScrollPanel),
-            name: "Ui.ScrollPanel",
-            page: <Reference.ScrollPanel/>
-          },
-          {
-            documentation: @documentation(Ui.ScrollToTop),
-            name: "Ui.ScrollToTop",
-            page: <Reference.ScrollToTop/>
-          },
-          {
-            documentation: @documentation(Ui.Tabs),
-            name: "Ui.Tabs",
-            page: <Reference.Tabs/>
-          }
+          { name: "Ui.Notifications", page: <Reference.Notifications/> },
+          { name: "Ui.Modal.Base", page: <Reference.Modal.Base/> },
+          { name: "Ui.Modal.Content", page: <Reference.Modal.Content/> },
+          { name: "Ui.Modal", page: <Reference.Modal/> },
+          { name: "Ui.Pagination", page: <Reference.Pagination/> },
+          { name: "Ui.Picker", page: <Reference.Picker/> },
+          { name: "Ui.ScrollPanel", page: <Reference.ScrollPanel/> },
+          { name: "Ui.ScrollToTop", page: <Reference.ScrollToTop/> },
+          { name: "Ui.Tabs", page: <Reference.Tabs/> }
         ]
       },
       {
         "Content",
         [
+          { name: "Ui.Book", page: <Reference.Book/> },
+          { name: "Ui.Box", page: <Reference.Box/> },
+          { name: "Ui.Brand", page: <Reference.Brand/> },
+          { name: "Ui.Breadcrumbs", page: <Reference.Breadcrumbs/> },
+          { name: "Ui.Card", page: <Reference.Card/> },
+          { name: "Ui.Card.Image", page: <Reference.Card.Image/> },
+          { name: "Ui.Card.Container", page: <Reference.Card.Container/> },
+          { name: "Ui.Cell", page: <Pages.Cell/> },
+          { name: "Ui.Content", page: <Reference.Content/> },
+          { name: "Ui.ContentHint", page: <Reference.ContentHint/> },
+          { name: "Ui.Column", page: <Reference.Column/> },
+          { name: "Ui.DefinitionList", page: <Reference.DefinitionList/> },
+          { name: "Ui.Field", page: <Reference.Field/> },
+          { name: "Ui.Footer", page: <Reference.Footer/> },
+          { name: "Ui.Grid", page: <Reference.Grid/> },
+          { name: "Ui.CircularProgress", page: <Reference.CircularProgress/> },
+          { name: "Ui.Html", page: <Reference.Html/> },
+          { name: "Ui.Icon", page: <Reference.Icon/> },
+          { name: "Ui.Image", page: <Reference.Image/> },
+          { name: "Ui.IllustratedMessage", page: <Reference.IllustratedMessage/> },
+          { name: "Ui.Header", page: <Reference.Header/> },
+          { name: "Ui.Layout.Centered", page: <Reference.Layout.Centered/> },
           {
-            documentation: @documentation(Ui.Book),
-            name: "Ui.Book",
-            page: <Reference.Book/>
-          },
-          {
-            documentation: @documentation(Ui.Box),
-            name: "Ui.Box",
-            page: <Reference.Box/>
-          },
-          {
-            documentation: @documentation(Ui.Brand),
-            name: "Ui.Brand",
-            page: <Reference.Brand/>
-          },
-          {
-            documentation: @documentation(Ui.Breadcrumbs),
-            name: "Ui.Breadcrumbs",
-            page: <Reference.Breadcrumbs/>
-          },
-          {
-            documentation: @documentation(Ui.Card),
-            name: "Ui.Card",
-            page: <Reference.Card/>
-          },
-          {
-            documentation: @documentation(Ui.Card.Image),
-            name: "Ui.Card.Image",
-            page: <Reference.Card.Image/>
-          },
-          {
-            documentation: @documentation(Ui.Card.Container),
-            name: "Ui.Card.Container",
-            page: <Reference.Card.Container/>
-          },
-          {
-            documentation: @documentation(Ui.Cell),
-            name: "Ui.Cell",
-            page: <Pages.Cell/>
-          },
-          {
-            documentation: @documentation(Ui.Content),
-            name: "Ui.Content",
-            page: <Reference.Content/>
-          },
-          {
-            documentation: @documentation(Ui.ContentHint),
-            name: "Ui.ContentHint",
-            page: <Reference.ContentHint/>
-          },
-          {
-            documentation: @documentation(Ui.Column),
-            name: "Ui.Column",
-            page: <Reference.Column/>
-          },
-          {
-            documentation: @documentation(Ui.DefinitionList),
-            name: "Ui.DefinitionList",
-            page: <Reference.DefinitionList/>
-          },
-          {
-            documentation: @documentation(Ui.Field),
-            name: "Ui.Field",
-            page: <Reference.Field/>
-          },
-          {
-            documentation: @documentation(Ui.Footer),
-            name: "Ui.Footer",
-            page: <Reference.Footer/>
-          },
-          {
-            documentation: @documentation(Ui.Grid),
-            name: "Ui.Grid",
-            page: <Reference.Grid/>
-          },
-          {
-            documentation: @documentation(Ui.CircularProgress),
-            name: "Ui.CircularProgress",
-            page: <Reference.CircularProgress/>
-          },
-          {
-            documentation: @documentation(Ui.Html),
-            name: "Ui.Html",
-            page: <Reference.Html/>
-          },
-          {
-            documentation: @documentation(Ui.Icon),
-            name: "Ui.Icon",
-            page: <Reference.Icon/>
-          },
-          {
-            documentation: @documentation(Ui.Image),
-            name: "Ui.Image",
-            page: <Reference.Image/>
-          },
-          {
-            documentation: @documentation(Ui.IllustratedMessage),
-            name: "Ui.IllustratedMessage",
-            page: <Reference.IllustratedMessage/>
-          },
-          {
-            documentation: @documentation(Ui.Header),
-            name: "Ui.Header",
-            page: <Reference.Header/>
-          },
-          {
-            documentation: @documentation(Ui.Layout.Centered),
-            name: "Ui.Layout.Centered",
-            page: <Reference.Layout.Centered/>
-          },
-          {
-            documentation: @documentation(Ui.Layout.Documentation),
             name: "Ui.Layout.Documentation",
             page: <Reference.Layout.Documentation/>
           },
-          {
-            documentation: @documentation(Ui.Layout.Website),
-            name: "Ui.Layout.Website",
-            page: <Reference.Layout.Website/>
-          },
-          {
-            documentation: @documentation(Ui.Container),
-            name: "Ui.Container",
-            page: <Reference.Container/>
-          },
-          {
-            documentation: @documentation(Ui.NavItem),
-            name: "Ui.NavItem",
-            page: <Reference.NavItem/>
-          },
-          {
-            documentation: @documentation(Ui.NavItems),
-            name: "Ui.NavItems",
-            page: <Reference.NavItems/>
-          },
-          {
-            documentation: @documentation(Ui.RelativeTime),
-            name: "Ui.RelativeTime",
-            page: <Reference.RelativeTime/>
-          },
-          {
-            documentation: @documentation(Ui.Row),
-            name: "Ui.Row",
-            page: <Reference.Row/>
-          },
-          {
-            documentation: @documentation(Ui.Table),
-            name: "Ui.Table",
-            page: <Reference.Table/>
-          }
+          { name: "Ui.Layout.Website", page: <Reference.Layout.Website/> },
+          { name: "Ui.Container", page: <Reference.Container/> },
+          { name: "Ui.NavItem", page: <Reference.NavItem/> },
+          { name: "Ui.NavItems", page: <Reference.NavItems/> },
+          { name: "Ui.RelativeTime", page: <Reference.RelativeTime/> },
+          { name: "Ui.Row", page: <Reference.Row/> },
+          { name: "Ui.Table", page: <Reference.Table/> }
         ]
       },
       {
         "Input",
         [
+          { name: "Ui.Calendar", page: <Reference.Calendar/> },
+          { name: "Ui.Checkbox", page: <Reference.Checkbox/> },
+          { name: "Ui.ColorPicker", page: <Reference.ColorPicker/> },
+          { name: "Ui.DatePicker", page: <Reference.DatePicker/> },
+          { name: "Ui.FileInput", page: <Reference.FileInput/> },
+          { name: "Ui.Input", page: <Reference.Input/> },
           {
-            documentation: @documentation(Ui.Calendar),
-            name: "Ui.Calendar",
-            page: <Reference.Calendar/>
-          },
-          {
-            documentation: @documentation(Ui.Checkbox),
-            name: "Ui.Checkbox",
-            page: <Reference.Checkbox/>
-          },
-          {
-            documentation: @documentation(Ui.ColorPicker),
-            name: "Ui.ColorPicker",
-            page: <Reference.ColorPicker/>
-          },
-          {
-            documentation: @documentation(Ui.DatePicker),
-            name: "Ui.DatePicker",
-            page: <Reference.DatePicker/>
-          },
-          {
-            documentation: @documentation(Ui.FileInput),
-            name: "Ui.FileInput",
-            page: <Reference.FileInput/>
-          },
-          {
-            documentation: @documentation(Ui.Input),
-            name: "Ui.Input",
-            page: <Reference.Input/>
-          },
-          {
-            documentation: @documentation(Ui.Native.AutoComplete),
             name: "Ui.Native.AutoComplete",
             page: <Reference.Native.AutoComplete/>
           },
-          {
-            documentation: @documentation(Ui.Native.Select),
-            name: "Ui.Native.Select",
-            page: <Reference.Native.Select/>
-          },
-          {
-            documentation: @documentation(Ui.Select),
-            name: "Ui.Select",
-            page: <Reference.Select/>
-          },
-          {
-            documentation: @documentation(Ui.Slider),
-            name: "Ui.Slider",
-            page: <Reference.Slider/>
-          },
-          {
-            documentation: @documentation(Ui.Textarea),
-            name: "Ui.Textarea",
-            page: <Reference.Textarea/>
-          },
-          {
-            documentation: @documentation(Ui.Toggle),
-            name: "Ui.Toggle",
-            page: <Pages.Toggle/>
-          }
+          { name: "Ui.Native.Select", page: <Reference.Native.Select/> },
+          { name: "Ui.Select", page: <Reference.Select/> },
+          { name: "Ui.Slider", page: <Reference.Slider/> },
+          { name: "Ui.Textarea", page: <Reference.Textarea/> },
+          { name: "Ui.Toggle", page: <Pages.Toggle/> }
         ]
       },
       {
         "Utilities",
         [
-          {
-            documentation: @documentation(Ui.AvoidFocus),
-            name: "Ui.AvoidFocus",
-            page: <Reference.AvoidFocus/>
-          },
-          {
-            documentation: @documentation(Ui.FocusTrap),
-            name: "Ui.FocusTrap",
-            page: <Reference.FocusTrap/>
-          },
-          {
-            documentation: @documentation(Ui.StickyPanel),
-            name: "Ui.StickyPanel",
-            page: <Reference.StickyPanel/>
-          }
+          { name: "Ui.AvoidFocus", page: <Reference.AvoidFocus/> },
+          { name: "Ui.FocusTrap", page: <Reference.FocusTrap/> },
+          { name: "Ui.StickyPanel", page: <Reference.StickyPanel/> }
         ]
       }
     ]
@@ -395,13 +171,13 @@ store Application {
   /* Component navigation items. */
   const COMPONENT_ITEMS =
     for category, items of COMPONENTS {
-      Ui.NavItem::Group(
+      Ui.NavItem.Group(
         label: category,
         iconBefore: <></>,
         iconAfter: <></>,
         items:
           for comp of Array.sortBy(items, (item : Component) { item.name }) {
-            Ui.NavItem::Link(
+            Ui.NavItem.Link(
               iconBefore: <></>,
               iconAfter: <></>,
               label: comp.name,
@@ -412,13 +188,13 @@ store Application {
 
   const DOCUMENTATION_ITEMS =
     for category, items of DOCUMENTATION {
-      Ui.NavItem::Group(
+      Ui.NavItem.Group(
         label: category,
         iconBefore: <></>,
         iconAfter: <></>,
         items:
           for item of items {
-            Ui.NavItem::Link(
+            Ui.NavItem.Link(
               iconBefore: <></>,
               iconAfter: <></>,
               label: item[0],
@@ -428,17 +204,17 @@ store Application {
     }
 
   /* Represents the current page. */
-  state page : Page = Page::Initial
+  state page : Page = Page.Initial
 
   /* Sets the title of the browser tab. */
   fun setTitle (page : Page) : Promise(Void) {
     let content =
       case page {
-        Page::Documentation(name, item) => "/ Documentation / #{name}"
-        Page::Component(item) => "/ Components / #{item.name}"
-        Page::Example(name, item) => "/ Example / #{name}"
-        Page::Examples => "/ Examples"
-        Page::Pricing => "/ Pricing"
+        Page.Documentation(name, item) => "/ Documentation / #{name}"
+        Page.Component(item) => "/ Components / #{item.name}"
+        Page.Example(name, item) => "/ Example / #{name}"
+        Page.Examples => "/ Examples"
+        Page.Pricing => "/ Pricing"
 
         => " - Beautiful, Reliable Components for Mint"
       }
@@ -458,11 +234,12 @@ store Application {
       COMPONENTS
       |> Map.values
       |> Array.concat
-      |> Array.find((item : Component) { String.parameterize(item.name) == key })
+      |> Array.find(
+        (item : Component) { String.parameterize(item.name) == key })
 
     case comp {
-      Maybe::Just(item) => setPage(Page::Component(item))
-      Maybe::Nothing => setPage(Page::NotFound)
+      Just(item) => setPage(Page.Component(item))
+      Nothing => setPage(Page.NotFound)
     }
   }
 
@@ -476,8 +253,8 @@ store Application {
       }[0]
 
     case page {
-      Maybe::Just(item) => setPage(Page::Documentation(item[0], item[1]))
-      Maybe::Nothing => setPage(Page::NotFound)
+      Just(item) => setPage(Page.Documentation(item[0], item[1]))
+      Nothing => setPage(Page.NotFound)
     }
   }
 
@@ -491,8 +268,8 @@ store Application {
       }[0]
 
     case page {
-      Maybe::Just(item) => setPage(Page::Example(item[0], item[1]))
-      Maybe::Nothing => setPage(Page::NotFound)
+      Just(item) => setPage(Page.Example(item[0], item[1]))
+      Nothing => setPage(Page.NotFound)
     }
   }
 }

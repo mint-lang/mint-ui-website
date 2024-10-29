@@ -21,8 +21,10 @@ component Pages.Toggle {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Toggle" }>>
-        <p>"This component is used to toggle the state of a single setting on or off."</p>
+      <Ui.Box title=<>"Ui.Toggle"</>>
+        <p>
+          "This component is used to toggle the state of a single setting on or off."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -30,130 +32,101 @@ component Pages.Toggle {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Toggle"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="On Label">
-                <Ui.Input
-                  onChange={(value : String) { next { onLabel: value } }}
-                  value={onLabel}/>
+                <Ui.Input onChange={-> onLabel} value={onLabel}/>
               </Ui.Field>
 
               <Ui.Field label="Off Label">
-                <Ui.Input
-                  onChange={(value : String) { next { offLabel: value } }}
-                  value={offLabel}/>
+                <Ui.Input onChange={-> offLabel} value={offLabel}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="checked">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked: value } }}
-                  checked={checked}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="checked">
+                <Ui.Checkbox onChange={-> checked} checked={checked}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Width (#{width}em)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { width: value } }}
+                  onChange={-> width}
                   value={width}
                   step={0.5}
                   max={40}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Toggle
-                  onChange={(value : Bool) { next { checked: value } }}
-                  width={Ui.Size::Em(width)}
-                  size={Ui.Size::Px(size)}
+                  onChange={-> checked}
+                  width={Ui.Size.Em(width)}
+                  size={Ui.Size.Px(size)}
                   disabled={disabled}
                   offLabel={offLabel}
                   onLabel={onLabel}
-                  checked={checked}/>,
+                  checked={checked}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Labels"
         content={
           <p>
             "The the labels can be controlled by the "
-
             <code>"onLabel"</code>
-
             " and "
-
             <code>"offLabel"</code>
-
             " properties."
           </p>
         }
         example={
           <Example
-            highlight=[3, 4, 8, 9, 13, 14]
             horizontalSpacing={20}
             controlled={true}
             data={
               @format {
                 <>
-                  <Ui.Toggle
-                    checked={false}
-                    offLabel=""
-                    onLabel=""/>
+                  <Ui.Toggle checked={false} offLabel="" onLabel=""/>
+                  <Ui.Toggle checked={false} offLabel="NO" onLabel="YES"/>
 
                   <Ui.Toggle
-                    checked={false}
-                    offLabel="NO"
-                    onLabel="YES"/>
-
-                  <Ui.Toggle
-                    width={Ui.Size::Em(11)}
+                    width={Ui.Size.Em(11)}
                     offLabel="ENABLED"
                     onLabel="DISABLED"
-                    checked={true}/>
+                    checked={true}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="State"
         content={
           <p>
             "The state of the component can be set with the "
-
             <code>"checked"</code>
-
             " property."
           </p>
         }
@@ -168,17 +141,17 @@ component Pages.Toggle {
                   <Ui.Toggle checked={true}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -189,24 +162,24 @@ component Pages.Toggle {
             data={
               @format {
                 <>
-                  <Ui.Toggle size={Ui.Size::Px(12)}/>
-                  <Ui.Toggle size={Ui.Size::Px(16)}/>
-                  <Ui.Toggle size={Ui.Size::Px(20)}/>
+                  <Ui.Toggle size={Ui.Size.Px(12)}/>
+                  <Ui.Toggle size={Ui.Size.Px(16)}/>
+                  <Ui.Toggle size={Ui.Size.Px(20)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Width"
         content={
           <p>
-            "Since we cannot accuratly measure the size of the labels" \
-            ", the width of the component needs to be set manually us" \
-            "ing the "
+            "Since we cannot accuratly measure the size of the labels, the " \
+            "width of the component needs to be set manually using the "
 
             <code>"width"</code>
-
             " property."
           </p>
         }
@@ -217,22 +190,22 @@ component Pages.Toggle {
             data={
               @format {
                 <>
-                  <Ui.Toggle width={Ui.Size::Em(6)}/>
-                  <Ui.Toggle width={Ui.Size::Em(10)}/>
-                  <Ui.Toggle width={Ui.Size::Em(14)}/>
+                  <Ui.Toggle width={Ui.Size.Em(6)}/>
+                  <Ui.Toggle width={Ui.Size.Em(10)}/>
+                  <Ui.Toggle width={Ui.Size.Em(14)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Disabled"
         content={
           <p>
             "The component can be disabled using the "
-
             <code>"disabled"</code>
-
             " property."
           </p>
         }
@@ -240,30 +213,24 @@ component Pages.Toggle {
           <Example
             horizontalSpacing={20}
             controlled={true}
-            highlight=[2, 6]
             data={
               @format {
                 <>
-                  <Ui.Toggle
-                    disabled={true}
-                    checked={false}/>
-
-                  <Ui.Toggle
-                    disabled={true}
-                    checked={true}/>
+                  <Ui.Toggle disabled={true} checked={false}/>
+                  <Ui.Toggle disabled={true} checked={true}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Change Event"
         content={
           <p>
             "The component triggers the "
-
             <code>"onChange"</code>
-
             " event when clicked."
           </p>
         }
@@ -275,12 +242,15 @@ component Pages.Toggle {
                 <Ui.Toggle
                   onChange={
                     (value : Bool) {
-                      Ui.Notifications.notifyDefault(<{ Bool.toString(value) }>)
+                      Ui.Notifications.notifyDefault(<>Bool.toString(value)</>)
                     }
-                  }/>
+                  }
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

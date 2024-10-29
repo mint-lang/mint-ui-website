@@ -24,7 +24,7 @@ component Reference.Card.Image {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Card.Image" }>>
+      <Ui.Box title=<>"Ui.Card.Image"</>>
         <p>"An image component to use in cards."</p>
       </Ui.Box>
 
@@ -33,124 +33,124 @@ component Reference.Card.Image {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Card.Image"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
             fullWidth={true}
-            controls=<{
+            controls=<>
               <Ui.Field label="Src">
-                <Ui.Select
-                  onChange={(value : String) { next { src: value } }}
-                  items={IMAGE_ITEMS}
-                  value={src}/>
+                <Ui.Select onChange={-> src} items={IMAGE_ITEMS} value={src}/>
               </Ui.Field>
 
               <Ui.Field label="Object Fit">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectFit: value } }}
                   items={OBJECT_FIT_ITEMS}
-                  value={objectFit}/>
+                  onChange={-> objectFit}
+                  value={objectFit}
+                />
               </Ui.Field>
 
               <Ui.Field label="Object Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { objectPosition: value } }}
                   items={OBJECT_POSITION_ITEMS}
-                  value={objectPosition}/>
+                  onChange={-> objectPosition}
+                  value={objectPosition}
+                />
               </Ui.Field>
 
               <Ui.Field label="Height (#{height}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { height: value } }}
-                  value={height}
-                  max={300}
-                  min={0}/>
+                <Ui.Slider onChange={-> height} value={height} max={300} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Card.Image
                   src={Map.get(IMAGES, src) or ""}
                   objectPosition={objectPosition}
-                  height={Ui.Size::Px(height)}
-                  objectFit={objectFit}/>,
+                  height={Ui.Size.Px(height)}
+                  objectFit={objectFit}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Source"
         content={
           <p>
             "The source for the image can be controlled using the "
-
             <code>"src"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[2, 6, 10]
             data={
               @format {
                 <>
                   <Ui.Card.Image
                     src={@asset(../../assets/images/white-beach.jpg)}
-                    height={Ui.Size::Px(240)}/>
+                    height={Ui.Size.Px(240)}
+                  />
 
                   <Ui.Card.Image
                     src={@asset(../../assets/images/city.jpg)}
-                    height={Ui.Size::Px(240)}/>
+                    height={Ui.Size.Px(240)}
+                  />
 
                   <Ui.Card.Image
                     src={@asset(../../assets/images/road.jpg)}
-                    height={Ui.Size::Px(240)}/>
+                    height={Ui.Size.Px(240)}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Height"
         content={
           <p>
             "The height of the image can be controlled using the "
-
             <code>"height"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[3, 7, 11]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <Ui.Card.Image
                     src={@asset(../../assets/images/white-beach.jpg)}
-                    height={Ui.Size::Px(100)}/>
+                    height={Ui.Size.Px(100)}
+                  />
 
                   <Ui.Card.Image
                     src={@asset(../../assets/images/city.jpg)}
-                    height={Ui.Size::Px(200)}/>
+                    height={Ui.Size.Px(200)}
+                  />
 
                   <Ui.Card.Image
                     src={@asset(../../assets/images/road.jpg)}
-                    height={Ui.Size::Px(300)}/>
+                    height={Ui.Size.Px(300)}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Object Fit"
@@ -158,38 +158,38 @@ component Reference.Card.Image {
           <p>
             "The "
             <code>"object-fit"</code>
-
             " CSS proprerty can be controlled using the "
-
             <code>"object-fit"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[5, 12]
             data={
               @format {
                 <>
                   <div style="width: 300px">
                     <Ui.Card.Image
                       src={@asset(../../assets/images/white-beach.jpg)}
-                      height={Ui.Size::Px(240)}
-                      objectFit="cover"/>
+                      height={Ui.Size.Px(240)}
+                      objectFit="cover"
+                    />
                   </div>
 
                   <div style="width: 300px">
                     <Ui.Card.Image
                       src={@asset(../../assets/images/white-beach.jpg)}
-                      height={Ui.Size::Px(240)}
-                      objectFit="contain"/>
+                      height={Ui.Size.Px(240)}
+                      objectFit="contain"
+                    />
                   </div>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Object Position"
@@ -197,40 +197,40 @@ component Reference.Card.Image {
           <p>
             "The "
             <code>"object-position"</code>
-
             " CSS proprerty can be controlled using the "
-
             <code>"object-position"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[5, 13]
             data={
               @format {
                 <>
                   <div style="width: 300px">
                     <Ui.Card.Image
                       src={@asset(../../assets/images/white-beach.jpg)}
-                      height={Ui.Size::Px(240)}
+                      height={Ui.Size.Px(240)}
                       objectPosition="top left"
-                      objectFit="contain"/>
+                      objectFit="contain"
+                    />
                   </div>
 
                   <div style="width: 300px">
                     <Ui.Card.Image
                       src={@asset(../../assets/images/white-beach.jpg)}
-                      height={Ui.Size::Px(240)}
+                      height={Ui.Size.Px(240)}
                       objectPosition="bottom left"
-                      objectFit="contain"/>
+                      objectFit="contain"
+                    />
                   </div>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

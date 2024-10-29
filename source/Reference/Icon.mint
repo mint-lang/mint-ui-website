@@ -24,7 +24,7 @@ component Reference.Icon {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Icon" }>>
+      <Ui.Box title=<>"Ui.Icon"</>>
         <p>"Displays an SVG icon, which can be interactive."</p>
       </Ui.Box>
 
@@ -33,296 +33,288 @@ component Reference.Icon {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Icon"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon: value } }}
+                  onChange={-> icon}
                   items={ICON_ITEMS}
-                  value={icon}/>
+                  value={icon}
+                />
               </Ui.Field>
 
-              <Ui.Field label="Href">
-                <Ui.Input
-                  onChange={(value : String) { next { href: value } }}
-                  value={href}/>
-              </Ui.Field>
+              <Ui.Field label="Href"><Ui.Input onChange={-> href} value={href}/></Ui.Field>
 
               <Ui.Field label="Opacity (#{opacity})">
                 <Ui.Slider
-                  onChange={(value : Number) { next { opacity: value } }}
+                  onChange={-> opacity}
                   value={opacity}
                   step={0.1}
                   max={1}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
 
               <Ui.Field label="Size">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={200}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={200} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Interactive">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { interactive: value } }}
-                  checked={interactive}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Interactive">
+                <Ui.Checkbox onChange={-> interactive} checked={interactive}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Icon
-                  size={Ui.Size::Px(size)}
+                  size={Ui.Size.Px(size)}
                   icon={getIcon(icon)}
                   interactive={interactive}
                   disabled={disabled}
                   opacity={opacity}
-                  href={href}/>,
+                  href={href}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Icon"
         content={
           <p>
             "The icon can be specified using the "
-
             <code>"icon"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[2, 6, 10, 14]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(30)}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(30)}
+                  />
 
-                  <Ui.Icon
-                    icon={Ui.Icons:ALERT}
-                    size={Ui.Size::Px(30)}/>
+                  <Ui.Icon icon={Ui.Icons.ALERT} size={Ui.Size.Px(30)}/>
 
-                  <Ui.Icon
-                    icon={Ui.Icons:CODE}
-                    size={Ui.Size::Px(30)}/>
+                  <Ui.Icon icon={Ui.Icons.CODE} size={Ui.Size.Px(30)}/>
 
-                  <Ui.Icon
-                    icon={Ui.Icons:EYE}
-                    size={Ui.Size::Px(30)}/>
+                  <Ui.Icon icon={Ui.Icons.EYE} size={Ui.Size.Px(30)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Included Icons"
-        content={<p>"You can find below the icons which are currently included."</p>}
+        content={
+          <p>"You can find below the icons which are currently included."</p>
+        }
         example={
           <Ui.Grid
-            mobileWidth={Ui.Size::Px(100)}
-            width={Ui.Size::Px(170)}
-            gap={Ui.Size::Px(10)}>
-
-            for item of ListItems:ICON_ITEMS {
+            mobileWidth={Ui.Size.Px(100)}
+            width={Ui.Size.Px(170)}
+            gap={Ui.Size.Px(10)}
+          >
+            for item of ListItems.ICON_ITEMS {
               <Ui.Card>
                 <DemoArea>
                   <Ui.Icon
                     icon={getIcon(Ui.ListItem.key(item))}
-                    size={Ui.Size::Px(24)}/>
+                    size={Ui.Size.Px(24)}
+                  />
                 </DemoArea>
 
                 <Ui.Card.Container
                   textAlign="center"
-                  content=<{
-                    <strong>
-                      <{ Ui.ListItem.matchString(item) }>
-                    </strong>
-
+                  content=<>
+                    <strong><>Ui.ListItem.matchString(item)</></strong>
                     <br/>
-
-                    <small>
-                      <{ Ui.ListItem.key(item) }>
-                    </small>
-                  }>/>
+                    <small><>Ui.ListItem.key(item)</></small>
+                  </>
+                />
               </Ui.Card>
             }
-
           </Ui.Grid>
-        }/>
+        }
+      />
 
       <DocBox
         title="Opacity"
         content={
           <p>
             "The components opacity can be controlled with the "
-
             <code>"opacity"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[4, 9, 14, 19]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <Ui.Icon
-                    size={Ui.Size::Px(30)}
-                    icon={Ui.Icons:ALERT}
-                    opacity={1}/>
+                    size={Ui.Size.Px(30)}
+                    icon={Ui.Icons.ALERT}
+                    opacity={1}
+                  />
 
                   <Ui.Icon
-                    size={Ui.Size::Px(30)}
-                    icon={Ui.Icons:ALERT}
-                    opacity={0.75}/>
+                    size={Ui.Size.Px(30)}
+                    icon={Ui.Icons.ALERT}
+                    opacity={0.75}
+                  />
 
                   <Ui.Icon
-                    size={Ui.Size::Px(30)}
-                    icon={Ui.Icons:ALERT}
-                    opacity={0.5}/>
+                    size={Ui.Size.Px(30)}
+                    icon={Ui.Icons.ALERT}
+                    opacity={0.5}
+                  />
 
                   <Ui.Icon
-                    size={Ui.Size::Px(30)}
-                    icon={Ui.Icons:ALERT}
-                    opacity={0.25}/>
+                    size={Ui.Size.Px(30)}
+                    icon={Ui.Icons.ALERT}
+                    opacity={0.25}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[3, 7, 11]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(12)}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(12)}
+                  />
 
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(16)}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(16)}
+                  />
 
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(20)}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(20)}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Auto Size"
-        content={<p>"The size of the component by default inherits the parent elements font size."</p>}
+        content={
+          <p>
+            "The size of the component by default inherits the parent elements font size."
+          </p>
+        }
         example={
           <Example
-            highlight=[1, 5, 9, 13]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <div style="font-size: 14px">
-                    <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
+                    <Ui.Icon icon={Ui.Icons.DESKTOP_DOWNLOAD}/>
                   </div>
 
                   <div style="font-size: 18px">
-                    <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
+                    <Ui.Icon icon={Ui.Icons.DESKTOP_DOWNLOAD}/>
                   </div>
 
                   <div style="font-size: 26px">
-                    <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
+                    <Ui.Icon icon={Ui.Icons.DESKTOP_DOWNLOAD}/>
                   </div>
 
                   <div style="font-size: 32px">
-                    <Ui.Icon icon={Ui.Icons:DESKTOP_DOWNLOAD}/>
+                    <Ui.Icon icon={Ui.Icons.DESKTOP_DOWNLOAD}/>
                   </div>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Color"
-        content={<p>"The color of the icon is determined by the parent elements color."</p>}
+        content={
+          <p>"The color of the icon is determined by the parent elements color."</p>
+        }
         example={
           <Example
-            highlight=[1, 7, 13, 19]
             horizontalSpacing={20}
             data={
               @format {
                 <>
                   <div style="color: red;">
                     <Ui.Icon
-                      icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                      size={Ui.Size::Px(30)}/>
+                      icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                      size={Ui.Size.Px(30)}
+                    />
                   </div>
 
                   <div style="color: orangered">
                     <Ui.Icon
-                      icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                      size={Ui.Size::Px(30)}/>
+                      icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                      size={Ui.Size.Px(30)}
+                    />
                   </div>
 
                   <div style="color: rebeccapurple">
                     <Ui.Icon
-                      icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                      size={Ui.Size::Px(30)}/>
+                      icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                      size={Ui.Size.Px(30)}
+                    />
                   </div>
 
                   <div style="color: magenta">
                     <Ui.Icon
-                      icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                      size={Ui.Size::Px(30)}/>
+                      icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                      size={Ui.Size.Px(30)}
+                    />
                   </div>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="As a Link"
@@ -335,16 +327,18 @@ component Reference.Icon {
         }
         example={
           <Example
-            highlight=[3]
             data={
               @format {
                 <Ui.Icon
-                  icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                  size={Ui.Size::Px(30)}
-                  href="/"/>
+                  icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                  size={Ui.Size.Px(30)}
+                  href="/"
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Interactive"
@@ -358,23 +352,26 @@ component Reference.Icon {
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[4, 9]
             data={
               @format {
                 <>
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(30)}
-                    interactive={true}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(30)}
+                    interactive={true}
+                  />
 
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(30)}
-                    interactive={false}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(30)}
+                    interactive={false}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Disabled"
@@ -388,23 +385,26 @@ component Reference.Icon {
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[4, 9]
             data={
               @format {
                 <>
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(30)}
-                    disabled={true}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(30)}
+                    disabled={true}
+                  />
 
                   <Ui.Icon
-                    icon={Ui.Icons:DESKTOP_DOWNLOAD}
-                    size={Ui.Size::Px(30)}
-                    disabled={false}/>
+                    icon={Ui.Icons.DESKTOP_DOWNLOAD}
+                    size={Ui.Size.Px(30)}
+                    disabled={false}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

@@ -14,7 +14,7 @@ component Reference.Checkbox {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Checkbox" }>>
+      <Ui.Box title=<>"Ui.Checkbox"</>>
         <p>"Checkboxes can be used to turn an option on or off."</p>
       </Ui.Box>
 
@@ -23,9 +23,7 @@ component Reference.Checkbox {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Checkbox"</code>
-
             " below using the controls."
           </p>
         }
@@ -34,52 +32,37 @@ component Reference.Checkbox {
             data={
               {
                 <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked: value } }}
-                  size={Ui.Size::Px(size)}
+                  onChange={-> checked}
+                  size={Ui.Size.Px(size)}
                   disabled={disabled}
-                  checked={checked}/>,
+                  checked={checked}
+                />,
                 playgroundCode
               }
             }
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Checked">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { checked: value } }}
-                  checked={checked}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Checked">
+                <Ui.Checkbox onChange={-> checked} checked={checked}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
-            }>/>
-        }/>
+            </>
+          />
+        }
+      />
 
       <DocBox
         title="State"
         content={
           <p>
             "The state of the component can be set with the "
-
             <code>"checked"</code>
-
             " property."
           </p>
         }
@@ -94,17 +77,17 @@ component Reference.Checkbox {
                   <Ui.Checkbox checked={true}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -115,22 +98,22 @@ component Reference.Checkbox {
             data={
               @format {
                 <>
-                  <Ui.Checkbox size={Ui.Size::Px(12)}/>
-                  <Ui.Checkbox size={Ui.Size::Px(16)}/>
-                  <Ui.Checkbox size={Ui.Size::Px(20)}/>
+                  <Ui.Checkbox size={Ui.Size.Px(12)}/>
+                  <Ui.Checkbox size={Ui.Size.Px(16)}/>
+                  <Ui.Checkbox size={Ui.Size.Px(20)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Disabled"
         content={
           <p>
             "The component can be disabled using the "
-
             <code>"disabled"</code>
-
             " property."
           </p>
         }
@@ -145,17 +128,17 @@ component Reference.Checkbox {
                   <Ui.Checkbox disabled={true}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Change Event"
         content={
           <p>
             "The component triggers the "
-
             <code>"onChange"</code>
-
             " event when clicked."
           </p>
         }
@@ -167,12 +150,15 @@ component Reference.Checkbox {
                 <Ui.Checkbox
                   onChange={
                     (value : Bool) {
-                      Ui.Notifications.notifyDefault(<{ "Changed!" }>)
+                      Ui.Notifications.notifyDefault(<>"Changed!"</>)
                     }
-                  }/>
+                  }
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

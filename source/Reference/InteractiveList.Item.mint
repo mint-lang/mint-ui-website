@@ -5,7 +5,7 @@ component Reference.InteractiveList.Item {
 
   const ON_CLICK =
     @format {
-      (event : Html.Event) { Ui.Notifications.notifyDefault(<{ "Clicked" }>) }
+      (event : Html.Event) { Ui.Notifications.notifyDefault(<>"Clicked"</>) }
     }
 
   get playgroundCode : String {
@@ -21,7 +21,7 @@ component Reference.InteractiveList.Item {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.InteractiveList.Item" }>>
+      <Ui.Box title=<>"Ui.InteractiveList.Item"</>>
         <p>
           "A component to display a "
           <code>"Ui.ListItem"</code>
@@ -34,113 +34,79 @@ component Reference.InteractiveList.Item {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.InteractiveList.Item"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Intended">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { intended: value } }}
-                  checked={intended}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Intended">
+                <Ui.Checkbox onChange={-> intended} checked={intended}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Selected">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { selected: value } }}
-                  checked={selected}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Selected">
+                <Ui.Checkbox onChange={-> selected} checked={selected}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.InteractiveList.Item
-                  size={Ui.Size::Px(size)}
+                  size={Ui.Size.Px(size)}
                   onClick={ON_CLICK[0]}
                   intended={intended}
-                  selected={selected}>
-
-                  "Some content..."
-
-                </Ui.InteractiveList.Item>,
+                  selected={selected}
+                >"Some content..."</Ui.InteractiveList.Item>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[2, 10, 18]
             data={
               @format {
                 <>
-                  <Ui.InteractiveList.Item
-                    size={Ui.Size::Px(12)}
-                    intended={true}>
-
+                  <Ui.InteractiveList.Item size={Ui.Size.Px(12)} intended={true}>
                     "Some content..."
-
                   </Ui.InteractiveList.Item>
 
-                  <Ui.InteractiveList.Item
-                    size={Ui.Size::Px(16)}
-                    intended={true}>
-
+                  <Ui.InteractiveList.Item size={Ui.Size.Px(16)} intended={true}>
                     "Some content..."
-
                   </Ui.InteractiveList.Item>
 
-                  <Ui.InteractiveList.Item
-                    size={Ui.Size::Px(20)}
-                    intended={true}>
-
+                  <Ui.InteractiveList.Item size={Ui.Size.Px(20)} intended={true}>
                     "Some content..."
-
                   </Ui.InteractiveList.Item>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Intended"
         content={
           <p>
             "The component can marked as intended to be selected using the "
-
             <code>"intended"</code>
-
             " property."
           </p>
         }
@@ -150,26 +116,22 @@ component Reference.InteractiveList.Item {
             data={
               @format {
                 <>
-                  <Ui.InteractiveList.Item intended={true}>
-                    "Some content..."
-                  </Ui.InteractiveList.Item>
+                  <Ui.InteractiveList.Item intended={true}>"Some content..."</Ui.InteractiveList.Item>
 
-                  <Ui.InteractiveList.Item intended={false}>
-                    "Some content..."
-                  </Ui.InteractiveList.Item>
+                  <Ui.InteractiveList.Item intended={false}>"Some content..."</Ui.InteractiveList.Item>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Selected"
         content={
           <p>
             "The component can marked as selected using the "
-
             <code>"selected"</code>
-
             " property."
           </p>
         }
@@ -179,17 +141,14 @@ component Reference.InteractiveList.Item {
             data={
               @format {
                 <>
-                  <Ui.InteractiveList.Item selected={true}>
-                    "Some content..."
-                  </Ui.InteractiveList.Item>
-
-                  <Ui.InteractiveList.Item selected={false}>
-                    "Some content..."
-                  </Ui.InteractiveList.Item>
+                  <Ui.InteractiveList.Item selected={true}>"Some content..."</Ui.InteractiveList.Item>
+                  <Ui.InteractiveList.Item selected={false}>"Some content..."</Ui.InteractiveList.Item>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

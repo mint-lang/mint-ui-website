@@ -14,7 +14,7 @@ component Reference.DatePicker {
 
     "Ui.DatePicker"
     |> ComponentBuilder.new
-    |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
+    |> ComponentBuilder.addExpression("position", "Ui.Position.#{position}")
     |> ComponentBuilder.addExpression("value", valueValue)
     |> ComponentBuilder.addSizePx("size", size)
     |> ComponentBuilder.addBool("disabled", disabled)
@@ -25,8 +25,10 @@ component Reference.DatePicker {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.DatePicker" }>>
-        <p>"A simple component that allows the user to pick a date from a calendar."</p>
+      <Ui.Box title=<>"Ui.DatePicker"</>>
+        <p>
+          "A simple component that allows the user to pick a date from a calendar."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -34,87 +36,65 @@ component Reference.DatePicker {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.DatePicker"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Value">
-                <Ui.DatePicker
-                  onChange={(value : Time) { next { value: value } }}
-                  value={value}/>
+                <Ui.DatePicker onChange={-> value} value={value}/>
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(position : String) { next { position: position } }}
+                  onChange={-> position}
                   items={POSITIONS}
-                  value={position}/>
+                  value={position}
+                />
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { offset: value } }}
-                  value={offset}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> offset} value={offset} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Invalid">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid: value } }}
-                  checked={invalid}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Invalid">
+                <Ui.Checkbox onChange={-> invalid} checked={invalid}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.DatePicker
-                  onChange={(value : Time) { next { value: value } }}
                   position={Ui.Position.fromString(position)}
-                  size={Ui.Size::Px(size)}
+                  size={Ui.Size.Px(size)}
                   disabled={disabled}
+                  onChange={-> value}
                   invalid={invalid}
                   offset={offset}
-                  value={value}/>,
+                  value={value}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Value"
         content={
           <p>
             "The value can be controlled with the "
-
             <code>"value"</code>
-
             " property."
           </p>
         }
@@ -125,17 +105,17 @@ component Reference.DatePicker {
               @format {
                 <Ui.DatePicker value={Time.atBeginningOfDay(Time.now())}/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Disabled"
         content={
           <p>
             "The component can be disabled using the "
-
             <code>"disabled"</code>
-
             " property."
           </p>
         }
@@ -145,17 +125,17 @@ component Reference.DatePicker {
               @format {
                 <Ui.DatePicker disabled={true}/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Invalid"
         content={
           <p>
             "The component can be makred invalid using the "
-
             <code>"invalid"</code>
-
             " property."
           </p>
         }
@@ -166,17 +146,17 @@ component Reference.DatePicker {
               @format {
                 <Ui.DatePicker invalid={true}/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -186,13 +166,15 @@ component Reference.DatePicker {
             data={
               @format {
                 <>
-                  <Ui.DatePicker size={Ui.Size::Px(12)}/>
-                  <Ui.DatePicker size={Ui.Size::Px(16)}/>
-                  <Ui.DatePicker size={Ui.Size::Px(20)}/>
+                  <Ui.DatePicker size={Ui.Size.Px(12)}/>
+                  <Ui.DatePicker size={Ui.Size.Px(16)}/>
+                  <Ui.DatePicker size={Ui.Size.Px(20)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Position"
@@ -200,15 +182,12 @@ component Reference.DatePicker {
           <p>
             "The position property controls the panels position. "
             "For more information check out the the "
-
-            <a href="/components/ui-dropdown#position">
-              "same property"
-            </a>
-
+            <a href="/components/ui-dropdown#position">"same property"</a>
             " of the "
             <code>"Ui.Dropdown"</code>
           </p>
-        }/>
+        }
+      />
 
       <DocBox
         title="Offset"
@@ -216,15 +195,12 @@ component Reference.DatePicker {
           <p>
             "The offset property controls the panels offset. "
             "For more information check out the the "
-
-            <a href="/components/ui-dropdown#offset">
-              "same property"
-            </a>
-
+            <a href="/components/ui-dropdown#offset">"same property"</a>
             " of the "
             <code>"Ui.Dropdown"</code>
           </p>
-        }/>
+        }
+      />
     </>
   }
 }

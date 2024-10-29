@@ -21,24 +21,9 @@ component Reference.Table {
   const HEADERS =
     @format {
       [
-        {
-          sortKey: "name",
-          sortable: true,
-          label: "Name",
-          shrink: true
-        },
-        {
-          sortKey: "email",
-          sortable: true,
-          label: "Email",
-          shrink: false
-        },
-        {
-          sortKey: "active",
-          sortable: false,
-          label: "Active",
-          shrink: true
-        }
+        { sortKey: "name", sortable: true, label: "Name", shrink: true },
+        { sortKey: "email", sortable: true, label: "Email", shrink: false },
+        { sortKey: "active", sortable: false, label: "Active", shrink: true }
       ]
     }
 
@@ -46,17 +31,19 @@ component Reference.Table {
     @format {
       [
         {
-          "John Doe", [
-            Ui.Cell::String("John Doe"),
-            Ui.Cell::String("john.doe@example.com"),
-            Ui.Cell::Code(code: "false", breakSpaces: false)
+          "John Doe",
+          [
+            Ui.Cell.String("John Doe"),
+            Ui.Cell.String("john.doe@example.com"),
+            Ui.Cell.Code(code: "false", breakSpaces: false)
           ]
         },
         {
-          "Jane Doe", [
-            Ui.Cell::String("Jane Doe"),
-            Ui.Cell::String("jane.doe@example.com"),
-            Ui.Cell::Code(code: "true", breakSpaces: false)
+          "Jane Doe",
+          [
+            Ui.Cell.String("Jane Doe"),
+            Ui.Cell.String("jane.doe@example.com"),
+            Ui.Cell.Code(code: "true", breakSpaces: false)
           ]
         }
       ]
@@ -64,11 +51,13 @@ component Reference.Table {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Table" }>>
+      <Ui.Box title=<>"Ui.Table"</>>
         <p>"A component to displayed tabluar data."</p>
 
         <ul>
-          <li>"The table is fully controlled meaning that it's just a view and you need to do the sorting yourself."</li>
+          <li>
+            "The table is fully controlled meaning that it's just a view and you need to do the sorting yourself."
+          </li>
 
           <li>
             "The table collapses into a "
@@ -87,86 +76,77 @@ component Reference.Table {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Table"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
             fullWidth={true}
-            controls=<{
+            controls=<>
               <Ui.Field label="Order Direction">
                 <Ui.Native.Select
                   items={Ui.ListItem.fromStringArray(["asc", "desc"])}
-                  onChange={(value : String) { next { orderDirection: value } }}
-                  value={orderDirection}/>
+                  onChange={-> orderDirection}
+                  value={orderDirection}
+                />
               </Ui.Field>
 
               <Ui.Field label="Order By">
                 <Ui.Native.Select
                   items={Ui.ListItem.fromStringArray(["name", "email"])}
-                  onChange={(value : String) { next { orderBy: value } }}
-                  value={orderBy}/>
+                  onChange={-> orderBy}
+                  value={orderBy}
+                />
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Breakpoint (#{breakpoint}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { breakpoint: value } }}
+                  onChange={-> breakpoint}
                   value={breakpoint}
                   max={1500}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Bordered">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { bordered: value } }}
-                  checked={bordered}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Bordered">
+                <Ui.Checkbox onChange={-> bordered} checked={bordered}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Table
                   orderDirection={orderDirection}
-                  size={Ui.Size::Px(size)}
+                  size={Ui.Size.Px(size)}
                   breakpoint={breakpoint}
                   headers={HEADERS[0]}
                   bordered={bordered}
                   orderBy={orderBy}
-                  rows={ROWS[0]}/>,
+                  rows={ROWS[0]}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Order Direction"
         content={
           <p>
             "The order direction of ordered column can be indicated with the "
-
             <code>"orderDescription"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             verticalSpacing={20}
-            highlight=[30, 37]
             data={
               @format {
                 let rows =
@@ -174,20 +154,16 @@ component Reference.Table {
                     {
                       "John Doe",
                       [
-                        Ui.Cell::String("John Doe"),
-                        Ui.Cell::String("john.doe@example.com")
+                        Ui.Cell.String("John Doe"),
+                        Ui.Cell.String("john.doe@example.com")
                       ]
                     }
                   ]
 
                 let headers =
                   [
-                    {
-                      sortKey: "name",
-                      sortable: true,
-                      label: "Name",
-                      shrink: true
-                    },
+                    { sortKey: "name", sortable: true, label: "Name", shrink:
+                      true },
                     {
                       sortKey: "email",
                       sortable: true,
@@ -202,34 +178,35 @@ component Reference.Table {
                     headers={headers}
                     breakpoint={0}
                     orderBy="name"
-                    rows={rows}/>
+                    rows={rows}
+                  />
 
                   <Ui.Table
                     orderDirection="desc"
                     headers={headers}
                     orderBy="name"
                     breakpoint={0}
-                    rows={rows}/>
+                    rows={rows}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Order By"
         content={
           <p>
             "Which column is the ordered one can be indicated with the "
-
             <code>"orderBy"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             verticalSpacing={20}
-            highlight=[32, 37]
             data={
               @format {
                 let rows =
@@ -237,20 +214,16 @@ component Reference.Table {
                     {
                       "John Doe",
                       [
-                        Ui.Cell::String("John Doe"),
-                        Ui.Cell::String("john.doe@example.com")
+                        Ui.Cell.String("John Doe"),
+                        Ui.Cell.String("john.doe@example.com")
                       ]
                     }
                   ]
 
                 let headers =
                   [
-                    {
-                      sortKey: "name",
-                      sortable: true,
-                      label: "Name",
-                      shrink: true
-                    },
+                    { sortKey: "name", sortable: true, label: "Name", shrink:
+                      true },
                     {
                       sortKey: "email",
                       sortable: true,
@@ -264,32 +237,33 @@ component Reference.Table {
                     headers={headers}
                     breakpoint={0}
                     orderBy="name"
-                    rows={rows}/>
+                    rows={rows}
+                  />
 
                   <Ui.Table
                     headers={headers}
                     orderBy="email"
                     breakpoint={0}
-                    rows={rows}/>
+                    rows={rows}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Order Change"
         content={
           <p>
             "The "
-
             <code>"onOrderChange"</code>
-
             " property is called when the user request a change in ordering."
           </p>
         }
         example={
           <Example
-            highlight={Array.range(1, 14)}
             verticalSpacing={20}
             data={
               @format {
@@ -300,20 +274,16 @@ component Reference.Table {
                         data
 
                       Ui.Notifications.notifyDefault(
-                        <{
+                        <>
                           "Order change to: "
                           <b>"#{column}/#{direction}"</b>
-                        }>)
+                        </>)
                     }
                   }
                   breakpoint={0}
                   headers=[
-                    {
-                      sortKey: "name",
-                      sortable: true,
-                      label: "Name",
-                      shrink: true
-                    },
+                    { sortKey: "name", sortable: true, label: "Name", shrink:
+                      true },
                     {
                       sortKey: "email",
                       sortable: true,
@@ -325,29 +295,29 @@ component Reference.Table {
                     {
                       "John Doe",
                       [
-                        Ui.Cell::String("John Doe"),
-                        Ui.Cell::String("john.doe@example.com")
+                        Ui.Cell.String("John Doe"),
+                        Ui.Cell.String("john.doe@example.com")
                       ]
                     }
-                  ]/>
+                  ]
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[30, 36, 42]
             verticalSpacing={20}
             data={
               @format {
@@ -356,20 +326,16 @@ component Reference.Table {
                     {
                       "John Doe",
                       [
-                        Ui.Cell::String("John Doe"),
-                        Ui.Cell::String("john.doe@example.com")
+                        Ui.Cell.String("John Doe"),
+                        Ui.Cell.String("john.doe@example.com")
                       ]
                     }
                   ]
 
                 let headers =
                   [
-                    {
-                      sortKey: "name",
-                      sortable: true,
-                      label: "Name",
-                      shrink: true
-                    },
+                    { sortKey: "name", sortable: true, label: "Name", shrink:
+                      true },
                     {
                       sortKey: "email",
                       sortable: true,
@@ -380,26 +346,31 @@ component Reference.Table {
 
                 <>
                   <Ui.Table
-                    size={Ui.Size::Px(12)}
+                    size={Ui.Size.Px(12)}
                     headers={headers}
                     breakpoint={0}
-                    rows={rows}/>
+                    rows={rows}
+                  />
 
                   <Ui.Table
-                    size={Ui.Size::Px(16)}
+                    size={Ui.Size.Px(16)}
                     headers={headers}
                     breakpoint={0}
-                    rows={rows}/>
+                    rows={rows}
+                  />
 
                   <Ui.Table
-                    size={Ui.Size::Px(20)}
+                    size={Ui.Size.Px(20)}
                     headers={headers}
                     breakpoint={0}
-                    rows={rows}/>
+                    rows={rows}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Breakpoint"
@@ -412,16 +383,13 @@ component Reference.Table {
             </a>
 
             " instead can be set using the "
-
             <code>"breakpoint"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             verticalSpacing={20}
-            highlight=[31, 36]
             data={
               @format {
                 let rows =
@@ -429,20 +397,16 @@ component Reference.Table {
                     {
                       "John Doe",
                       [
-                        Ui.Cell::String("John Doe"),
-                        Ui.Cell::String("john.doe@example.com")
+                        Ui.Cell.String("John Doe"),
+                        Ui.Cell.String("john.doe@example.com")
                       ]
                     }
                   ]
 
                 let headers =
                   [
-                    {
-                      sortKey: "name",
-                      sortable: true,
-                      label: "Name",
-                      shrink: true
-                    },
+                    { sortKey: "name", sortable: true, label: "Name", shrink:
+                      true },
                     {
                       sortKey: "email",
                       sortable: true,
@@ -452,19 +416,15 @@ component Reference.Table {
                   ]
 
                 <>
-                  <Ui.Table
-                    headers={headers}
-                    breakpoint={500}
-                    rows={rows}/>
+                  <Ui.Table headers={headers} breakpoint={500} rows={rows}/>
 
-                  <Ui.Table
-                    headers={headers}
-                    breakpoint={0}
-                    rows={rows}/>
+                  <Ui.Table headers={headers} breakpoint={0} rows={rows}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

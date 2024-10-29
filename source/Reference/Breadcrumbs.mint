@@ -5,9 +5,9 @@ component Reference.Breadcrumbs {
   const ITEMS =
     @format {
       [
-        {"/", <{ "Home" }>},
-        {"/components", <{ "Components" }>},
-        {"", <{ "Ui.BreadCrumbs" }>}
+        {"/", <>"Home"</>},
+        {"/components", <>"Components"</>},
+        {"", <>"Ui.BreadCrumbs"</>}
       ]
     }
 
@@ -22,10 +22,10 @@ component Reference.Breadcrumbs {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Breadcrumbs" }>>
+      <Ui.Box title=<>"Ui.Breadcrumbs"</>>
         <p>
-          "Indicate the current page’s location within a navigation" \
-          "al hierarchy that automatically adds separators."
+          "Indicate the current page’s location within a navigational " \
+          "hierarchy that automatically adds separators."
         </p>
       </Ui.Box>
 
@@ -34,48 +34,41 @@ component Reference.Breadcrumbs {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Breadcrumbs"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Separator">
-                <Ui.Input
-                  onChange={(value : String) { next { separator: value } }}
-                  value={separator}/>
+                <Ui.Input onChange={-> separator} value={separator}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Breadcrumbs
-                  separator=<{ separator }>
-                  size={Ui.Size::Px(size)}
-                  items={ITEMS[0]}/>,
+                  separator=<>separator</>
+                  size={Ui.Size.Px(size)}
+                  items={ITEMS[0]}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Separator"
         content={
           <p>
             "The separator can be changed using the "
-
             <code>"separator"</code>
-
             " property."
           </p>
         }
@@ -84,24 +77,25 @@ component Reference.Breadcrumbs {
             data={
               @format {
                 <Ui.Breadcrumbs
-                  separator=<{ "»" }>
+                  separator=<>"»"</>
                   items=[
-                    {"/", <{ "Home" }>},
-                    {"/components", <{ "Components" }>},
-                    {"", <{ "Ui.Breadcrumbs" }>}
-                  ]/>
+                    {"/", <>"Home"</>},
+                    {"/components", <>"Components"</>},
+                    {"", <>"Ui.Breadcrumbs"</>}
+                  ]
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -112,29 +106,34 @@ component Reference.Breadcrumbs {
               @format {
                 <>
                   <Ui.Breadcrumbs
-                    size={Ui.Size::Px(12)}
+                    size={Ui.Size.Px(12)}
                     items=[
-                      {"/", <{ "Home" }>},
-                      {"/components", <{ "Components" }>}
-                    ]/>
+                      {"/", <>"Home"</>},
+                      {"/components", <>"Components"</>}
+                    ]
+                  />
 
                   <Ui.Breadcrumbs
-                    size={Ui.Size::Px(16)}
+                    size={Ui.Size.Px(16)}
                     items=[
-                      {"/", <{ "Home" }>},
-                      {"/components", <{ "Components" }>}
-                    ]/>
+                      {"/", <>"Home"</>},
+                      {"/components", <>"Components"</>}
+                    ]
+                  />
 
                   <Ui.Breadcrumbs
-                    size={Ui.Size::Px(20)}
+                    size={Ui.Size.Px(20)}
                     items=[
-                      {"/", <{ "Home" }>},
-                      {"/components", <{ "Components" }>}
-                    ]/>
+                      {"/", <>"Home"</>},
+                      {"/components", <>"Components"</>}
+                    ]
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

@@ -1,5 +1,5 @@
 component Logo {
-  property size : Ui.Size = Ui.Size::Inherit
+  property size : Ui.Size = Ui.Size.Inherit
   property href : String = ""
 
   style base {
@@ -10,11 +10,7 @@ component Logo {
 
   fun render : Html {
     <div::base>
-      <Ui.Brand
-        icon={Ui.Icons:MINT}
-        name="Mint UI"
-        size={size}
-        href={href}/>
+      <Ui.Brand icon={Ui.Icons.MINT} name="Mint UI" size={size} href={href}/>
     </div>
   }
 }

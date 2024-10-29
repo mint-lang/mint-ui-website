@@ -10,7 +10,7 @@ component Reference.DarkModeToggle {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.DarkModeToggle" }>>
+      <Ui.Box title=<>"Ui.DarkModeToggle"</>>
         <p>"A button like component to toggle between light and dark modes."</p>
       </Ui.Box>
 
@@ -19,39 +19,30 @@ component Reference.DarkModeToggle {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.DarkModeToggle"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
-              {
-                <Ui.DarkModeToggle size={Ui.Size::Px(size)}/>,
-                playgroundCode
-              }
-            }/>
-        }/>
+              {<Ui.DarkModeToggle size={Ui.Size.Px(size)}/>, playgroundCode}
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
@@ -61,13 +52,15 @@ component Reference.DarkModeToggle {
             data={
               @format {
                 <>
-                  <Ui.DarkModeToggle size={Ui.Size::Px(12)}/>
-                  <Ui.DarkModeToggle size={Ui.Size::Px(16)}/>
-                  <Ui.DarkModeToggle size={Ui.Size::Px(20)}/>
+                  <Ui.DarkModeToggle size={Ui.Size.Px(12)}/>
+                  <Ui.DarkModeToggle size={Ui.Size.Px(16)}/>
+                  <Ui.DarkModeToggle size={Ui.Size.Px(20)}/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

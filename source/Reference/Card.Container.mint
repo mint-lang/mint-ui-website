@@ -2,8 +2,8 @@ component Reference.Card.Container {
   connect ListItems exposing { IMAGES, IMAGE_ITEMS }
 
   state thumbnail : String = "avatar.jpg"
-  state subtitle : String = "Sub title"
   state content : String = "Some content"
+  state subtitle : String = "Sub title"
   state title : String = "Title"
 
   get playgroundCode : String {
@@ -18,7 +18,7 @@ component Reference.Card.Container {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Card.Container" }>>
+      <Ui.Box title=<>"Ui.Card.Container"</>>
         <p>"An component for content to use in cards."</p>
       </Ui.Box>
 
@@ -27,60 +27,54 @@ component Reference.Card.Container {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Card.Container"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Thumbnail">
                 <Ui.Select
-                  onChange={(value : String) { next { thumbnail: value } }}
+                  onChange={-> thumbnail}
                   items={IMAGE_ITEMS}
-                  value={thumbnail}/>
+                  value={thumbnail}
+                />
               </Ui.Field>
 
               <Ui.Field label="Title">
-                <Ui.Input
-                  onChange={(value : String) { next { title: value } }}
-                  value={title}/>
+                <Ui.Input onChange={-> title} value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Subtitle">
-                <Ui.Input
-                  onChange={(value : String) { next { subtitle: value } }}
-                  value={subtitle}/>
+                <Ui.Input onChange={-> subtitle} value={subtitle}/>
               </Ui.Field>
 
               <Ui.Field label="Content">
-                <Ui.Input
-                  onChange={(value : String) { next { content: value } }}
-                  value={content}/>
+                <Ui.Input onChange={-> content} value={content}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Card.Container
                   thumbnail={Map.get(IMAGES, thumbnail) or ""}
-                  subtitle=<{ subtitle }>
-                  content=<{ content }>
-                  title=<{ title }>/>,
+                  subtitle=<>subtitle</>
+                  content=<>content</>
+                  title=<>title</>
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Content"
         content={
           <p>
             "The content can be controlled using the "
-
             <code>"content"</code>
-
             " property."
           </p>
         }
@@ -90,22 +84,25 @@ component Reference.Card.Container {
             data={
               @format {
                 <>
-                  <Ui.Card.Container content=<{ "Some content!" }>/>
-                  <Ui.Card.Container content=<{ "Some other content!" }>/>
-                  <Ui.Card.Container content=<{ <Ui.Button label="Some content!"/> }>/>
+                  <Ui.Card.Container content=<>"Some content!"</>/>
+                  <Ui.Card.Container content=<>"Some other content!"</>/>
+
+                  <Ui.Card.Container
+                    content=<><Ui.Button label="Some content!"/></>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Title"
         content={
           <p>
             "The content for the title can be controlled using the "
-
             <code>"title"</code>
-
             " property."
           </p>
         }
@@ -115,22 +112,22 @@ component Reference.Card.Container {
             data={
               @format {
                 <>
-                  <Ui.Card.Container title=<{ "Some title!" }>/>
-                  <Ui.Card.Container title=<{ "Some other title!" }>/>
-                  <Ui.Card.Container title=<{ <Ui.Button label="Some title!"/> }>/>
+                  <Ui.Card.Container title=<>"Some title!"</>/>
+                  <Ui.Card.Container title=<>"Some other title!"</>/>
+                  <Ui.Card.Container title=<><Ui.Button label="Some title!"/></>/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Subtitle"
         content={
           <p>
             "The content for the subtitle can be controlled using the "
-
             <code>"subtitle"</code>
-
             " property."
           </p>
         }
@@ -140,22 +137,25 @@ component Reference.Card.Container {
             data={
               @format {
                 <>
-                  <Ui.Card.Container subtitle=<{ "Some subtitle!" }>/>
-                  <Ui.Card.Container subtitle=<{ "Some other subtitle!" }>/>
-                  <Ui.Card.Container subtitle=<{ <Ui.Button label="Some subtitle!"/> }>/>
+                  <Ui.Card.Container subtitle=<>"Some subtitle!"</>/>
+                  <Ui.Card.Container subtitle=<>"Some other subtitle!"</>/>
+
+                  <Ui.Card.Container
+                    subtitle=<><Ui.Button label="Some subtitle!"/></>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Thumbnail"
         content={
           <p>
             "The thumbnail can be controlled using the "
-
             <code>"thumbnail"</code>
-
             " property."
           </p>
         }
@@ -165,22 +165,30 @@ component Reference.Card.Container {
             data={
               @format {
                 <>
-                  <Ui.Card.Container thumbnail={@asset(../../assets/images/avatar.jpg)}/>
-                  <Ui.Card.Container thumbnail={@asset(../../assets/images/beach.jpg)}/>
-                  <Ui.Card.Container thumbnail={@asset(../../assets/images/app-books.jpg)}/>
+                  <Ui.Card.Container
+                    thumbnail={@asset(../../assets/images/avatar.jpg)}
+                  />
+
+                  <Ui.Card.Container
+                    thumbnail={@asset(../../assets/images/beach.jpg)}
+                  />
+
+                  <Ui.Card.Container
+                    thumbnail={@asset(../../assets/images/app-books.jpg)}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Image"
         content={
           <p>
             "The thumbnail can be replaced with custom content with "
-
             <code>"image"</code>
-
             " property."
           </p>
         }
@@ -190,16 +198,15 @@ component Reference.Card.Container {
             data={
               @format {
                 <Ui.Card.Container
-                  subtitle=<{ "Subtitle" }>
-                  title=<{ "Title" }>
-                  image={
-                    <Ui.Icon
-                      size={Ui.Size::Em(2.5)}
-                      icon={Ui.Icons:MINT}/>
-                  }/>
+                  subtitle=<>"Subtitle"</>
+                  title=<>"Title"</>
+                  image={<Ui.Icon size={Ui.Size.Em(2.5)} icon={Ui.Icons.MINT}/>}
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

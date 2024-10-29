@@ -45,8 +45,10 @@ component Reference.Container {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Container" }>>
-        <p>"This component displays its children in a only one axis grid (in a line)."</p>
+      <Ui.Box title=<>"Ui.Container"</>>
+        <p>
+          "This component displays its children in a only one axis grid (in a line)."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -54,217 +56,299 @@ component Reference.Container {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Container"</code>
-
             " below using the controls:"
           </p>
         }
         example={
           <Example
             fullWidth={true}
-            controls=<{
+            controls=<>
               <Ui.Field label="Orientation">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { orientation: value } }}
+                  onChange={-> orientation}
                   items={ORIENTATION_ITEMS}
-                  value={orientation}/>
+                  value={orientation}
+                />
               </Ui.Field>
 
               <Ui.Field label="Justify">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { justify: value } }}
+                  onChange={-> justify}
                   items={JUSTIFY_CONTENT_ITEMS}
-                  value={justify}/>
+                  value={justify}
+                />
               </Ui.Field>
 
               <Ui.Field label="Align">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { align: value } }}
+                  onChange={-> align}
                   items={ALING_ITEMS_ITEMS}
-                  value={align}/>
+                  value={align}
+                />
               </Ui.Field>
 
               <Ui.Field label="Gap (#{gap}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { gap: value } }}
-                  value={gap}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> gap} value={gap} max={100} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Container
                   orientation={orientation}
                   justify={justify}
                   align={align}
-                  gap={Ui.Size::Px(gap)}>
-
-                  <{ CHILDREN[0][0] }>
-                  <{ CHILDREN[1][0] }>
-                  <{ CHILDREN[2][0] }>
-
+                  gap={Ui.Size.Px(gap)}
+                >
+                  <>CHILDREN[0][0]</>
+                  <>CHILDREN[1][0]</>
+                  <>CHILDREN[2][0]</>
                 </Ui.Container>,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Gap"
         content={
           <p>
             "The space betweem the items can be controlled usign the "
-
             <code>"gap"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             verticalSpacing={50}
-            highlight=[1, 7, 13]
             data={
               @format {
                 <>
-                  <Ui.Container gap={Ui.Size::Px(10)}>
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                  <Ui.Container gap={Ui.Size.Px(10)}>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
-                  <Ui.Container gap={Ui.Size::Px(30)}>
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                  <Ui.Container gap={Ui.Size.Px(30)}>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
-                  <Ui.Container gap={Ui.Size::Px(60)}>
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                  <Ui.Container gap={Ui.Size.Px(60)}>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Orientation"
         content={
           <p>
             "The orirentation of the items can be controlled usign the "
-
             <code>"orientation"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={50}
-            highlight=[1, 7]
             data={
               @format {
                 <>
                   <Ui.Container orientation="horizontal">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
                   <Ui.Container orientation="vertical">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Align"
         content={
           <p>
             "The the alignment of the items can be controlled usign the "
-
             <code>"align"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={50}
-            highlight=[1, 7, 13]
             data={
               @format {
                 <>
                   <Ui.Container align="start">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
                   <Ui.Container align="center">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
                   <Ui.Container align="end">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Justify"
         content={
           <p>
             "The the justification of the items can be controlled usign the "
-
             <code>"justify"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[1, 7, 13]
             verticalSpacing={50}
             fullWidth={true}
             data={
               @format {
                 <>
                   <Ui.Container justify="start">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
                   <Ui.Container justify="center">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
 
                   <Ui.Container justify="end">
-                    <div style="background: gray;min-height: 100px;min-width:100px;"/>
-                    <div style="background: gray;min-height: 50px;min-width:50px;"/>
-                    <div style="background: gray;min-height: 25px;min-width:25px;"/>
+                    <div
+                      style="background: gray;min-height: 100px;min-width:100px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 50px;min-width:50px;"
+                    />
+
+                    <div
+                      style="background: gray;min-height: 25px;min-width:25px;"
+                    />
                   </Ui.Container>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

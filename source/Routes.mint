@@ -1,14 +1,14 @@
 routes {
   / {
-    Application.setPage(Page::Home)
+    Application.setPage(Page.Home)
   }
 
   /pricing {
-    Application.setPage(Page::Pricing)
+    Application.setPage(Page.Pricing)
   }
 
   /examples {
-    Application.setPage(Page::Examples)
+    Application.setPage(Page.Examples)
   }
 
   /examples/:page (page : String) {
@@ -42,6 +42,6 @@ routes {
   }
 
   * {
-    Application.setPage(Page::NotFound)
+    Application.setPage(Page.NotFound)
   }
 }

@@ -16,21 +16,21 @@ component Reference.Picker {
 
   const PANEL =
     @format {
-      <{ "Panel" }>
+      <>"Panel"</>
     }
 
   get playgroundCode : String {
     let maybeLabel =
       if String.isBlank(label) {
-        "Maybe::Nothing"
+        "Maybe.Nothing"
       } else {
-        "Maybe::Just(<{ \"#{label}\" }>)"
+        "Maybe.Just(<{ \"#{label}\" }>)"
       }
 
     "Ui.Picker"
     |> ComponentBuilder.new()
     |> ComponentBuilder.addString("placeholder", placeholder)
-    |> ComponentBuilder.addExpression("position", "Ui.Position::#{position}")
+    |> ComponentBuilder.addExpression("position", "Ui.Position.#{position}")
     |> ComponentBuilder.addIcon("icon", icon)
     |> ComponentBuilder.addExpression("label", maybeLabel)
     |> ComponentBuilder.addSizePx("size", size)
@@ -44,7 +44,7 @@ component Reference.Picker {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Picker" }>>
+      <Ui.Box title=<>"Ui.Picker"</>>
         <p>
           "A component for implementing custom pickers (date, select, color, etc...)."
           <br/>
@@ -81,93 +81,63 @@ component Reference.Picker {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Picker"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Placeholder">
-                <Ui.Input
-                  onChange={(value : String) { next { placeholder: value } }}
-                  value={placeholder}/>
+                <Ui.Input onChange={-> placeholder} value={placeholder}/>
               </Ui.Field>
 
               <Ui.Field label="Label">
-                <Ui.Input
-                  onChange={(value : String) { next { label: value } }}
-                  value={label}/>
+                <Ui.Input onChange={-> label} value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon: value } }}
+                  onChange={-> icon}
                   items={ICON_ITEMS}
-                  value={icon}/>
+                  value={icon}
+                />
               </Ui.Field>
 
               <Ui.Field label="Position">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { position: value } }}
+                  onChange={-> position}
                   items={POSITIONS}
-                  value={position}/>
+                  value={position}
+                />
               </Ui.Field>
 
               <Ui.Field label="Offset (#{offset}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { offset: value } }}
-                  value={offset}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> offset} value={offset} max={100} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Match Width">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { matchWidth: value } }}
-                  checked={matchWidth}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Match Width">
+                <Ui.Checkbox onChange={-> matchWidth} checked={matchWidth}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Disabled">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { disabled: value } }}
-                  checked={disabled}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Disabled">
+                <Ui.Checkbox onChange={-> disabled} checked={disabled}/>
               </Ui.Field>
 
-              <Ui.Field
-                orientation={Ui.Field::Horizontal}
-                label="Invalid">
-
-                <Ui.Checkbox
-                  onChange={(value : Bool) { next { invalid: value } }}
-                  checked={invalid}/>
-
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Invalid">
+                <Ui.Checkbox onChange={-> invalid} checked={invalid}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.Picker
                   position={Ui.Position.fromString(position)}
                   placeholder={placeholder}
-                  size={Ui.Size::Px(size)}
+                  size={Ui.Size.Px(size)}
                   matchWidth={matchWidth}
                   icon={getIcon(icon)}
                   disabled={disabled}
@@ -176,356 +146,368 @@ component Reference.Picker {
                   offset={offset}
                   label={
                     if String.isBlank(label) {
-                      Maybe::Nothing
+                      Maybe.Nothing
                     } else {
-                      Maybe::Just(label)
+                      Maybe.Just(label)
                     }
-                  }/>,
+                  }
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Panel"
         content={
           <p>
             "The content inside the panel can be set using the "
-
             <code>"panel"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[3, 7]
             data={
               @format {
                 <>
-                  <Ui.Picker
-                    placeholder="Pick something!"
-                    panel=<{ "Panel..." }>/>
+                  <Ui.Picker placeholder="Pick something!" panel=<>"Panel..."</>/>
 
                   <Ui.Picker
                     placeholder="Pick something!"
-                    panel={<Ui.Button label="Click me!"/>}/>
+                    panel={<Ui.Button label="Click me!"/>}
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Label"
         content={
           <p>
             "The label "
-
             <code>"label"</code>
 
-            " property is shown in the element if given. It is used t" \
-            "o indicate that a value has been picked."
+            " property is shown in the element if given. It is used to " \
+            "indicate that a value has been picked."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[2, 8]
             data={
               @format {
                 <>
                   <Ui.Picker
-                    label={Maybe::Just(<{ "Label..." }>)}
+                    label={Maybe.Just(<>"Label..."</>)}
                     placeholder="Pick something!"
-                    panel=<{ "Panel..." }>/>
+                    panel=<>"Panel..."</>
+                  />
 
                   <Ui.Picker
                     placeholder="Pick something!"
-                    label={Maybe::Nothing}
-                    panel=<{ "Panel..." }>/>
+                    label={Maybe.Nothing}
+                    panel=<>"Panel..."</>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Placeholder"
         content={
           <p>
             "The placeholder can be changed with the "
-
             <code>"placeholder"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[1]
             data={
               @format {
-                <Ui.Picker
-                  placeholder="Pick something!"
-                  panel=<{ "Panel..." }>/>
+                <Ui.Picker placeholder="Pick something!" panel=<>"Panel..."</>/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[3, 8, 13]
             data={
               @format {
                 <>
                   <Ui.Picker
                     placeholder="Pick something!"
-                    size={Ui.Size::Px(12)}
-                    panel=<{ "Panel..." }>/>
+                    size={Ui.Size.Px(12)}
+                    panel=<>"Panel..."</>
+                  />
 
                   <Ui.Picker
                     placeholder="Pick something!"
-                    size={Ui.Size::Px(16)}
-                    panel=<{ "Panel..." }>/>
+                    size={Ui.Size.Px(16)}
+                    panel=<>"Panel..."</>
+                  />
 
                   <Ui.Picker
                     placeholder="Pick something!"
-                    size={Ui.Size::Px(20)}
-                    panel=<{ "Panel..." }>/>
+                    size={Ui.Size.Px(20)}
+                    panel=<>"Panel..."</>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Icon"
-        content=<{
+        content=<>
           <p>
-            "An icon can be displayed in the right side of the elemen" \
-            "t, which is usually used to indicate that the picker a d" \
-            "ropdown."
+            "An icon can be displayed in the right side of the element, " \
+            "which is usually used to indicate that the picker a dropdown."
           </p>
-        }>
+        </>
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[3, 8]
             data={
               @format {
                 <>
                   <Ui.Picker
                     placeholder="Pick something!"
-                    icon={Ui.Icons:CHEVRON_DOWN}
-                    panel=<{ "Panel..." }>/>
+                    icon={Ui.Icons.CHEVRON_DOWN}
+                    panel=<>"Panel..."</>
+                  />
 
                   <Ui.Picker
                     placeholder="Pick something!"
-                    icon={Ui.Icons:BEAKER}
-                    panel=<{ "Panel..." }>/>
+                    icon={Ui.Icons.BEAKER}
+                    panel=<>"Panel..."</>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Position"
         content={
           <p>
             "The position of the panel can be controlled with the "
-
             <code>"position"</code>
-
             " property."
           </p>
         }
         example={
           if mobile {
-            <Ui.ContentHint icon={Ui.Icons:INFO}>
+            <Ui.ContentHint icon={Ui.Icons.INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
           } else {
             <Example
-              highlight=[2, 7, 12, 17, 22, 27]
               verticalSpacing={20}
               fullWidth={true}
               data={
                 @format {
                   <Ui.Grid>
                     <Ui.Picker
-                      position={Ui.Position::TopLeft}
+                      position={Ui.Position.TopLeft}
                       placeholder="Top Left"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
 
                     <Ui.Picker
-                      position={Ui.Position::TopCenter}
+                      position={Ui.Position.TopCenter}
                       placeholder="Top Center"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
 
                     <Ui.Picker
-                      position={Ui.Position::TopRight}
+                      position={Ui.Position.TopRight}
                       placeholder="Top Right"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
 
                     <Ui.Picker
-                      position={Ui.Position::BottomLeft}
+                      position={Ui.Position.BottomLeft}
                       placeholder="Bottom Left"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
 
                     <Ui.Picker
-                      position={Ui.Position::BottomCenter}
+                      position={Ui.Position.BottomCenter}
                       placeholder="Bottom Center"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
 
                     <Ui.Picker
-                      position={Ui.Position::BottomRight}
+                      position={Ui.Position.BottomRight}
                       placeholder="Bottom Right"
-                      panel=<{ "Panel..." }>/>
+                      panel=<>"Panel..."</>
+                    />
                   </Ui.Grid>
                 }
-              }/>
+              }
+            />
           }
-        }/>
+        }
+      />
 
       <DocBox
         title="Offset"
         content={
           <p>
             "The offset of the panel can be controlled with the "
-
             <code>"offset"</code>
-
             " property."
           </p>
         }
         example={
           if mobile {
-            <Ui.ContentHint icon={Ui.Icons:INFO}>
+            <Ui.ContentHint icon={Ui.Icons.INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
           } else {
             <Example
               horizontalSpacing={20}
-              highlight=[4, 9, 14]
               data={
                 @format {
                   <>
                     <Ui.Picker
                       placeholder="Pick Something!"
-                      panel=<{ "Panel..." }>
-                      offset={5}/>
+                      panel=<>"Panel..."</>
+                      offset={5}
+                    />
 
                     <Ui.Picker
                       placeholder="Pick Something!"
-                      panel=<{ "Panel..." }>
-                      offset={10}/>
+                      panel=<>"Panel..."</>
+                      offset={10}
+                    />
 
                     <Ui.Picker
                       placeholder="Pick Something!"
-                      panel=<{ "Panel..." }>
-                      offset={20}/>
+                      panel=<>"Panel..."</>
+                      offset={20}
+                    />
                   </>
                 }
-              }/>
+              }
+            />
           }
-        }/>
+        }
+      />
 
       <DocBox
         title="Match Width"
         content={
           <p>
             "Whether or not the panel should match the width the element can be controlled with the "
-
             <code>"matchWidth"</code>
-
             " property."
           </p>
         }
         example={
           if mobile {
-            <Ui.ContentHint icon={Ui.Icons:INFO}>
+            <Ui.ContentHint icon={Ui.Icons.INFO}>
               "The example only is available on desktop resolution!"
             </Ui.ContentHint>
           } else {
             <Example
               horizontalSpacing={20}
-              highlight=[4, 9]
               data={
                 @format {
                   <>
                     <Ui.Picker
                       placeholder="Pick something!"
-                      panel=<{ "Panel..." }>
-                      matchWidth={false}/>
+                      panel=<>"Panel..."</>
+                      matchWidth={false}
+                    />
 
                     <Ui.Picker
                       placeholder="Pick something!"
-                      panel=<{ "Panel..." }>
-                      matchWidth={true}/>
+                      panel=<>"Panel..."</>
+                      matchWidth={true}
+                    />
                   </>
                 }
-              }/>
+              }
+            />
           }
-        }/>
+        }
+      />
 
       <DocBox
         title="Disabled"
         content={
           <p>
             "The component can be disabled using the "
-
             <code>"disabled"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[3]
             data={
               @format {
                 <Ui.Picker
                   placeholder="Pick something!"
-                  panel=<{ "Panel..." }>
-                  disabled={true}/>
+                  panel=<>"Panel..."</>
+                  disabled={true}
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Invalid"
         content={
           <p>
             "The component can be marked invalid using the "
-
             <code>"invalid"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[3]
             data={
               @format {
                 <Ui.Picker
                   placeholder="Pick something!"
-                  panel=<{ "Panel..." }>
-                  invalid={true}/>
+                  panel=<>"Panel..."</>
+                  invalid={true}
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

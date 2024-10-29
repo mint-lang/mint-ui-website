@@ -7,25 +7,24 @@ component Reference.IllustratedMessage {
 
   const ACTIONS =
     @format {
-      <{
-        <Ui.Button
-          iconBefore={Ui.Icons:HEART}
-          label="Give Love!"
-          type="danger"/>
+      <>
+        <Ui.Button iconBefore={Ui.Icons.HEART} label="Give Love!" type="danger"/>
 
         <Ui.Button
-          iconBefore={Ui.Icons:HEART_OUTLINE}
+          iconBefore={Ui.Icons.HEART_OUTLINE}
           label="More love!"
-          type="secondary"/>
-      }>
+          type="secondary"
+        />
+      </>
     }
 
   const IMAGE =
     @format {
       <Ui.Image
         src={@asset(../../assets/images/app-weight-tracker.jpg)}
-        height={Ui.Size::Em(7)}
-        width={Ui.Size::Em(10)}/>
+        height={Ui.Size.Em(7)}
+        width={Ui.Size.Em(10)}
+      />
     }
 
   get playgroundCode : String {
@@ -41,9 +40,14 @@ component Reference.IllustratedMessage {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.IllustratedMessage" }>>
-        <p>"A component to display an illustrated message with slots for an image, title, subtitle and actions."</p>
-        <p>"Usually it's used to display a message with a call to action in lists where there are no items."</p>
+      <Ui.Box title=<>"Ui.IllustratedMessage"</>>
+        <p>
+          "A component to display an illustrated message with slots for an image, title, subtitle and actions."
+        </p>
+
+        <p>
+          "Usually it's used to display a message with a call to action in lists where there are no items."
+        </p>
       </Ui.Box>
 
       <DocBox
@@ -51,142 +55,131 @@ component Reference.IllustratedMessage {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.IllustratedMessage"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
-            controls=<{
+            controls=<>
               <Ui.Field label="Title">
-                <Ui.Input
-                  onChange={(value : String) { next { title: value } }}
-                  value={title}/>
+                <Ui.Input onChange={-> title} value={title}/>
               </Ui.Field>
 
               <Ui.Field label="Subtitle">
                 <Ui.Textarea
-                  onChange={(value : String) { next { subtitle: value } }}
+                  onChange={-> subtitle}
                   value={subtitle}
-                  behavior="grow"/>
+                  behavior="grow"
+                />
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={100}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 <Ui.IllustratedMessage
-                  size={Ui.Size::Px(size)}
-                  subtitle=<{ subtitle }>
+                  size={Ui.Size.Px(size)}
+                  subtitle=<>subtitle</>
                   actions={ACTIONS[0]}
-                  title=<{ title }>
-                  image={IMAGE[0]}/>,
+                  title=<>title</>
+                  image={IMAGE[0]}
+                />,
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
             horizontalSpacing={20}
-            highlight=[4, 15, 26]
             data={
               @format {
                 <>
                   <Ui.IllustratedMessage
-                    actions=<{ <Ui.Button label="Action"/> }>
-                    subtitle=<{ "Subtitle" }>
-                    size={Ui.Size::Px(12)}
-                    title=<{ "Title" }>
-                    image={
-                      <Ui.Icon
-                        size={Ui.Size::Em(6)}
-                        icon={Ui.Icons:BUG}/>
-                    }/>
+                    image={<Ui.Icon size={Ui.Size.Em(6)} icon={Ui.Icons.BUG}/>}
+                    actions=<><Ui.Button label="Action"/></>
+                    subtitle=<>"Subtitle"</>
+                    size={Ui.Size.Px(12)}
+                    title=<>"Title"</>
+                  />
 
                   <Ui.IllustratedMessage
-                    actions=<{ <Ui.Button label="Action"/> }>
-                    subtitle=<{ "Subtitle" }>
-                    size={Ui.Size::Px(16)}
-                    title=<{ "Title" }>
-                    image={
-                      <Ui.Icon
-                        size={Ui.Size::Em(6)}
-                        icon={Ui.Icons:BUG}/>
-                    }/>
+                    image={<Ui.Icon size={Ui.Size.Em(6)} icon={Ui.Icons.BUG}/>}
+                    actions=<><Ui.Button label="Action"/></>
+                    subtitle=<>"Subtitle"</>
+                    size={Ui.Size.Px(16)}
+                    title=<>"Title"</>
+                  />
 
                   <Ui.IllustratedMessage
-                    actions=<{ <Ui.Button label="Action"/> }>
-                    subtitle=<{ "Subtitle" }>
-                    size={Ui.Size::Px(20)}
-                    title=<{ "Title" }>
-                    image={
-                      <Ui.Icon
-                        size={Ui.Size::Em(6)}
-                        icon={Ui.Icons:BUG}/>
-                    }/>
+                    image={<Ui.Icon size={Ui.Size.Em(6)} icon={Ui.Icons.BUG}/>}
+                    actions=<><Ui.Button label="Action"/></>
+                    subtitle=<>"Subtitle"</>
+                    size={Ui.Size.Px(20)}
+                    title=<>"Title"</>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Image"
         content={
           <p>
             "The image displayed can be set with the "
-
             <code>"image"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[2, 7, 8, 9, 10, 11, 12, 15]
             horizontalSpacing={40}
             data={
               @format {
                 <>
                   <Ui.IllustratedMessage
-                    image={<Ui.Icon icon={Ui.Icons:BUG}/>}
-                    title=<{ "Title" }>/>
+                    image={<Ui.Icon icon={Ui.Icons.BUG}/>}
+                    title=<>"Title"</>
+                  />
 
                   <Ui.IllustratedMessage
-                    title=<{ "Title" }>
+                    title=<>"Title"</>
                     image={
                       <Ui.Image
                         src={@asset(../../assets/images/app-contacts.jpg)}
-                        height={Ui.Size::Px(150)}
-                        width={Ui.Size::Px(200)}/>
-                    }/>
+                        height={Ui.Size.Px(150)}
+                        width={Ui.Size.Px(200)}
+                      />
+                    }
+                  />
 
                   <Ui.IllustratedMessage
                     image={<Ui.Button label="I am a button!"/>}
-                    title=<{ "Title" }>/>
+                    title=<>"Title"</>
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

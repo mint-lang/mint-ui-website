@@ -3,13 +3,13 @@ component Documentation.Theming {
 
   fun render {
     <>
-      <Ui.Box title=<{ "Theming" }>>
+      <Ui.Box title=<>"Theming"</>>
         <p>"In Mint UI theming is achieved using CSS variables."</p>
       </Ui.Box>
 
       <DocBox
         title="Setting the global theme"
-        content=<{
+        content=<>
           <p>
             "To set the global theme you need to embed everything in a "
             <code>"Ui.Theme.Root"</code>
@@ -36,7 +36,7 @@ component Documentation.Theming {
 
             <li>"Sets the style of text selections"</li>
           </ul>
-        }>
+        </>
         example={
           let code =
             [
@@ -45,8 +45,8 @@ component Documentation.Theming {
               "",
               "  fun render : Html {",
               "   <Ui.Theme.Root",
-              "     fontConfiguration={Ui:DEFAULT_FONT_CONFIGURATION}",
-              "     tokens={Ui:DEFAULT_TOKENS}>",
+              "     fontConfiguration={Ui.DEFAULT_FONT_CONFIGURATION}",
+              "     tokens={Ui.DEFAULT_TOKENS}>",
               "      /* Content goes here. */",
               "   </Ui.Theme.Root>",
               "  }",
@@ -55,142 +55,124 @@ component Documentation.Theming {
             |> String.join("\n")
 
           <Hljs code={code}/>
-        }/>
+        }
+      />
 
       <DocBox
         title="Overriding a specific tokens"
-        content=<{ "You can use the standard CSS variable to override a token." }>
+        content=<>
+          "You can use the standard CSS variable to override a token."
+        </>
         example={
           <Example
             data={
               @format {
                 <div style="--primary-color: orangered;--primary-hover: red;">
                   <Ui.Container>
-                    <Ui.Button
-                      label="I'm orangered!"
-                      type="primary"/>
-
+                    <Ui.Button label="I'm orangered!" type="primary"/>
                     <Ui.Checkbox checked={true}/>
                   </Ui.Container>
                 </div>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Tokens"
-        content=<{
-          <p>"You can find below all of the token and their value using the default theme."</p>
+        content=<>
+          <p>
+            "You can find below all of the token and their value using the default theme."
+          </p>
+
           <p>"Normal variables (light and dark value the same):"</p>
 
           <Ui.Table
             breakpoint={700}
             headers=[
-              {
-                sortable: false,
-                sortKey: "name",
-                label: "Name",
-                shrink: false
-              },
-              {
-                sortable: false,
-                sortKey: "value",
-                label: "Value",
-                shrink: false
-              }
+              { sortable: false, sortKey: "name", label: "Name", shrink: false },
+              { sortable: false, sortKey: "value", label: "Value", shrink: false }
             ]
             rows={
               for token of DEFAULT_TOKENS {
                 case token {
-                  Ui.Token::Simple(name, value) =>
-                    Maybe::Just(
+                  Ui.Token.Simple(name, value) =>
+                    Maybe.Just(
                       {
                         name,
                         [
-                          Ui.Cell::Code(code: "--#{name}", breakSpaces: false),
-                          Ui.Cell::Code(code: value, breakSpaces: false)
+                          Ui.Cell.Code(code: "--#{name}", breakSpaces: false),
+                          Ui.Cell.Code(code: value, breakSpaces: false)
                         ]
                       })
 
-                  => Maybe::Nothing
+                  => Maybe.Nothing
                 }
               }
               |> Array.compact
-            }/>
+            }
+          />
 
           <p>"Light variables:"</p>
 
           <Ui.Table
             breakpoint={700}
             headers=[
-              {
-                sortable: false,
-                sortKey: "name",
-                label: "Name",
-                shrink: false
-              },
-              {
-                sortable: false,
-                sortKey: "value",
-                label: "Value",
-                shrink: false
-              }
+              { sortable: false, sortKey: "name", label: "Name", shrink: false },
+              { sortable: false, sortKey: "value", label: "Value", shrink: false }
             ]
             rows={
               for token of DEFAULT_TOKENS {
                 case token {
-                  Ui.Token::Schemed(name, light, dark) =>
-                    Maybe::Just(
+                  Ui.Token.Schemed(name, light, dark) =>
+                    Maybe.Just(
                       {
-                        name, [
-                          Ui.Cell::Code(code: "--light-#{name}", breakSpaces: false),
-                          Ui.Cell::Code(code: light, breakSpaces: false)
+                        name,
+                        [
+                          Ui.Cell.Code(
+                            code: "--light-#{name}",
+                            breakSpaces: false),
+                          Ui.Cell.Code(code: light, breakSpaces: false)
                         ]
                       })
 
-                  => Maybe::Nothing
+                  => Maybe.Nothing
                 }
               }
               |> Array.compact
-            }/>
+            }
+          />
 
           <p>"Dark variables:"</p>
 
           <Ui.Table
             breakpoint={700}
             headers=[
-              {
-                sortable: false,
-                sortKey: "name",
-                label: "Name",
-                shrink: false
-              },
-              {
-                sortable: false,
-                sortKey: "value",
-                label: "Value",
-                shrink: false
-              }
+              { sortable: false, sortKey: "name", label: "Name", shrink: false },
+              { sortable: false, sortKey: "value", label: "Value", shrink: false }
             ]
             rows={
               for token of DEFAULT_TOKENS {
                 case token {
-                  Ui.Token::Schemed(name, dark) =>
-                    Maybe::Just(
+                  Ui.Token.Schemed(name, dark) =>
+                    Maybe.Just(
                       {
                         name,
                         [
-                          Ui.Cell::Code(code: "--dark-#{name}", breakSpaces: false),
-                          Ui.Cell::Code(code: dark, breakSpaces: false)
+                          Ui.Cell.Code(code: "--dark-#{name}", breakSpaces: false),
+                          Ui.Cell.Code(code: dark, breakSpaces: false)
                         ]
                       })
 
-                  => Maybe::Nothing
+                  => Maybe.Nothing
                 }
               }
               |> Array.compact
-            }/>
-        }>/>
+            }
+          />
+        </>
+      />
     </>
   }
 }

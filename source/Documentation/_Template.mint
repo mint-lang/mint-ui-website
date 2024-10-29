@@ -2,15 +2,8 @@
 component Documentation.Template {
   fun render {
     <>
-      <Ui.Box title=<{ "" }>>
-        <p>""</p>
-      </Ui.Box>
-
-      <DocBox
-        example={<></>}
-        content=<{  }>
-        hint={<></>}
-        title=""/>
+      <Ui.Box title=<>""</>><p>""</p></Ui.Box>
+      <DocBox example={<></>} content=<></> hint={<></>} title=""/>
     </>
   }
 }

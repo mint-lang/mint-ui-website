@@ -1,33 +1,27 @@
 component Documentation.Introduction {
   fun render {
     <>
-      <Ui.Box title=<{ "Introduction" }>>
+      <Ui.Box title=<>"Introduction"</>>
         <p>
           "Mint UI is a "
 
-          <a
-            href="https://en.wikipedia.org/wiki/Design_system"
-            target="_blank">
-
+          <a href="https://en.wikipedia.org/wiki/Design_system" target="_blank">
             "design system"
-
           </a>
 
           " and "
 
-          <a href="/components">
-            "component library"
-          </a>
+          <a href="/components">"component library"</a>
 
-          " for building websites and web applications which work w" \
-          "ell on all screen sizes (desktop and mobile devices, min" \
-          "imum 320px wide)."
+          " for building websites and web applications which work well on " \
+          "all screen sizes (desktop and mobile devices, minimum 320px " \
+          "wide)."
         </p>
       </Ui.Box>
 
       <DocBox
         title="Principles"
-        content=<{
+        content=<>
           <p>"Mint UI is following these principles:"</p>
 
           <ul>
@@ -44,9 +38,8 @@ component Documentation.Introduction {
             <li>
               <strong>"Composable"</strong>
 
-              " - A component (smallest building block) is used to buil" \
-              "d other components, UIs and applications using compositi" \
-              "on."
+              " - A component (smallest building block) is used to build " \
+              "other components, UIs and applications using composition."
             </li>
 
             <li>
@@ -74,12 +67,15 @@ component Documentation.Introduction {
               " - Mint UI is and always will be free for individuals and small companies."
             </li>
           </ul>
-        }>/>
+        </>
+      />
 
       <DocBox
         title="Features"
-        content=<{
-          <p>"In addition to the principles above, Mint UI has to following features:"</p>
+        content=<>
+          <p>
+            "In addition to the principles above, Mint UI has to following features:"
+          </p>
 
           <ul>
             <li>
@@ -93,11 +89,8 @@ component Documentation.Introduction {
 
               <a
                 href="https://en.wikipedia.org/wiki/Progressive_web_application"
-                target="_blank">
-
-                "Progressive Web Applications"
-
-              </a>
+                target="_blank"
+              >"Progressive Web Applications"</a>
 
               "."
             </li>
@@ -107,7 +100,8 @@ component Documentation.Introduction {
               " - Mint UI will not compile to any other target then the Web (iOS, Android, etc...)."
             </li>
           </ul>
-        }>/>
+        </>
+      />
     </>
   }
 }

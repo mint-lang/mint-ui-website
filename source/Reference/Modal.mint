@@ -1,13 +1,15 @@
 component Reference.Modal {
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Modal" }>>
+      <Ui.Box title=<>"Ui.Modal"</>>
         <p>"A simple, global, customizable modal component."</p>
 
         <p>"Some of its features:"</p>
 
         <ul>
-          <li>"Showing the component returns a promise which is resolved when its closed."</li>
+          <li>
+            "Showing the component returns a promise which is resolved when its closed."
+          </li>
 
           <li>
             "The keyboard focus is trapped in the list ("
@@ -18,9 +20,9 @@ component Reference.Modal {
           </li>
 
           <li>
-            "When closed the focus is returned to the last focused el" \
-            "ement before opening (which is usually the one that open" \
-            "ed the modal)."
+            "When closed the focus is returned to the last focused element " \
+            "before opening (which is usually the one that opened the " \
+            "modal)."
           </li>
 
           <li>
@@ -30,8 +32,8 @@ component Reference.Modal {
           </li>
 
           <li>
-            "After opened it will focus the first focusable item (whi" \
-            "ch usually is the close icon)."
+            "After opened it will focus the first focusable item (which " \
+            "usually is the close icon)."
           </li>
         </ul>
       </Ui.Box>
@@ -41,9 +43,7 @@ component Reference.Modal {
         content={
           <p>
             "Since this is a global component you can just call "
-
             <code>"Ui.Modal.open"</code>
-
             " to show it."
           </p>
         }
@@ -53,69 +53,46 @@ component Reference.Modal {
               @format {
                 let content =
                   <Ui.Modal.Content
-                    title=<{ "Hello There!" }>
-                    icon={Ui.Icons:INFINITY}
-                    content=<{ "Content" }>
-                    actions=<{
+                    title=<>"Hello There!"</>
+                    icon={Ui.Icons.INFINITY}
+                    content=<>"Content"</>
+                    actions=<>
                       <Ui.Button
                         onClick={(event : Html.Event) { Ui.Modal.cancel() }}
                         label="Cancel"
-                        type="faded"/>
+                        type="faded"
+                      />
 
                       <Ui.Button
                         onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                        label="Cool!"/>
-                    }>/>
+                        label="Cool!"
+                      />
+                    </>
+                  />
 
                 let clickHandler =
                   (event : Html.Event) : Promise(Void) {
                     case await Ui.Modal.show(content) {
-                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
+                      Maybe.Nothing =>
+                        Ui.Notifications.notifyDefault(<>"Cancelled!"</>)
+
+                      Maybe.Just =>
+                        Ui.Notifications.notifyDefault(<>"Closed!"</>)
                     }
                   }
 
-                <Ui.Button
-                  onClick={clickHandler}
-                  label="Click to Open"/>
+                <Ui.Button onClick={clickHandler} label="Click to Open"/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Custom Content"
-        content={<p>"The given content is shown in the center of the screen above the backdrop."</p>}
-        example={
-          <Example
-            data={
-              @format {
-                let content =
-                  <Ui.Button
-                    onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                    label="Cool!"/>
-
-                let clickHandler =
-                  (event : Html.Event) {
-                    case await Ui.Modal.show(content) {
-                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
-                    }
-                  }
-
-                <Ui.Button
-                  onClick={clickHandler}
-                  label="Click to Open"/>
-              }
-            }/>
-        }/>
-
-      <DocBox
-        title="Advanced Usage"
         content={
           <p>
-            "If you need more control over the modal you can call: "
-
-            <code>"Ui.Modal.showWithOptions(content, zIndex, transitionDuration, openCallback)"</code>
+            "The given content is shown in the center of the screen above the backdrop."
           </p>
         }
         example={
@@ -125,29 +102,69 @@ component Reference.Modal {
                 let content =
                   <Ui.Button
                     onClick={(event : Html.Event) { Ui.Modal.hide() }}
-                    label="Cool!"/>
+                    label="Cool!"
+                  />
+
+                let clickHandler =
+                  (event : Html.Event) {
+                    case await Ui.Modal.show(content) {
+                      Maybe.Nothing =>
+                        Ui.Notifications.notifyDefault(<>"Cancelled!"</>)
+
+                      Maybe.Just =>
+                        Ui.Notifications.notifyDefault(<>"Closed!"</>)
+                    }
+                  }
+
+                <Ui.Button onClick={clickHandler} label="Click to Open"/>
+              }
+            }
+          />
+        }
+      />
+
+      <DocBox
+        title="Advanced Usage"
+        content={
+          <p>
+            "If you need more control over the modal you can call: "
+
+            <code>
+              "Ui.Modal.showWithOptions(content, zIndex, transitionDuration, openCallback)"
+            </code>
+          </p>
+        }
+        example={
+          <Example
+            data={
+              @format {
+                let content =
+                  <Ui.Button
+                    onClick={(event : Html.Event) { Ui.Modal.hide() }}
+                    label="Cool!"
+                  />
 
                 let clickHandler =
                   (event : Html.Event) {
                     let result =
-                      await Ui.Modal.showWithOptions(
-                        content,
-                        900,
-                        240,
-                        () { Ui.Notifications.notifyDefault(<{ "Opened!" }>) })
+                      await Ui.Modal.showWithOptions(content, 900, 240,
+                        () { Ui.Notifications.notifyDefault(<>"Opened!"</>) })
 
                     case await result {
-                      Maybe::Nothing => Ui.Notifications.notifyDefault(<{ "Cancelled!" }>)
-                      Maybe::Just => Ui.Notifications.notifyDefault(<{ "Closed!" }>)
+                      Maybe.Nothing =>
+                        Ui.Notifications.notifyDefault(<>"Cancelled!"</>)
+
+                      Maybe.Just =>
+                        Ui.Notifications.notifyDefault(<>"Closed!"</>)
                     }
                   }
 
-                <Ui.Button
-                  onClick={clickHandler}
-                  label="Click to Open"/>
+                <Ui.Button onClick={clickHandler} label="Click to Open"/>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

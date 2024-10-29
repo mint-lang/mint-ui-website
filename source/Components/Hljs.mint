@@ -1,7 +1,6 @@
 component Hljs {
   connect Ui exposing { darkMode }
 
-  property highlight : Array(Number) = []
   property language : String = "mint"
   property code : String = ""
 
@@ -75,8 +74,7 @@ component Hljs {
     border: 0;
     margin: 0;
 
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
       color: var(--primary-color);
       cursor: pointer;
     }
@@ -98,40 +96,21 @@ component Hljs {
     }
   }
 
-  style line (highlighted : Bool) {
+  style line {
     counter-increment: line-number;
-
-    if highlighted && darkMode {
-      background: #2C2C2C;
-    } else if highlighted && !darkMode {
-      background: #F9F9F9;
-    }
-
-    if highlighted {
-      line-height: 1.6;
-      opacity: 1;
-    } else {
-      opacity: var(--unhighlighted-opacity);
-    }
 
     &::before {
       content: counter(line-number);
 
       width: calc(#{charCount}ch + 10px);
-      border-right: 2px solid;
       display: inline-block;
       padding-right: 10px;
       margin-right: 15px;
       text-align: right;
       color: #999;
 
-      if highlighted && darkMode {
-        border-right-color: #222;
-      } else if highlighted {
-        border-right-color: #DDD;
-      } else {
-        border-right-color: var(--title-border);
-      }
+      border-right: 2px solid;
+      border-right-color: var(--title-border);
     }
   }
 
@@ -144,16 +123,7 @@ component Hljs {
     color: #999;
     margin: 0;
 
-    if Array.isEmpty(highlight) {
-      --unhighlighted-opacity: 1;
-    } else {
-      --highlighted-background: #EEE;
-      --unhighlighted-opacity: 0.5;
-    }
-
-    .hljs-doctag,
-    .hljs-keyword,
-    .hljs-formula {
+    .hljs-doctag, .hljs-keyword, .hljs-formula {
       if darkMode {
         color: #d959ff;
       } else {
@@ -161,14 +131,9 @@ component Hljs {
       }
     }
 
-    .hljs-attr,
-    .hljs-variable,
-    .hljs-template-variable,
-    .hljs-type,
-    .hljs-selector-class,
-    .hljs-selector-attr,
-    .hljs-selector-pseudo,
-    .hljs-number {
+    .hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type,
+      .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo,
+        .hljs-number {
       if darkMode {
         color: #59AFF2;
       } else {
@@ -176,11 +141,8 @@ component Hljs {
       }
     }
 
-    .hljs-string,
-    .hljs-regexp,
-    .hljs-addition,
-    .hljs-attribute,
-    .hljs-meta-string {
+    .hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute,
+      .hljs-meta-string {
       if darkMode {
         color: #1CCE3A;
       } else {
@@ -188,11 +150,7 @@ component Hljs {
       }
     }
 
-    .hljs-section,
-    .hljs-name,
-    .hljs-selector-tag,
-    .hljs-deletion,
-    .hljs-subst {
+    .hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst {
       font-weight: bold;
 
       if darkMode {
@@ -211,11 +169,12 @@ component Hljs {
             <Ui.Icon
               icon={
                 if open {
-                  Ui.Icons:CHEVRON_DOWN
+                  Ui.Icons.CHEVRON_DOWN
                 } else {
-                  Ui.Icons:CHEVRON_RIGHT
+                  Ui.Icons.CHEVRON_RIGHT
                 }
-              }/>
+              }
+            />
 
             <span>"SOURCE CODE"</span>
           </div>
@@ -225,27 +184,27 @@ component Hljs {
           onClick={
             () {
               await Clipboard.set(code)
-              Ui.Notifications.notifyDefault(<{ "Copied source code to the clipboard!" }>)
-            }
-          }>
 
+              Ui.Notifications.notifyDefault(
+                <>"Copied source code to the clipboard!"</>)
+            }
+          }
+        >
           <div::icon-label(0.5)>
-            <Ui.Icon icon={Ui.Icons:CLIPPY}/>
+            <Ui.Icon icon={Ui.Icons.CLIPPY}/>
             <span::nudge>"COPY"</span>
           </div>
-
         </button>
       </div>
 
       if open {
         <pre::pre>
-          <{
-            Array.mapWithIndex(
-              content,
+          <>
+            Array.mapWithIndex(content,
               (line : String, index : Number) {
-                <div::line(Array.contains(highlight, index)) dangerouslySetInnerHTML={`{__html: #{line}}`}/>
+                <div::line dangerouslySetInnerHTML={`{__html: #{line}}`}/>
               })
-          }>
+          </>
         </pre>
       }
     </div>

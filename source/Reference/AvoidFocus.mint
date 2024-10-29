@@ -1,17 +1,20 @@
 component Reference.AvoidFocus {
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.AvoidFocus" }>>
+      <Ui.Box title=<>"Ui.AvoidFocus"</>>
         <p>
-          "This component makes it possible to have arbitrary HTML " \
-          "content which behaves like static content (cannot be int" \
-          "eracted with)."
+          "This component makes it possible to have arbitrary HTML content " \
+          "which behaves like static content (cannot be interacted with)."
         </p>
       </Ui.Box>
 
       <DocBox
         title="Demo"
-        content={<p>"You can check it out below - the child elements cannot be interacted with."</p>}
+        content={
+          <p>
+            "You can check it out below - the child elements cannot be interacted with."
+          </p>
+        }
         example={
           <Example
             data={
@@ -23,8 +26,10 @@ component Reference.AvoidFocus {
                   </Ui.Container>
                 </Ui.AvoidFocus>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

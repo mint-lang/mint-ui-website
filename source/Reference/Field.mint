@@ -1,5 +1,5 @@
 component Reference.Field {
-  connect ListItems exposing { ORIENTATION_ITEMS, getOrientation }
+  connect ListItems exposing { ORIENTATION_ENUM_ITEMS, getOrientation }
 
   state error : String = "Error message...."
   state orientation : String = "Vertical"
@@ -14,8 +14,8 @@ component Reference.Field {
 
     "Ui.Field"
     |> ComponentBuilder.new()
-    |> ComponentBuilder.addExpression("error", "Maybe::Just(\"#{error}\")")
-    |> ComponentBuilder.addExpression("orientation", "Ui.Field::#{orientation}")
+    |> ComponentBuilder.addExpression("error", "Maybe.Just(\"#{error}\")")
+    |> ComponentBuilder.addExpression("orientation", "Ui.Field.#{orientation}")
     |> ComponentBuilder.addString("label", label)
     |> ComponentBuilder.addChild(input)
     |> ComponentBuilder.toString()
@@ -23,18 +23,14 @@ component Reference.Field {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Field" }>>
-        <p>"A simple form field component."</p>
-      </Ui.Box>
+      <Ui.Box title=<>"Ui.Field"</>><p>"A simple form field component."</p></Ui.Box>
 
       <DocBox
         title="Interactive Demo"
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Field"</code>
-
             " below using the controls."
           </p>
         }
@@ -45,43 +41,42 @@ component Reference.Field {
                 <Ui.Field
                   orientation={getOrientation(orientation)}
                   label={label}
-                  error={Maybe::Just(error)}>
-
-                  <Ui.Input placeholder="Content..."/>
-
-                </Ui.Field>,
+                  error={Maybe.Just(error)}
+                ><Ui.Input placeholder="Content..."/></Ui.Field>,
                 playgroundCode
               }
             }
-            controls=<{
+            controls=<>
               <Ui.Field label="Orientation">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { orientation: value } }}
-                  items={ORIENTATION_ITEMS}
-                  value={orientation}/>
+                  items={ORIENTATION_ENUM_ITEMS}
+                  onChange={-> orientation}
+                  value={orientation}
+                />
               </Ui.Field>
 
               <Ui.Field label="label">
-                <Ui.Input
-                  onChange={(value : String) { next { label: value } }}
-                  value={label}/>
+                <Ui.Input onChange={-> label} value={label}/>
               </Ui.Field>
 
               <Ui.Field label="Error">
-                <Ui.Input
-                  onChange={(value : String) { next { error: value } }}
-                  value={error}/>
+                <Ui.Input onChange={-> error} value={error}/>
               </Ui.Field>
-            }>/>
-        }/>
+            </>
+          />
+        }
+      />
 
       <DocBox
         title="Content"
-        content={<p>"Children passed will be displayed between the label and the error."</p>}
+        content={
+          <p>
+            "Children passed will be displayed between the label and the error."
+          </p>
+        }
         example={
           <Example
             verticalSpacing={20}
-            highlight=[2, 6, 10]
             controlled={true}
             data={
               @format {
@@ -94,22 +89,20 @@ component Reference.Field {
                     <Ui.Textarea placeholder="Content..."/>
                   </Ui.Field>
 
-                  <Ui.Field label="Div content">
-                    <div>"Content..."</div>
-                  </Ui.Field>
+                  <Ui.Field label="Div content"><div>"Content..."</div></Ui.Field>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Label"
         content={
           <p>
             "The label can be controlled using the "
-
             <code>"label"</code>
-
             " property."
           </p>
         }
@@ -117,7 +110,6 @@ component Reference.Field {
           <Example
             verticalSpacing={20}
             controlled={true}
-            highlight=[1, 5]
             data={
               @format {
                 <>
@@ -125,22 +117,20 @@ component Reference.Field {
                     <Ui.Input placeholder="user@example.com"/>
                   </Ui.Field>
 
-                  <Ui.Field label="Name">
-                    <Ui.Input placeholder="User"/>
-                  </Ui.Field>
+                  <Ui.Field label="Name"><Ui.Input placeholder="User"/></Ui.Field>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Error"
         content={
           <p>
             "The error message can be controlled using the "
-
             <code>"error"</code>
-
             " property."
           </p>
         }
@@ -148,23 +138,20 @@ component Reference.Field {
           <Example
             verticalSpacing={20}
             controlled={true}
-            highlight=[1]
             data={
               @format {
-                <Ui.Field
-                  error={Maybe::Just("Invalid E-mail")}
-                  label="E-mail">
-
+                <Ui.Field error={Maybe.Just("Invalid E-mail")} label="E-mail">
                   <Ui.Input placeholder="user@example.com"/>
-
                 </Ui.Field>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Orientation"
-        content=<{
+        content=<>
           <p>
             "The field supports either "
             <code>"Vertical"</code>
@@ -182,42 +169,32 @@ component Reference.Field {
             <code>"HorizontalReverse"</code>
             " orientations are generally for smaller inputs like checkboxes."
           </p>
-        }>
+        </>
         example={
           <Example
-            highlight=[2, 10, 18]
             verticalSpacing={20}
             controlled={true}
             data={
               @format {
                 <>
-                  <Ui.Field
-                    orientation={Ui.Field::Vertical}
-                    label="E-mail">
-
+                  <Ui.Field orientation={Ui.Field.Vertical} label="E-mail">
                     <Ui.Input placeholder="user@example.com"/>
+                  </Ui.Field>
 
+                  <Ui.Field orientation={Ui.Field.Horizontal} label="Checkbox">
+                    <Ui.Checkbox/>
                   </Ui.Field>
 
                   <Ui.Field
-                    orientation={Ui.Field::Horizontal}
-                    label="Checkbox">
-
-                    <Ui.Checkbox/>
-
-                  </Ui.Field>
-
-                  <Ui.Field
-                    orientation={Ui.Field::HorizontalReverse}
-                    label="Checkbox">
-
-                    <Ui.Checkbox/>
-
-                  </Ui.Field>
+                    orientation={Ui.Field.HorizontalReverse}
+                    label="Checkbox"
+                  ><Ui.Checkbox/></Ui.Field>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

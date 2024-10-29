@@ -23,17 +23,17 @@ component Reference.Header {
   get navitems {
     @format {
       [
-        Ui.NavItem::Link(
-          iconBefore: Ui.Icons:HOME,
-          iconAfter: <{  }>,
+        Ui.NavItem.Link(
+          iconBefore: Ui.Icons.HOME,
+          iconAfter: <></>,
           label: "Home",
           target: "",
           href: "/"),
-        Ui.NavItem::Divider,
-        Ui.NavItem::Link(
-          iconBefore: Ui.Icons:BEAKER,
+        Ui.NavItem.Divider,
+        Ui.NavItem.Link(
+          iconBefore: Ui.Icons.BEAKER,
           label: "Laboratory",
-          iconAfter: <{  }>,
+          iconAfter: <></>,
           target: "",
           href: "/")
       ]
@@ -42,13 +42,14 @@ component Reference.Header {
 
   fun render : Html {
     <>
-      <Ui.Box title=<{ "Ui.Header" }>>
-        <p>"A component for displaying navigation items for websites and applications."</p>
+      <Ui.Box title=<>"Ui.Header"</>>
+        <p>
+          "A component for displaying navigation items for websites and applications."
+        </p>
 
         <p>
-          "On mobile resolution the navigation collapses into an ic" \
-          "on which tapped  opens an action sheet with the navigati" \
-          "on items."
+          "On mobile resolution the navigation collapses into an icon which " \
+          "tapped  opens an action sheet with the navigation items."
         </p>
       </Ui.Box>
 
@@ -57,45 +58,39 @@ component Reference.Header {
         content={
           <p>
             "You can play around with a "
-
             <code>"Ui.Header"</code>
-
             " below using the controls."
           </p>
         }
         example={
           <Example
             fullWidth={true}
-            controls=<{
+            controls=<>
               <Ui.Field label="Brand">
-                <Ui.Input
-                  onChange={(value : String) { next { brand: value } }}
-                  value={brand}/>
+                <Ui.Input onChange={-> brand} value={brand}/>
               </Ui.Field>
 
               <Ui.Field label="Icon">
                 <Ui.Native.Select
-                  onChange={(value : String) { next { icon: value } }}
+                  onChange={-> icon}
                   items={ICON_ITEMS}
-                  value={icon}/>
+                  value={icon}
+                />
               </Ui.Field>
 
               <Ui.Field label="Size (#{size}px)">
-                <Ui.Slider
-                  onChange={(value : Number) { next { size: value } }}
-                  value={size}
-                  max={200}
-                  min={0}/>
+                <Ui.Slider onChange={-> size} value={size} max={200} min={0}/>
               </Ui.Field>
 
               <Ui.Field label="Breakpoint (#{breakpoint}px)">
                 <Ui.Slider
-                  onChange={(value : Number) { next { breakpoint: value } }}
+                  onChange={-> breakpoint}
                   value={breakpoint}
                   max={1000}
-                  min={0}/>
+                  min={0}
+                />
               </Ui.Field>
-            }>
+            </>
             data={
               {
                 {
@@ -103,16 +98,19 @@ component Reference.Header {
                     navitems
 
                   <Ui.Header
-                    size={Ui.Size::Px(size)}
+                    size={Ui.Size.Px(size)}
                     breakpoint={breakpoint}
                     icon={getIcon(icon)}
-                    brand=<{ brand }>
-                    items={items}/>
+                    brand=<>brand</>
+                    items={items}
+                  />
                 },
                 playgroundCode
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Brand"
@@ -130,12 +128,14 @@ component Reference.Header {
             data={
               @format {
                 <>
-                  <Ui.Header brand=<{ "Brand" }>/>
-                  <Ui.Header brand=<{ <Ui.Button label="I am a Button!"/> }>/>
+                  <Ui.Header brand=<>"Brand"</>/>
+                  <Ui.Header brand=<><Ui.Button label="I am a Button!"/></>/>
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Items"
@@ -152,39 +152,42 @@ component Reference.Header {
             data={
               @format {
                 <Ui.Header
-                  brand=<{ brand }>
+                  brand=<>brand</>
                   breakpoint={0}
                   items=[
-                    Ui.NavItem::Link(
-                      iconBefore: Ui.Icons:HOME,
-                      iconAfter: <{  }>,
+                    Ui.NavItem.Link(
+                      iconBefore: Ui.Icons.HOME,
+                      iconAfter: <></>,
                       label: "Home",
                       target: "",
                       href: "/"),
-                    Ui.NavItem::Divider,
-                    Ui.NavItem::Group(
-                      iconBefore: Ui.Icons:CHEVRON_DOWN,
-                      iconAfter: <{  }>,
+                    Ui.NavItem.Divider,
+                    Ui.NavItem.Group(
+                      iconBefore: Ui.Icons.CHEVRON_DOWN,
+                      iconAfter: <></>,
                       label: "Actions",
                       items:
                         [
-                          Ui.NavItem::Link(
-                            iconBefore: Ui.Icons:KEY,
-                            iconAfter: <{  }>,
+                          Ui.NavItem.Link(
+                            iconBefore: Ui.Icons.KEY,
+                            iconAfter: <></>,
                             label: "Sign Up",
                             target: "",
                             href: "/"),
-                          Ui.NavItem::Link(
-                            iconBefore: Ui.Icons:SIGN_IN,
-                            iconAfter: <{  }>,
+                          Ui.NavItem.Link(
+                            iconBefore: Ui.Icons.SIGN_IN,
+                            iconAfter: <></>,
                             label: "Sign in",
                             target: "",
                             href: "/")
                         ])
-                  ]/>
+                  ]
+                />
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Icon"
@@ -199,53 +202,53 @@ component Reference.Header {
           <Example
             verticalSpacing={20}
             breakpoint={10000}
-            highlight=[2, 13]
             fullWidth={true}
             data={
               @format {
                 <>
                   <Ui.Header
-                    icon={Ui.Icons:TASKLIST}
-                    brand=<{ "Brand" }>
+                    icon={Ui.Icons.TASKLIST}
+                    brand=<>"Brand"</>
                     items=[
-                      Ui.NavItem::Link(
-                        iconBefore: Ui.Icons:HOME,
-                        iconAfter: <{  }>,
+                      Ui.NavItem.Link(
+                        iconBefore: Ui.Icons.HOME,
+                        iconAfter: <></>,
                         label: "Home",
                         target: "",
                         href: "/")
-                    ]/>
+                    ]
+                  />
 
                   <Ui.Header
-                    icon={Ui.Icons:TERMINAL}
-                    brand=<{ "Brand" }>
+                    icon={Ui.Icons.TERMINAL}
+                    brand=<>"Brand"</>
                     items=[
-                      Ui.NavItem::Link(
-                        iconBefore: Ui.Icons:HOME,
-                        iconAfter: <{  }>,
+                      Ui.NavItem.Link(
+                        iconBefore: Ui.Icons.HOME,
+                        iconAfter: <></>,
                         label: "Home",
                         target: "",
                         href: "/")
-                    ]/>
+                    ]
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
 
       <DocBox
         title="Size"
         content={
           <p>
             "The size of the component can be set with the "
-
             <code>"size"</code>
-
             " property."
           </p>
         }
         example={
           <Example
-            highlight=[2, 14, 26]
             verticalSpacing={20}
             fullWidth={true}
             breakpoint={0}
@@ -253,44 +256,49 @@ component Reference.Header {
               @format {
                 <>
                   <Ui.Header
-                    size={Ui.Size::Px(12)}
-                    brand=<{ "Brand" }>
+                    size={Ui.Size.Px(12)}
+                    brand=<>"Brand"</>
                     items=[
-                      Ui.NavItem::Link(
-                        iconBefore: Ui.Icons:HOME,
-                        iconAfter: <{  }>,
+                      Ui.NavItem.Link(
+                        iconBefore: Ui.Icons.HOME,
+                        iconAfter: <></>,
                         label: "Home",
                         target: "",
                         href: "/")
-                    ]/>
+                    ]
+                  />
 
                   <Ui.Header
-                    size={Ui.Size::Px(16)}
-                    brand=<{ "Brand" }>
+                    size={Ui.Size.Px(16)}
+                    brand=<>"Brand"</>
                     items=[
-                      Ui.NavItem::Link(
-                        iconBefore: Ui.Icons:HOME,
-                        iconAfter: <{  }>,
+                      Ui.NavItem.Link(
+                        iconBefore: Ui.Icons.HOME,
+                        iconAfter: <></>,
                         label: "Home",
                         target: "",
                         href: "/")
-                    ]/>
+                    ]
+                  />
 
                   <Ui.Header
-                    size={Ui.Size::Px(20)}
-                    brand=<{ "Brand" }>
+                    size={Ui.Size.Px(20)}
+                    brand=<>"Brand"</>
                     items=[
-                      Ui.NavItem::Link(
-                        iconBefore: Ui.Icons:HOME,
-                        iconAfter: <{  }>,
+                      Ui.NavItem.Link(
+                        iconBefore: Ui.Icons.HOME,
+                        iconAfter: <></>,
                         label: "Home",
                         target: "",
                         href: "/")
-                    ]/>
+                    ]
+                  />
                 </>
               }
-            }/>
-        }/>
+            }
+          />
+        }
+      />
     </>
   }
 }

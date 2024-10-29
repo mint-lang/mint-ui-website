@@ -1,10 +1,10 @@
 component Documentation.WhenToUse {
   fun render {
     <>
-      <Ui.Box title=<{ "When to use" }>>
+      <Ui.Box title=<>"When to use"</>>
         <p>
-          "Mint UI is not suitable for every use case on the web, t" \
-          "his document should give a good idea when to use it."
+          "Mint UI is not suitable for every use case on the web, this " \
+          "document should give a good idea when to use it."
         </p>
 
         <p>"In general use Mint UI if:"</p>
@@ -13,12 +13,8 @@ component Documentation.WhenToUse {
           <li>
             "You are comfortable using the "
 
-            <a
-              href="https://www.mint-lang.com"
-              target="_blank">
-
+            <a href="https://www.mint-lang.com" target="_blank">
               "Mint programming language."
-
             </a>
           </li>
 
@@ -33,7 +29,7 @@ component Documentation.WhenToUse {
 
       <DocBox
         title="Use Cases"
-        content=<{
+        content=<>
           <p>"Mint UI should be ideal for the following type of projects:"</p>
 
           <ul>
@@ -44,7 +40,8 @@ component Documentation.WhenToUse {
             <li>"In-house tools."</li>
             <li>"Hobby projects."</li>
           </ul>
-        }>/>
+        </>
+      />
     </>
   }
 }

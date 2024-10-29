@@ -26,25 +26,29 @@ component Page.NotFound {
 
       <div::base>
         <Ui.IllustratedMessage
-          subtitle=<{ "The page you were looking for does not exist!" }>
-          title=<{ "404 NOT FOUND!" }>
-          image=<{
+          subtitle=<>"The page you were looking for does not exist!"</>
+          title=<>"404 NOT FOUND!"</>
+          image=<>
             <Ui.Icon
               icon={@svg(../../assets/svgs/map.svg)}
-              size={Ui.Size::Em(10)}/>
-          }>
-          actions=<{
+              size={Ui.Size.Em(10)}
+            />
+          </>
+          actions=<>
             <Ui.Button
-              iconBefore={Ui.Icons:PUZZLE}
+              iconBefore={Ui.Icons.PUZZLE}
               label="Browse Components"
-              href="/components"/>
+              href="/components"
+            />
 
             <Ui.Button
-              iconBefore={Ui.Icons:TELESCOPE}
+              iconBefore={Ui.Icons.TELESCOPE}
               label="Explore Examples"
               href="/examples"
-              type="secondary"/>
-          }>/>
+              type="secondary"
+            />
+          </>
+        />
       </div>
     </>
   }
