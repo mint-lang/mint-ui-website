@@ -101,44 +101,50 @@ component Reference.ImageCrop {
             data={
               @format {
                 <>
-                  <Ui.ImageCrop
-                    size={Ui.Size.Px(12)}
-                    value={
-                      {
-                        source: @asset(../../assets/images/white-beach.jpg),
-                        height: 0.5,
-                        width: 0.5,
-                        y: 0.25,
-                        x: 0.25
+                  <div style="width: 250px; height: 200px; display: grid;">
+                    <Ui.ImageCrop
+                      size={Ui.Size.Px(12)}
+                      value={
+                        {
+                          source: @asset(../../assets/images/white-beach.jpg),
+                          height: 0.5,
+                          width: 0.5,
+                          y: 0.25,
+                          x: 0.25
+                        }
                       }
-                    }
-                  />
+                    />
+                  </div>
 
-                  <Ui.ImageCrop
-                    size={Ui.Size.Px(16)}
-                    value={
-                      {
-                        source: @asset(../../assets/images/white-beach.jpg),
-                        height: 0.5,
-                        width: 0.5,
-                        y: 0.25,
-                        x: 0.25
+                  <div style="width: 250px; height: 200px; display: grid;">
+                    <Ui.ImageCrop
+                      size={Ui.Size.Px(16)}
+                      value={
+                        {
+                          source: @asset(../../assets/images/white-beach.jpg),
+                          height: 0.5,
+                          width: 0.5,
+                          y: 0.25,
+                          x: 0.25
+                        }
                       }
-                    }
-                  />
+                    />
+                  </div>
 
-                  <Ui.ImageCrop
-                    size={Ui.Size.Px(20)}
-                    value={
-                      {
-                        source: @asset(../../assets/images/white-beach.jpg),
-                        height: 0.5,
-                        width: 0.5,
-                        y: 0.25,
-                        x: 0.25
+                  <div style="width: 250px; height: 200px; display: grid;">
+                    <Ui.ImageCrop
+                      size={Ui.Size.Px(20)}
+                      value={
+                        {
+                          source: @asset(../../assets/images/white-beach.jpg),
+                          height: 0.5,
+                          width: 0.5,
+                          y: 0.25,
+                          x: 0.25
+                        }
                       }
-                    }
-                  />
+                    />
+                  </div>
                 </>
               }
             }
@@ -164,18 +170,20 @@ component Reference.ImageCrop {
             controlled={true}
             data={
               @format {
-                <Ui.ImageCrop
-                  embedded={true}
-                  value={
-                    {
-                      source: @asset(../../assets/images/white-beach.jpg),
-                      height: 0.5,
-                      width: 0.5,
-                      y: 0.25,
-                      x: 0.25
+                <div style="width: 250px; height: 200px; display: grid;">
+                  <Ui.ImageCrop
+                    embedded={true}
+                    value={
+                      {
+                        source: @asset(../../assets/images/white-beach.jpg),
+                        height: 0.5,
+                        width: 0.5,
+                        y: 0.25,
+                        x: 0.25
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               }
             }
           />
