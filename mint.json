@@ -1,6 +1,6 @@
 {
   "name": "mint-ui-website",
-  "mint-version": "0.24.0 <= v < 1.0.0",
+  "mint-version": "0.27.0 <= v < 1.0.0",
   "application": {
     "name": "Mint UI",
     "title": "Mint UI - Beautiful, Reliable Components for Mint",
@@ -21,7 +21,7 @@
   "dependencies": {
     "mint-ui": {
       "repository": "https://github.com/mint-lang/mint-ui",
-      "constraint": "10.0.0 <= v < 11.0.0"
+      "constraint": "11.0.1 <= v < 12.0.0"
     }
   }
 }
