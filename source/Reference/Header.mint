@@ -193,7 +193,7 @@ component Reference.Header {
         title="Icon"
         content={
           <p>
-            "The icon to display on mobile resultions (which opens the action sheet) can be set using the "
+            "The icon to display on mobile resolutions (which opens the action sheet) can be set using the "
             <code>"icon"</code>
             " property."
           </p>

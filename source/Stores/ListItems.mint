@@ -390,7 +390,7 @@ store ListItems {
         "Venezuela, Bolivarian Republic of",
         "Virgin Islands, British",
         "Virgin Islands, U.S.",
-        "Viet Nam",
+        "Vietnam",
         "Vanuatu",
         "Wallis and Futuna",
         "Samoa",

@@ -11,7 +11,7 @@ component Reference.ActionSheet {
         * Showing the component returns a promise which is resolved when its
           closed.
         * The keyboard focus is trapped in the list (`Tab` and `Shift-Tab`
-          cyles focusable elements).
+          cycles focusable elements).
         * When closed the focus is returned to the last focused element before
           opening (which is usually the one that opened the action sheet).
         * When open pressing `Esc` closes it.

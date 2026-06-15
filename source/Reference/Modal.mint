@@ -16,7 +16,7 @@ component Reference.Modal {
             <kbd>"Tab"</kbd>
             " and "
             <kbd>"Shift-Tab"</kbd>
-            " cyles focusable elements)."
+            " cycles focusable elements)."
           </li>
 
           <li>

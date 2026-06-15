@@ -52,7 +52,7 @@ component Reference.Table {
   fun render : Html {
     <>
       <Ui.Box title=<>"Ui.Table"</>>
-        <p>"A component to displayed tabluar data."</p>
+        <p>"A component to displayed tabular data."</p>
 
         <ul>
           <li>
@@ -66,7 +66,7 @@ component Reference.Table {
               <code>"Ui.DefinitionList"</code>
             </a>
 
-            " on mobile resultions (the breakpoint can be configured)."
+            " on mobile resolutions (the breakpoint can be configured)."
           </li>
         </ul>
       </Ui.Box>

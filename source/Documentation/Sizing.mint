@@ -92,7 +92,7 @@ component Documentation.Sizing {
         }
         content=<>
           <p>
-            "Somethimes there is a need to change the font size and this " \
+            "Sometimes there is a need to change the font size and this " \
             "changes all the ems which calculated for that element. In this " \
             "case we need to calculate the changed font size as the base."
           </p>

@@ -92,7 +92,7 @@ component Reference.Row {
         title="Gap"
         content={
           <p>
-            "The space betweem the items can be controlled usign the "
+            "The space between the items can be controlled usign the "
             <code>"gap"</code>
             " property."
           </p>

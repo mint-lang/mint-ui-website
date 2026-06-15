@@ -43,7 +43,7 @@ component Reference.Column {
   fun render : Html {
     <>
       <Ui.Box title=<>"Ui.Column"</>>
-        <p>"This component displays its children in a vetical grid."</p>
+        <p>"This component displays its children in a vertical grid."</p>
       </Ui.Box>
 
       <DocBox
@@ -103,7 +103,7 @@ component Reference.Column {
         title="Gap"
         content={
           <p>
-            "The space betweem the items can be controlled usign the "
+            "The space between the items can be controlled usign the "
             <code>"gap"</code>
             " property."
           </p>

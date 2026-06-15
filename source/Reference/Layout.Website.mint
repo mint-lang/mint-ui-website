@@ -36,7 +36,7 @@ component Reference.Layout.Website {
         title="Demo"
         hint={
           <Ui.ContentHint icon={Ui.Icons.NOTE} type="primary">
-            "The component has a miniumum height of the screen!"
+            "The component has a minimum height of the screen!"
           </Ui.ContentHint>
         }
         content={

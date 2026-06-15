@@ -64,7 +64,7 @@ component Reference.ImageCrop {
                 <Ui.Slider onChange={-> size} value={size} max={100} min={0}/>
               </Ui.Field>
 
-              <Ui.Field orientation={Ui.Field.Horizontal} label="Embeeded">
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Embedded">
                 <Ui.Checkbox onChange={-> embedded} checked={embedded}/>
               </Ui.Field>
             </>

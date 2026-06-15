@@ -176,7 +176,7 @@ component Pages.Toggle {
         title="Width"
         content={
           <p>
-            "Since we cannot accuratly measure the size of the labels, the " \
+            "Since we cannot accurately measure the size of the labels, the " \
             "width of the component needs to be set manually using the "
 
             <code>"width"</code>

@@ -17,7 +17,7 @@ component Reference.FloatingButton {
   fun render : Html {
     <>
       <Ui.Box title=<>"Ui.FloatingButton"</>>
-        <p>"A circual button to indicate the primary action on a page."</p>
+        <p>"A circular button to indicate the primary action on a page."</p>
       </Ui.Box>
 
       <DocBox

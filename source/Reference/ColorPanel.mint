@@ -47,7 +47,7 @@ component Reference.ColorPanel {
                 <Ui.ColorPicker onChange={-> value} value={value}/>
               </Ui.Field>
 
-              <Ui.Field orientation={Ui.Field.Horizontal} label="Embeeded">
+              <Ui.Field orientation={Ui.Field.Horizontal} label="Embedded">
                 <Ui.Checkbox onChange={-> embedded} checked={embedded}/>
               </Ui.Field>
             </>
